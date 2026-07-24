@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280" role="img" aria-labelledby="title desc">
+  <title id="title">STORM 模块架构图</title>
+  <desc id="desc">展示 knowledge-storm 的调用配置层、经典 STORM 四阶段流水线、共享基础设施和 Co-STORM 协作分支。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0b0b0b" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280"/>
+    </marker>
+    <style>
+      .title { font: 700 42px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #0b0b0b; }
+      .subtitle { font: 400 18px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #52514e; }
+      .band-title { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #0b0b0b; }
+      .card-title { font: 700 21px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #0b0b0b; }
+      .card-subtitle { font: 600 15px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #52514e; }
+      .body { font: 400 16px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #292927; }
+      .small { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; fill: #52514e; }
+      .chip { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #292927; }
+      .number { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
+      .card { fill: #ffffff; stroke: #d8d8d4; stroke-width: 1; }
+      .arrow { fill: none; stroke: #6b7280; stroke-width: 2; marker-end: url(#arrow); }
+      .soft-arrow { fill: none; stroke: #9ca3af; stroke-width: 2; stroke-dasharray: 6 6; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1280" fill="#fcfcfb"/>
+  <text x="80" y="70" class="title">STORM / knowledge-storm 模块架构</text>
+  <text x="80" y="104" class="subtitle">经典 STORM 主流水线、共享适配层与 Co-STORM 协作式扩展</text>
+  <text x="1520" y="70" text-anchor="end" class="small">源码快照 fb951af</text>
+
+  <rect x="80" y="135" width="1440" height="135" rx="8" fill="#f3f6fa" stroke="#d8d8d4"/>
+  <text x="105" y="166" class="band-title">调用与配置层</text>
+  <g filter="url(#shadow)">
+    <rect x="105" y="184" width="285" height="62" rx="6" class="card"/>
+    <rect x="420" y="184" width="285" height="62" rx="6" class="card"/>
+    <rect x="735" y="184" width="285" height="62" rx="6" class="card"/>
+    <rect x="1050" y="184" width="285" height="62" rx="6" class="card"/>
+    <rect x="1365" y="184" width="130" height="62" rx="6" class="card"/>
+  </g>
+  <rect x="105" y="184" width="6" height="62" rx="3" fill="#2a78d6"/>
+  <rect x="420" y="184" width="6" height="62" rx="3" fill="#2a78d6"/>
+  <rect x="735" y="184" width="6" height="62" rx="3" fill="#2a78d6"/>
+  <rect x="1050" y="184" width="6" height="62" rx="3" fill="#2a78d6"/>
+  <rect x="1365" y="184" width="6" height="62" rx="3" fill="#2a78d6"/>
+  <text x="128" y="210" class="card-title">Examples / CLI</text>
+  <text x="128" y="233" class="small">选择 STORM 或 Co-STORM 入口</text>
+  <text x="443" y="210" class="card-title">Topic + Arguments</text>
+  <text x="443" y="233" class="small">轮数、视角数、top-k、并发数</text>
+  <text x="758" y="210" class="card-title">LMConfigs</text>
+  <text x="758" y="233" class="small">为不同任务注入语言模型</text>
+  <text x="1073" y="210" class="card-title">Retriever</text>
+  <text x="1073" y="233" class="small">Web 搜索或向量知识库</text>
+  <text x="1430" y="210" text-anchor="middle" class="card-title">Callback</text>
+  <text x="1430" y="233" text-anchor="middle" class="small">进度事件</text>
+  <path d="M 800 270 L 800 302" class="arrow"/>
+
+  <g filter="url(#shadow)">
+    <rect x="270" y="305" width="1060" height="92" rx="8" fill="#ffffff" stroke="#2a78d6" stroke-width="2"/>
+  </g>
+  <rect x="270" y="305" width="10" height="92" rx="5" fill="#2a78d6"/>
+  <text x="310" y="343" class="card-title">STORMWikiRunner</text>
+  <text x="310" y="369" class="card-subtitle">knowledge_storm/storm_wiki/engine.py</text>
+  <text x="705" y="344" class="body">按开关执行阶段、复用本地中间结果、记录模型调用与运行配置</text>
+  <text x="705" y="370" class="small">run(...) → research → outline → article → polish → post_run</text>
+  <path d="M 800 397 L 800 426" class="arrow"/>
+
+  <text x="80" y="443" class="band-title">经典 STORM 四阶段流水线</text>
+  <g filter="url(#shadow)">
+    <rect x="80" y="462" width="330" height="300" rx="8" class="card"/>
+    <rect x="450" y="462" width="330" height="300" rx="8" class="card"/>
+    <rect x="820" y="462" width="330" height="300" rx="8" class="card"/>
+    <rect x="1190" y="462" width="330" height="300" rx="8" class="card"/>
+  </g>
+
+  <rect x="80" y="462" width="330" height="8" rx="4" fill="#2a78d6"/>
+  <circle cx="112" cy="505" r="16" fill="#2a78d6"/>
+  <text x="112" y="511" text-anchor="middle" class="number">1</text>
+  <text x="140" y="512" class="card-title">知识策展</text>
+  <text x="104" y="542" class="card-subtitle">StormKnowledgeCurationModule</text>
+  <text x="104" y="577" class="body">• 生成多视角研究角色</text>
+  <text x="104" y="606" class="body">• 并行模拟多轮专家访谈</text>
+  <text x="104" y="635" class="body">• 问题 → 查询 → 检索 → 回答</text>
+  <text x="104" y="664" class="body">• 聚合来源、摘要和引用信息</text>
+  <rect x="104" y="699" width="282" height="38" rx="5" fill="#edf5fd"/>
+  <text x="245" y="723" text-anchor="middle" class="chip">StormInformationTable</text>
+
+  <rect x="450" y="462" width="330" height="8" rx="4" fill="#008300"/>
+  <circle cx="482" cy="505" r="16" fill="#008300"/>
+  <text x="482" y="511" text-anchor="middle" class="number">2</text>
+  <text x="510" y="512" class="card-title">提纲生成</text>
+  <text x="474" y="542" class="card-subtitle">StormOutlineGenerationModule</text>
+  <text x="474" y="577" class="body">• 先按主题生成初始提纲</text>
+  <text x="474" y="606" class="body">• 将访谈记录按视角组织</text>
+  <text x="474" y="635" class="body">• 基于已收集知识细化结构</text>
+  <text x="474" y="664" class="body">• 构造层级章节树</text>
+  <rect x="474" y="699" width="282" height="38" rx="5" fill="#edf7ed"/>
+  <text x="615" y="723" text-anchor="middle" class="chip">StormArticle (outline)</text>
+
+  <rect x="820" y="462" width="330" height="8" rx="4" fill="#e87ba4"/>
+  <circle cx="852" cy="505" r="16" fill="#c64e7c"/>
+  <text x="852" y="511" text-anchor="middle" class="number">3</text>
+  <text x="880" y="512" class="card-title">文章生成</text>
+  <text x="844" y="542" class="card-subtitle">StormArticleGenerationModule</text>
+  <text x="844" y="577" class="body">• 为每个一级章节检索证据</text>
+  <text x="844" y="606" class="body">• 并行撰写各章节内容</text>
+  <text x="844" y="635" class="body">• 合并章节与引用映射</text>
+  <text x="844" y="664" class="body">• 重排文内引用编号</text>
+  <rect x="844" y="699" width="282" height="38" rx="5" fill="#fdf0f5"/>
+  <text x="985" y="723" text-anchor="middle" class="chip">StormArticle (draft)</text>
+
+  <rect x="1190" y="462" width="330" height="8" rx="4" fill="#eda100"/>
+  <circle cx="1222" cy="505" r="16" fill="#b87900"/>
+  <text x="1222" y="511" text-anchor="middle" class="number">4</text>
+  <text x="1250" y="512" class="card-title">文章润色</text>
+  <text x="1214" y="542" class="card-subtitle">StormArticlePolishingModule</text>
+  <text x="1214" y="577" class="body">• 生成导语段落</text>
+  <text x="1214" y="606" class="body">• 可选全文去重与改写</text>
+  <text x="1214" y="635" class="body">• 保留并校正文内引用</text>
+  <text x="1214" y="664" class="body">• 输出最终长篇报告</text>
+  <rect x="1214" y="699" width="282" height="38" rx="5" fill="#fff6df"/>
+  <text x="1355" y="723" text-anchor="middle" class="chip">storm_gen_article_polished.txt</text>
+  <path d="M 410 612 L 442 612" class="arrow"/>
+  <path d="M 780 612 L 812 612" class="arrow"/>
+  <path d="M 1150 612 L 1182 612" class="arrow"/>
+
+  <rect x="80" y="805" width="1440" height="177" rx="8" fill="#f6f6f3" stroke="#d8d8d4"/>
+  <text x="105" y="838" class="band-title">共享基础设施：knowledge_storm/*</text>
+  <rect x="105" y="858" width="325" height="96" rx="6" fill="#ffffff" stroke="#d8d8d4"/>
+  <text x="125" y="886" class="card-title">接口与可替换模块</text>
+  <text x="125" y="912" class="small">Engine · Retriever · LMConfigs · Agent</text>
+  <text x="125" y="936" class="small">四阶段 ABC 接口定义模块契约</text>
+  <rect x="455" y="858" width="325" height="96" rx="6" fill="#ffffff" stroke="#d8d8d4"/>
+  <text x="475" y="886" class="card-title">模型适配层</text>
+  <text x="475" y="912" class="small">LiteLLM + OpenAI / Claude / Gemini</text>
+  <text x="475" y="936" class="small">Ollama / vLLM / TGI / Together 等</text>
+  <rect x="805" y="858" width="325" height="96" rx="6" fill="#ffffff" stroke="#d8d8d4"/>
+  <text x="825" y="886" class="card-title">检索与编码适配层</text>
+  <text x="825" y="912" class="small">You · Bing · Serper · Brave · Tavily</text>
+  <text x="825" y="936" class="small">SearXNG · Google · VectorRM · Encoder</text>
+  <rect x="1155" y="858" width="340" height="96" rx="6" fill="#ffffff" stroke="#d8d8d4"/>
+  <text x="1175" y="886" class="card-title">数据、并发与可观测性</text>
+  <text x="1175" y="912" class="small">Information · Article · KnowledgeBase</text>
+  <text x="1175" y="936" class="small">线程池 · Callback · Logging · FileIO</text>
+  <path d="M 245 762 L 245 798" class="soft-arrow"/>
+  <path d="M 615 762 L 615 798" class="soft-arrow"/>
+  <path d="M 985 762 L 985 798" class="soft-arrow"/>
+  <path d="M 1355 762 L 1355 798" class="soft-arrow"/>
+
+  <rect x="80" y="1022" width="1440" height="187" rx="8" fill="#f6f2ff" stroke="#cfc7e8"/>
+  <rect x="80" y="1022" width="10" height="187" rx="5" fill="#4a3aa7"/>
+  <text x="110" y="1056" class="band-title">Co-STORM 协作式分支</text>
+  <text x="345" y="1056" class="card-subtitle">knowledge_storm/collaborative_storm</text>
+  <rect x="110" y="1080" width="240" height="92" rx="6" fill="#ffffff" stroke="#cfc7e8"/>
+  <text x="230" y="1108" text-anchor="middle" class="card-title">Warm Start</text>
+  <text x="230" y="1135" text-anchor="middle" class="small">mini-STORM 多视角检索</text>
+  <text x="230" y="1158" text-anchor="middle" class="small">初始化共享概念空间</text>
+  <rect x="395" y="1080" width="240" height="92" rx="6" fill="#ffffff" stroke="#cfc7e8"/>
+  <text x="515" y="1108" text-anchor="middle" class="card-title">Discourse Manager</text>
+  <text x="515" y="1135" text-anchor="middle" class="small">Moderator 选择下一发言者</text>
+  <text x="515" y="1158" text-anchor="middle" class="small">Expert / User / PureRAG</text>
+  <rect x="680" y="1080" width="240" height="92" rx="6" fill="#ffffff" stroke="#cfc7e8"/>
+  <text x="800" y="1108" text-anchor="middle" class="card-title">协作对话循环</text>
+  <text x="800" y="1135" text-anchor="middle" class="small">step(user_utterance?)</text>
+  <text x="800" y="1158" text-anchor="middle" class="small">提问、检索、回答、追问</text>
+  <rect x="965" y="1080" width="240" height="92" rx="6" fill="#ffffff" stroke="#cfc7e8"/>
+  <text x="1085" y="1108" text-anchor="middle" class="card-title">KnowledgeBase</text>
+  <text x="1085" y="1135" text-anchor="middle" class="small">心智图式知识树</text>
+  <text x="1085" y="1158" text-anchor="middle" class="small">持续插入与重组证据</text>
+  <rect x="1250" y="1080" width="240" height="92" rx="6" fill="#ffffff" stroke="#cfc7e8"/>
+  <text x="1370" y="1108" text-anchor="middle" class="card-title">Generate Report</text>
+  <text x="1370" y="1135" text-anchor="middle" class="small">按知识树并行写章节</text>
+  <text x="1370" y="1158" text-anchor="middle" class="small">report + log + instance dump</text>
+  <path d="M 350 1126 L 387 1126" class="arrow"/>
+  <path d="M 635 1126 L 672 1126" class="arrow"/>
+  <path d="M 920 1126 L 957 1126" class="arrow"/>
+  <path d="M 1205 1126 L 1242 1126" class="arrow"/>
+  <path d="M 1085 1022 L 1085 989" class="soft-arrow"/>
+
+  <text x="80" y="1250" class="small">结论：STORM 负责“检索 → 知识组织 → 带引用报告”，属于科研系统的信息策展层，不包含实验执行与结果验证闭环。</text>
+  <text x="1520" y="1250" text-anchor="end" class="small">stanford-oval/storm · knowledge-storm 1.1.x</text>
+</svg>
