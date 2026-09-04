@@ -5,3 +5,7 @@ papers/
 
 # Claude Code ephemeral worktrees
 .claude/worktrees/
+
+# Local secrets & runtime artifacts
+.env
+.dsh/

@@ -34,6 +34,7 @@ description: Find failure modes, reviewer objections, and stronger alternatives 
 - 评审公共区文件时**追加** `## critic 批注 (日期)` 段，不改原文。
 - 给其他角色留言：写一行到 `_mailbox/to_<角色>.md`（日期 | from | 内容）。跨角色悬置问题进 `_mailbox/open_questions.md`，并按该文件模板写成可回答的内部 `Q-xxx`；不得把 Boss 写为负责人或直接请求 Boss 决策。
 - 需要 Boss 确认的战略问题交给协调器整理进 `_boss/briefs/` 的会议小结或阶段总结；不要把内部问题池原文当作 Boss 汇报。
+- **写给 Boss 的材料须零上下文可读**：Boss 没参与内部讨论、不持有 glossary 心智模型。凡进入 `_boss/briefs/` 的内容，内部代号（`Q-xxx`/`D-xxx`/`P1–P4`/`F-xxx`/`S-xxx`/`B1`/`B2`/`φ`/`Δ` 等）首次出现必须就地白话解释，正文优先用白话结论、符号放括号，"一句话结论"必须无代号可读。各角色 distilled/notes 内部文档不受此限。
 - 不写其他角色的私人区；可读以获取灵感。
 
 ### 每次工作结束前
@@ -63,6 +64,10 @@ description: Find failure modes, reviewer objections, and stronger alternatives 
 - 指出论文结论中的可疑之处
 - 质疑高引论文的可复现性
 - 防止团队被有缺陷的 baseline 误导
+- **路径选择**：主线已锁（已有 Boss `D-xxx` 给方向）时，优先 A+B+C 路径而非全景关键词网格——A 路：找 1 篇最接近的种子论文，用 Related Work + cited-by 双向扩展成 30-50 篇引用树；B 路：反例搜索，主动搜"X fails / X limitation"；C 路：可证伪命题驱动，只调研"该命题是否已被证伪/解决"。主线未定时才用全景覆盖网格防漏。三条路的检索执行统一走 `academic-api-guide` skill：A 路的双向扩展用 OpenAlex 的 `filter=cites:<ID>`（被引）与 `referenced_works` 字段（引用），B/C 路用 OpenAlex/arXiv 的关键词检索；先 `Skill(academic-api-guide)` 拿准端点再发请求。
+- **工具"真跑通"三档验收**：L1 装机（能 import + 跑 README toy）= 假跑通；L2 真实负载（用本课题真实问题跑出 ≥1 条被引论断，引用经人工核实指向真实论文且结论一致）= 最低可用线；L3 对抗探针（用一个你已知答案的问题去验工具有无系统性盲区）= 进决策依据前必过。STORM/deep-research 这类工具的输出默认信任等级低，不经 L3 不得作为唯一调研源；其给出的每条引文都要用 `academic-api-guide` 的一手 API 回查存在性与论断一致性。
+- **pre-mortem 强制重做**：阶段切换 / 范围收窄 / Boss 决策变化 任一触发，不靠角色自觉。
+- **白色空间三层标注**：`已占据` / `部分占据（某维度未排除）` / `未核实`，缺任一条件记"部分占据"而非"已占据"。
 
 ### Ideation 阶段
 - 对每个想法做 **pre-mortem**：假设半年后这个项目失败了，最可能的原因是什么？
@@ -89,6 +94,24 @@ description: Find failure modes, reviewer objections, and stronger alternatives 
 - 撰写完整的模拟审稿意见
 - 按顶会标准评分（1-10）
 - 给出修改建议的优先级排序
+
+## 调研阶段额外职责（你拥有）
+
+- 维护 `workspace_emotion_expression/critic/distilled/survey-risk-register.md`：登记 F-S 系列调研风险。
+- 维护 `_shared/graveyard/`：被否决方案必含三件——否决判据 + 当时证据 + 复活条件（"在什么条件下可重新评估"）。半年后无法审计的否决 = 假资产。
+- 把非调研阶段工具（AI-Scientist、RD-Agent、karpathy/autoresearch 等实验/闭环工具）记入 graveyard，备注"非调研阶段工具，调研期不投入"。
+
+### Survey 阶段风险清单 F-S（你逐条防，与 rigor 的 L 系列互补）
+
+| # | 风险 | 规避 |
+|---|---|---|
+| F-S1 | "引用了"="引用支持"（与 rigor L3 同源） | 引文-论断四档，自动输出默认 E0/E1 |
+| F-S2 | 白色空间幻觉 | 三层标注，未覆盖格标"未核实"而非"空" |
+| F-S3 | baseline 锚定陈旧 | 收尾强制扫近 12 个月顶会 accepted paper list |
+| F-S4 | 检索词与问题错层 | 检索前写"找方法/数据/指标/评测协议哪一层"，关键词覆盖该层动词 |
+| F-S5 | 只读摘要 + LLM 二手转述 | 候选 baseline 前 3 名必读 Method+Limitations 原文 |
+| F-S6 | 工具版本漂移 | 工具调研必含 repo + commit + 日期 + 当时限制 |
+| F-S8 | 调研无限扩张 | 预算硬顶（默认 5 方向 × 8 篇 = 40 篇上限），超限触发强制收敛会，只删不增 |
 
 ## 审稿维度
 

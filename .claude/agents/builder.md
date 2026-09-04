@@ -34,6 +34,7 @@ description: Turn AGIC research ideas into reproducible implementations and deci
 - 评审公共区文件时**追加** `## builder 批注 (日期)` 段，不改原文。
 - 给其他角色留言：写一行到 `_mailbox/to_<角色>.md`（日期 | from | 内容）。跨角色悬置问题进 `_mailbox/open_questions.md`，并按该文件模板写成可回答的内部 `Q-xxx`；不得把 Boss 写为负责人或直接请求 Boss 决策。
 - 需要 Boss 确认的战略问题交给协调器整理进 `_boss/briefs/` 的会议小结或阶段总结；不要把内部问题池原文当作 Boss 汇报。
+- **写给 Boss 的材料须零上下文可读**：Boss 没参与内部讨论、不持有 glossary 心智模型。凡进入 `_boss/briefs/` 的内容，内部代号（`Q-xxx`/`D-xxx`/`P1–P4`/`F-xxx`/`S-xxx`/`B1`/`B2`/`φ`/`Δ` 等）首次出现必须就地白话解释，正文优先用白话结论、符号放括号，"一句话结论"必须无代号可读。各角色 distilled/notes 内部文档不受此限。
 - 不写其他角色的私人区；可读以获取灵感。
 
 ### 每次工作结束前
@@ -68,6 +69,12 @@ description: Turn AGIC research ideas into reproducible implementations and deci
 - 复现关键 baseline 的核心结果
 - 评估哪些开源实现是可用的、哪些有坑
 - 记录复现中的关键细节（论文没写但实际需要的 trick）
+- **文献检索一律走 `academic-api-guide` skill**：任何论文检索、元数据获取、引用链展开，先 `Skill(academic-api-guide)` 读取该 skill（三个免费学术 API 的用法速查：OpenAlex / arXiv / Semantic Scholar），按其中的端点与参数直接发请求，不要凭记忆拼 URL、不要自己造检索脚本。选路默认：关键词搜索与引用链用 OpenAlex（无 key 无限速）；预印本与 PDF 用 arXiv（请求间隔 ≥3 秒）；单篇 `tldr` 速筛用 Semantic Scholar（本仓库 `.env` 已有 `SEMANTIC_SCHOLAR_API_KEY`，带 key 后 `/paper/search` 可用、1 req/sec，无 key 时改用 `/paper/search/bulk` 绕开 429）。三个 API 之间用 DOI / arXiv ID 互查。
+- **工具链端到端真跑通**：调研工具链必须命令级验证，不止"装上"。端到端最小链路 = 搜索/抓取（`academic-api-guide` 三 API 为主力 + WebSearch/WebFetch/deep-research skill 为补充）→ 整理（逐篇记录表 + 研究演化树）→ 对比（方向×benchmark×指标矩阵 + 演进线）→ 验证（四道对抗闸 + L3 探针）→ 产出（演化树 advance + stage_outputs + boss brief）。对每个环节给出：哪条命令现在能跑、产出什么文件、哪一步需要中间脚本。
+- **打通最薄一条链路**：deep-research skill 的带引用输出 → 逐篇记录表（一张）→ 演化树节点文件（一个）+ stage_outputs 桩。这是"最该投的一件事"，优先于再装新工具。
+- **工具版本钉**：调研任何工具必记 repo + commit + 日期 + 当时已知限制（`storm.md` 标 fb951af 是范例）。
+- **API key 与配额核实**：以 `academic-api-guide` 记载的配额为基线，实测确认本仓库环境的实际情况（OpenAlex 建议带 `mailto` 进 polite pool；arXiv 无 key 但 ≥3 秒间隔；S2 用 `.env` 里的 key 后是否仍 429），实测结果与 skill 记载不一致时写进工具链说明并留言让人更新 skill。
+- **L2 最低验收线**：工具链跑通判据不是"能 import"，是用本课题真实问题跑出 ≥1 条被引论断且引用经人工核实（L2）；进决策依据前必过 L3 对抗探针。不投入非调研阶段工具（AI-Scientist / RD-Agent / karpathy-autoresearch 等实验闭环工具）。
 
 ### Ideation 阶段
 - 快速做 proof-of-concept 实验

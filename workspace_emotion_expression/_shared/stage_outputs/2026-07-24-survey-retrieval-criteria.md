@@ -124,6 +124,14 @@ preprint 不据以关闭白色空间，仅记为"潜在威胁，待录用确认"
 - 检索式须含 {expression style, expression disentanglement, identity-preserving expression, arousal valence face generation, AU-based expression control, character-specific expression} 的组合。
 - 须记录"检索式 + 命中数 + 实际纳入数"，避免仅凭记忆判定。**当前 rigor 的文献举证证据不足，见分析 §4 的不确定性声明。**
 
+### 7.4 已核实记录（builder 逐篇核实，2026-07-27 起）
+
+> 每行=一篇论文的 §7.1 字段速记。证据等级 L1/L2/L3 见 `_shared/evotree/_schema.md` §3。preprint 不据以关闭白色空间。
+
+| 节点 | 论文 | venue/year | P1|P2|P3|P4 | arousal 正交 | φ 实例化 | 配对数据 | 占据白色空间? | 证据等级 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| n001 | FED-Bench (arXiv:2603.29697) | preprint/2026 | 未触及 | 部分验证（Alignment） | 未触及 | 默认未验证（Fidelity 含 id-pres. 但未独立 P4 证据） | 未做 | 无显式 φ（pixel/instruction-level） | triplet=原图+指令+GT，非"同身份同情绪仅变风格" | 否（即便录用也仅"部分占据，arousal 混淆未排除"） | L2（WebFetch 核 abstract） |
+
 ## 8. φ 在 2D 下的边界与补救（D-003 后新增）
 
 3DMM/3D 表情系数路径失效后，φ 限定为：

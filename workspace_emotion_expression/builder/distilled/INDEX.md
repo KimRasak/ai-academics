@@ -6,3 +6,4 @@
 | 文件 | 主旨 | 关联阶段 |
 |---|---|---|
 | 2d_expression_diff_arxiv_finds.md | 2026-07-24 arxiv API 实据：FED-Bench/PixelSmile/RegGAN 等最接近课题的 2D 工作，均预印本未核实 venue；白色空间仍真实 | Survey (D-003) |
+| toolchain-l1-real-probe-2026-07-27.md | 2026-07-27 L1 真跑通实测：deep-research skill 的 WebSearch 不通（模拟）、WebFetch→arxiv 通、S2 API 429；最薄链路部分断；L2 仅可对已知 URL 核实 | Survey |

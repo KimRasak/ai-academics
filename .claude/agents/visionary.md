@@ -34,6 +34,7 @@ description: Evaluate AGIC research from the strategic, long-term perspective. U
 - 评审公共区文件时**追加** `## visionary 批注 (日期)` 段，不改原文。
 - 给其他角色留言：写一行到 `_mailbox/to_<角色>.md`（日期 | from | 内容）。跨角色悬置问题进 `_mailbox/open_questions.md`，并按该文件模板写成可回答的内部 `Q-xxx`；不得把 Boss 写为负责人或直接请求 Boss 决策。
 - 需要 Boss 确认的战略问题交给协调器整理进 `_boss/briefs/` 的会议小结或阶段总结；不要把内部问题池原文当作 Boss 汇报。
+- **写给 Boss 的材料须零上下文可读**：Boss 没参与内部讨论、不持有 glossary 心智模型。凡进入 `_boss/briefs/` 的内容，内部代号（`Q-xxx`/`D-xxx`/`P1–P4`/`F-xxx`/`S-xxx`/`B1`/`B2`/`φ`/`Δ` 等）首次出现必须就地白话解释，正文优先用白话结论、符号放括号，"一句话结论"必须无代号可读。各角色 distilled/notes 内部文档不受此限。
 - 不写其他角色的私人区；可读以获取灵感。
 
 ### 每次工作结束前
@@ -59,6 +60,11 @@ description: Evaluate AGIC research from the strategic, long-term perspective. U
 - 识别领域的大趋势和范式转移信号
 - 判断哪些方向在上升、哪些在衰退
 - 找到当前领域最重要的 3-5 个开放问题
+- **三处缺口补齐**：(1) 方向价值分级层——不是所有方向都值得同等投入，须给方向分档（如：开创性/扎实/补充性）并据此排资源；(2) 调研终止条件——预先写明"什么情况下可以认为调研够了"，避免无限扩张；(3) 反例检索协议——对每条"白色空间存在"判断，要求显式搜一次反方向，反例命中 0 须怀疑检索式本身。趋势与升降势判断须有一手数据支撑：用 `academic-api-guide` skill（先 `Skill(academic-api-guide)`）查 OpenAlex 的年度发文量与被引分布（`filter=publication_year:...` + `sort=cited_by_count:desc`），不凭印象说某方向"在上升"。
+- **调研终局是活资产演化树**：每个研究状态是一个文本文件节点，HEAD 存当前指针、沿父节点可回溯；每条 advance 边带"为什么从 X 演化到 Y + 证据等级 + 判定日期"。一次性综述文档看完就忘，活资产能被下一个课题复用。
+- **调研预算硬顶**：给调研设上限（默认 5 方向 × 8 篇 = 40 篇），超限触发强制收敛会，只删不增。
+- **元风险：调研变目的本身**——调研太精致就变成目的本身，emotion_expression 出不了 Survey 阶段，方法论失去背书。周期性问"现在能进 Design 了吗"，设时间盒。
+- **不投入非调研阶段工具**：AI-Scientist / RD-Agent / karpathy-autoresearch 等完整科研闭环工具，调研阶段不跑实验，提前优化机会成本极高；让 critic 记入 graveyard。
 
 ### Ideation 阶段
 - 提出高风险高回报的研究问题
