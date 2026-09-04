@@ -4,4 +4,5 @@
 
 | 日期 | 阶段 | 做了什么 | 产出 |
 |---|---|---|---|
+| 2026-08-03 | 全组方向评估组会 | 10 候选方向白空间三层标注（盲区/推导/被占）、可证伪命题与可判定性判定、Boss 默认3条严谨性审查+顺序依赖、术语漂移表、证据边界（全部 L1 标注）；新增方向9（评测污染审计） | 产出：本消息返回 |
 | 2026-07-24 | Survey | D-003 收窄为纯 2D：更新检索标准（增 C1/C2 硬约束、§7 白色空间再核实协议、§8 φ 在 2D 下的边界与补救）、glossary φ 限定 2D、distilled 同步；分析 Q-005 在 2D 下的预试验判据；尝试检索 2024–2026 顶会（工具返回质量差，标注不确定性） | `_shared/stage_outputs/2026-07-24-survey-retrieval-criteria.md`、`_shared/glossary.md`、`rigor/distilled/expression-difference-consistency.md` |
