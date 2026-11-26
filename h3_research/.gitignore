@@ -13,6 +13,15 @@ shared/vendor/
 # Large datasets, media, checkpoints, and archives
 projects/avatar-emotion/data/
 projects/emoh3-evaluation/results/human-label/**/*.jpg
+incubator/topic-survey-2026/experiments/soft-dd/data/
+projects/seed-sensitivity/data/wan_cross/vt*/
+projects/seed-sensitivity/data/ltx_cross/vt/
+projects/seed-sensitivity/data/scivbench/e3_new_vt/
+projects/seed-sensitivity/data/scivbench/e3_s6_11_vt/
+projects/seed-sensitivity/data/scivbench/vt_full/
+projects/seed-sensitivity/data/scivbench/vt_smoke/
+projects/seed-sensitivity/data/scivbench/released_vt/
+projects/seed-sensitivity/data/scivbench/pilot_full/
 **/*.mp4
 **/*.wav
 **/*.parquet
