@@ -1,0 +1,60 @@
+{
+  "status": "all_cpu_environment_actual_model_and_inference_entrypoint_gates_passed_checkpoint_load_smoke_pending",
+  "audited_at": "2026-09-20T12:23Z",
+  "official_inference_requirement": {
+    "python": "3.10",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.21.0+cu121",
+    "xformers": "0.0.28.post3+cu121",
+    "flash_attn": "required by official installation instructions"
+  },
+  "current_default_remote_environment": {
+    "python": "3.11.9",
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "xformers": "0.0.28.post1 built for torch 2.4.1+cu121 and cannot load CUDA extensions",
+    "flash_attn": "missing",
+    "decord": "missing",
+    "transformers": "4.57.6"
+  },
+  "interpretation": "The default environment must not be used for a JavisDiT inference or evaluator run. This is an environment-compatibility gate, not a model or checkpoint failure.",
+  "isolated_environment_terminal_evidence": {
+    "path": "/gluster_hdd_cv/user/jinzili/env/javisdit-v1-py310-cu121",
+    "python": "3.10.21",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "xformers": "0.0.28.post3",
+    "decord": "0.6.0",
+    "omegaconf": "2.3.0",
+    "einops": "0.8.0",
+    "gate": "passed CPU-side package imports; no GPU was allocated"
+  },
+  "permitted_next_action": "Clone the fixed official code revision into a dedicated remote work directory, install direct official inference dependencies, and perform repository import checks before GPU allocation.",
+  "dependency_resolution_constraint": "Official requirements pin transformers 4.49.0 while official colossalai 0.5.0 requires transformers 4.51.3. Standard pip resolution failed. A documented no-dependency ColossalAI import-compatibility layer may be tested, but it is not exact official dependency resolution.",
+  "repository_import_compatibility_terminal_evidence": {
+    "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+    "torch": "2.5.1+cu121",
+    "transformers": "4.49.0",
+    "colossalai": "0.5.0 via --no-deps compatibility layer",
+    "result": "direct scripts/inference.py dependencies and javisdit registry/config imports passed on CPU without GPU allocation"
+  },
+  "actual_model_import_constraint": "All discovered runtime dependencies have now been installed: galore-torch, FlashAttention 2.7.4.post1, iopath 0.1.10, and the exact official PyTorchVideo revision. The README-prescribed PyTorchVideo augmentation patch was applied and hash-verified. Actual JavisDiT model-package import now passes with FlashAttention-2 available. This clears only the CPU/import gate, not checkpoint loading or generated-media evidence.",
+  "actual_model_import_terminal_evidence": {
+    "flash_attn": "2.7.4.post1",
+    "flash_attn_2_available": true,
+    "flash_attn_3_available": false,
+    "official_pytorchvideo_patch_source_and_target_sha256": "b96a5306689fcc52acc6b911f5433351d4fc3b40d29b65565e84920553b78c79",
+    "result": "actual model package imports on CPU; no GPU or model weights used"
+  },
+  "official_inference_entrypoint_gap": {
+    "observed_in_smoke": "official scripts/inference.py imports javisdit.datasets.utils, which requires soundfile",
+    "missing_dependency": "soundfile==0.12.1",
+    "result": "first checkpoint smoke stopped before CUDA/model construction; GPU 4 remained at 4 MiB and no media was created",
+    "next_gate": "closed: official soundfile/librosa/audioflux/scipy pins plus setuptools 70.3.0 compatibility restore completed; scripts/inference.py --help passed on CPU before a fresh GPU smoke"
+  },
+  "prohibited_actions": [
+    "Do not downgrade or modify the shared default environment.",
+    "Do not treat a fallback attention implementation or current PyTorch 2.8 run as paper-matching inference without an explicit compatibility protocol.",
+    "Do not allocate GPUs before the isolated environment passes CPU-side imports and exact-version checks."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "claim_id": "mm_diffusion_landscape_ours_star_checkpoint_metric_run01_20260918",
+  "evidence_state": "C3",
+  "scope": "Released-checkpoint metric run 1 of 6; not a training or six-run paper-claim reproduction.",
+  "paper_claim": {
+    "dataset": "Landscape",
+    "row": "Ours* full DDPM-1000",
+    "aggregate": "six runs",
+    "fvd": 117.2,
+    "kvd": 5.78,
+    "fad_x10000": 10.72
+  },
+  "local_run": {
+    "run_id": "ddpm_ddim25_metric_run01_seed42_preimport_gpu0124_20260918",
+    "sampler": "DDPM-1000 base + DDIM-25 SR",
+    "physical_gpus": [0, 1, 2, 4],
+    "media_audit": {
+      "original_mp4": 2048,
+      "sr_mp4": 2048,
+      "wav": 2048,
+      "ffprobe_failure_lines": 0,
+      "byte_identical_duplicate_hash_lines": 0,
+      "media_sha256_inventory_sha256": "ef3572c701813a590335043b908a7a0c82917703df87fe67d114d8f30d9bcdea"
+    },
+    "official_standalone_evaluator": {
+      "original_64x64": {
+        "fvd": 249.0003662109375,
+        "kvd": 15.486241141702692,
+        "fad_x10000": 10.710707865655422,
+        "fvd_delta_from_paper": 131.8003662109375,
+        "kvd_delta_from_paper": 9.706241141702691,
+        "fad_delta_from_paper": -0.009292134344578206,
+        "log_sha256": "2c94419bf4d25a4dce37699f70b3833a9aff46d9aaaf9f10f0a787bf5ee1f042"
+      },
+      "sr_256x256_diagnostic": {
+        "fvd": 149.93556213378906,
+        "kvd": 7.690462664970852,
+        "fad_x10000": 10.101892985403538,
+        "log_sha256": "619556b001fb69830372c80b34f1841c6296e618cdc0645ea9a4d2c4ca00ae4"
+      }
+    }
+  },
+  "verdict": "The direct original-media counterpart does not recover the paper FVD/KVD in this one run; FAD is close. SR is retained as a diagnostic because the release sampler otherwise evaluates original media twice. Do not infer a stable contradiction or launch training from one run.",
+  "next_evidence": "Preregister additional same-protocol DDPM/DDIM runs, quantify run variance, and investigate any stable discrepancy before deciding on training reproduction."
+}

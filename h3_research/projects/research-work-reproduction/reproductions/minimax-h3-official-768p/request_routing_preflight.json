@@ -1,0 +1,52 @@
+{
+  "audit_date": "2026-09-18",
+  "authority": "retained MiniMaxAI/MiniMax-H3 official reproducible-768p request scripts",
+  "purpose": "Freeze the request-to-service-to-checkpoint-family routing before a four-GPU H3 Base deployment. This records protocol identity only; no request was submitted during this audit.",
+  "services": {
+    "fl2va_service": {
+      "checkpoint_partition": "FL2VA",
+      "official_sglang_model_variant": "fl2va",
+      "port": 30010,
+      "requires_gpus": 4
+    },
+    "ref2va_service": {
+      "checkpoint_partition": "Ref2VA",
+      "official_sglang_model_variant": "ref2va",
+      "port": 30011,
+      "requires_gpus": 4
+    }
+  },
+  "cases": {
+    "t2va": {
+      "script_sha256": "78bfe72365f27a53d145d0ddbf1c422de3cfe075e6558998cc7e01d7d41cdab1",
+      "request_task": "t2va",
+      "endpoint_port": 30010,
+      "required_service": "fl2va_service",
+      "seed": 0,
+      "short_edge": 768,
+      "target_duration_seconds": 10,
+      "conditions": []
+    },
+    "fl2va": {
+      "script_sha256": "82d1c06897da37e5976ae8f58cc1833ed04e92559aebe9f9578e0a890d2a8cb5",
+      "request_task": "fl2va",
+      "endpoint_port": 30010,
+      "required_service": "fl2va_service",
+      "seed": 0,
+      "short_edge": 768,
+      "target_duration_seconds": 8,
+      "conditions": [{"type": "image", "role": "keyframe"}]
+    },
+    "ref2va": {
+      "script_sha256": "73ea0e5cc94440b2e8955dc0703a07e3c691d62967c481f5d9b3e92391fc882a",
+      "request_task": "ref2va",
+      "endpoint_port": 30011,
+      "required_service": "ref2va_service",
+      "seed": 0,
+      "short_edge": 768,
+      "target_duration_seconds": 5,
+      "conditions": [{"type": "video", "role": "reference"}, {"type": "audio", "role": "reference"}]
+    }
+  },
+  "launch_rule": "Serve FL2VA for T2VA and FL2VA sequentially on port 30010. Stop it before serving Ref2VA on port 30011; do not run the two four-GPU services concurrently on the same GPUs. Verify the service listener, model partition, frozen script hash, GPU ownership and output provenance before each case."
+}

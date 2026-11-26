@@ -1,0 +1,49 @@
+{
+  "run_id": "javisdit_v1_repository_import_compatibility_layer_20260920T123327Z",
+  "kind": "cpu_only_dependency_compatibility_and_repository_import_gate",
+  "status": "terminal_partial_cpu_repository_import_gate_passed_actual_model_module_import_incomplete",
+  "remote_pid": 2852000,
+  "started_at": "2026-09-20T12:33:27Z",
+  "environment_path": "/gluster_hdd_cv/user/jinzili/env/javisdit-v1-py310-cu121",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/repository_import_compatibility_20260920T123327Z.log",
+  "compatibility_layer": {
+    "repository_explicit_pin": "transformers==4.49.0",
+    "upstream_conflict": "colossalai==0.5.0 package metadata requires transformers==4.51.3",
+    "method": "install direct repository inference dependencies using transformers 4.49.0, then install colossalai 0.5.0 with --no-deps",
+    "scope": "CPU import compatibility only; does not establish an exact solver-resolved official environment"
+  },
+  "required_imports": [
+    "torch",
+    "transformers",
+    "colossalai",
+    "pandas",
+    "timm",
+    "diffusers",
+    "accelerate",
+    "av",
+    "peft",
+    "javisdit",
+    "javisdit.registry",
+    "javisdit.utils.config_utils"
+  ],
+  "explicit_non_actions": [
+    "no GPU allocation or use",
+    "no model loading",
+    "no inference",
+    "no evaluator execution",
+    "no training"
+  ],
+  "success_gate": "All listed imports succeed and report versions from the fixed code/environment.",
+  "terminal_evidence": {
+    "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+    "torch": "2.5.1+cu121",
+    "transformers": "4.49.0",
+    "colossalai": "0.5.0 installed with --no-deps",
+    "diffusers": "0.29.0",
+    "peft": "0.13.2",
+    "result": "registry/config-level imports passed",
+    "limitation": "This is a documented compatibility layer because standard pip cannot resolve the repository transformers pin and ColossalAI package metadata simultaneously. A subsequent actual model-module import found missing galore_torch, so this record does not clear model loading."
+  },
+  "failure_rule": "Preserve traceback and keep GPU inference prohibited; do not call this a checkpoint failure."
+}

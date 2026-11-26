@@ -1,0 +1,49 @@
+{
+  "kind": "released_example_single_condition_smoke",
+  "evidence_scope": "deployment_smoke_not_paper_metric_reproduction",
+  "repo_revision": "6242d55414d3f4ad690bf0934889660f78e81b6e",
+  "runner_sha256": "168a9691300157343c28e084e58dfbb18c7bac22c9868b96e7399f12275e634c",
+  "checkpoint": {
+    "path": "/gluster_hdd_cv/user/jinzili/weights/research-work-reproduction/motionctrl/motionctrl.pth",
+    "bytes": 4016205312,
+    "sha256": "efe225096946c804841c2a78c3624d77cade3ac021a2519a2f0f85708a0fe46c",
+    "state_tensors": 2106,
+    "parameters": 2007751564,
+    "dtype": "torch.float16",
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "condition": {
+    "type": "camera_motion",
+    "name": "test_camera_L",
+    "path": "/gluster_hdd_cv/user/jinzili/code/research-work-reproduction/motionctrl-videocrafter/examples/camera_poses/test_camera_L.json",
+    "sha256": "0a63126bdca16151aef36c486c58858e926aab1838d90a99f1126fd15755169e",
+    "prompt": "coastline, rocks, storm weather, wind, waves, lightning"
+  },
+  "generation": {
+    "seed": 1234,
+    "resolution": [
+      256,
+      256
+    ],
+    "frames": 16,
+    "fps": 10,
+    "samples": 1,
+    "ddim_steps": 50,
+    "ddim_eta": 1.0,
+    "guidance": 7.5,
+    "cond_T": 800,
+    "torch": "2.3.0+cu121",
+    "cuda": "12.1",
+    "environment": "H100-compatible adaptation"
+  },
+  "output": {
+    "path": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/motionctrl/outputs/camera-L-seed1234-v1/videos/camera_L_coastline_seed1234.mp4",
+    "bytes": 363397,
+    "sha256": "3c7fdb135ce411513d08ade0d0e79ce6e2745c6c541b1bfc9c7842c2a4434b09",
+    "codec": "h264",
+    "full_decode": "passed",
+    "contact_sheet_sha256": "16ab31f81fc0d5980f049c684af15f33826b16eca06521b471d830627fcfe5c5",
+    "visual_inspection": "coastline identity remains coherent across four inspected frames and visible lateral camera motion is present; minor boundary deformation remains"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "protocol": {
+    "mode": "vbench_standard",
+    "vbench_revision": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+    "paired_videos": 360,
+    "prompts": 72,
+    "samples_per_prompt": 5,
+    "base_result_sha256": "b6137816bd982c772db949915f91e7e20a258b2de44fe1cb470923a6b6bd15a1",
+    "pickscore_lora_result_sha256": "02e643c1b2ae3aecc6b8c3e9d98f4a3be0318e087d9c3e8139c026ae12d8eb91",
+    "analysis_sha256": "0ebab5449ec6b1cb79c709292ece9db6a862dcdfbc308e0932181ce65b7cab95"
+  },
+  "metrics": {
+    "dynamic_degree": {
+      "base_official": 0.675,
+      "pickscore_lora_official": 0.5666666666666667,
+      "paired_delta": -0.10833333333333334,
+      "video_level_delta_95pct_t_ci": [
+        -0.1523604183458892,
+        -0.06430624832077747
+      ],
+      "prompt_level_delta_95pct_t_ci": [
+        -0.15818191752947397,
+        -0.058484749137192704
+      ],
+      "base_dynamic_count": 243,
+      "pickscore_lora_dynamic_count": 204,
+      "false_to_true": 15,
+      "true_to_false": 54,
+      "ties": 291,
+      "mcnemar_exact_pvalue": 2.612848003590018e-06
+    },
+    "motion_smoothness": {
+      "base_official": 0.9655607594745486,
+      "pickscore_lora_official": 0.9716596704045957,
+      "paired_delta": 0.006098910930046996,
+      "video_level_delta_95pct_t_ci": [
+        0.004191470710921646,
+        0.008006351149172346
+      ],
+      "prompt_level_delta_95pct_t_ci": [
+        0.0030674863746683826,
+        0.00913033548542561
+      ],
+      "positive_pairs": 223,
+      "negative_pairs": 137,
+      "paired_t_pvalue": 9.339501167305254e-10,
+      "wilcoxon_pvalue": 8.494246581592368e-10
+    }
+  },
+  "diagnostic": {
+    "smoothness_delta_by_dynamic_transition": {
+      "static_to_static": {
+        "pairs": 102,
+        "mean": -0.0008472476110495822
+      },
+      "static_to_dynamic": {
+        "pairs": 15,
+        "mean": -0.0061004910664549826
+      },
+      "dynamic_to_static": {
+        "pairs": 54,
+        "mean": 0.0062954610974558685
+      },
+      "dynamic_to_dynamic": {
+        "pairs": 189,
+        "mean": 0.010759680729514198
+      }
+    },
+    "interpretation": "The released PickScore LoRA has lower Dynamic Degree and higher Motion Smoothness under the same paired public benchmark. Smoothness is not a substitute for motion preservation; the dynamic-to-static subset also gains smoothness, so the two metrics expose a reward trade-off rather than a uniform temporal improvement."
+  }
+}

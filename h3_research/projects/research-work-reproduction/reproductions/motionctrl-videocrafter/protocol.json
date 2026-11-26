@@ -1,0 +1,81 @@
+{
+  "paper_id": "motionctrl",
+  "target_lineage": "VideoCrafter1/LVDM paper model",
+  "paper": {
+    "training": {
+      "gpus": 8,
+      "gpu_type": "NVIDIA Tesla V100",
+      "batch_size": 128,
+      "optimizer": "Adam",
+      "cmcm_steps": 50000,
+      "omcm_dense_steps": 20000,
+      "omcm_sparse_steps": 20000,
+      "cmcm_data": "caption-augmented RealEstate10K",
+      "omcm_data": "243000 ParticleSfM-augmented WebVid clips"
+    },
+    "evaluation": {
+      "camera_samples": 407,
+      "object_samples": 283,
+      "webvid_reference_videos": 1000,
+      "metrics": [
+        "CamMC",
+        "ObjMC",
+        "CLIPSIM",
+        "FID",
+        "FVD"
+      ],
+      "reported": {
+        "cammc_basic": 0.0289,
+        "cammc_complex": 0.0735,
+        "objmc": 28.877,
+        "clipsim": 0.2319,
+        "fid": 124.09,
+        "fvd": 852.15
+      }
+    }
+  },
+  "release": {
+    "main_revision": "6242d55414d3f4ad690bf0934889660f78e81b6e",
+    "first_videocrafter_release_revision": "bb00d47a017e55ae0931434e76656edfcde2b9b8",
+    "animatediff_training_revision": "08cae00c7020f1115aecfca352af899e23cc3f19",
+    "checkpoint": {
+      "filename": "motionctrl.pth",
+      "bytes": 4016205312,
+      "sha256": "efe225096946c804841c2a78c3624d77cade3ac021a2519a2f0f85708a0fe46c",
+      "local_status": "present_hash_verified",
+      "remote_path": "/gluster_hdd_cv/user/jinzili/weights/research-work-reproduction/motionctrl/motionctrl.pth",
+      "state_tensors": 2106,
+      "parameters": 2007751564,
+      "dtype": "torch.float16",
+      "missing_keys": [],
+      "unexpected_keys": []
+    },
+    "example_protocol": {
+      "camera_prompt_condition_pairs": 22,
+      "object_prompt_condition_pairs": 6,
+      "camera_json_files": {
+        "basic": 17,
+        "realestate10k": 20
+      },
+      "trajectory_examples": 8,
+      "samples_per_pair": 5,
+      "seed": 1234,
+      "resolution": [
+        256,
+        256
+      ],
+      "frames": 16,
+      "ddim_steps": 50,
+      "guidance": 7.5,
+      "ddim_eta": 1.0
+    }
+  },
+  "fidelity": {
+    "paper_checkpoint_identity": "plausibly matching VideoCrafter1/LVDM checkpoint by filename and release placement; tensor audit pending download",
+    "paper_evaluation": "not reconstructable from released files",
+    "paper_training": "not released; public training code is AnimateDiff lineage",
+    "independent_example_smoke": "one_camera_condition_complete_full_decode_passed",
+    "runtime": "H100-compatible adaptation because release Torch 1.13/CUDA 11.7 and xFormers 0.0.16 do not support sm90"
+  },
+  "decision": "checkpoint_deployment_supported; paper_metrics_remain_unverified; freeze_an_independent_public_protocol_before_quantitative_evaluation"
+}

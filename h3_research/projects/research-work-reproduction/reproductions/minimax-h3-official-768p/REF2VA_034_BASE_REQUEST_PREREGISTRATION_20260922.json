@@ -1,0 +1,56 @@
+{
+  "run_id": "minimax_h3_ref2va_official_frozen_case_034_base_20260922",
+  "status": "terminal_invalid_service_identity_request_cancelled_before_generation",
+  "purpose": "Execute one frozen official 768p Ref2VA Base request against an already running project-owned SGLang service. This is deployment/provenance evidence, not paper-metric or training evidence.",
+  "service": {
+    "host": "osa00-h100-034.osa00.bdjp.io",
+    "base_url": "http://osa00-h100-034.osa00.bdjp.io:30020",
+    "health": {"status": "ok"},
+    "model_info": {
+      "model_path": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3",
+      "architecture": "MiniMaxH3Pipeline",
+      "model_type": "diffusion"
+    },
+    "lora_state": {"loaded_adapters": [], "active": {}},
+    "service_identity_limit": "The public API does not expose the checkpoint partition/variant. Port-to-variant mapping is supported by the previously retained launcher evidence: port 30020 is Ref2VA."
+  },
+  "frozen_case": {
+    "name": "ref2va",
+    "official_script_sha256": "73ea0e5cc94440b2e8955dc0703a07e3c691d62967c481f5d9b3e92391fc882a",
+    "canonical_payload_sha256": "810ee8fd4aa90c53bd36b117d5d2d963b0f2df335e69abb410a226ea26b0a990",
+    "seed": 0,
+    "target": {"short_edge": 768, "aspect_ratio": "auto", "duration_seconds": 5},
+    "conditions": ["official reference video", "official reference audio"]
+  },
+  "execution": {
+    "runner": "tools/run_frozen_official_request.py",
+    "base_url_override": "H3_BASE_URL=http://osa00-h100-034.osa00.bdjp.io:30020",
+    "remote_output_dir": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/minimax-h3-official-768p/outputs/ref2va",
+    "deadline_seconds": 1800,
+    "proxy_bypass": ["NO_PROXY=osa00-h100-034.osa00.bdjp.io", "no_proxy=osa00-h100-034.osa00.bdjp.io"]
+  },
+  "safety_rules": [
+    "Do not call the gpu-launcher /run or /stop endpoint: the project-owned service is already healthy and resident.",
+    "Do not contact, stop, or inspect the active launcher task on osa00-h100-021.",
+    "Do not overwrite an existing ref2va output directory.",
+    "Do not call a generated video a paper metric reproduction or full hosted-H3 reproduction."
+  ],
+  "required_closeout": [
+    "frozen script and payload hash match",
+    "submit response and full polling history retained",
+    "completed status and downloaded MP4 retained",
+    "SHA-256 and ffprobe retained",
+    "postrun provenance/media audit passes or records exact failure"
+  ],
+  "terminal_evidence": {
+    "submitted_video_id": "0736df88-a553-42da-803f-683de4dacf20",
+    "submit_response_model": "sora-2",
+    "identity_conflict": "The service model_info reported MiniMaxH3Pipeline and empty LoRAs, but the actual newly created request reported model=sora-2. This is incompatible with a MiniMax-H3 Base reproduction claim.",
+    "action": "Only the newly submitted queued request was deleted through DELETE /v1/videos/{id}; no service, launcher task, or external process was stopped.",
+    "cancel_response_status": "deleted",
+    "post_cancel_status": "HTTP 404 Video not found",
+    "output_media": "none",
+    "runner": "ended after deletion received 404 while polling; this is expected for the intentionally cancelled invalid request"
+  },
+  "next_action": "Use gpu_launcher /run to launch a new, explicitly auditable official MiniMax-H3 Base service on project-owned 034. Confirm a harmless identity request or server-side process command line before submitting another frozen official case."
+}

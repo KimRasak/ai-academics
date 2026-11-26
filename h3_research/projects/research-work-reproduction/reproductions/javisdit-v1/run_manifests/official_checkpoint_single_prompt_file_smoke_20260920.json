@@ -1,0 +1,67 @@
+{
+  "run_id": "javisdit_v1_official_promptfile_smoke_gpu4_20260920T131000Z",
+  "kind": "released_checkpoint_generation_smoke_with_prompt_file",
+  "status": "terminal_valid_single_prompt_checkpoint_generation_smoke",
+  "remote_pid": 2859566,
+  "started_at": "2026-09-20T13:10:00Z",
+  "gpu4_preflight_memory_mib": 4,
+  "prompt_file_sha256": "54bd594b4a841cbcf4b84ad12f6b5e82f51369dbdc582d4ddf4c400b6ec47bcc",
+  "prompt_file_nonempty_lines": 1,
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/javisdit_v1_official_promptfile_smoke_gpu4_20260920T131000Z.log",
+  "terminal_evidence": {
+    "process_exited": true,
+    "gpu4_after_exit_memory_mib": 4,
+    "produced_mp4_count": 1,
+    "media": {
+      "path": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/outputs/javisdit_v1_official_promptfile_smoke_gpu4_20260920T131000Z/sample_0000.mp4",
+      "sha256": "15da65be051f98733d3d29c8688b01c92a9ecd5315d3edab6aced9fb7a2f0528",
+      "bytes": 532862,
+      "duration_seconds": 4.1265,
+      "video": "h264 432x240",
+      "audio": "aac 16000Hz stereo"
+    },
+    "prompt_file": {
+      "nonempty_lines": 1,
+      "sha256": "54bd594b4a841cbcf4b84ad12f6b5e82f51369dbdc582d4ddf4c400b6ec47bcc"
+    },
+    "log_sha256": "7d27cfc891b55abaff1235d3c0230a61b150028b2dbaa1df83e382831750c2ae",
+    "official_log_markers": ["Prompt: full ocean-waves prompt", "Inference finished.", "Saved 1 samples"],
+    "error_audit": "no traceback, OOM, or inference error token. The retained 'CondaError: Run conda init' line is a non-fatal shell-init message; absolute environment Python subsequently completed inference."
+  },
+  "supersedes_for_execution_only": "javisdit_v1_official_smoke_retry_gpu4_20260920T130100Z",
+  "prior_run_outcome": "aborted after prompt argument was split by nested-shell quoting; four invalid word-level MP4 files retained and audited but excluded",
+  "scope": "One official JavisDiT-v1.0 generated audio-video sample to verify checkpoint loading and output provenance. It is not JavisBench-mini evaluation, a paper metric, training, or model comparison.",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "generation_protocol": {
+    "physical_gpu": 4,
+    "world_size": 1,
+    "prompt_source": "one-line prompt file containing official JavisDiT README ocean-waves example prompt",
+    "prompt_transport": "--prompt-path; no multiword prompt is passed as a shell argument",
+    "resolution": "240p",
+    "aspect_ratio": "9:16",
+    "frames": 65,
+    "fps": 16,
+    "audio_fps": 16000,
+    "seed": 42,
+    "batch_size": 1,
+    "sampling_steps": 50,
+    "dtype": "bf16",
+    "output_directory": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/outputs/javisdit_v1_official_promptfile_smoke_gpu4_20260920T131000Z"
+  },
+  "required_closeout": [
+    "prompt file SHA-256 retained and exactly one nonempty prompt line verified before launch",
+    "exit status and full launch log retained",
+    "exactly one produced MP4 required; any other count invalidates the smoke",
+    "all produced MP4/WAV files listed with SHA-256",
+    "ffprobe/decode result retained for each produced media file",
+    "state remains smoke-only even if media generation succeeds"
+  ],
+  "prohibited_actions": [
+    "no JavisBench scoring",
+    "no paper-metric claim",
+    "no training",
+    "no use of GPUs 0-3 or termination of external processes",
+    "no reuse of a prior smoke output directory"
+  ],
+  "stopping_rule": "If GPU 4 preflight observes meaningful external compute use, do not launch. If prompt-line count or post-run MP4 count is not exactly one, retain evidence but do not call smoke valid."
+}

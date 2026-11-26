@@ -1,0 +1,34 @@
+{
+  "paper_id": "videodpo",
+  "target": "VideoCrafter2 3000-step reweighted VideoDPO",
+  "status": "blocked_on_missing_omniscore_weights_and_release_protocol_conflicts",
+  "required_before_training": [
+    "Recover the per-pair OmniScore/probability values used for reweighting.",
+    "Retain inspectable media, metadata.json, pair.json and source/provenance records together.",
+    "Verify prompt count, media count, pair count, pair ordering and score distribution.",
+    "Resolve whether original videos or only extracted frames are distributed.",
+    "Create a separate max_steps=3000, global_batch=8 reproduction config.",
+    "Enable the paper's pair reweighting and record the exact alpha/probability transformation.",
+    "Pin VideoCrafter2, OpenCLIP, Torch, CUDA, xFormers and evaluator revisions.",
+    "Pass one-batch decode, chosen/rejected ordering, shared-noise DPO loss, backward, optimizer, checkpoint and resume tests.",
+    "Freeze generation seeds, VBench prompts, HPS(V), PickScore and aggregation."
+  ],
+  "release_blockers": [
+    "No paper-final VideoDPO checkpoint is released.",
+    "Official README and run.sh paths do not resolve to checked-in files.",
+    "Released VC2 config uses max_epochs=10 rather than max_steps=3000.",
+    "Released VC2 config sets dupbeta=0 and disables OmniScore pair reweighting.",
+    "Official pair.json has no score field, so the released archive cannot reproduce OmniScore reweighting.",
+    "Official metadata contains stale absolute author-machine media paths and requires a provenance-recorded rewrite.",
+    "Exact evaluation environment and generation seeds are absent."
+  ],
+  "third_party_dataset": {
+    "repository": "CodeGoat24/VideoDPO",
+    "revision": "39a557ee8f69dbc7da98d83c49c32427d91967d3",
+    "winner_archive_bytes": 15872852574,
+    "loser_archive_bytes": 16064639883,
+    "metadata_bytes": 22617108,
+    "status": "derivative_for_UnifiedReward_not_accepted_as_official_training_identity"
+  },
+  "decision": "do_not_start_full_training"
+}

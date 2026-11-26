@@ -1,0 +1,62 @@
+{
+  "run_id": "javisdit_v1_javisbench_mini_batch4_interface_smoke_gpu4_20260920T132000Z",
+  "kind": "javisbench_mini_first4_generation_and_media_interface_smoke",
+  "status": "terminal_four_generation_media_and_official_audio_extraction_interface_closed",
+  "remote_pid": 2861100,
+  "started_at": "2026-09-20T13:20:00Z",
+  "gpu4_preflight_memory_mib": 4,
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/javisdit_v1_javisbench_mini_batch4_interface_smoke_gpu4_20260920T132000Z.log",
+  "terminal_evidence": {
+    "process_exited": true,
+    "gpu4_after_exit_memory_mib": 4,
+    "mp4_count": 4,
+    "wav_count": 4,
+    "names": ["sample_0000", "sample_0001", "sample_0002", "sample_0003"],
+    "official_audio_extraction": "tools.datasets.datautil.extract_audio using ffmpeg at dst_sr=16000",
+    "mp4_to_wav_mapping_sha256": "4d8636c502d2fbf96a58b7afbacbca100799b7b5236025e4237fc3f0f8ddaeeb",
+    "media_inventory_sha256": "71b80dac9a61b99da2cb8d9fc5c8f86019a9cc7a71208563cac5335930be8da3",
+    "media_ffprobe_sha256": "b50f78080576110e3417bb9444db0896b97d0443bbc0aa04e0d74794353b53dd",
+    "mapping_checks": "four mappings preserve official CSV rows 0..3, contiguous sample names, existing MP4/WAV and 16000Hz extracted audio",
+    "interpretation": "Generation-to-evaluator media interface is closed for four samples only. No JavisBench evaluator has run and no metric may be interpreted as a benchmark result."
+  },
+  "scope": "Generate only the first four official JavisBench-mini prompts in official CSV order, then prepare MP4/WAV interface artifacts for a separate official evaluator smoke. No four-sample metric is a benchmark result.",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "input": {
+    "official_mini_csv_sha256": "1da733caaebd072ef5d11a12ab51e9a36c12ed1c702eb75a63b912de206bdb99",
+    "prompt_file": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/prompts/javisdit_v1_javisbench_mini_batch4_interface_smoke_20260920T132000Z.txt",
+    "prompt_file_sha256": "d0d9fd7adf1064c2d4a7bf5541ed05f0fa96c0ba7e66ed8fdafe33efb9c70062",
+    "prompt_map": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/manifests/javisdit_v1_javisbench_mini_batch4_interface_smoke_20260920T132000Z.prompt_map.jsonl",
+    "prompt_map_sha256": "66c51e1398462d43f50d8b652a96da1d724e4de53f184e740f8827e30611d379",
+    "prompt_count": 4,
+    "csv_rows": [0, 1, 2, 3]
+  },
+  "generation_protocol": {
+    "physical_gpu": 4,
+    "world_size": 1,
+    "resolution": "240p",
+    "aspect_ratio": "9:16",
+    "frames": 65,
+    "fps": 16,
+    "audio_fps": 16000,
+    "seed": 42,
+    "batch_size": 1,
+    "sampling_steps": 50,
+    "dtype": "bf16",
+    "output_directory": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/outputs/javisdit_v1_javisbench_mini_batch4_interface_smoke_gpu4_20260920T132000Z"
+  },
+  "required_closeout": [
+    "exactly four MP4 files named sample_0000.mp4 through sample_0003.mp4",
+    "one official-order prompt mapping per media file",
+    "ffprobe and SHA-256 inventory for every MP4",
+    "no extra media files, skipped prompts, or silent retries",
+    "post-generation WAV extraction and official evaluator interface test are separate gates"
+  ],
+  "prohibited_actions": [
+    "no JavisBench-mini score claim",
+    "no paper metric claim",
+    "no training",
+    "no use of GPUs 0-3 or termination of external processes",
+    "no reuse of prior smoke or benchmark output directory"
+  ],
+  "stopping_rule": "Do not launch if GPU 4 preflight exceeds 128 MiB. Any MP4 count other than exactly four invalidates this interface smoke and prevents evaluator invocation."
+}

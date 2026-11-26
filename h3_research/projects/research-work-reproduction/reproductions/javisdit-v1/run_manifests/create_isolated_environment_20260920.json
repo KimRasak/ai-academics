@@ -1,0 +1,40 @@
+{
+  "run_id": "javisdit_v1_create_isolated_environment_20260920T122656Z",
+  "kind": "isolated_environment_creation_and_cpu_import_gate",
+  "status": "terminal_base_stack_installed_and_cpu_import_gate_passed",
+  "remote_pid": 2850958,
+  "started_at": "2026-09-20T12:26:56Z",
+  "environment_path": "/gluster_hdd_cv/user/jinzili/env/javisdit-v1-py310-cu121",
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/create_env_20260920T122656Z.log",
+  "requested_stack": {
+    "python": "3.10",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "torchaudio": "2.5.1+cu121",
+    "xformers": "0.0.28.post3",
+    "decord": "0.6.0",
+    "omegaconf": "2.3.0",
+    "einops": "0.8.0"
+  },
+  "purpose": "Replace the incompatible shared Python 3.11 / torch 2.8 environment with a dedicated environment compatible with the official JavisDiT baseline requirements.",
+  "explicit_non_actions": [
+    "no GPU allocation or use",
+    "no model loading",
+    "no inference",
+    "no evaluator execution",
+    "no training"
+  ],
+  "success_gate": "CPU-side imports must succeed and report the requested Python/Torch/CUDA versions. FlashAttention and repository-specific imports remain separate later gates.",
+  "terminal_evidence": {
+    "python": "3.10.21",
+    "torch": "2.5.1+cu121",
+    "torch_cuda": "12.1",
+    "torchvision": "0.20.1+cu121",
+    "xformers": "0.0.28.post3",
+    "decord": "0.6.0",
+    "omegaconf": "2.3.0",
+    "einops": "0.8.0",
+    "result": "all declared base-stack imports passed; shared environment was not modified"
+  },
+  "failure_rule": "If pinned wheels cannot be installed or imports fail, preserve the log and do not substitute the shared torch 2.8 environment."
+}

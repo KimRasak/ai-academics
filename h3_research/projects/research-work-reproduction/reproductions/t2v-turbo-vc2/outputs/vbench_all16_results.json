@@ -1,0 +1,219 @@
+{
+  "status": "all_16_dimensions_complete",
+  "date": "2026-09-17",
+  "protocol": "paper-day VBench evaluator with independent deterministic generation seeds",
+  "evaluator_revision": "03e7b948b0e8b9f87333c3f133b9f2a988a08f6e",
+  "aggregation": {
+    "revision": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+    "introduced_commit": "592c3a1f9f614377ba3b04eba4a7bf91c7209ec2",
+    "introduced_date": "2024-06-28",
+    "validation": "The paper Table 1 dimensions recompute to 82.5626569 quality, 74.7680649 semantic and 81.0037385 total, matching the published rounded values."
+  },
+  "aggregates": {
+    "paper_percent": {
+      "quality": 82.57,
+      "semantic": 74.76,
+      "total": 81.01
+    },
+    "reproduced_percent": {
+      "quality": 84.43634547869353,
+      "semantic": 73.69081339446653,
+      "total": 82.28723906184811
+    },
+    "delta_percentage_points": {
+      "quality": 1.8663454786935318,
+      "semantic": -1.0691866055334742,
+      "total": 1.2772390618481069
+    }
+  },
+  "bootstrap": {
+    "unit": "official VBench prompt entry",
+    "resamples": 10000,
+    "seed": 20260917,
+    "estimator": "resample prompt clusters and recompute the evaluator's pooled per-video mean"
+  },
+  "dimensions": {
+    "subject_consistency": {
+      "paper_percent": 96.28,
+      "reproduced_percent": 96.9473855158797,
+      "delta_percentage_points": 0.6673855158797011,
+      "prompt_entries": 72,
+      "expected_videos": 360,
+      "evaluated_videos": 360,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [96.65326450799625, 97.23015533303497],
+      "result_sha256": "374fe9d7ada006c3d4242b8222e084bfa159d351adae8664680c2041ffacca83"
+    },
+    "background_consistency": {
+      "paper_percent": 97.02,
+      "reproduced_percent": 97.88116218507751,
+      "delta_percentage_points": 0.861162185077518,
+      "prompt_entries": 86,
+      "expected_videos": 430,
+      "evaluated_videos": 430,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [97.64268883993459, 98.10802143895349],
+      "result_sha256": "115a0b3db099f406f6e003a9c1c1b3ce504bc6ef8221df0356acab63e52ed07d"
+    },
+    "temporal_flickering": {
+      "paper_percent": 97.48,
+      "reproduced_percent": 95.84995494767729,
+      "delta_percentage_points": -1.6300450523227141,
+      "prompt_entries": 75,
+      "expected_videos": 375,
+      "evaluated_videos": 375,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [95.59771887333564, 96.10040130834642],
+      "result_sha256": "c69cfab660c9599b01da96fd57418caf239cf24d506ecce58e7c743bd7412424"
+    },
+    "motion_smoothness": {
+      "paper_percent": 97.34,
+      "reproduced_percent": 96.06642716905738,
+      "delta_percentage_points": -1.2735728309426264,
+      "prompt_entries": 72,
+      "expected_videos": 360,
+      "evaluated_videos": 360,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [95.87795680552946, 96.25062028053206],
+      "result_sha256": "7e535ce961d80817a5391130bb32d060a87313c731141aed626f1f496509005c"
+    },
+    "aesthetic_quality": {
+      "paper_percent": 63.04,
+      "reproduced_percent": 66.61038380797191,
+      "delta_percentage_points": 3.570383807971915,
+      "prompt_entries": 93,
+      "expected_videos": 465,
+      "evaluated_videos": 465,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [65.33137385579207, 67.87551992106182],
+      "result_sha256": "9f36bbe533ac41be3b6c4f9d5bccc54061f1d664a361ab7114fa79f3cbd2b464"
+    },
+    "dynamic_degree": {
+      "paper_percent": 49.17,
+      "reproduced_percent": 80.27777777777779,
+      "delta_percentage_points": 31.107777777777784,
+      "prompt_entries": 72,
+      "expected_videos": 360,
+      "evaluated_videos": 360,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [73.88888888888889, 86.38888888888889],
+      "result_sha256": "4a2d929f36518040ef5fdf002c312e3e1213f5aa72982d127006afef7cdd0063"
+    },
+    "imaging_quality": {
+      "paper_percent": 72.49,
+      "reproduced_percent": 72.36318180022701,
+      "delta_percentage_points": -0.12681819977298403,
+      "prompt_entries": 93,
+      "expected_videos": 465,
+      "evaluated_videos": 465,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [71.4485603443397, 73.2286361573204],
+      "result_sha256": "151ab8a48b93b64012af10db09dcbaf89aef37c4fbe1d2183acc4fba2ee206fe"
+    },
+    "object_class": {
+      "paper_percent": 93.96,
+      "reproduced_percent": 95.0,
+      "delta_percentage_points": 1.0400000000000063,
+      "prompt_entries": 79,
+      "expected_videos": 395,
+      "evaluated_videos": 395,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [91.86708860759494, 97.62658227848101],
+      "result_sha256": "bfc5b9430cfe676b80e1b4fda12ad31ec39da1817beb7dd3c82a10869c7225db"
+    },
+    "multiple_objects": {
+      "paper_percent": 54.65,
+      "reproduced_percent": 47.63719512195122,
+      "delta_percentage_points": -7.012804878048776,
+      "prompt_entries": 82,
+      "expected_videos": 410,
+      "evaluated_videos": 410,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [40.47256097560975, 54.93902439024391],
+      "result_sha256": "3fd1298bf6ae0b1f43854f218fd96587437a429aa0e93c325b75ef05fe1f8af0"
+    },
+    "human_action": {
+      "paper_percent": 95.2,
+      "reproduced_percent": 94.39999999999999,
+      "delta_percentage_points": -0.8000000000000114,
+      "prompt_entries": 100,
+      "expected_videos": 500,
+      "evaluated_videos": 500,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [90.2, 97.8],
+      "result_sha256": "01ac862e04547ddfe248eea51ef70f9b5352044437268c713405521b02b52964"
+    },
+    "color": {
+      "paper_percent": 89.9,
+      "reproduced_percent": 87.3448126427401,
+      "delta_percentage_points": -2.5551873572599106,
+      "prompt_entries": 85,
+      "expected_videos": 425,
+      "evaluated_videos": 386,
+      "coverage_percent": 90.8235294117647,
+      "per_prompt_evaluated_video_counts": [2, 3, 4, 5],
+      "prompt_cluster_bootstrap_95pct_ci_percent": [82.64760272062463, 91.6879281417533],
+      "result_sha256": "e4a7ae24bbc68c682a8062aa6c3db6a7860276c08fad55029b8cb5439a248783"
+    },
+    "spatial_relationship": {
+      "paper_percent": 38.67,
+      "reproduced_percent": 40.695317094195694,
+      "delta_percentage_points": 2.0253170941956924,
+      "prompt_entries": 84,
+      "expected_videos": 420,
+      "evaluated_videos": 420,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [33.414782074837824, 48.37996514392058],
+      "result_sha256": "10a9a2817378c6af0515ac79e829f741907f6af0e2a54bd5644b8adf70725807"
+    },
+    "scene": {
+      "paper_percent": 55.58,
+      "reproduced_percent": 53.29941860465116,
+      "delta_percentage_points": -2.2805813953488396,
+      "prompt_entries": 86,
+      "expected_videos": 430,
+      "evaluated_videos": 430,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [44.854651162790695, 61.598837209302324],
+      "result_sha256": "d648436c19c6956444bf7b923cda7774c463f443efa4c46bd5ac2f6ad1397a5e"
+    },
+    "appearance_style": {
+      "paper_percent": 24.42,
+      "reproduced_percent": 24.444344618055684,
+      "delta_percentage_points": 0.024344618055682332,
+      "prompt_entries": 90,
+      "expected_videos": 450,
+      "evaluated_videos": 450,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [23.83110932074653, 25.05917032877604],
+      "result_sha256": "ac34bfd0dd2f3a19b8dd8d2009f6606732a028b19c4a4313feeeba22d1fa9027"
+    },
+    "temporal_style": {
+      "paper_percent": 25.51,
+      "reproduced_percent": 25.417784178256987,
+      "delta_percentage_points": -0.09221582174301446,
+      "prompt_entries": 100,
+      "expected_videos": 500,
+      "evaluated_videos": 500,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [24.616585250645876, 26.238142708837987],
+      "result_sha256": "5b614253667cf70a3178fc773a5b53e545d5563868610b4bef3f616bbe35d4a0"
+    },
+    "overall_consistency": {
+      "paper_percent": 28.16,
+      "reproduced_percent": 28.35982402806641,
+      "delta_percentage_points": 0.1998240280664092,
+      "prompt_entries": 93,
+      "expected_videos": 465,
+      "evaluated_videos": 465,
+      "coverage_percent": 100.0,
+      "prompt_cluster_bootstrap_95pct_ci_percent": [27.541841983394598, 29.19468292489808],
+      "result_sha256": "275e8794c5324cddd34ac0026c766038343d4feb9b973295d18f7b2c8fde11a3"
+    }
+  },
+  "limitations": [
+    "The authors did not publish generation seeds.",
+    "The aggregation constants were published after the paper-day evaluator revision, although they exactly recover the rounded Table 1 aggregates.",
+    "The color evaluator excludes videos where its detector finds no target object; this run evaluated 386 of 425 expected videos."
+  ]
+}

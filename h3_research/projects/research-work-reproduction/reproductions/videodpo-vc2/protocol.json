@@ -1,0 +1,66 @@
+{
+  "paper_id": "videodpo",
+  "target": "VideoDPO on VideoCrafter2",
+  "paper_protocol": {
+    "prompt_source": "VidProM",
+    "prompts": 10000,
+    "samples_per_prompt": 4,
+    "training_steps": 3000,
+    "global_batch_size": 8,
+    "gpus": 4,
+    "gpu_type": "A100",
+    "evaluation": ["VBench", "HPS(V)", "PickScore"],
+    "reported": {
+      "baseline": {
+        "vbench_total": 80.44,
+        "vbench_quality": 82.2,
+        "vbench_semantics": 73.42,
+        "hps_v": 0.258,
+        "pickscore": 20.65
+      },
+      "videodpo": {
+        "vbench_total": 81.93,
+        "vbench_quality": 83.07,
+        "vbench_semantics": 77.38,
+        "hps_v": 0.261,
+        "pickscore": 20.65
+      }
+    }
+  },
+  "release": {
+    "code_revision": "1febdb42db147824ba4c96eb5e787bbd1295afc7",
+    "matching_final_checkpoint": false,
+    "official_dataset_archive": {
+      "location": "OneDrive link in official README",
+      "status": "acquired_hash_verified",
+      "bytes": 12124170240,
+      "sha256": "5379c1a25d2f00c04c2d75a89b0d5fcf26f62417ae4788cb323c0cfe19a9266b",
+      "mp4_files": 20000,
+      "metadata_rows": 20000,
+      "pairs": 10000,
+      "pair_score_fields": 0
+    },
+    "vbench_prompt_lines": 945,
+    "vbench_prompt_sha256": "cc149d52e9646e06b4be8e35904fa16459a6dd01d38f73797e0b482aafa5354c",
+    "configuration": {
+      "per_rank_batch_size": 1,
+      "ranks": 4,
+      "gradient_accumulation": 2,
+      "max_epochs": 10,
+      "max_steps": null,
+      "dupbeta": 0,
+      "beta_dpo": 5000.0
+    }
+  },
+  "release_conflicts": [
+    "README training path configs/vc_dpo/run.sh does not exist.",
+    "Checked-in run.sh points to nonexistent configs/dpo/config.yaml.",
+    "The launch command passes a value to the flag --auto_resume.",
+    "Ten epochs is not the paper's explicit 3000-step schedule.",
+    "dupbeta=0 disables OmniScore pair reweighting.",
+    "The official pair.json contains no score/probability field from which reweighting can be reconstructed.",
+    "metadata.json contains stale absolute author-machine paths.",
+    "Exact evaluator revisions, seeds and checkpoint-selection rule are absent."
+  ],
+  "decision": "do_not_start_full_training_until_missing_omniscore_weights_and_exact_evaluation_protocol_are_recovered"
+}

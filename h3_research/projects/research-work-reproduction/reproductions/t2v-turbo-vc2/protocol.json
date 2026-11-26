@@ -1,0 +1,93 @@
+{
+  "protocol_id": "t2v-turbo-vc2-vbench-table1-v0",
+  "status": "independent_fixed_seed_generation_and_all_16_vbench_dimensions_complete",
+  "paper_revision": "arxiv:2405.18750v2",
+  "code_revision": "10b1c53f1e444b88e9440e5e5da21bed20486f7c",
+  "code_revision_role": "paper-day VC2 inference release",
+  "audit_revision": "eaae323f10d136796a33e8f5304ed50e40def570",
+  "verified_inference_revision": "eaae323f10d136796a33e8f5304ed50e40def570",
+  "base_checkpoint_sha256": "1edf769ece3308e977228943eeeed39286806aba9da17350449a3fbf4324ccfb",
+  "lora_checkpoint_sha256": "f1b223501f3fbbd491a9797c37f224ba031520cb442a10c07e4613b70b203845",
+  "generation": {
+    "width": 512,
+    "height": 320,
+    "frames": 16,
+    "fps": 16,
+    "inference_steps": 4,
+    "lcm_origin_steps": 50,
+    "guidance_scale": 7.5,
+    "dtype": "float16",
+    "seed_list": null,
+    "samples_per_prompt": 5
+  },
+  "evaluation": {
+    "status": "16_of_16_dimensions_complete",
+    "benchmark": "VBench",
+    "mode": "vbench_standard",
+    "revision": "03e7b948b0e8b9f87333c3f133b9f2a988a08f6e",
+    "audit_revision": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+    "prompt_file_sha256": "f9b50654f81ab732b9235d5bb91f0c3a4d152fac19249ce3a3a9185b2d80d8c3",
+    "unique_prompts": 944,
+    "total_videos": 4720,
+    "seed_protocol": "independent deterministic seeds 0..4719; author seeds unavailable",
+    "dimensions": "all_16",
+    "paper_reported": {
+      "total": 81.01,
+      "quality": 82.57,
+      "semantic": 74.76
+    },
+    "aggregation": {
+      "revision": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+      "introduced_commit": "592c3a1f9f614377ba3b04eba4a7bf91c7209ec2",
+      "introduced_date": "2024-06-28",
+      "paper_value_validation": {
+        "quality": 82.5626569124156,
+        "semantic": 74.76806489159426,
+        "total": 81.00373850825132
+      }
+    },
+    "reproduced": {
+      "quality": 84.43634547869353,
+      "semantic": 73.69081339446653,
+      "total": 82.28723906184811,
+      "units": "percent",
+      "dimensions_complete": 16,
+      "result_summary": "outputs/vbench_all16_results.json"
+    }
+  },
+  "training": {
+    "dataset": "WebVid-10M",
+    "dataset_shards": null,
+    "steps": 10000,
+    "gpus": "6-8 A100",
+    "per_gpu_batch_size": 1,
+    "gradient_accumulation": 1,
+    "frames": 16,
+    "fps": 16,
+    "learning_rate": 0.00001,
+    "guidance_scale_range": [5, 15],
+    "ddim_skip": 20,
+    "image_reward": "HPSv2.1",
+    "image_reward_scale": 1,
+    "video_reward": "InternVideo2 Stage-2 1B",
+    "video_reward_scale": 2,
+    "release_revision": "ca61d382aaaa91b9d526a912b1749096d166c0e3",
+    "release_worktree": "/gluster_hdd_cv/user/jinzili/code/research-work-reproduction/t2v-turbo-training-release-20240624",
+    "release_seed": 453645634,
+    "lora_rank": 64,
+    "mixed_precision": "fp16",
+    "process_partition": {
+      "distillation_and_image_reward": [0, 1, 2, 3, 4, 5],
+      "video_reward": [6, 7]
+    },
+    "status": "blocked_before_training",
+    "gate": "training_reproduction_gate.json",
+    "blockers": [
+      "official WebVid URLs and captions are no longer distributed",
+      "paper-used sample and shard manifests are absent",
+      "exact InternVideo2 Stage2 1B f4 checkpoint is gated and current access returns 403",
+      "training dependencies and video2dataset version are not pinned",
+      "released process partition is effectively eight-GPU despite the paper stating six to eight"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "claim_id": "mm_diffusion_landscape_ours_star_checkpoint_metric_run02_20260919",
+  "evidence_state": "C3",
+  "scope": "Released-checkpoint metric run 2 of 6; not a training or six-run paper-claim reproduction.",
+  "paper_claim": {"dataset": "Landscape", "row": "Ours* full DDPM-1000", "aggregate": "six runs", "fvd": 117.2, "kvd": 5.78, "fad_x10000": 10.72},
+  "local_run": {
+    "run_id": "ddpm_ddim25_metric_run02_officialrng_gpu4567_20260918",
+    "sampler": "DDPM-1000 base + DDIM-25 SR",
+    "rng": "official unseeded set_seed_logger_random behavior",
+    "physical_gpus": [4, 5, 6, 7],
+    "media_audit": {"original_mp4": 2048, "sr_mp4": 2048, "wav": 2048, "ffprobe_failure_lines": 0, "byte_identical_duplicate_hash_lines": 0, "closeout_log_sha256": "6217cd0a60d847fe6aec267f0130642f4232bcc995bb61578e6c51ee72e29d31", "summary_sha256": "25e04989bbc154ec503154acabfa45f374c7540ba4fb1dbc45c31a64a99c3279"},
+    "official_standalone_evaluator": {
+      "original_64x64": {"fvd": 231.89505004882812, "kvd": 14.373291075258749, "fad_x10000": 10.91976067982614, "fvd_delta_from_paper": 114.69505004882812, "kvd_delta_from_paper": 8.593291075258747, "fad_delta_from_paper": 0.19976067982613976, "log_sha256": "2eb50838319be68253191edc82a712465234170bb57505c6524ebe3b86234076"},
+      "sr_256x256_diagnostic": {"fvd": 154.74595642089844, "kvd": 7.883571488716342, "fad_x10000": 10.599776869639754, "log_sha256": "eb18b8edc29dc999d6ba1cccd1f454cf9caa665bd7365bb61884a5edd3a62c24"}
+    }
+  },
+  "two_run_descriptive_summary_original_64x64": {"runs": 2, "fvd_mean": 240.4477081298828, "fvd_range": 17.105316162109375, "kvd_mean": 14.92976610848072, "kvd_range": 1.1129500664439433, "fad_x10000_mean": 10.815234272740781, "fad_x10000_range": 0.2090528141707182},
+  "verdict": "A second complete, independently audited C3 checkpoint run again does not recover the paper FVD/KVD aggregate while FAD remains near it. Two runs do not establish stable variance, a paper contradiction, or a training result. SR remains diagnostic only.",
+  "next_evidence": "If pursued, preregister a third identical run; do not launch training."
+}

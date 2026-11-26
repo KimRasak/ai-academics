@@ -1,0 +1,63 @@
+{
+  "run_id": "javisdit_v1_official_checkpoint_single_sample_smoke_gpu4_20260920T125200Z",
+  "kind": "released_checkpoint_generation_smoke",
+  "status": "failed_pre_gpu_missing_official_soundfile_dependency",
+  "remote_pid": 2855781,
+  "started_at": "2026-09-20T12:52:00Z",
+  "gpu4_preflight_memory_mib": 4,
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/javisdit_v1_official_smoke_gpu4_20260920T125200Z.log",
+  "failure_evidence": {
+    "stage": "Python import before model construction or CUDA allocation",
+    "error": "ModuleNotFoundError: No module named 'soundfile'",
+    "source": "javisdit.datasets.utils imported by official scripts/inference.py",
+    "official_requirement": "soundfile==0.12.1",
+    "gpu4_after_failure_memory_mib": 4,
+    "generated_media_files": 0,
+    "interpretation": "environment dependency failure only; not checkpoint loading, generation, evaluator, metric, or GPU failure",
+    "next_action": "install the official soundfile pin and retry only in a fresh separately registered smoke directory"
+  },
+  "scope": "One official JavisDiT-v1.0 generated audio-video sample to verify checkpoint loading and output provenance. It is not JavisBench-mini evaluation, a paper metric, training, or model comparison.",
+  "code": {
+    "repository": "https://github.com/JavisVerse/JavisDiT",
+    "revision": "6821b8d161e9c5b195a58799859f08731a1471f9"
+  },
+  "weights": {
+    "javisdit_v1": "/gluster_hdd_cv/user/jinzili/weights/javisdit-v1-official/JavisDiT-v1.0-jav",
+    "wan": "/gluster_hdd_cv/user/jinzili/weights/javisdit-v1-official/Wan2.1-T2V-1.3B",
+    "audioldm2": "/gluster_hdd_cv/user/jinzili/weights/javisdit-v1-official/audioldm2",
+    "inventory_sha256": "98060fcc555c64f9870cd3d49f8785671cfc12c875e322677ee02248d57f93a5"
+  },
+  "generation_protocol": {
+    "official_config": "configs/javisdit-v1-0/inference/sample.py",
+    "physical_gpu": 4,
+    "cuda_visible_devices": "4",
+    "world_size": 1,
+    "prompt_source": "official JavisDiT README example prompt: ocean waves on a quiet rocky shore at dawn",
+    "resolution": "240p",
+    "aspect_ratio": "9:16",
+    "frames": 65,
+    "fps": 16,
+    "duration_seconds": 4.0625,
+    "audio_fps": 16000,
+    "seed": 42,
+    "batch_size": 1,
+    "sampling_steps": 50,
+    "dtype": "bf16",
+    "output_directory": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/outputs/javisdit_v1_official_smoke_gpu4_20260920T125200Z"
+  },
+  "required_closeout": [
+    "exit status and full launch log retained",
+    "all produced MP4/WAV files listed with SHA-256",
+    "ffprobe/decode result retained for each produced media file",
+    "no overwrite of any existing output directory",
+    "state remains smoke-only even if media generation succeeds"
+  ],
+  "prohibited_actions": [
+    "no JavisBench scoring",
+    "no paper-metric claim",
+    "no training",
+    "no use of GPUs 0-3 or termination of external processes",
+    "no reuse of mini benchmark output directory"
+  ],
+  "stopping_rule": "If GPU 4 preflight observes meaningful external compute use, do not launch. Any model-load/runtime failure is preserved as smoke evidence only."
+}

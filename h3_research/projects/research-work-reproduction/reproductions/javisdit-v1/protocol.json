@@ -1,0 +1,51 @@
+{
+  "protocol_id": "javisdit_v1_javisbench_mini_official_checkpoint_verification_v1",
+  "state": "official_weights_acquired_and_batch4_interface_smoke_terminal;_1000_prompt_mini_checkpoint_run_not_started",
+  "paper_scope": "JavisDiT++ v1.0 released-weight verification only; not JavisDiT-v0.1 preview and not a full training reproduction",
+  "code": {
+    "repository": "https://github.com/JavisVerse/JavisDiT",
+    "revision": "6821b8d161e9c5b195a58799859f08731a1471f9"
+  },
+  "model": {
+    "repository": "https://huggingface.co/JavisVerse/JavisDiT-v1.0-jav",
+    "weight_identity": "official JavisDiT++ model card",
+    "local_hashes_required_before_run": true,
+    "dependencies": [
+      "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
+      "https://huggingface.co/cvssp/audioldm2"
+    ]
+  },
+  "evaluation": {
+    "dataset": "JavisBench-mini",
+    "prompt_metadata_rows": 1000,
+    "prompt_csv_sha256": "1da733caaebd072ef5d11a12ab51e9a36c12ed1c702eb75a63b912de206bdb99",
+    "reference_feature_cache": "cache/fvd_fad/JavisBench-mini-vanilla-max4s.pt",
+    "reference_feature_cache_sha256": "b0d902d08f761e4177304328ff99783f79924b70893e35c0844163a13dfa65e9",
+    "raw_reference_media": "not released; distributional metric cache only",
+    "evaluator": "eval.javisbench.main from pinned official code; record third-party evaluator weights/revisions after setup",
+    "paper_comparability": "mini results are not directly comparable to full-JavisBench paper table"
+  },
+  "generation": {
+    "official_config": "configs/javisdit-v1-0/inference/sample.py",
+    "resolution": "240p",
+    "duration": "4 seconds",
+    "aspect_ratio": "9:16",
+    "prompt_path": "JavisBench-mini.csv",
+    "samples_per_prompt": 1,
+    "seed_policy": "record actual code/config seed and any per-rank variation before launch; do not invent a deterministic seed",
+    "world_size": "record before launch; official README shows one- and two-GPU inference examples"
+  },
+  "media_provenance_requirements": [
+    "retain generated MP4 and extracted/generated WAV for every prompt",
+    "retain prompt row to output filename mapping",
+    "ffprobe every generated media file",
+    "hash every generated media file and evaluator result",
+    "record failures and missing outputs; do not silently regenerate"
+  ],
+  "stopping_rules": [
+    "Do not launch if official model/dependency identity or hash cannot be recorded.",
+    "Do not score an incomplete prompt/output inventory as a full mini benchmark.",
+    "Do not call a mini result a reproduction of the full paper JavisBench row.",
+    "Do not begin training: raw Stage-2 TAVGBench YouTube media and full training provenance are unavailable."
+  ]
+}

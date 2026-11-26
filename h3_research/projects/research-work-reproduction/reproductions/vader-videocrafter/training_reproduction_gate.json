@@ -1,0 +1,53 @@
+{
+  "paper_id": "vader",
+  "target": "VADER paper Table 1 training and evaluation reproduction",
+  "status": "closed_do_not_train_paper_reproduction",
+  "scope_boundary": "The released VideoCrafter2 PickScore and HPS+Aesthetic LoRAs, and the disclosed 450-step HPS+Aesthetic example, are not identified as the Table 1 checkpoints or protocol.",
+  "completed_process_evidence": {
+    "unmodified_example_smoke": {
+      "run_id": "vader-official-example-train-smoke-v1",
+      "result": "terminated after seven optimizer steps although max_train_steps was one",
+      "failure": "loop/output defects in the released example",
+      "log_sha256": "348fd9bec4c3908dfb9963a22c3c5842c794b28d343221bb41d5e038611a323f"
+    },
+    "patched_process_smoke": {
+      "run_id": "vader-official-example-train-smoke-v2-patched",
+      "base_revision": "c63a39ee370a7374814cd069989a144863fb6095",
+      "patch_sha256": "4f114841e6adf0ac1bfecd79c379c006c7f63df5e67aec3883b817ca9838d7a1",
+      "optimizer_steps": 1,
+      "optimizer_step_seconds": 88.31,
+      "checkpoint_sha256": "13edb709e35837a8e5bf835e2fee8e67a1197f54731bed8c080b305660388cf0",
+      "interpretation": "patched process plumbing only; not paper training evidence"
+    },
+    "single_h100_attempt": {
+      "run_id": "vader-official-example-train-smoke-v3-single-h100",
+      "result": "failed before sampling because single-process Accelerate leaves peft_model unwrapped",
+      "log_sha256": "41e8483320b5178be53cac0f12637af0c25a774459e4c16a31e9fdd7b929cf4e"
+    }
+  },
+  "paper_identity_blockers": [
+    "The released PickScore LoRA uses chatgpt_custom_animal prompts and rank 16; the released HPS+Aesthetic LoRA uses chatgpt_custom_instruments prompts and rank 8. Neither release is identified as a Table 1 checkpoint.",
+    "Table 1 does not fix the base model/configuration for every column, seeds, samples per prompt, checkpoint-selection rule, or aggregation implementation.",
+    "The action/evaluation prompt files needed to reproduce Table 1 were deleted before the public release tag; remaining prompt ingredients do not establish the original train/test split.",
+    "The README's 450-step, four-A6000 example is not identified with a paper metric row or either released LoRA."
+  ],
+  "required_before_reopen": [
+    "Identify a paper-matching Table 1 base checkpoint and final VADER checkpoint, with hashes and release provenance.",
+    "Recover or author-supply the exact Table 1 prompt/data manifests, train/test split, seeds, samples per prompt, checkpoint-selection rule and aggregation code.",
+    "Freeze evaluator revisions, reward weights, media decoding and metric aggregation for every Table 1 column.",
+    "Establish that the requested training configuration and endpoint correspond to a paper claim, not only the 450-step example.",
+    "After all identity/protocol gates pass, preregister one-batch decode, differentiable generation/reward, backward, optimizer, checkpoint and resume tests, then set a claimed metric and stopping rule before full training."
+  ],
+  "permitted_work": [
+    "released checkpoint effect audits on retained public media",
+    "read-only artifact, provenance and evaluator audits",
+    "separately labelled process smoke of the disclosed example without paper-metric claims"
+  ],
+  "forbidden_claims": [
+    "VADER Table 1 reproduced",
+    "VADER training reproduced",
+    "released LoRA is a Table 1 checkpoint",
+    "patched 450-step example is a paper-equivalent training result"
+  ],
+  "decision": "do_not_start_or_expand_training_for_paper_reproduction"
+}

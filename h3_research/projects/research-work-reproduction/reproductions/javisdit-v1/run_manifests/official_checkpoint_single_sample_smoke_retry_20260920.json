@@ -1,0 +1,58 @@
+{
+  "run_id": "javisdit_v1_official_smoke_retry_gpu4_20260920T130100Z",
+  "kind": "released_checkpoint_generation_smoke_retry_after_cpu_entrypoint_gate",
+  "status": "aborted_protocol_violation_prompt_shell_splitting",
+  "remote_pid": 2858115,
+  "started_at": "2026-09-20T13:01:00Z",
+  "gpu4_preflight_memory_mib": 4,
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/javisdit_v1_official_smoke_retry_gpu4_20260920T130100Z.log",
+  "failure_evidence": {
+    "detected_on": "2026-09-20T13:08Z",
+    "cause": "Nested remote-shell quoting split the intended one-string prompt passed through --prompt into whitespace-delimited prompt items.",
+    "observed_generated_prompts": ["Realistic", "locked-off", "shot.", "Ocean"],
+    "partial_media_files": ["sample_0000.mp4", "sample_0001.mp4", "sample_0002.mp4", "sample_0003.mp4"],
+    "operator_action": "Sent SIGTERM only to the smoke process PID 2858115 after confirming the protocol violation; no external process was modified.",
+    "gpu4_after_termination_memory_mib": 4,
+    "interpretation": "The run proves official checkpoint loading and initial generation pipeline execution, but is invalid as the preregistered one-prompt smoke. Partial media must not be benchmarked or used as a result.",
+    "corrective_action": "Use a one-line prompt file with --prompt-path in a fresh run directory, avoiding shell splitting."
+  },
+  "supersedes_for_execution_only": "javisdit_v1_official_smoke_gpu4_20260920T125200Z",
+  "prior_run_outcome": "failed before CUDA/model construction because soundfile was missing; no media or GPU model allocation",
+  "scope": "One official JavisDiT-v1.0 generated audio-video sample to verify checkpoint loading and output provenance. It is not JavisBench-mini evaluation, a paper metric, training, or model comparison.",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "generation_protocol": {
+    "physical_gpu": 4,
+    "world_size": 1,
+    "prompt_source": "official JavisDiT README ocean-waves example prompt",
+    "resolution": "240p",
+    "aspect_ratio": "9:16",
+    "frames": 65,
+    "fps": 16,
+    "audio_fps": 16000,
+    "seed": 42,
+    "batch_size": 1,
+    "sampling_steps": 50,
+    "dtype": "bf16",
+    "output_directory": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/outputs/javisdit_v1_official_smoke_retry_gpu4_20260920T130100Z"
+  },
+  "entrypoint_gate": {
+    "command": "scripts/inference.py --help",
+    "result": "passed after official soundfile/librosa/audioflux/scipy pins and setuptools compatibility pin",
+    "no_gpu_used": true
+  },
+  "required_closeout": [
+    "exit status and full launch log retained",
+    "all produced MP4/WAV files listed with SHA-256",
+    "ffprobe/decode result retained for each produced media file",
+    "no overwrite of existing output directory",
+    "state remains smoke-only even if media generation succeeds"
+  ],
+  "prohibited_actions": [
+    "no JavisBench scoring",
+    "no paper-metric claim",
+    "no training",
+    "no use of GPUs 0-3 or termination of external processes",
+    "no reuse of a prior smoke output directory"
+  ],
+  "stopping_rule": "If GPU 4 preflight observes meaningful external compute use, do not launch. Any model-load/runtime failure is preserved as smoke evidence only."
+}

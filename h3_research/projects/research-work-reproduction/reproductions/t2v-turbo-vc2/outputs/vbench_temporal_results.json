@@ -1,0 +1,58 @@
+{
+  "status": "partial_vbench_complete",
+  "protocol": "paper-day VBench revision with independent deterministic generation seeds",
+  "vbench_revision": "03e7b948b0e8b9f87333c3f133b9f2a988a08f6e",
+  "input_view": {
+    "method": "hardlinks to validated raw MP4 files",
+    "videos": 4720,
+    "non_mp4_files": 0
+  },
+  "failed_attempt": {
+    "status": "invalid_zero_coverage",
+    "cause": "paper-day VBench inferred .json from the first mixed-directory entry and silently found zero videos",
+    "results": {
+      "dynamic_degree": "NaN",
+      "motion_smoothness": "NaN",
+      "temporal_flickering": "NaN"
+    }
+  },
+  "valid_results": {
+    "dynamic_degree": {
+      "paper_percent": 49.17,
+      "reproduced_percent": 80.27777777777779,
+      "delta_percentage_points": 31.107777777777777,
+      "prompts": 72,
+      "videos": 360,
+      "prompt_level_95pct_t_ci_percent": [
+        73.79752517428881,
+        86.75803038126672
+      ],
+      "result_sha256": "4a2d929f36518040ef5fdf002c312e3e1213f5aa72982d127006afef7cdd0063"
+    },
+    "motion_smoothness": {
+      "paper_percent": 97.34,
+      "reproduced_percent": 96.06642716905738,
+      "delta_percentage_points": -1.2735728309426264,
+      "prompts": 72,
+      "videos": 360,
+      "prompt_level_95pct_t_ci_percent": [
+        95.8739638231927,
+        96.25889051492202
+      ],
+      "result_sha256": "7e535ce961d80817a5391130bb32d060a87313c731141aed626f1f496509005c"
+    },
+    "temporal_flickering": {
+      "paper_percent": 97.48,
+      "reproduced_percent": 95.84995494767729,
+      "delta_percentage_points": -1.630045052322704,
+      "prompts": 75,
+      "videos": 375,
+      "prompt_level_95pct_t_ci_percent": [
+        95.58907011119383,
+        96.1108397841609
+      ],
+      "result_sha256": "c69cfab660c9599b01da96fd57418caf239cf24d506ecce58e7c743bd7412424"
+    }
+  },
+  "interpretation": "The released checkpoint does not numerically match the three paper claims under this fixed independent-seed protocol. Missing author seeds prevent an exact-protocol contradiction verdict."
+}

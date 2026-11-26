@@ -1,0 +1,53 @@
+{
+  "run_id": "minimax_h3_official_three_frozen_base_cases_034_8h100_20260922",
+  "status": "terminal_all_three_official_base_deployment_cases_passed",
+  "service": {
+    "scheduler": "gpu_launcher on osa00-h100-034.osa00.bdjp.io",
+    "model_root": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3",
+    "runtime": "SGLang MiniMaxH3Pipeline",
+    "physical_gpus": 8,
+    "topology": "TP=2, Ulysses=4, Ring=1",
+    "lora_path": null,
+    "ref2va": {"port": 30030, "service_peak_resident_mib_per_gpu": [60509, 60507, 60507, 60507, 60507, 60507, 60507, 60507]},
+    "fl2va": {"port": 30032, "service_peak_resident_mib_per_gpu": [60141, 60139, 60139, 60139, 60139, 60139, 60139, 60139]}
+  },
+  "cases": {
+    "ref2va": {
+      "official_script_sha256": "73ea0e5cc94440b2e8955dc0703a07e3c691d62967c481f5d9b3e92391fc882a",
+      "payload_matches_frozen_script": true,
+      "seed": 0,
+      "status": "completed",
+      "output_sha256": "a07c6052f8d7b64934d1b6e0066b0c1354419a71fabba6b1abd3edaed5743f00",
+      "media": "h264 1344x768 24fps, AAC 32000Hz stereo, 5.175s, 848870 bytes",
+      "inference_time_s": 134.41218270733953,
+      "peak_memory_mib": 53546.0,
+      "audit": "PASS_DEPLOYMENT_PROVENANCE_AND_MEDIA_CONTRACT",
+      "remote_directory": "outputs/ref2va_034_8gpu_base_20260922"
+    },
+    "t2va": {
+      "official_script_sha256": "78bfe72365f27a53d145d0ddbf1c422de3cfe075e6558998cc7e01d7d41cdab1",
+      "payload_matches_frozen_script": true,
+      "seed": 0,
+      "status": "completed",
+      "output_sha256": "9de5428db91658957c174c11ec98a368e0ef4b8ea187714ee612f07f7473043a",
+      "media": "h264 1344x768 24fps, AAC 32000Hz stereo, 10.125s, 1613940 bytes",
+      "inference_time_s": 108.89034029841423,
+      "peak_memory_mib": 53696.0,
+      "audit": "PASS_DEPLOYMENT_PROVENANCE_AND_MEDIA_CONTRACT",
+      "remote_directory": "outputs/t2va_034_8gpu_base_20260922"
+    },
+    "fl2va": {
+      "official_script_sha256": "82d1c06897da37e5976ae8f58cc1833ed04e92559aebe9f9578e0a890d2a8cb5",
+      "payload_matches_frozen_script": true,
+      "seed": 0,
+      "status": "completed",
+      "output_sha256": "d59269b793d57dedf78777d7a66e1f4632e7c1af1cec8c64204be9de5aed286a",
+      "media": "h264 1344x768 24fps, AAC 32000Hz stereo, 8.000s, 1057439 bytes",
+      "inference_time_s": 80.06436097994447,
+      "peak_memory_mib": 52600.0,
+      "audit": "PASS_DEPLOYMENT_PROVENANCE_AND_MEDIA_CONTRACT",
+      "remote_directory": "outputs/fl2va_034_8gpu_base_20260922"
+    }
+  },
+  "interpretation": "All three released H3 Base 768p request paths are now locally deployable and generated retained audiovisual media under the frozen official request payloads. This proves deployment and request provenance only. It is not a Sci-VBench score reproduction, a paper-table metric reproduction, a reproduction of hosted H3 Context-IR/2K workflow, or training evidence."
+}

@@ -1,0 +1,94 @@
+{
+  "prepared_date": "2026-09-16",
+  "status": "historical_four_h100_fl2va_load_failure_superseded_by_8xH100_deployment_and_interrupted_testmini_run",
+  "current_status_supersession": {
+    "date": "2026-09-23",
+    "official_8xH100_cases": "three frozen MiniMax-H3 Base 768p cases completed; deployment evidence only",
+    "scivbench_testmini": {
+      "frozen_sample_count": 150,
+      "completed_runner_summaries": 128,
+      "error_json_count": 0,
+      "interruption": "the 8xH100 service disappeared during item 129 denoise; the queued task cannot progress while port 30032 is absent",
+      "local_vt": "not computed; partial outputs must not be scored or aggregated"
+    },
+    "recovery_gate": "restore the identical Base TP=2/Ulysses=4/Ring=1/no-LoRA service without touching external jobs, resume to 150/150, then run media/provenance audit before six-VT",
+    "evidence": "SCIVBENCH_TESTMINI_VT_PREREGISTRATION_20260922.json; H3_OFFICIAL_THREE_CASES_8H100_TERMINAL_20260922.json"
+  },
+  "latest_freeze_verification": {
+    "date": "2026-09-19",
+    "cases": ["t2va", "fl2va", "ref2va"],
+    "decision": "FREEZE_VERIFIED",
+    "scope": "read-only SHA-256 verification of official README, per-case request and frozen local execution tools; no H3 service or generation launched"
+  },
+  "latest_read_only_reverification": {
+    "timestamp_utc": "2026-09-19T00:43:34Z",
+    "cases": ["t2va", "fl2va", "ref2va"],
+    "decision": "FREEZE_VERIFIED",
+    "scope": "remote read-only rehash of each official request, README, routing record, reference-media audit and all frozen local tools; no H3 service or generation launched"
+  },
+  "cases": {
+    "t2va": {"official_reference_available": true, "locally_reproduced": false},
+    "fl2va": {"official_reference_available": true, "locally_reproduced": false},
+    "ref2va": {"official_reference_available": true, "locally_reproduced": false}
+  },
+  "note": "No generation score is reported before the unmodified official request completes.",
+  "excluded_non_h3_service_artifacts": {
+    "location": "h3_research/shared/h3-baseline/official_requests",
+    "audit_date": "2026-09-18",
+    "lanes": ["t2va", "fl2va", "ref2va"],
+    "reason": "Their final API responses report model=sora-2, not MiniMax-H3. They are retained as service provenance only and are not local H3 outputs."
+  },
+  "local_runtime_identity_preflight": {
+    "model_index_class": "MiniMaxH3Pipeline",
+    "partitions": {"fl2va": "FL2VA", "ref2va": "Ref2VA"},
+    "ports_30010_30011_listening": false,
+    "h3_gpu_processes": false,
+    "sglang_version_cli": "did_not_return_within_60_seconds; terminated without launching a server"
+  },
+  "authorized_fl2va_launch_attempts_20260920": [
+    {
+      "attempt": 1,
+      "service_log": "server_logs/fl2va_20260920T022012Z/service.log",
+      "pre_gpu_failure": "launcher metadata collection passed four -i selectors to this nvidia-smi version, which rejected the argument combination before SGLang exec",
+      "correction": "query the same selected GPUs one at a time; no model/request/protocol setting changed",
+      "h3_generation": false
+    },
+    {
+      "attempt": 2,
+      "service_log": "server_logs/fl2va_20260920T023155Z/service.log",
+      "runtime": "official FL2VA partition selected through MiniMaxH3Pipeline; text encoder loaded; transformer FSDP materialization failed before health listener",
+      "failure": "CUDA OOM while allocating 294 MiB on all four logical ranks; with expandable_segments enabled, each rank had about 156 MiB free and 1.05 GiB PyTorch reserved/unallocated",
+      "service_listener": false,
+      "request_submitted": false,
+      "output_media": false,
+      "post_failure_cleanup": "SGLang exited automatically; GPUs 4-7 had no compute processes and ports 30010/30011 were free on verification",
+      "h3_generation": false
+    }
+  ],
+  "four_gpu_launch_verdict": "The official four-GPU FL2VA Base command is not deployable in the current 80GB H100 environment because the FSDP transformer-load peak exceeds per-rank capacity. This is an execution failure, not evidence about H3 output quality, paper metrics, or training.",
+  "next_evidence": "Do not retry the identical four-GPU load. Require a documented official low-memory/offload/sharding deployment mode, or explicit authorization for a differently scoped hardware configuration, before another local H3 service attempt.",
+  "latest_launch_ownership_gate": {
+    "timestamp_utc": "2026-09-19T01:31:15Z",
+    "requested_gpus": [4, 5, 6, 7],
+    "ports_30010_30011_listening": false,
+    "decision": "SAFE_TO_START_H3_SERVICE_SUBJECT_TO_HUMAN_OWNERSHIP_CONFIRMATION",
+    "reason": "GPU 4-7 had no compute processes and both official ports were free. This gate is not launch authorization: an authorized human must explicitly confirm ownership before a four-GPU service is started.",
+    "evidence": "h3_ownership_gate_20260919T013115Z.json"
+  },
+  "latest_gpu_ownership_audit": {
+    "timestamp_utc": "2026-09-18T06:12:02Z",
+    "host": "osa00-h100-006.osa00.bdjp.io",
+    "ports_30010_30011_listening": false,
+    "decision": "do_not_start_four_gpu_service",
+    "occupied_gpu_allocations_mib": {
+      "0": [2838],
+      "1": [2838, 63692],
+      "2": [2838, 62958],
+      "3": [1878, 68396],
+      "4": [63522],
+      "5": [63538],
+      "6": [63784],
+      "7": [63266]
+    }
+  }
+}

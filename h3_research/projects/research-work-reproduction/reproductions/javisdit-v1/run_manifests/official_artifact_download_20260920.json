@@ -1,0 +1,52 @@
+{
+  "run_id": "javisdit_v1_official_artifact_download_20260920T121752Z",
+  "kind": "official_artifact_acquisition_only",
+  "status": "terminal_all_official_artifacts_downloaded_and_full_sha256_inventory_verified",
+  "remote_pid": 2849575,
+  "started_at": "2026-09-20T12:17:52Z",
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/download_official_artifacts_20260920T121752Z.log",
+  "remote_targets": {
+    "javisdit": "/gluster_hdd_cv/user/jinzili/weights/javisdit-v1-official/JavisDiT-v1.0-jav",
+    "wan": "/gluster_hdd_cv/user/jinzili/weights/javisdit-v1-official/Wan2.1-T2V-1.3B",
+    "audioldm2": "/gluster_hdd_cv/user/jinzili/weights/javisdit-v1-official/audioldm2",
+    "javisbench": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/benchmark/JavisBench"
+  },
+  "official_repositories": [
+    "JavisVerse/JavisDiT-v1.0-jav",
+    "Wan-AI/Wan2.1-T2V-1.3B",
+    "cvssp/audioldm2",
+    "JavisVerse/JavisBench"
+  ],
+  "expected_terminal_artifacts": [
+    "all four official downloads return success",
+    "SHA-256 inventory covers every downloaded non-cache file",
+    "provenance file identifies the inventory"
+  ],
+  "terminal_evidence": {
+    "inventory_path": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/manifests/official_artifacts_20260920T121752Z.sha256",
+    "inventory_sha256": "98060fcc555c64f9870cd3d49f8785671cfc12c875e322677ee02248d57f93a5",
+    "provenance_path": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/manifests/official_artifacts_20260920T121752Z.provenance.txt",
+    "provenance_sha256": "a97bf4eb4059190bd558480819fd72cc76e133c8edfba462c06d76717844ced5",
+    "non_cache_files": 76,
+    "files_by_artifact": {
+      "JavisDiT-v1.0-jav": 11,
+      "Wan2.1-T2V-1.3B": 22,
+      "audioldm2": 35,
+      "JavisBench": 8
+    },
+    "incomplete_download_files": 0,
+    "full_inventory_recheck": "all 76 SHA-256 entries passed",
+    "critical_hash_recheck": {
+      "model_index": "03f94b02c381ea40ae7864f518a7db29d8af2fda54ce0bb09ca84bebf0524d1f",
+      "javisbench_mini_csv": "1da733caaebd072ef5d11a12ab51e9a36c12ed1c702eb75a63b912de206bdb99",
+      "javisbench_mini_fvd_fad_cache": "b0d902d08f761e4177304328ff99783f79924b70893e35c0844163a13dfa65e9"
+    }
+  },
+  "explicit_non_actions": [
+    "no GPU allocation or use",
+    "no inference",
+    "no evaluator execution",
+    "no training"
+  ],
+  "next_gate": "Only after terminal download and artifact hash audit may environment compatibility and checkpoint-generation readiness be assessed."
+}

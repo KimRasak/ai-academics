@@ -1,0 +1,54 @@
+{
+  "run_id": "minimax_h3_base_scivbench_testmini_settings_matched_vt_20260922",
+  "status": "preregistered_generation_smoke_then_resume_safe_full_run",
+  "objective": "Evaluate the locally generated released MiniMax-H3 Base checkpoint on the executable public Sci-VBench testmini VT protocol. This is a checkpoint benchmark observation, not a paper-wide judge-metric reproduction or training evidence.",
+  "generation_service": {
+    "host": "osa00-h100-034.osa00.bdjp.io",
+    "base_url": "http://osa00-h100-034.osa00.bdjp.io:30032",
+    "partition": "FL2VA",
+    "task": "t2va",
+    "model_root": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3",
+    "runtime": "SGLang MiniMaxH3Pipeline",
+    "physical_gpus": 8,
+    "topology": "TP=2, Ulysses=4",
+    "lora_path": null
+  },
+  "public_inputs": {
+    "testmini_jsonl": "h3_research/projects/seed-sensitivity/data/scivbench/testmini.jsonl",
+    "testmini_rows": 150,
+    "testmini_sha256": "09f2cb83c8e3dde74e56360f41968f2d6c9cd867cb276f30087dbfff6a066414",
+    "author_settings": "h3_research/projects/seed-sensitivity/data/scivbench/released_settings/<id>/MiniMax-H3.json",
+    "settings_rows": 150,
+    "settings_inventory_sha256": "ce9a108defa609ffdcae51943d37073867a7d76b1ee9b676a97befa3a2cf5ee4",
+    "joined_identity": "each testmini id has exactly one author MiniMax-H3 settings sidecar; prompts match the published settings"
+  },
+  "frozen_generation_protocol": {
+    "task": "t2va",
+    "prompt": "exact author settings prompt per matching testmini id",
+    "target": {"short_edge": 768, "aspect_ratio": "16:9", "duration_seconds": 15},
+    "fps": 24,
+    "num_inference_steps": 50,
+    "seed": 20260803,
+    "expected_size": "1344x768",
+    "generation_order": "published testmini JSONL order",
+    "resume_rule": "skip only directories with a completed final status, decodable MP4 and SHA-256 inventory; never silently regenerate a completed ID"
+  },
+  "evaluation_protocol": {
+    "evaluator": "pinned Sci-VBench VT revision e8cb3988631d0c22d31c02fc5b1cc3693bfb7031",
+    "metrics": ["subject_consistency", "background_consistency", "motion_smoothness", "dynamic_degree", "aesthetic_quality", "imaging_quality", "VT"],
+    "weights": "/ssd2/jinzili/scivbench_vt_weights",
+    "environment": "/ssd2/jinzili/envs/scivbench_vt",
+    "reference_comparison": "published MiniMax-H3 testmini VT aggregate 0.73460 and evaluator replay 0.735706; score comparison only after all 150 local media are complete"
+  },
+  "stopping_rules": [
+    "First run one author-settings smoke; do not launch the remaining 149 if its payload, media contract or provenance fails.",
+    "Stop on first non-terminal API failure, service health failure or output identity mismatch; preserve error evidence and do not silently retry.",
+    "Do not evaluate incomplete media as a 150-video aggregate.",
+    "Do not report PG/SCC/SC/LPF: the paper judge model/protocol is not locally closed."
+  ],
+  "interpretation_rules": [
+    "A full VT result is a settings-matched local checkpoint observation, not a proof that author code, hardware, seeds or all evaluation dimensions match.",
+    "Do not call numerical proximity to the published VT aggregate a full paper reproduction.",
+    "No training is authorized by this benchmark run."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "paper_id": "t2v-turbo",
+  "status": "released_checkpoint_all_16_vbench_dimensions_complete_training_not_started",
+  "claims": [
+    {
+      "claim_id": "t2v_turbo_vc2_vbench_table1",
+      "paper_location": "Table 1",
+      "evidence_state": "C2",
+      "paper_reported": {
+        "total": 81.01,
+        "quality": 82.57,
+        "semantic": 74.76,
+        "dynamic_degree": 49.17,
+        "motion_smoothness": 97.34,
+        "aesthetic_quality": 63.04,
+        "temporal_flickering": 97.48
+      },
+      "released_checkpoint_result": {
+        "protocol": "paper-day evaluator with independent deterministic seeds; author seeds unavailable",
+        "quality": 84.43634547869353,
+        "semantic": 73.69081339446653,
+        "total": 82.28723906184811,
+        "dimensions_complete": 16,
+        "largest_dimension_deltas_percentage_points": {
+          "dynamic_degree": 31.107777777777784,
+          "multiple_objects": -7.012804878048776
+        },
+        "color_coverage": {
+          "evaluated_videos": 386,
+          "expected_videos": 425
+        }
+      },
+      "training_reproduction_result": null,
+      "current_verdict": "aggregate_total_is_higher_but_dimension_profile_does_not_numerically_recover_paper_under_independent_fixed_seeds_exact_author_seeds_missing"
+    },
+    {
+      "claim_id": "t2v_turbo_vc2_4step_speed_quality",
+      "paper_location": "Abstract, Table 1 and Figure 3",
+      "evidence_state": "C1",
+      "paper_reported": {
+        "inference_steps": 4,
+        "teacher_steps": 50,
+        "general_preference_vs_teacher_percent": 54.1
+      },
+      "released_checkpoint_result": null,
+      "training_reproduction_result": null,
+      "current_verdict": "checkpoint_executable_four_step_denoising_0.903_seconds_on_one_h100_human_study_not_reproduced"
+    }
+  ]
+}

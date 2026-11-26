@@ -1,0 +1,68 @@
+{
+  "protocol_id": "t2v-turbo-vc2-vbench-independent-seeds-v1",
+  "purpose": "released-checkpoint verification, not an exact recovery of the authors' unavailable seeds",
+  "status": "generation_validated_evaluation_pending",
+  "model": {
+    "code_revision": "eaae323f10d136796a33e8f5304ed50e40def570",
+    "runner_sha256": "59d9022fc32f77bf685ee1e6adc2703e2f1dd9a1fc1ca5960228c27de3973d90",
+    "base_checkpoint_sha256": "1edf769ece3308e977228943eeeed39286806aba9da17350449a3fbf4324ccfb",
+    "lora_checkpoint_sha256": "f1b223501f3fbbd491a9797c37f224ba031520cb442a10c07e4613b70b203845"
+  },
+  "vbench": {
+    "paper_day_revision": "03e7b948b0e8b9f87333c3f133b9f2a988a08f6e",
+    "current_audit_revision": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+    "prompt_file": "prompts/all_dimension.txt",
+    "prompt_file_sha256": "f9b50654f81ab732b9235d5bb91f0c3a4d152fac19249ce3a3a9185b2d80d8c3",
+    "full_info_sha256": "5dd2de80ee43cda750b2b72ea7023657c0b90d3702041c7e4608c65dbe50dccd",
+    "source_prompt_lines": 946,
+    "unique_prompts": 944,
+    "duplicate_prompt_lines": 2,
+    "samples_per_prompt": 5,
+    "total_videos": 4720,
+    "filename_rule": "$prompt-$sample_index.mp4"
+  },
+  "generation": {
+    "width": 512,
+    "height": 320,
+    "frames": 16,
+    "fps": 16,
+    "inference_steps": 4,
+    "lcm_origin_steps": 50,
+    "guidance_scale": 7.5,
+    "dtype": "float16",
+    "seed_base": 0,
+    "seed_rule": "seed_base + prompt_index * samples_per_prompt + sample_index",
+    "seed_range": [0, 4719],
+    "seed_uniqueness_verified": true
+  },
+  "execution": {
+    "output_root": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/t2v-turbo/outputs/vbench-standard-independent-seeds-v1",
+    "num_shards": 4,
+    "jobs_per_shard": 1180,
+    "physical_gpus": [4, 5, 6, 7],
+    "pids": [1586122, 1586123, 1586124, 1586125],
+    "raw_media_retained": true,
+    "per_video_manifest": true
+  },
+  "preflight": {
+    "plan_integrity": "passed",
+    "four_shard_smoke": "passed",
+    "smoke_videos": 4,
+    "smoke_media_checks": {
+      "resolution": "512x320",
+      "fps": 16,
+      "frames": 16,
+      "full_decode": "passed"
+    }
+  },
+  "validation": {
+    "status": "success",
+    "validator_sha256": "1422d78ce925e7aa4e8e9b92eb065de2ad7cfafa69432b0dd4f00101c435cf0d",
+    "remote_report_sha256": "14e079e93f5d5f92c6de5afc770119d8c1ad0fc163b68b80115ae55928f2da78",
+    "actual_videos": 4720,
+    "manifest_records": 4720,
+    "total_bytes": 5027869882,
+    "full_decode": "passed_all",
+    "issues": 0
+  }
+}

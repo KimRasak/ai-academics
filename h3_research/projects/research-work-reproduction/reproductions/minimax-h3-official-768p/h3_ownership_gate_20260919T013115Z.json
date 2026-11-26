@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-09-19T01:31:15Z",
+  "method": "remote read-only tools/check_h3_launch_preflight.sh 4 5 6 7",
+  "selected_physical_gpus": [4, 5, 6, 7],
+  "ports": {"30010": "free", "30011": "free"},
+  "compute_processes": {"4": [], "5": [], "6": [], "7": []},
+  "decision": "SAFE_TO_START_H3_SERVICE_SUBJECT_TO_HUMAN_OWNERSHIP_CONFIRMATION",
+  "non_action": "No H3 service was launched, no existing process was stopped, and no official generation request was sent.",
+  "required_before_launch": "An authorized human must explicitly confirm ownership of GPUs 4, 5, 6, and 7 for the four-GPU H3 service window."
+}

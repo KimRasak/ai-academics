@@ -1,0 +1,36 @@
+{
+  "run_id": "javisdit_v1_model_runtime_dependency_gate_20260920T123939Z",
+  "kind": "cpu_only_model_runtime_dependency_install_and_import_gate",
+  "status": "failed_flashattention_install_cross_filesystem_temporary_path",
+  "remote_pid": 2853051,
+  "started_at": "2026-09-20T12:39:39Z",
+  "environment_path": "/gluster_hdd_cv/user/jinzili/env/javisdit-v1-py310-cu121",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/model_runtime_dependency_gate_20260920T123939Z.log",
+  "dependencies": {
+    "galore_torch": "required transitively by ColossalAI actual model import under the documented no-deps compatibility layer",
+    "flash_attn": "2.7.4.post1; explicit official requirements-cu121.txt commented install target and runtime requirement of Wan flash_attention path"
+  },
+  "required_imports": [
+    "flash_attn",
+    "javisdit.models.wan.modules.attention"
+  ],
+  "explicit_non_actions": [
+    "no GPU allocation or use",
+    "no model weight loading",
+    "no inference",
+    "no evaluator execution",
+    "no training"
+  ],
+  "success_gate": "FlashAttention imports and attention.FLASH_ATTN_2_AVAILABLE is true after actual model-package import.",
+  "failure_rule": "Preserve installation/import failure and forbid GPU model-load smoke; do not substitute a non-FlashAttention code path."
+  ,
+  "failure_evidence": {
+    "galore_torch": "installed successfully with bitsandbytes",
+    "flash_attn_requested": "2.7.4.post1",
+    "flash_wheel_resolution": "installer located flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp310-cp310-linux_x86_64.whl",
+    "failure": "Invalid cross-device link while moving the resolved prebuilt wheel from /root pip cache to its temporary wheel directory",
+    "interpretation": "installer filesystem-path failure before package installation; not evidence of a source build, CUDA ABI, model, inference, or GPU failure",
+    "next_action": "retry exact same official package version with TMPDIR and PIP_CACHE_DIR on /gluster_hdd_cv to keep cache and temporary wheel path on one filesystem"
+  }
+}

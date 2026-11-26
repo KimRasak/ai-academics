@@ -1,0 +1,33 @@
+{
+  "status": "success",
+  "remote_output_dir": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/t2v-turbo/outputs/vbench-standard-independent-seeds-v1",
+  "remote_report_sha256": "14e079e93f5d5f92c6de5afc770119d8c1ad0fc163b68b80115ae55928f2da78",
+  "validator_sha256": "1422d78ce925e7aa4e8e9b92eb065de2ad7cfafa69432b0dd4f00101c435cf0d",
+  "prompt_file_sha256": "f9b50654f81ab732b9235d5bb91f0c3a4d152fac19249ce3a3a9185b2d80d8c3",
+  "source_prompt_lines": 946,
+  "unique_prompts": 944,
+  "samples_per_prompt": 5,
+  "expected_videos": 4720,
+  "actual_videos": 4720,
+  "manifest_records": 4720,
+  "unique_manifest_filenames": 4720,
+  "seed_range": [0, 4719],
+  "total_bytes": 5027869882,
+  "codec_counts": {
+    "h264": 4720
+  },
+  "media_contract": {
+    "width": 512,
+    "height": 320,
+    "fps": 16,
+    "decoded_frames": 16,
+    "full_decode": "passed"
+  },
+  "generation_runtime_seconds": {
+    "minimum": 0.5575048923492432,
+    "maximum": 1.145688533782959,
+    "mean": 0.5619040092674352
+  },
+  "validation_seconds": 155.57439470291138,
+  "issues": []
+}

@@ -1,0 +1,13 @@
+diff --git a/vabench/__init__.py b/vabench/__init__.py
+index UNVERIFIED..PATCHED 100644
+--- a/vabench/__init__.py
++++ b/vabench/__init__.py
+@@ -32,7 +32,7 @@ class VABench(object):
+         self.prompt_mapping = self.load_prompt_mapping()
+         
+     def load_prompt_mapping(self):
+-        mapping_file = "./mapping_text/final_idx_to_prompt.csv"
++        mapping_file = "./mapping/final_idx_to_prompt.csv"
+         mapping = {}
+         try:
+             with open(mapping_file, 'r', encoding='utf-8') as f:

@@ -1,0 +1,42 @@
+{
+  "freeze_date": "2026-09-18",
+  "scope": "MiniMax-H3 local 768p Base deployment R0 only",
+  "purpose": "Immutable identity checks before any official frozen request is submitted. This manifest does not claim a local H3 generation has occurred.",
+  "official_release": {
+    "model_root": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3",
+    "readme_sha256": "819db2fa4bef63feb077b2d425974e640deb3c453b6a12844467374d7ca39ae9",
+    "checkpoint_index_presence": {
+      "FL2VA": {"text_encoder_shards": "14/14", "transformer_shards": "13/13"},
+      "Ref2VA": {"text_encoder_shards": "14/14", "transformer_shards": "13/13"},
+      "caveat": "Index-to-file presence audit only; this is not a per-shard content hash claim."
+    }
+  },
+  "official_request_scripts": {
+    "t2va": {"sha256": "78bfe72365f27a53d145d0ddbf1c422de3cfe075e6558998cc7e01d7d41cdab1", "port": 30010, "partition": "FL2VA", "seed": 0},
+    "fl2va": {"sha256": "82d1c06897da37e5976ae8f58cc1833ed04e92559aebe9f9578e0a890d2a8cb5", "port": 30010, "partition": "FL2VA", "seed": 0},
+    "ref2va": {"sha256": "73ea0e5cc94440b2e8955dc0703a07e3c691d62967c481f5d9b3e92391fc882a", "port": 30011, "partition": "Ref2VA", "seed": 0}
+  },
+  "official_reference_outputs": {
+    "t2va": "d66903241362e224085cc93f7a5e70fba6ab378d0ac6ff6af83acf2559849a42",
+    "fl2va": "5a5d6e0fcdda7e6a5d98cb92d9e5cb4b6b0b44d6e1dfd5a370d16dfaa79b9ae6",
+    "ref2va": "5c9d33dfc517438c59e93da7b3d0b2a62e3cf69bc2adb7d1b2d33d7d8df7161f"
+  },
+  "local_execution_tools": {
+    "request_routing_preflight.json": "d30fef5049f002e4e302f44d834b7d55bfe6eaafcd86f3f8da3cad5b9c00f4c4",
+    "official_reference_media_audit.json": "ff28627cdef2422809fa84929038da00b7949e7d6f8381b8465943e76d8688f2",
+    "tools/check_h3_launch_preflight.sh": "651ecaac76e75f9dce03b67a9846c221818e5aeb6f1774dd834cb89d28d73daf",
+    "tools/audit_h3_service_turnover.sh": "e0f6f1b6815ead033b7c32bf01607df335e59003ca29138349bd9598376990ba",
+    "tools/verify_r0_freeze.py": "4d1dc316cf4bb26a535eb5cddeaaf0e1f9a55d7161b8031dedbd2fa38b6dd318",
+    "tools/audit_frozen_case_output.py": "b27e2060641102611e81200c5a2aeda2c6840ec9f632536589c1572900f8b9b5",
+    "tools/run_frozen_official_request.py": "3a61f0b537e3aa1ddf0e94ea5f5ad67c9903574d6c81917d93f51e26c435a942",
+    "commands/launch_h3_base_service.sh": "db95856be6ca3203963b2a4da81d05964e8f3d0356407402a73d25c188b271ab",
+    "commands/run_frozen_official_case.sh": "ea8223580acd55f8486cfd817d4ae398703677bd936161ccd022423d630c06be"
+  },
+  "pre_submit_gate": [
+    "Run the read-only four-GPU ownership gate and retain its output.",
+    "Confirm a human has cleared ownership; never preempt another process.",
+    "Rehash the selected official request script and all local execution tools against this manifest.",
+    "Confirm the matching partition and official listener port are live.",
+    "Run one non-overwriting frozen case and retain all returned provenance."
+  ]
+}

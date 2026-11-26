@@ -1,0 +1,37 @@
+{
+  "run_id": "javisdit_v1_setup_official_code_and_cpu_import_gate_20260920T123143Z",
+  "kind": "official_code_setup_and_cpu_import_gate",
+  "status": "running",
+  "remote_pid": 2851712,
+  "started_at": "2026-09-20T12:31:43Z",
+  "code_repository": "https://github.com/JavisVerse/JavisDiT",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "remote_source_path": "/gluster_hdd_cv/user/jinzili/code/research-work-reproduction/javisdit-v1/JavisDiT",
+  "environment_path": "/gluster_hdd_cv/user/jinzili/env/javisdit-v1-py310-cu121",
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/setup_official_code_20260920T123143Z.log",
+  "direct_inference_dependencies": {
+    "colossalai": "0.5.0",
+    "mmengine": ">=0.10.3",
+    "pandas": ">=2.0.3",
+    "timm": "0.9.16",
+    "rotary_embedding_torch": "0.5.3",
+    "ftfy": ">=6.2.0",
+    "diffusers": "0.29.0",
+    "accelerate": "0.29.2",
+    "av": ">=12.0.0,<14.0.0",
+    "numpy": "<2.0.0",
+    "huggingface_hub": ">=0.25.0",
+    "transformers": "4.49.0",
+    "peft": "0.13.2",
+    "easydict": "unversioned official requirement"
+  },
+  "explicit_non_actions": [
+    "no GPU allocation or use",
+    "no model loading",
+    "no inference",
+    "no evaluator execution",
+    "no training"
+  ],
+  "success_gate": "Pinned repository revision is detached, editable package install succeeds, and scripts/inference.py direct Python import dependencies plus javisdit registry/config imports succeed on CPU.",
+  "failure_rule": "Preserve dependency/import traceback; do not launch GPU inference using an incomplete environment."
+}

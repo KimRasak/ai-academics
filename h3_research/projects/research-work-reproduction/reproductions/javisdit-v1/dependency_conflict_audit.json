@@ -1,0 +1,51 @@
+{
+  "status": "official_dependency_resolution_conflict_observed",
+  "official_repository_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "conflict": {
+    "repository_requirements_txt": "transformers==4.49.0",
+    "repository_requested_runtime_package": "colossalai==0.5.0",
+    "colossalai_0_5_0_package_metadata": "transformers==4.51.3",
+    "pip_result": "ResolutionImpossible"
+  },
+  "evidence": {
+    "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/setup_official_code_20260920T123143Z.log",
+    "observed_message": "Cannot install colossalai==0.5.0 and transformers==4.49.0 because these package versions have conflicting dependencies."
+  },
+  "interpretation": "The pinned official repository release cannot be installed by a standard resolver exactly as its requirements and requested ColossalAI version state. This is an upstream packaging inconsistency, not a model inference result.",
+  "next_compatibility_gate": {
+    "selected_primary_pin": "transformers==4.49.0 because it is the explicit pinned version in the audited repository requirements.txt",
+    "colossalai_installation": "install ColossalAI 0.5.0 without dependency resolution only after direct repository requirements are installed",
+    "scope": "CPU import compatibility test only; no claim of exact official dependency resolution",
+    "stop_rule": "If official inference imports fail under this documented compatibility layer, do not start GPU inference; preserve traceback and request/seek an official resolution."
+  }
+  ,
+  "post_import_dependency_gap": {
+    "observed_at": "2026-09-20T12:39Z",
+    "trigger": "importing javisdit.models.wan.modules.attention after the CPU repository-import compatibility gate",
+    "missing_module": "galore_torch",
+    "trace_origin": "colossalai.nn.optimizer imports GaLoreAdafactor and GaLoreAdamW",
+    "interpretation": "The initial registry/config import does not cover the actual model package import. The missing module is an undeclared transitive ColossalAI runtime dependency under the required --no-deps compatibility layer; no model was loaded and no GPU was used.",
+    "next_gate": "install galore-torch in the isolated environment, then repeat actual model-module import before any GPU allocation",
+    "subsequent_gap": {
+      "missing_module": "pytorchvideo",
+      "trace_origin": "bundled ImageBind data import during javisdit.models package import",
+      "official_requirement": "pytorchvideo @ git+https://github.com/facebookresearch/pytorchvideo.git@28fe037d212663c6a24f373b94cc5d478c8c1a1d",
+      "interpretation": "Another official runtime dependency was omitted from the minimal direct-inference set. iopath succeeded; no model weight or GPU was used.",
+      "next_gate": "install the exact official pytorchvideo revision and repeat actual model import before GPU allocation"
+    }
+  },
+  "attention_runtime_audit": {
+    "official_v1_config": "configs/javisdit-v1-0/inference/sample.py",
+    "finding": "The v1 config has no explicit enable_flash_attn flag, but Wan model.py calls flash_attention directly. flash_attention asserts FlashAttention-2 availability when FlashAttention-3 is absent.",
+    "result": "FlashAttention is a runtime requirement for the v1 model path, not an optional performance-only dependency for this protocol.",
+    "next_gate": "install and CPU-import official requirements-cu121.txt FlashAttention 2.7.4.post1 under the isolated torch 2.5.1 cu121 stack before model-load smoke"
+  }
+  ,
+  "flashattention_install_attempt_1": {
+    "package": "flash-attn==2.7.4.post1",
+    "result": "failed_before_install",
+    "failure": "pip Invalid cross-device link moving a resolved prebuilt cu12/torch2.5/cp310 wheel between /root cache and temporary wheel directory",
+    "not_evidence_of": ["CUDA ABI incompatibility", "FlashAttention build failure", "model load failure", "GPU failure"],
+    "next_action": "same-version retry with temporary and pip-cache paths both under /gluster_hdd_cv"
+  }
+}

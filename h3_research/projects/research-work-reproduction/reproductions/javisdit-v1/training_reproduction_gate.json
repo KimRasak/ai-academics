@@ -1,0 +1,25 @@
+{
+  "status": "closed_do_not_train",
+  "scope": "JavisDiT++ full three-stage training reproduction",
+  "blocked_by": [
+    "Stage 2 AV-SFT uses TAVGBench YouTube media that the official README says cannot be redistributed for copyright reasons; a video-ID list does not preserve auditable raw media.",
+    "JavisBench reference raw YouTube audio/video is not released, so its FVD/KVD/FAD cache cannot close original-media provenance.",
+    "Released AV-DPO generated-only data may support a separate future Stage-3 compatibility study but cannot recreate Stage 1/2 or the full paper process.",
+    "Paper-matching total compute, exact stage checkpoints, seed schedule and complete training manifests are not yet audited."
+  ],
+  "permitted_work": [
+    "released checkpoint generation and official JavisBench-mini evaluation with explicit cache-provenance limitation",
+    "read-only code/data/model audits",
+    "media and evaluator dependency audits"
+  ],
+  "forbidden_claims": [
+    "JavisDiT++ training reproduced",
+    "full paper metric reproduced from JavisBench-mini",
+    "reference original-media provenance closed"
+  ],
+  "reopen_only_if": [
+    "auditable original training media, licenses, manifests, splits and preprocessing are released",
+    "paper-matching all-stage configuration, checkpoints, evaluator and budget can be fixed",
+    "the complete protocol fits the stated <=8xH100 policy"
+  ]
+}

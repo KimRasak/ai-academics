@@ -1,0 +1,39 @@
+{
+  "audit_date": "2026-09-18",
+  "source_root": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/assets",
+  "method": "sha256sum plus ffprobe -v error on the official reference MP4s; no media was transformed.",
+  "expected_local_base_media": {
+    "width": 1344,
+    "height": 768,
+    "video_frame_rate": "24/1",
+    "audio_sample_rate_hz": 32000,
+    "audio_channels": 2
+  },
+  "cases": {
+    "t2va": {
+      "file": "t2va.mp4",
+      "sha256": "d66903241362e224085cc93f7a5e70fba6ab378d0ac6ff6af83acf2559849a42",
+      "bytes": 1637373,
+      "duration_seconds": 10.157,
+      "video": {"codec": "h264", "width": 1344, "height": 768, "frame_rate": "24/1", "frames": 243},
+      "audio": {"codec": "aac", "sample_rate_hz": 32000, "channels": 2, "frames": 318}
+    },
+    "fl2va": {
+      "file": "fl2va.mp4",
+      "sha256": "5a5d6e0fcdda7e6a5d98cb92d9e5cb4b6b0b44d6e1dfd5a370d16dfaa79b9ae6",
+      "bytes": 1064614,
+      "duration_seconds": 8.032,
+      "video": {"codec": "h264", "width": 1344, "height": 768, "frame_rate": "24/1", "frames": 192},
+      "audio": {"codec": "aac", "sample_rate_hz": 32000, "channels": 2, "frames": 251}
+    },
+    "ref2va": {
+      "file": "ref2va.mp4",
+      "sha256": "5c9d33dfc517438c59e93da7b3d0b2a62e3cf69bc2adb7d1b2d33d7d8df7161f",
+      "bytes": 850734,
+      "duration_seconds": 5.207,
+      "video": {"codec": "h264", "width": 1344, "height": 768, "frame_rate": "24/1", "frames": 124},
+      "audio": {"codec": "aac", "sample_rate_hz": 32000, "channels": 2, "frames": 163}
+    }
+  },
+  "comparison_rule": "A later local Base output must include an H.264 video stream and a 32-kHz stereo audio stream at 1344x768 and 24 fps for these frozen 768p cases. Stochastic generation and encoding make byte identity and exact container duration invalid success criteria; retain media hashes and report duration/frame differences instead."
+}

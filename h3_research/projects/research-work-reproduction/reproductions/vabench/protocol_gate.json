@@ -1,0 +1,54 @@
+{
+  "paper_id": "vabench",
+  "target": "pinned public VABench evaluation of released H3 outputs",
+  "status": "blocked_pending_author_pairing_manifest_and_official_dnsmos_implementation;_i2av_inputs_acquired_and_audited",
+  "not_a_training_reproduction": true,
+  "required_before_a_score_bearing_run": [
+    "Pin every evaluator weight actually used, including LFS object SHA-256 values and all non-cache dependency revisions.",
+    "Resolve and record the mapping/final_idx_to_prompt.csv versus mapping_text/final_idx_to_prompt.csv path defect without silently changing the official claim.",
+    "Obtain an author-supplied I2AV image-to-annotation pairing manifest. Neither filename matching, lexical order nor ZIP order is a valid replacement.",
+    "Pass a small official-subset end-to-end smoke with complete video, audio and JSON coverage.",
+    "Record H3 model revision, sampler/request settings, seed, media metadata, evaluator environment and per-item outputs.",
+    "Verify all 15 configured dimensions or explicitly freeze a smaller metric suite before reporting any aggregate."
+  ],
+  "known_release_blockers": [
+    "Official code repository has no top-level license file.",
+    "The official repository has one reachable snapshot commit, making historical code provenance unavailable from its Git history.",
+    "Official mapping loader names a directory not present in the snapshot.",
+    "The official I2AV images and JSON annotations have no published join key or pairing manifest; equal per-category counts do not establish sample identity.",
+    "The released DNSMOS wrapper imports third_party/DNS-Challenge/DNSMOS/dnsmos_local.py, but that implementation is absent and no Git submodule pins it.",
+    "Official config does not pin component model revisions or hashes.",
+    "VABench public resources do not provide an H3 baseline output set or an H3 training protocol.",
+    "A current four-GPU H3 service window is unavailable: on 2026-09-18 only GPU 0 was free on the checked host."
+  ],
+  "completed_evidence": {
+    "annotation_mapping": {
+      "mapping_rows": 1299,
+      "image_annotation_entries": 521,
+      "mapping_table_to_annotation_prompt_matches": 521,
+      "image_filename_to_annotation_join": "absent",
+      "minimal_patch": "patches/mapping-path.patch",
+      "pairing_audit": "all 521 audit-copy image hashes match the remote inventory; lexical and ZIP order do not align with JSON order"
+    },
+    "i2av_archive": {
+      "remote_path": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/vabench/VABench_I2AV_images.zip",
+      "bytes": 148242034,
+      "sha256": "b3364883293842b93e1d4936b1b06a7be2149fe9e20eb6a2029dd1cbed60bd09",
+      "archive_integrity": "unzip -t passed",
+      "extracted_jpeg_count": 521,
+      "inventory": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/vabench/images_inventory.txt",
+      "per_image_sha256": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/vabench/images_sha256.txt"
+    },
+    "dnsmos_weight_acquisition": {
+      "status": "weights_verified_but_official_wrapper_not_executable",
+      "cache_revision": "aa0c3da973d86f2994e9c8860f28785ce0cc6152",
+      "cache_path": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/vabench/evaluator-smoke/cache/dns_mos",
+      "artifacts": {
+        "sig_bak_ovr.onnx": {"bytes": 1157965, "sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd"},
+        "model_v8.onnx": {"bytes": 224860, "sha256": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"}
+      },
+      "release_failure": "missing third_party/DNS-Challenge/DNSMOS/dnsmos_local.py"
+    }
+  },
+  "decision": "do_not_report_benchmark_scores_or_start_training_until_the_protocol_gate_closes"
+}

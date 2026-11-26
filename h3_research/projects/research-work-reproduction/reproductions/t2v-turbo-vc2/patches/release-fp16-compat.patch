@@ -1,0 +1,26 @@
+diff --git a/lvdm/modules/networks/openaimodel3d.py b/lvdm/modules/networks/openaimodel3d.py
+index 4bba942..091bd58 100644
+--- a/lvdm/modules/networks/openaimodel3d.py
++++ b/lvdm/modules/networks/openaimodel3d.py
+@@ -665,7 +665,9 @@ class UNetModel(nn.Module):
+         timestep_cond=None,
+         **kwargs
+     ):
+-        t_emb = timestep_embedding(timesteps, self.model_channels, repeat_only=False)
++        t_emb = timestep_embedding(
++            timesteps, self.model_channels, repeat_only=False
++        ).to(self.dtype)
+         if timestep_cond is not None:
+             t_emb = t_emb + self.time_cond_proj(timestep_cond)
+         emb = self.time_embed(t_emb)
+@@ -673,7 +675,9 @@ class UNetModel(nn.Module):
+         if self.fps_cond:
+             if type(fps) == int:
+                 fps = torch.full_like(timesteps, fps)
+-            fps_emb = timestep_embedding(fps, self.model_channels, repeat_only=False)
++            fps_emb = timestep_embedding(
++                fps, self.model_channels, repeat_only=False
++            ).to(self.dtype)
+             emb += self.fps_embedding(fps_emb)
+ 
+         b, _, t, _, _ = x.shape

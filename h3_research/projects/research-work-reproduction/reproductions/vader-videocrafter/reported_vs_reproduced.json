@@ -1,0 +1,131 @@
+{
+  "paper_id": "vader",
+  "status": "released_pickscore_lora_public_benchmark_audit_complete_table1_unresolved",
+  "evidence_state": "C1",
+  "released_checkpoint_audits": [
+    {
+      "audit_id": "vader_pickscore_lora_seed200_smoke",
+      "paper_claim": false,
+      "evidence_state": "C2",
+      "prompt_records": 1,
+      "seeds": [200],
+      "frames_per_video": 24,
+      "base_pickscore_mean": 20.95638084411621,
+      "lora_pickscore_mean": 21.859375,
+      "delta": 0.9029941558837891,
+      "verdict": "directional_checkpoint_effect_observed_single_sample",
+      "limitation": "not Table 1, no repeated seeds, optimized evaluator only"
+    },
+    {
+      "audit_id": "vader_pickscore_lora_balanced_seed3_n9",
+      "paper_claim": false,
+      "evidence_state": "C2",
+      "prompt_records": 3,
+      "seeds": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "paired_videos": 9,
+      "frames_per_video": 24,
+      "pickscore": {
+        "base_mean": 21.88057009379069,
+        "lora_mean": 23.18381076388889,
+        "delta": 1.3032406700981989,
+        "positive_pairs": 9
+      },
+      "cross_metrics": {
+        "hps_v2_1_delta": 0.008544921875,
+        "hps_positive_pairs": 8,
+        "aesthetic_delta": 0.3324652777777778,
+        "aesthetic_positive_pairs": 8
+      },
+      "temporal_diagnostics": {
+        "vbench_dynamic_degree_base_count": 2,
+        "vbench_dynamic_degree_lora_count": 1,
+        "vbench_motion_smoothness_delta": 0.002499099160260686
+      },
+      "verdict": "stable_frame_reward_effect_no_attributable_temporal_change",
+      "limitation": "three prompts only; both conditions mostly static; not a VBench standard benchmark run"
+    },
+    {
+      "audit_id": "vader_pickscore_lora_vbench_standard_n360",
+      "paper_claim": false,
+      "evidence_state": "C2",
+      "public_protocol": "VBench standard Dynamic Degree/Motion Smoothness prompt intersection",
+      "prompts": 72,
+      "samples_per_prompt": 5,
+      "paired_videos": 360,
+      "frames_per_video": 24,
+      "pickscore": {
+        "base_mean": 21.210181568287037,
+        "lora_mean": 21.892478660300927,
+        "delta": 0.6822970920138889,
+        "prompt_level_delta_95pct_t_ci": [0.5383012197784591, 0.8262929642493186],
+        "positive_pairs": 294
+      },
+      "dynamic_degree": {
+        "base": 0.675,
+        "lora": 0.5666666666666667,
+        "delta": -0.10833333333333334,
+        "false_to_true": 15,
+        "true_to_false": 54,
+        "mcnemar_exact_pvalue": 2.612848003590018e-06
+      },
+      "motion_smoothness": {
+        "base": 0.9655607594745486,
+        "lora": 0.9716596704045957,
+        "delta": 0.006098910930046996,
+        "prompt_level_delta_95pct_t_ci": [0.0030674863746683826, 0.00913033548542561]
+      },
+      "verdict": "released_checkpoint_improves_named_reward_but_reduces_dynamic_degree",
+      "limitation": "independent public benchmark; released LoRA is not identified as a Table 1 checkpoint and no training-process claim is verified"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "vader_table1_aesthetic_t2v",
+      "paper_reported": {
+        "base_train": 4.61,
+        "base_test": 4.49,
+        "vader_train": 7.31,
+        "vader_test": 7.12
+      },
+      "released_checkpoint_result": null,
+      "training_reproduction_result": null,
+      "current_verdict": "not_testable_from_released_loras",
+      "reason": "released VideoCrafter LoRAs use different reward/prompt configurations and are not identified as Table 1 weights"
+    },
+    {
+      "claim_id": "vader_table1_hps_t2v",
+      "paper_reported": {
+        "base_train": 0.25,
+        "base_test": 0.24,
+        "vader_train": 0.33,
+        "vader_test": 0.32
+      },
+      "released_checkpoint_result": null,
+      "training_reproduction_result": null,
+      "current_verdict": "protocol_incomplete",
+      "reason": "prompt ingredients exist, but model identity, sample count, seeds, checkpoint selection and aggregation are not fixed"
+    },
+    {
+      "claim_id": "vader_table1_action_t2v",
+      "paper_reported": {
+        "base_train": 0.14,
+        "vader_train": 0.79
+      },
+      "released_checkpoint_result": null,
+      "training_reproduction_result": null,
+      "current_verdict": "matching_checkpoint_absent"
+    },
+    {
+      "claim_id": "vader_table1_aesthetic_i2v",
+      "paper_reported": {
+        "base_train": 4.91,
+        "base_test": 4.96,
+        "vader_train": 7.83,
+        "vader_test": 7.64
+      },
+      "released_checkpoint_result": null,
+      "training_reproduction_result": null,
+      "current_verdict": "outside_first_videocrafter_pass"
+    }
+  ]
+}

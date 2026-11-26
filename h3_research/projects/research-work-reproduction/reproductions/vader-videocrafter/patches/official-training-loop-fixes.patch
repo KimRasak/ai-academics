@@ -1,0 +1,29 @@
+diff --git a/VADER-VideoCrafter/scripts/main/train_t2v_lora.py b/VADER-VideoCrafter/scripts/main/train_t2v_lora.py
+index 4751c61..83fcd30 100644
+--- a/VADER-VideoCrafter/scripts/main/train_t2v_lora.py
++++ b/VADER-VideoCrafter/scripts/main/train_t2v_lora.py
+@@ -579,8 +579,12 @@ def run_training(args, **kwargs):
+     )
+     output_dir = args.project_dir
+ 
+-    validation_steps = args.validation_steps * args.gradient_accumulation_steps         # number of steps to run validation for
+-    checkpointing_steps = args.checkpointing_steps * args.gradient_accumulation_steps   # Saves a model every nth step.
++    validation_steps = args.validation_steps
++    checkpointing_steps = args.checkpointing_steps
++
++    if not args.use_wandb:
++        os.makedirs(output_dir, exist_ok=True)
++        os.makedirs(os.path.join(output_dir, "samples"), exist_ok=True)
+ 
+     # Make one log on every process with the configuration for debugging.
+     create_logging(logging, logger, accelerator)
+@@ -1086,6 +1090,9 @@ def run_training(args, **kwargs):
+                         torch.cuda.empty_cache()
+                         gc.collect()
+             
++        if global_step >= args.max_train_steps:
++            break
++
+ 
+ 
+ if __name__ == '__main__':

@@ -1,0 +1,8 @@
+diff --git a/mm_diffusion/dist_util.py b/mm_diffusion/dist_util.py
+--- a/mm_diffusion/dist_util.py
++++ b/mm_diffusion/dist_util.py
+@@ -49 +49,3 @@
+-    dist.init_process_group(backend=backend, init_method="env://")
++    if th.cuda.is_available():
++        th.cuda.set_device(0)
++    dist.init_process_group(backend=backend, init_method="env://")

@@ -1,0 +1,29 @@
+{
+  "run_id": "javisdit_v1_actual_model_import_pytorchvideo_gate_20260920T124732Z",
+  "kind": "cpu_only_official_pytorchvideo_install_and_actual_model_import_gate",
+  "status": "running",
+  "remote_pid": 2854720,
+  "started_at": "2026-09-20T12:47:32Z",
+  "environment_path": "/gluster_hdd_cv/user/jinzili/env/javisdit-v1-py310-cu121",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "remote_log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/model_import_pytorchvideo_gate_20260920T124732Z.log",
+  "dependency": {
+    "pytorchvideo_source": "https://github.com/facebookresearch/pytorchvideo.git",
+    "revision": "28fe037d212663c6a24f373b94cc5d478c8c1a1d",
+    "source": "exact JavisDiT requirements.txt entry",
+    "reason": "bundled ImageBind prior encoder imports pytorchvideo transforms during actual JavisDiT model package import"
+  },
+  "required_imports": [
+    "flash_attn",
+    "javisdit.models.wan.modules.attention"
+  ],
+  "explicit_non_actions": [
+    "no GPU allocation or use",
+    "no model weight loading",
+    "no inference",
+    "no evaluator execution",
+    "no training"
+  ],
+  "success_gate": "Actual JavisDiT model package import succeeds and attention.FLASH_ATTN_2_AVAILABLE is true.",
+  "failure_rule": "Preserve traceback and keep GPU model-load smoke prohibited."
+}

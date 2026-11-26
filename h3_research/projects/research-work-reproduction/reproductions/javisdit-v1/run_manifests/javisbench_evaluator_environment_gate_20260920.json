@@ -1,0 +1,78 @@
+{
+  "run_id": "javisdit_v1_javisbench_evaluator_environment_gate_20260920",
+  "kind": "official_evaluator_environment_admission_audit",
+  "status": "terminal_environment_admitted_for_completed_four_sample_interface_smoke",
+  "scope": "Prepare the fixed official JavisBench evaluator for a separately preregistered four-sample MP4/WAV interface smoke. The later dedicated smoke is linked below; this environment gate itself does not claim a benchmark or paper metric.",
+  "code_revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+  "environment": {
+    "path": "/gluster_hdd_cv/user/jinzili/env/javisbench-eval-py310-cu121",
+    "python": "3.10",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "isolated_from_generation_environment": true
+  },
+  "official_evaluator_requirement_file": "requirements/requirements-eval.txt",
+  "installed_or_verified_direct_dependencies": {
+    "decord": "0.6.0",
+    "omegaconf": "2.3.0",
+    "trl": "0.8.6",
+    "pytorchvideo_revision": "28fe037d212663c6a24f373b94cc5d478c8c1a1d",
+    "timm": "0.9.16",
+    "peft": "0.13.2",
+    "audiobox_aesthetics": "0.0.4",
+    "rich": "installed as required by trl runtime import"
+  },
+  "documented_compatibility_layers": [
+    {
+      "component": "timm",
+      "upstream_inconsistency": "eval/javisbench/src/ImageBind/requirements.txt pins 0.6.7, while evaluator Synchformer imports timm.layers, absent in 0.6.7; repository top-level requirements.txt pins 0.9.16",
+      "selected_version": "0.9.16",
+      "interpretation": "repository-consistent compatibility choice; not a solver-resolved exact evaluator lockfile"
+    },
+    {
+      "component": "pytorchvideo.transforms.augmentations",
+      "reason": "fixed official PyTorchVideo revision imports torchvision.transforms.functional_tensor, removed by torchvision 0.20",
+      "official_patch_source": "assets/src/pytorchvideo_augmentations.py",
+      "source_and_target_sha256": "b96a5306689fcc52acc6b911f5433351d4fc3b40d29b65565e84920553b78c79",
+      "target_hash_manifest": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/manifests/pytorchvideo_official_patch_evaluator_20260920T135700Z.sha256"
+    }
+  ],
+  "ordered_entrypoint_evidence": [
+    {
+      "attempt": "omegaconf gate",
+      "result": "failed: ModuleNotFoundError decord",
+      "log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/eval_entrypoint_omegaconf_gate_20260920T134300Z.log"
+    },
+    {
+      "attempt": "decord gate",
+      "result": "failed: ModuleNotFoundError timm",
+      "log_sha256": "d5d563b169f869db29f7db315804cf202dfaeaf43389ca2877f09946a252114a"
+    },
+    {
+      "attempt": "timm 0.6.7 gate",
+      "result": "failed: timm.layers unavailable",
+      "log_sha256": "d3529f6cc438957f320a4c3f01794494d0992f561217fdb42e6462b53ecb57d2"
+    },
+    {
+      "attempt": "timm 0.9.16, peft, trl, rich, AudioBox gates",
+      "result": "each advanced top-level import; final pre-patch failure was PyTorchVideo/torchvision compatibility",
+      "logs_sha256": ["9d0a23cee1f91e4c978b2a077432252447dd5b2976936a3e8a50e8d867802d2b", "67ac693bebd0c44d9cce0121934ee2fb1dae3b64a43f363b749f48290a5f2b93", "89063af0c0d6ae1c4e516e331e2113da475c11898eddef0089bdfbc965c2a977", "fbe61a3d89bdd0f76318c6f7410db5ea12c376bfcd5546e2557963158327b4d2", "711baf8ae482610665f1c3dd8807f57b364fb0e04b25c9d683e16ad91831c69b"]
+    },
+    {
+      "attempt": "post-official-PyTorchVideo-patch help gate",
+      "result": "terminated by owner after verifying that --help had initialized CUDA handles for all devices and was in I/O wait; terminal traceback records ModuleNotFoundError matplotlib",
+      "owner_pid": 2868234,
+      "owner_pid_after_term": "absent",
+      "log": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/eval_entrypoint_pytorchvideo_patch_gate_20260920T135700Z.log",
+      "no_metric_or_media_produced": true
+    }
+  ],
+  "safety_finding": "The official evaluator imports CUDA before --help output and opens all GPU device handles. Do not use --help as a CPU-only gate or launch it alongside external GPU work.",
+  "completed_follow_on_interface_smoke": {
+    "matplotlib": "3.10.9 installed after the owner-terminated help gate identified it as missing",
+    "run_manifest": "javisbench_mini_batch4_evaluator_interface_smoke_20260920.json",
+    "result": "official evaluator completed four-sample FVD/KVD/FAD input read with exit code 0; interpretation remains C2 interface evidence only"
+  },
+  "next_gate": "Do not upgrade the four-sample result. A separately preregistered 1,000-prompt mini run would be required before any mini-level checkpoint observation, and it would still not reproduce the paper full-JavisBench row.",
+  "prohibited_interpretations": ["no JavisBench score", "no paper metric reproduction", "no training evidence", "no evaluator environment considered fully closed"]
+}

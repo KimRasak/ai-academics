@@ -1,0 +1,93 @@
+{
+  "status": "blocked_before_training_by_missing_reconstructable_data_and_gated_reward_weight",
+  "date": "2026-09-17",
+  "paper_protocol": {
+    "dataset": "WebVid-10M",
+    "steps": 10000,
+    "gpus": "6-8 NVIDIA A100",
+    "per_gpu_batch_size": 1,
+    "gradient_accumulation_steps": 1,
+    "frames": 16,
+    "fps": 16,
+    "learning_rate": 0.00001,
+    "guidance_scale_range": [5, 15],
+    "image_reward": "HPSv2.1",
+    "video_reward": "InternVideo2 Stage 2"
+  },
+  "official_training_release": {
+    "revision": "ca61d382aaaa91b9d526a912b1749096d166c0e3",
+    "date": "2024-06-24",
+    "remote_worktree": "/gluster_hdd_cv/user/jinzili/code/research-work-reproduction/t2v-turbo-training-release-20240624",
+    "clean": true,
+    "files": {
+      "train_t2v_turbo_vc2.py": "fdd921d58baa14dd53c83881a57e95e33ee7bfe2d45cc4af23d8d9322ea11406",
+      "train_t2v_turbo_vc2.sh": "7e295c82a4b80e7496f3da9eaa6131f5cc47b23a6562a3a7a22510f0eb27a4de",
+      "data/dataset.py": "78a62fc4fc0b7919578c92f426e6839dbb043631bbc388c1fe23260863e540e6",
+      "reward_fn/reward_fn.py": "bf184e787372f9df8c565264322ee1553b849d851ec1392fbedf9970c3f7a06c"
+    }
+  },
+  "code_protocol": {
+    "mixed_precision": "fp16",
+    "seed": 453645634,
+    "lora_rank": 64,
+    "max_train_steps": 10000,
+    "max_train_samples": 400000,
+    "ddim_timesteps": 50,
+    "ddim_skip": 20,
+    "image_reward_scale": 1.0,
+    "video_reward_scale": 2.0,
+    "distillation_and_image_reward_processes": [0, 1, 2, 3, 4, 5],
+    "video_reward_processes": [6, 7],
+    "effective_gpu_requirement": "8 processes unless process lists are explicitly changed",
+    "webdataset_pattern": "/path/to/webvid_data/train_data/{00000..99999}.tar",
+    "required_sample_keys": ["mp4", "txt"],
+    "decode": {
+      "frames": 16,
+      "fps": 16,
+      "resize_and_crop": [320, 512],
+      "shuffle_buffer": 1000
+    }
+  },
+  "artifacts": {
+    "videocrafter2": {
+      "status": "present",
+      "sha256": "1edf769ece3308e977228943eeeed39286806aba9da17350449a3fbf4324ccfb"
+    },
+    "hpsv2_1": {
+      "status": "present_load_verified",
+      "remote_path": "/gluster_hdd_cv/user/jinzili/weights/reward_models/HPSv2/HPS_v2.1_compressed.pt",
+      "bytes": 1972490005,
+      "sha256": "c57a38fb4a2f7e7c15bf00da2ea377cdf165448b4dd1052a484c215a998c9837",
+      "source_revision": "697403c78157020a1ae59d23f111aa58ced35b0a"
+    },
+    "internvideo2_stage2_1b_224p_f4": {
+      "status": "missing_gated_403",
+      "repository": "OpenGVLab/InternVideo2-Stage2_1B-224p-f4",
+      "repository_revision": "4362e1f88a992e7edbfd7696f7f78b7f79426dfd",
+      "filename": "InternVideo2-stage2_1b-224p-f4.pt"
+    },
+    "webvid_10m": {
+      "status": "missing_not_reconstructable_from_current_official_release",
+      "local_search": "no WebVid media, metadata or WebDataset shards found under the in-scope user data, dataset or weight roots",
+      "official_release_status": "official project no longer provides URLs or captions",
+      "paper_shard_manifest": null,
+      "paper_sample_manifest": null
+    }
+  },
+  "protocol_gaps": [
+    "No paper-used WebVid sample or shard manifest is released.",
+    "The official shard pattern is a placeholder and does not identify the actual 10000-step sample stream.",
+    "No dependency lock, container or Accelerate configuration was released.",
+    "The data loader depends on an unpinned video2dataset implementation.",
+    "The README links InternVideo2-CLIP-1B-224p-f8, while the code requires the distinct InternVideo2 Stage2 1B f4 checkpoint.",
+    "The default process partition makes the released command effectively an eight-process protocol despite the paper stating six to eight GPUs."
+  ],
+  "start_conditions": [
+    "Obtain a legally usable raw-video and caption corpus with retained source, license and media hashes.",
+    "Declare and freeze a deterministic WebDataset shard and sample manifest; do not call it exact paper data unless the authors' manifest is recovered.",
+    "Obtain authorized access to the exact f4 InternVideo2 Stage2 checkpoint and record its revision and hash.",
+    "Freeze the training environment and the video2dataset implementation.",
+    "Pass one-batch data decode, HPS and InternVideo reward, forward/backward, optimizer-step and checkpoint-resume smokes on the release worktree."
+  ],
+  "decision": "do_not_start_10000_step_training"
+}

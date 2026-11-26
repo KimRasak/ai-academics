@@ -1,0 +1,51 @@
+{
+  "audit_id": "minimax_h3_eight_h100_deployment_path_audit_20260922",
+  "scope": "Correct the scope of the prior four-H100 SGLang failure and audit whether an eight-H100 deployment path is justified. This audit starts no service and submits no request.",
+  "four_h100_sglang_result": {
+    "status": "terminal_failure_for_one_specific_configuration",
+    "runtime": "official SGLang MiniMaxH3Pipeline",
+    "partition": "FL2VA",
+    "physical_gpus": [4, 5, 6, 7],
+    "configuration": "--num-gpus 4 --ulysses-degree 4 --performance-mode speed --model-variant fl2va",
+    "failure": "DiT FSDP materialization OOM before listener, request or output",
+    "does_not_establish": [
+      "that MiniMax-H3 cannot be deployed",
+      "that SGLang cannot deploy MiniMax-H3",
+      "that an eight-H100 configuration cannot deploy MiniMax-H3",
+      "any output-quality, metric or training claim"
+    ],
+    "evidence": "FL2VA_FOUR_H100_LOAD_FAILURE_20260920.json"
+  },
+  "independent_eight_h100_ref2va_evidence": {
+    "status": "historical execution evidence; current node availability not yet independently rechecked",
+    "implementation": "Ref2VA FSDP2 multi-process inference, distinct from the official SGLang service implementation",
+    "model_root": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3",
+    "reported_configuration": "8 x H100 80GB, FSDP2 across eight ranks, 768x768x124, native audio",
+    "evidence_paths": [
+      "h3_research/projects/emoh3-evaluation/supplemental/reproducibility.md",
+      "h3_research/projects/emoh3-evaluation/src/generation/infer_lora_ref2va.py",
+      "h3_research/projects/emoh3-evaluation/docs/reports/PROGRESS_HANDOFF.md"
+    ],
+    "interpretation": "This supports feasibility of an eight-H100 Base Ref2VA deployment path. It does not prove the official SGLang FL2VA command accepts or successfully runs with eight ranks, and it does not substitute for a newly retained official frozen-case run."
+  },
+  "current_resource_check_20260922": {
+    "checked_node": "osa00-h100-006.osa00.bdjp.io",
+    "free_gpus_without_compute_processes": [4, 5, 6, 7],
+    "externally_occupied_gpus": [0, 1, 2, 3],
+    "conclusion": "This node cannot safely run an eight-GPU job now. No external process was stopped.",
+    "alternate_node": "osa00-h100-034.osa00.bdjp.io",
+    "alternate_node_access": "host key accepted; current container SSH authentication denied, so live capacity was not inferred from historical records"
+  },
+  "admitted_next_actions_in_order": [
+    "Acquire a live, authorized eight-H100 allocation or an access path to a node with one.",
+    "Freeze the exact runtime path before launch: official SGLang eight-rank configuration only if source/CLI supports it; otherwise explicitly label the already demonstrated Ref2VA FSDP2 path as an independent implementation.",
+    "Run one official frozen Ref2VA request with retained server/process logs, output media, ffprobe and SHA-256 inventory.",
+    "Only after Base deployment evidence is closed, consider the other frozen official cases; do not infer FL2VA success from Ref2VA success."
+  ],
+  "prohibited_actions": [
+    "do not repeat the failed four-H100 FL2VA SGLang command",
+    "do not use GPUs 0-3 on osa00-h100-006 while external compute processes exist",
+    "do not claim a historical FSDP2 run is a new official SGLang reproduction",
+    "do not start training"
+  ]
+}

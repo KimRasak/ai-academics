@@ -1,0 +1,38 @@
+{
+  "verified_on": "2026-09-19",
+  "method": "remote read-only parse of JSON heredocs from the three frozen official request scripts; canonical JSON SHA-256 uses sorted keys and compact separators",
+  "non_action": "No H3 service was launched, no endpoint was contacted, no request was submitted, and no GPU was used.",
+  "cases": {
+    "t2va": {
+      "official_script_sha256": "78bfe72365f27a53d145d0ddbf1c422de3cfe075e6558998cc7e01d7d41cdab1",
+      "canonical_payload_sha256": "27ed92cd53439b0e65889361e80aa62bc1b9251028f1bb74738a1022ac52006a",
+      "task": "t2va",
+      "seed": 0,
+      "target": {"aspect_ratio": "16:9", "duration_seconds": 10, "short_edge": 768},
+      "has_nonempty_prompt": true,
+      "conditions": [],
+      "routing": {"partition": "FL2VA", "port": 30010}
+    },
+    "fl2va": {
+      "official_script_sha256": "82d1c06897da37e5976ae8f58cc1833ed04e92559aebe9f9578e0a890d2a8cb5",
+      "canonical_payload_sha256": "d2f28f3816ca8788aa84f7e32e9dc16b0387bbb571aed0ec05afc500e3f56c80",
+      "task": "fl2va",
+      "seed": 0,
+      "target": {"aspect_ratio": "auto", "duration_seconds": 8, "short_edge": 768},
+      "has_nonempty_prompt": true,
+      "conditions": [{"type": "image", "role": "keyframe"}],
+      "routing": {"partition": "FL2VA", "port": 30010}
+    },
+    "ref2va": {
+      "official_script_sha256": "73ea0e5cc94440b2e8955dc0703a07e3c691d62967c481f5d9b3e92391fc882a",
+      "canonical_payload_sha256": "810ee8fd4aa90c53bd36b117d5d2d963b0f2df335e69abb410a226ea26b0a990",
+      "task": "ref2va",
+      "seed": 0,
+      "target": {"aspect_ratio": "auto", "duration_seconds": 5, "short_edge": 768},
+      "has_nonempty_prompt": true,
+      "conditions": [{"type": "video", "role": "reference"}, {"type": "audio", "role": "reference"}],
+      "routing": {"partition": "Ref2VA", "port": 30011}
+    }
+  },
+  "verdict": "All three parsed request structures match their frozen script hashes, declared seed, task, target and routing. This is request-identity evidence only, not an H3 service, generation or benchmark result."
+}

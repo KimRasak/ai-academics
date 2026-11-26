@@ -1,0 +1,89 @@
+{
+  "run_id": "ddpm_ddim25_metric_run01_seed42_preimport_gpu0124_20260918",
+  "status": "terminal_audited_checkpoint_metric_run_1_of_6",
+  "terminal_on": "2026-09-18",
+  "started_on": "2026-09-18",
+  "purpose": "MM-Diffusion Landscape released-checkpoint DDPM/Ours* metric lane, run 1 of 6",
+  "code": {
+    "repository": "https://github.com/researchmm/MM-Diffusion",
+    "commit": "7250222114ee1eca36e32d90e8a41f12d92651e2",
+    "local_runtime_patch": "0001-select-visible-cuda-device-before-nccl.patch",
+    "launcher": "commands/run_ddpm_ddim25_metric_lane.sh",
+    "launcher_sha256": "e082df8d2e6c0de9ce367ac7ba231d4de43a632b1873f85bd8a53037d16e3c56"
+  },
+  "source_artifacts": {
+    "landscape_zip_sha256": "32df45107f5ab1ba6fff0d3382373d31490df9ccdde3b72c4aa71c9513cca6d5",
+    "base_checkpoint_sha256": "f21b7adf250bc4daa049c9331c7526c8af25579cf44cf3cf4bae299da6901f16",
+    "sr_checkpoint_sha256": "a8cb31ed06e749a92ce13cb93ad140f2714ad0eb5ea1326d6b9f9d2f2448f14e",
+    "i3d_sha256": "55095f049e706479d48e221adcdb145b2b9dc930ba28b081ed72367ffaa32343",
+    "audioclip_sha256": "2441d35b353352c8b1bbfb8f7c687f46314c3d2909e940eaf763b8c17f632c44"
+  },
+  "data_protocol": {
+    "dataset": "official Landscape archive",
+    "reference_directory": "raw/extracted/landscape/train",
+    "reference_media": 900,
+    "held_out_test_media_preserved": 100
+  },
+  "generation_protocol": {
+    "base_sampler": "DDPM",
+    "base_diffusion_steps": 1000,
+    "super_resolution_sampler": "DDIM",
+    "super_resolution_timestep_respacing": "ddim25",
+    "batch_per_rank": 4,
+    "world_size": 4,
+    "all_save_num_global": 2048,
+    "effective_seed_policy": "official set_seed_logger_random leaves worker RNG streams unset; outputs are independent across ranks in inspected hash sample",
+    "physical_gpu_binding": "MPI worker wrapper sets CUDA_VISIBLE_DEVICES before Python/PyTorch import",
+    "physical_gpus": [0, 1, 2, 4]
+  },
+  "expected_media": {
+    "original_mp4": 2048,
+    "sr_mp4": 2048,
+    "wav": 2048
+  },
+  "required_closeout": [
+    "all three media counts equal 2048",
+    "all media pass ffprobe",
+    "SHA-256 inventory and byte-identical duplicate report retained",
+    "independent official eval.py results retained for original and sr_mp4 paths",
+    "results labelled run 1 of 6 and not the paper six-run aggregate"
+  ],
+  "terminal_evidence": {
+    "closeout_status": "sampler_terminal; original=2048; sr=2048; wav=2048; audit=passed; closeout=audited_and_both_independent_evaluations_terminal",
+    "media_audit": {
+      "ffprobe_failure_lines": 0,
+      "original_mp4": 2048,
+      "sr_mp4": 2048,
+      "wav": 2048,
+      "byte_identical_duplicate_hash_lines": 0,
+      "media_sha256_inventory_sha256": "ef3572c701813a590335043b908a7a0c82917703df87fe67d114d8f30d9bcdea"
+    },
+    "independent_official_eval": {
+      "original": {
+        "fake_directory": "landscape.pt/original",
+        "fvd": 249.0003662109375,
+        "kvd": 15.486241141702692,
+        "fad_x10000": 10.710707865655422,
+        "log_sha256": "2c94419bf4d25a4dce37699f70b3833a9aff46d9aaaf9f10f0a787bf5ee1f042"
+      },
+      "sr_mp4": {
+        "fake_directory": "landscape.pt/sr_mp4",
+        "fvd": 149.93556213378906,
+        "kvd": 7.690462664970852,
+        "fad_x10000": 10.101892985403538,
+        "log_sha256": "619556b001fb69830372c80b34f1841c6296e618cdc0645ea9a4d2c4ca00ae4"
+      }
+    },
+    "interpretation": "One independently generated checkpoint run, not the paper's six-run aggregate. Original 64x64 metrics are the direct counterpart to the paper's 64x64 visual-metric protocol; SR is retained as a separately evaluated diagnostic because the official sampling script mistakenly scores original media in both automatic passes."
+  },
+  "closeout_watcher": {
+    "script": "commands/closeout_metric_run01.sh",
+    "script_sha256": "c3319a39bdf74cc1079420d9708d29b01c401f753971bbca8b15d832033aba13",
+    "restarted_on": "2026-09-18",
+    "reason": "The prior watcher searched for the run ID alone, which also matched its own shell command and could prevent terminal closeout. The replacement matches only the multimodal_sample_sr.py sampler command; it was restarted without stopping or restarting sampling."
+  },
+  "known_official_release_defects": [
+    "DPM-Solver default multimodal path crashes on dict input",
+    "sampling script evaluates original media twice despite iterating original and sr_mp4 labels"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "paper_id": "motionctrl",
+  "target": "VideoCrafter1/LVDM paper training",
+  "status": "blocked_on_unreleased_protocol_and_data_identity",
+  "paper_budget": {
+    "gpus": "8x V100",
+    "global_batch": 128,
+    "stages": [
+      "CMCM 50000 steps",
+      "OMCM dense 20000 steps",
+      "OMCM sparse 20000 steps"
+    ]
+  },
+  "release_findings": [
+    "Public training code is for AnimateDiff, not the paper's VideoCrafter1/LVDM tables.",
+    "Each training shell script overwrites its eight-GPU setting with a one-GPU debug setting.",
+    "train_omcm_sparse.sh invokes configs/training/omcm_dense.yaml.",
+    "Released configs specify 1000000 steps rather than the paper's 50000/20000/20000 schedule.",
+    "Released CMCM config uses per-device batch 1 and accumulation 4 and does not instantiate the paper's global batch 128 as shipped.",
+    "The exact RealEstate10K captions/list and 243000-video WebVid selection are absent.",
+    "motion_seg_list_v2.txt and all derived ParticleSfM trajectories are absent.",
+    "Paper evaluation manifests and metric implementations are absent."
+  ],
+  "required_before_training": [
+    "A legally usable raw-media corpus with source URLs, licenses, hashes and retained media.",
+    "A complete training-sample manifest for every RealEstate10K and WebVid clip.",
+    "Reproducible BLIP2 caption and ParticleSfM trajectory-generation environments.",
+    "An explicitly reconstructed VideoCrafter1/LVDM training program matching 50000/20000/20000 steps and batch 128.",
+    "A frozen public evaluation protocol distinct from any unavailable paper benchmark.",
+    "One-batch decode, conditioning, forward/backward, optimizer, checkpoint and resume smokes."
+  ],
+  "decision": "do_not_start_full_training"
+}

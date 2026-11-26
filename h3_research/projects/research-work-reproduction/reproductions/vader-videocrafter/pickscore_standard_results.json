@@ -1,0 +1,56 @@
+{
+  "protocol": {
+    "paired_videos": 360,
+    "prompts": 72,
+    "samples_per_prompt": 5,
+    "frames_per_video": 24,
+    "processor_revision": "1c2b8495b28150b8a4922ee1c8edee224c284c0c",
+    "model_revision": "a4e4367c6dfa7288a00c550414478f865b875800",
+    "evaluator_sha256": "a6745818146b1c033aeb43b31c7ff9d722fbb98e71e693ed404ad97c4443a95c",
+    "base_result_sha256": "9e1aab65a62de3b245d7a4a050bef46865f6ade2c1e16eacc014b2e57e32b549",
+    "pickscore_lora_result_sha256": "245e38075571a427b04f40e3a4b9a4c67c4d3c276564796cc5fd3acc9583e405",
+    "analysis_sha256": "b801622abd70bc3051d89cc436276121c8b7b191cb2bfa88a173b8980c3dbf2c"
+  },
+  "pickscore": {
+    "base_mean": 21.210181568287037,
+    "pickscore_lora_mean": 21.892478660300927,
+    "paired_delta": 0.6822970920138889,
+    "video_level_delta_95pct_t_ci": [
+      0.6039540218611639,
+      0.7606401621666139
+    ],
+    "prompt_level_delta_95pct_t_ci": [
+      0.5383012197784591,
+      0.8262929642493186
+    ],
+    "positive_pairs": 294,
+    "negative_pairs": 66,
+    "paired_t_pvalue": 1.7267476589253087e-48,
+    "wilcoxon_pvalue": 8.626525430300171e-40
+  },
+  "joint_diagnostic": {
+    "pickscore_delta_dynamic_degree_delta_correlation": -0.028917656892977227,
+    "pickscore_delta_by_dynamic_transition": {
+      "static_to_static": {
+        "pairs": 102,
+        "mean": 1.0295458026960784,
+        "positive": 94
+      },
+      "static_to_dynamic": {
+        "pairs": 15,
+        "mean": 0.8268229166666662,
+        "positive": 11
+      },
+      "dynamic_to_static": {
+        "pairs": 54,
+        "mean": 0.7841676311728399,
+        "positive": 46
+      },
+      "dynamic_to_dynamic": {
+        "pairs": 189,
+        "mean": 0.45431685405643735,
+        "positive": 143
+      }
+    }
+  }
+}

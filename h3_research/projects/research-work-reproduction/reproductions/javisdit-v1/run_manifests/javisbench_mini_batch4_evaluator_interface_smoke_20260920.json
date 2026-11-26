@@ -1,0 +1,58 @@
+{
+  "run_id": "javisdit_v1_javisbench_mini_batch4_evaluator_interface_smoke_gpu4_20260920T140000Z",
+  "kind": "official_javisbench_evaluator_four_sample_interface_smoke",
+  "status": "terminal_official_four_sample_evaluator_interface_closed",
+  "scope": "Run the fixed official evaluator only on the four already generated official JavisBench-mini CSV rows. This run tests whether the released cache, exact sample naming and official FVD/KVD/FAD code path can read the artifacts. Any number is interface evidence only, never a mini benchmark or paper result.",
+  "code": {
+    "repository": "https://github.com/JavisVerse/JavisDiT",
+    "revision": "6821b8d161e9c5b195a58799859f08731a1471f9",
+    "entrypoint": "python -m eval.javisbench.main"
+  },
+  "inputs": {
+    "official_mini_csv": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/benchmark/JavisBench/JavisBench-mini.csv",
+    "official_mini_csv_sha256": "1da733caaebd072ef5d11a12ab51e9a36c12ed1c702eb75a63b912de206bdb99",
+    "reference_feature_cache": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/benchmark/JavisBench/cache/fvd_fad/JavisBench-mini-vanilla-max4s.pt",
+    "reference_feature_cache_sha256": "b0d902d08f761e4177304328ff99783f79924b70893e35c0844163a13dfa65e9",
+    "inference_media_dir": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/outputs/javisdit_v1_javisbench_mini_batch4_interface_smoke_gpu4_20260920T132000Z",
+    "media_mapping_sha256": "4d8636c502d2fbf96a58b7afbacbca100799b7b5236025e4237fc3f0f8ddaeeb",
+    "media_inventory_sha256": "71b80dac9a61b99da2cb8d9fc5c8f86019a9cc7a71208563cac5335930be8da3"
+  },
+  "execution": {
+    "physical_gpu": 4,
+    "cuda_visible_devices": "4",
+    "effective_evaluator_cuda_device": "cuda:0 mapped to physical GPU 4",
+    "metrics": ["fvd+kvd+fad"],
+    "eval_num": 4,
+    "max_audio_len_s": 4.0,
+    "output_file": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/evaluation_results/javisbench_mini_first4_fvd_kvd_fad_interface_smoke_20260920.json",
+    "log_file": "/gluster_hdd_cv/user/jinzili/data/research-work-reproduction/javisdit-v1/logs/javisbench_mini_first4_fvd_kvd_fad_interface_smoke_gpu4_20260920T140000Z.log"
+  },
+  "preflight": {
+    "observed": "physical GPU 4: 4 MiB, 0% utilization; no listed compute application. GPUs 0-3 have external allocations and are excluded.",
+    "max_allowed_gpu4_memory_mib": 128,
+    "must_not_stop_external_processes": true
+  },
+  "stopping_rules": [
+    "Do not launch if GPU 4 preflight exceeds 128 MiB or shows an external process.",
+    "Do not rerun automatically after any failure.",
+    "Preserve exit code, log, third-party downloaded weights/cache and output hashes.",
+    "Do not write any score as JavisBench-mini or paper-level evidence."
+  ],
+  "terminal_evidence": {
+    "exit_code": 0,
+    "gpu4_after_exit_memory_mib": 4,
+    "evaluator_result": {
+      "fvd": 3324.9404296875,
+      "kvd": -11.027036666870117,
+      "fad": 11.048209853470325,
+      "interpretation": "Four-sample evaluator-interface smoke only. The released mini reference cache is distributional and the sample count is four, so these values are not a JavisBench-mini score, paper comparison, quality conclusion, or checkpoint verification result."
+    },
+    "log_sha256": "2c111fbf59a18abf4c92f8e19205aeb94b01de2802d6f8f7262d7d788a049e91",
+    "result_json_sha256": "4372e686915503e0717a19162bbe434c8c28577474738e9ebf28097e20981a5a",
+    "third_party_evaluator_weights": {
+      "AudioCLIP-Full-Training.pt_sha256": "2441d35b353352c8b1bbfb8f7c687f46314c3d2909e940eaf763b8c17f632c44",
+      "i3d_pretrained_400.pt_sha256": "55095f049e706479d48e221adcdb145b2b9dc930ba28b081ed72367ffaa32343"
+    },
+    "official_log_markers": ["Ground-truth AV cache loaded", "Prepare eval model: load ./checkpoints/AudioCLIP-Full-Training.pt", "fvd_kvd_fad - fake: 100%"]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "run_id": "ddpm_ddim25_metric_run03_officialrng_gpu4567_20260920",
+  "status": "terminal_audited_and_both_independent_evaluations_terminal_with_post_launch_gpu6_interference",
+  "launch_evidence": {
+    "started_on": "2026-09-20T05:08:46Z",
+    "sampler_launcher_pid": 1367054,
+    "mpi_worker_pids_at_launch": [
+      1367057,
+      1367058,
+      1367059,
+      1367060
+    ],
+    "closeout_watcher_pid": 1378911,
+    "closeout_watcher_started_on": "2026-09-20T05:25:58Z",
+    "observed_at": "2026-09-20T05:32:35Z",
+    "observed_media_counts": {
+      "original_mp4": 96,
+      "sr_mp4": 96,
+      "wav": 96
+    },
+    "observed_selected_gpu_utilization_percent": {
+      "4": 90,
+      "5": 93,
+      "6": 92,
+      "7": 91
+    },
+    "observed_selected_gpu_memory_mib": {
+      "4": 35051,
+      "5": 35051,
+      "6": 35055,
+      "7": 35051
+    },
+    "remote_script_sha256": {
+      "sampler": "a78d8e15077266434d061a71eae930db82b38d5300cc21f6f7415674ccbba0c7",
+      "evaluator": "a26a71fff8a16ddb7e4f75479d63b2985432f2469644a7d4bcc622a9aca989c2",
+      "closeout": "cbcdde32efe91ae119e4becb0ea37efe78438a6ea35d34c3cb858a743e1b021f"
+    }
+  },
+  "latest_runtime_observation": {
+    "observed_at": "2026-09-20T06:14Z",
+    "sampler_workers_live": 4,
+    "closeout_watcher_live": true,
+    "media_counts_after_write_catchup": {
+      "original_mp4": 480,
+      "sr_mp4": 480,
+      "wav": 480
+    },
+    "recent_log_failure_tokens": [],
+    "interpretation": "A transient SR write lag (464 versus 468 original/WAV) caught up to equal 480 counts while workers remained live. This is in-progress evidence only, not a completed media audit or evaluator result."
+  },
+  "runtime_interference_observation": {
+    "observed_at": "2026-09-20T08:55Z",
+    "scope": "Read-only post-launch observation; no external process was stopped or modified.",
+    "physical_gpu": 6,
+    "run_worker_pid": 1367059,
+    "run_worker_memory_mib": 35042,
+    "external_compute_pid": 1278536,
+    "external_compute_memory_mib": 37704,
+    "total_reported_gpu_memory_mib": 75361,
+    "run_state_at_observation": "four sampler workers remained live; media counts reached 1452 original MP4, 1452 SR MP4, and 1452 WAV; recent sampler log had no OOM/traceback/error token.",
+    "interpretation": "GPU 6 was initially ownership-cleared at launch, but later acquired a second external compute allocation. The run remains live, but any terminal result must be labeled as having post-launch external GPU-6 interference; do not treat it as a clean four-GPU isolation result."
+  },
+  "runtime_interference_resolution": {
+    "observed_at": "2026-09-20T09:55Z",
+    "scope": "Read-only observation; no process was stopped by this run.",
+    "physical_gpu": 6,
+    "former_external_compute_pid": 1278536,
+    "resolution": "former external GPU-6 allocation no longer appeared in nvidia-smi; GPU 6 returned to the run worker's approximately 35.0 GiB allocation only.",
+    "run_state_at_observation": "all four sampler workers remained live; three media counts had reached 1596; log showed media write for ddpm_samples_99_2_3.",
+    "interpretation": "Later sampling resumed without the observed external GPU-6 allocation. The earlier post-launch interference remains part of provenance and still prevents calling the complete run a clean isolated four-GPU repeat."
+  },
+  "purpose": "MM-Diffusion Landscape released-checkpoint DDPM/Ours* metric lane, run 3 of 6. Measure whether the two observed original-64x64 FVD/KVD misses persist under the same available public protocol.",
+  "hypothesis": "With identical public artifacts, sampling arguments, evaluator, and the official sampler's unseeded multi-rank behavior, a third complete checkpoint evaluation will add one independent observation without being represented as a six-run aggregate or a paper contradiction.",
+  "paper_claim": {
+    "dataset": "Landscape",
+    "row": "Ours* full DDPM-1000 six-run aggregate",
+    "fvd": 117.2,
+    "kvd": 5.78,
+    "fad_x10000": 10.72
+  },
+  "source_artifacts": {
+    "landscape_zip_sha256": "32df45107f5ab1ba6fff0d3382373d31490df9ccdde3b72c4aa71c9513cca6d5",
+    "base_checkpoint_sha256": "f21b7adf250bc4daa049c9331c7526c8af25579cf44cf3cf4bae299da6901f16",
+    "sr_checkpoint_sha256": "a8cb31ed06e749a92ce13cb93ad140f2714ad0eb5ea1326d6b9f9d2f2448f14e",
+    "i3d_sha256": "55095f049e706479d48e221adcdb145b2b9dc930ba28b081ed72367ffaa32343",
+    "audioclip_sha256": "2441d35b353352c8b1bbfb8f7c687f46314c3d2909e940eaf763b8c17f632c44"
+  },
+  "generation_protocol": {
+    "base_sampler": "DDPM",
+    "base_diffusion_steps": 1000,
+    "super_resolution_sampler": "DDIM",
+    "super_resolution_timestep_respacing": "ddim25",
+    "world_size": 4,
+    "batch_per_rank": 4,
+    "all_save_num_global": 2048,
+    "physical_gpus": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "rng": "official set_seed_logger_random: explicit Python/NumPy/PyTorch seed calls remain disabled"
+  },
+  "required_closeout": [
+    "2048 original MP4, 2048 SR MP4, 2048 WAV",
+    "all-media SHA-256 inventory",
+    "zero ffprobe failures",
+    "separate official eval.py on explicit original and sr_mp4 directories",
+    "result remains labeled run 3 of 6"
+  ],
+  "terminal_closeout": {
+    "observed_on": "2026-09-20T12:01:49Z",
+    "closeout_status": "audited_and_both_independent_evaluations_terminal",
+    "media_counts": {
+      "original_mp4": 2048,
+      "sr_mp4": 2048,
+      "wav": 2048
+    },
+    "media_audit": {
+      "ffprobe_failure_lines": 0,
+      "byte_identical_duplicate_hash_lines": 0
+    },
+    "independent_official_evaluator_results": {
+      "original_64x64": {
+        "fvd": 222.60081481933594,
+        "kvd": 13.16627523313224,
+        "fad_x10000": 10.802577016875148
+      },
+      "sr_256x256_diagnostic": {
+        "fvd": 137.6546630859375,
+        "kvd": 7.020390356349907,
+        "fad_x10000": 10.9442591201514
+      }
+    },
+    "remote_evidence_sha256": {
+      "closeout_status": "6217cd0a60d847fe6aec267f0130642f4232bcc995bb61578e6c51ee72e29d31",
+      "media_audit_summary": "25e04989bbc154ec503154acabfa45f374c7540ba4fb1dbc45c31a64a99c3279",
+      "original_evaluator_log": "5ad125a2626b9e11062875c793be8aea4e422cdbf773c0f0d1aeae498116d2d1",
+      "sr_evaluator_log": "478c483eacb66af58dc16906b00c81698704487f17e6bf6b37fbb99a841e7140"
+    },
+    "interpretation": "This is a terminal C3 released-checkpoint observation, not a paper six-run aggregate or training result. It is affected by the documented post-launch external GPU-6 allocation and must not be pooled with clean isolated repeats for variance or paper-claim judgment."
+  },
+  "prohibited_changes": [
+    "no custom training",
+    "no private or toy data",
+    "no sampler/evaluator modification",
+    "no forced seed or deterministic compatibility patch",
+    "no reuse of an existing output directory"
+  ],
+  "stopping_rule": "If GPU ownership/memory preflight fails, do not launch. If media counts or decode audit fail, do not evaluate. A complete result is C3 checkpoint evidence only; three runs do not establish a six-run aggregate, stable variance, a contradiction, or training reproduction."
+}

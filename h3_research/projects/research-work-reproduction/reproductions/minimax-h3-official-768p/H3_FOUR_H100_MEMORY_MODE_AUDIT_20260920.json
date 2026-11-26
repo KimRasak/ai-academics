@@ -1,0 +1,33 @@
+{
+  "status": "no_supported_four_80gb_memory_mode_addresses_observed_dit_load_peak",
+  "scope": "Read-only audit of the installed SGLang MiniMax-H3 runtime after two official FL2VA four-H100 load failures. No GPU process, service, request, or output was started by this audit.",
+  "runtime_evidence": {
+    "package_root": "/gluster_hdd_cv/user/jinzili/env/sglang310/lib/python3.10/site-packages/sglang/multimodal_gen",
+    "sources": [
+      {
+        "file": "configs/pipeline_configs/minimax_h3.py",
+        "finding": "The H3 approximate-quality speed profile requires is_dit_layerwise_offload_selected=false, quantization=null, and use_fsdp_inference=false. It is therefore not a low-memory speed-profile substitute."
+      },
+      {
+        "file": "test/unit/test_server_args.py",
+        "finding": "H3-specific tests cover performance_mode=memory with use_fsdp_inference=true and assert dit_cpu_offload=false, dit_layerwise_offload=false, while text_encoder and vae are selected for layerwise offload."
+      },
+      {
+        "file": "runtime/server_args/auto_tune.py",
+        "finding": "In memory mode with FSDP explicitly enabled, the runtime applies GPU-resident DiT defaults and auxiliary layerwise component placement; without FSDP it can use coarse DiT CPU offload, which is a materially different execution layout and was not H3-specific validated by the inspected H3 tests."
+      }
+    ]
+  },
+  "relation_to_observed_failure": {
+    "failure_stage": "13-shard FL2VA transformer DiT FSDP materialization",
+    "failed_allocation": "294 MiB per failing rank after approximately 69.10 GiB and 71.49 GiB PyTorch allocation in the two attempts",
+    "inference": "The H3-tested FSDP memory mode offloads auxiliary components but not the DiT at the observed failure stage. It therefore cannot be represented as a justified remedy for this load peak."
+  },
+  "excluded_modes": [
+    "Do not treat generic quantization code as compatible without a matching released quantized checkpoint and an H3-specific contract.",
+    "Do not enable DiT layerwise offload in the H3 speed-quality profile; its H3 validation rejects that setting.",
+    "Do not retry the same four-80GB official speed command or its allocator-only variant."
+  ],
+  "result": "No additional four-H100 launch is justified by the audited runtime evidence.",
+  "next_evidence": "Obtain an official H3 deployment configuration whose DiT initialization peak is demonstrated for four 80GB GPUs, use a different supported sharding/weight layout, or use hardware with enough per-rank headroom."
+}

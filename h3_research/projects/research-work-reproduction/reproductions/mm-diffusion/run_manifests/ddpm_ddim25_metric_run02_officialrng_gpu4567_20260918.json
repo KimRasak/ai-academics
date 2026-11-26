@@ -1,0 +1,37 @@
+{
+  "run_id": "ddpm_ddim25_metric_run02_officialrng_gpu4567_20260918",
+  "status": "terminal_c3_checkpoint_metric_run_2_of_6",
+  "started_on": "2026-09-18",
+  "purpose": "MM-Diffusion Landscape released-checkpoint DDPM/Ours* metric lane, run 2 of 6: estimate official unseeded sampler variance after run 1 FVD/KVD discrepancy.",
+  "hypothesis": "A repeat with identical public artifacts, code, sampling arguments and official unseeded RNG behavior will determine whether run-1's original 64x64 FVD/KVD discrepancy is plausibly run variance or persists under the available public protocol.",
+  "comparison_to_run_1": {
+    "unchanged": ["official current code 7250222 plus documented pre-import binding patch", "Landscape archive/checkpoints/evaluator weights", "DDPM-1000 base", "DDIM-25 SR", "four ranks and batch 4/rank", "2048 global samples", "official sampler's unseeded set_seed_logger_random behavior", "explicit standalone original/SR evaluator and all-media audit"],
+    "changed": ["physical GPU mapping: 4/5/6/7 instead of run-1 0/1/2/4, selected only because the latter remain externally occupied", "unique output, log and evaluator directories"],
+    "prohibited_changes": ["no custom training", "no private or toy data", "no sampler/evaluator modification", "no forced seed or deterministic compatibility patch"]
+  },
+  "paper_claim": {"dataset": "Landscape", "row": "Ours* full DDPM-1000 six-run aggregate", "fvd": 117.2, "kvd": 5.78, "fad_x10000": 10.72},
+  "source_artifacts": {"landscape_zip_sha256": "32df45107f5ab1ba6fff0d3382373d31490df9ccdde3b72c4aa71c9513cca6d5", "base_checkpoint_sha256": "f21b7adf250bc4daa049c9331c7526c8af25579cf44cf3cf4bae299da6901f16", "sr_checkpoint_sha256": "a8cb31ed06e749a92ce13cb93ad140f2714ad0eb5ea1326d6b9f9d2f2448f14e", "i3d_sha256": "55095f049e706479d48e221adcdb145b2b9dc930ba28b081ed72367ffaa32343", "audioclip_sha256": "2441d35b353352c8b1bbfb8f7c687f46314c3d2909e940eaf763b8c17f632c44"},
+  "generation_protocol": {"base_sampler": "DDPM", "base_diffusion_steps": 1000, "super_resolution_sampler": "DDIM", "super_resolution_timestep_respacing": "ddim25", "world_size": 4, "batch_per_rank": 4, "all_save_num_global": 2048, "physical_gpus": [4, 5, 6, 7], "rng": "official set_seed_logger_random: explicit Python/NumPy/PyTorch seed calls remain disabled"},
+  "launch_evidence": {"sampler_pids_at_start": [3934233, 3934234, 3934235, 3934236], "closeout_watcher_pid": 3937536, "gpu_preflight": "GPUs 4/5/6/7 had no compute processes; GPUs 0/1/2 and 3 remained externally occupied", "watcher_restart_reason": "initial watcher launch raced before sampler process was visible; it was restarted only after four sampler workers were confirmed alive, without restarting sampling"},
+  "required_closeout": ["2048 original MP4, 2048 SR MP4, 2048 WAV", "all-media SHA-256 inventory", "zero ffprobe failures", "separate standalone eval.py on explicit original and sr_mp4 directories", "result remains labelled run 2 of 6"],
+  "terminal_evidence": {
+    "closeout": "audited_and_both_independent_evaluations_terminal",
+    "closeout_log_sha256": "6217cd0a60d847fe6aec267f0130642f4232bcc995bb61578e6c51ee72e29d31",
+    "media_audit": {
+      "original_mp4": 2048,
+      "sr_mp4": 2048,
+      "wav": 2048,
+      "ffprobe_failure_lines": 0,
+      "byte_identical_duplicate_hash_lines": 0,
+      "summary_sha256": "25e04989bbc154ec503154acabfa45f374c7540ba4fb1dbc45c31a64a99c3279",
+      "original_media_inventory_sha256": "095a507651df5cb7ed4679331e864b6d2162d683d681ce1ebf308576d9f40017",
+      "sr_media_inventory_sha256": "752cb048a7e9043466ed3be6f31bec8ade44a9a5937814dfb29926a43576aa09",
+      "audio_media_inventory_sha256": "6fe313016f4886001b5cc5de3e10e87ac3f91b15ed8a9f8727886a329a47027f"
+    },
+    "official_standalone_evaluator": {
+      "original_64x64": {"fvd": 231.89505004882812, "kvd": 14.373291075258749, "fad_x10000": 10.91976067982614, "log_sha256": "2eb50838319be68253191edc82a712465234170bb57505c6524ebe3b86234076"},
+      "sr_256x256_diagnostic": {"fvd": 154.74595642089844, "kvd": 7.883571488716342, "fad_x10000": 10.599776869639754, "log_sha256": "eb18b8edc29dc999d6ba1cccd1f454cf9caa665bd7365bb61884a5edd3a62c24"}
+    }
+  },
+  "stopping_rule": "Terminal evidence is C3 run 2 of 6 only. Report the two individual values, their descriptive mean and range, but do not claim a six-run aggregate, stable variance, a contradiction, or training reproduction. No training decision is permitted. A possible run 3 requires a separately preregistered, identical public-artifact protocol."
+}

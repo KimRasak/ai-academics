@@ -1,0 +1,41 @@
+{
+  "status": "terminal_execution_failure_before_listener_or_generation",
+  "scope": "Authorized local MiniMax-H3 Base FL2VA service deployment only; no request, video, metric, benchmark, or training result.",
+  "hardware_scope": "four authorized H100 GPUs with 79.18 GiB per logical rank; physical GPUs 4, 5, 6, 7",
+  "official_runtime_scope": {
+    "model_root": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3",
+    "partition": "FL2VA",
+    "model_variant": "fl2va",
+    "service_port": 30010,
+    "num_gpus": 4,
+    "ulysses_degree": 4,
+    "performance_mode": "speed"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "log_dir": "server_logs/fl2va_20260920T022012Z",
+      "service_log_sha256": "d49942167964c5ed9bdcec4e6846bb0c68f574a22a4cc8a7a56c04a11be86761",
+      "result": "MiniMaxH3Pipeline selected FL2VA; text encoder loaded; transformer FSDP materialization OOMed on a 294 MiB allocation before port listener/request/output.",
+      "oom_observation": {"free_mib_min": 246.31, "pytorch_allocated_gib": 69.1, "pytorch_reserved_unallocated_gib": 3.35}
+    },
+    {
+      "attempt": 2,
+      "log_dir": "server_logs/fl2va_20260920T023155Z",
+      "service_log_sha256": "3489fbd37d9698a71b166429708401d3f25b964a394c72f38f1a47f507023f5e",
+      "launch_metadata_sha256": "2509ab6733f33571580ab999aae9c53b76544de0f9d2dfd43ac3de3e0c3327b4",
+      "compatibility_change": "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True only; weights, service flags, request scripts, payloads, routing, seed and media contract unchanged",
+      "result": "Transformer FSDP materialization again OOMed on a 294 MiB allocation before port listener/request/output.",
+      "oom_observation": {"free_mib_min": 152.31, "pytorch_allocated_gib": 71.49, "pytorch_reserved_unallocated_gib": 1.05}
+    }
+  ],
+  "post_failure_verification": {
+    "h3_processes_on_gpus_4_7": [],
+    "ports_30010_30011": "free",
+    "request_submitted": false,
+    "output_media_written": false
+  },
+  "conclusion": "The identical official four-GPU FL2VA Base load exceeds the current 80GB-per-rank memory peak. The allocator compatibility retry reduces reserved-but-unallocated memory but does not permit the required 294 MiB allocation, so it does not support another identical retry.",
+  "post_failure_memory_mode_audit": "H3_FOUR_H100_MEMORY_MODE_AUDIT_20260920.json: the installed H3-tested memory mode keeps FSDP and does not offload the DiT, whereas the failure is during DiT FSDP materialization. It is not a justified remedy.",
+  "stopping_rule": "Do not retry this same four-H100 official command. Resume local H3 deployment only with evidence that a supported configuration reduces the DiT initialization peak, or with a differently scoped hardware configuration."
+}

@@ -1,0 +1,45 @@
+{
+  "verified_on": "2026-09-19",
+  "method": "remote read-only invocation of tools/verify_r0_freeze.py for each frozen case",
+  "manifest": "R0_FREEZE_MANIFEST.json",
+  "cases": {
+    "t2va": {
+      "decision": "FREEZE_VERIFIED",
+      "partition": "FL2VA",
+      "port": 30010,
+      "seed": 0
+    },
+    "fl2va": {
+      "decision": "FREEZE_VERIFIED",
+      "partition": "FL2VA",
+      "port": 30010,
+      "seed": 0
+    },
+    "ref2va": {
+      "decision": "FREEZE_VERIFIED",
+      "partition": "Ref2VA",
+      "port": 30011,
+      "seed": 0
+    }
+  },
+  "verified_hash_classes": [
+    "official MiniMax-H3 README",
+    "selected official per-case request script",
+    "request routing preflight",
+    "official reference-media audit",
+    "ownership gate, turnover audit, freeze verifier, output audit and durable request runner",
+    "H3 service launcher and frozen-case wrapper"
+  ],
+  "runtime_observation": {
+    "ports_30010_30011": "free",
+    "h3_base_service": "not_running",
+    "decision": "DO_NOT_START_H3_SERVICE",
+    "reason": "GPUs 0-3 had external compute allocations and GPUs 4-7 were occupied by active MM-Diffusion run 2 checkpoint evaluation; human ownership confirmation was not available."
+  },
+  "non_claims": [
+    "No H3 service was launched.",
+    "No official request was submitted.",
+    "No local H3 output or benchmark result was produced.",
+    "This is an integrity and routing check, not checkpoint-generation evidence."
+  ]
+}
