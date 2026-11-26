@@ -9,3 +9,10 @@ papers/
 # Local secrets & runtime artifacts
 .env
 .dsh/
+.scholar-profile/
+**/scholar_profile*/
+out/
+
+# Python
+**/__pycache__/
+**/*.pyc

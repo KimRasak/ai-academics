@@ -1,0 +1,33 @@
+.cache/
+**/__pycache__/
+**/*.pyc
+**/.DS_Store
+
+# Browser profiles & local runtime tools
+**/scholar_profile*/
+**/.scholar-profile/
+shared/tools/tectonic
+shared/tools/tectonic.tar.gz
+shared/vendor/
+
+# Large datasets, media, checkpoints, and archives
+projects/avatar-emotion/data/
+projects/emoh3-evaluation/results/human-label/**/*.jpg
+**/*.mp4
+**/*.wav
+**/*.parquet
+**/*.pt
+**/*.pth
+**/*.ckpt
+**/*.safetensors
+**/*.zip
+**/*.tar.gz
+
+# LaTeX build artifacts
+**/*.aux
+**/*.bbl
+**/*.blg
+**/*.fdb_latexmk
+**/*.fls
+**/*.synctex.gz
+**/*.toc
