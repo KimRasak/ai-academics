@@ -1,0 +1,8 @@
+{"case": "x01_neutral_to_joyful_lora", "target_emotion": "joyful", "verdict": "Happy: 90"}
+{"case": "x02_neutral_to_sad_lora", "target_emotion": "sad", "verdict": "Neutral: 80"}
+{"case": "x03_angry_to_happy_lora", "target_emotion": "happy", "verdict": "Happy:90"}
+{"case": "x04_joyful_to_worried_lora", "target_emotion": "worried", "verdict": "neutral:80"}
+{"case": "x05_amused_to_surprised_lora", "target_emotion": "surprised", "verdict": "Neutral: 50"}
+{"case": "x06_anxious_to_relieved_lora", "target_emotion": "relieved", "verdict": "Sad:80"}
+{"case": "x07_sad_to_cheerful_lora", "target_emotion": "cheerful", "verdict": "happy:80"}
+{"case": "x08_curious_to_angry_lora", "target_emotion": "angry", "verdict": "neutral:80"}

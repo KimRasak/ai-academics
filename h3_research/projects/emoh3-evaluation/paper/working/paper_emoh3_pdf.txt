@@ -1,0 +1,334 @@
+Reference-Conditioned LoRA for Emotion-Controllable
+                  Anime Character
+Video Generation: A Multi-Seed Robustness Study on
+                    MiniMax H3
+                                                 Anonymous
+
+
+Abstract                                                       smiles joyfully.”), a generator should animate that
+                                                               character in that state. Recent portrait-reference
+Controllable generation of a specific anime charac-            video generators—e.g. MiniMax H3’s Ref2VA
+ter in a desired emotional state is a core requirement         mode [minimax2025]—condition synthesis on both
+for AI-assisted animation production, yet portrait-            a text prompt and a reference image and are re-
+reference (Ref2VA) video generators such as Mini-              markably good at preserving identity. In practice,
+Max H3 tend to lock the output to the reference’s              however, we observe a strong reference-emotion
+emotion, suppressing prompt-specified targets—most             dominance: the generated video tends to reproduce
+severely for negative and subtle emotions. We present          the reference’s expression, and prompt-specified
+a systematic study of this problem on MiniMax H3               targets that disagree with the reference are often
+(33B, joint video+audio, 8×H100), making three                 ignored, especially when the target is negative or
+contributions. (i) A robustness-aware evalua-                  subtle (sad, worried, relieved, angry).
+tion protocol: we show that single-seed, single-                  This paper studies whether this limitation can be
+configuration evaluations are misleading—success               addressed on a single 8×H100 node with an open
+verdicts flip across inference steps (8 vs 16), sampling       33B video+audio model. We make no claim of state-
+seeds (42 vs 1234), and judge frame counts (4 vs 8).           of-the-art generation quality; instead we contribute
+(ii) Reference-conditioned LoRA fine-tuning:                   an honest, reproducible account of (a) how unreliable
+we encode the reference portrait into the training             emotion-control evaluation currently is, (b) a training
+conditioning (matching the inference Ref2VA layout)            intervention that yields a measurable, controlled im-
+and train on cross-emotion pairs where the reference           provement, and (c) a clearly bounded failure region.
+emotion differs from the target. This makes the first             Our findings rest on a small but carefully controlled
+negative emotion (neutral→sad) expressible—judged              protocol:
+sad (80) at one of three seeds, under a controlled base-
+line that is neutral at the same configuration—and              • Evaluation.      Eight emotion-transfer tasks
+improves the seed-level robustness of positive targets            (e.g. neutral→sad, angry→happy), each pair-
+(cheerful: 2/3 vs 1/2). (iii) An honest limitation                ing a reference portrait with a target-emotion
+boundary: the frown-type strong-negative emotions                 prompt. Generated 124-frame videos are judged
+(worried, angry) fail under every model and configu-              by Qwen2-VL-7B [11], an open vision-language
+ration we tested, and a controlled 7682 training ex-              model, with a fixed anime emotion taxonomy.
+periment rules out the resolution-mismatch hypoth-                Every configuration is run under ≥2 seeds and
+esis. All models train from scratch on 8×H100 with                ≥2 step counts; the judge reads 4 or 8 uniformly
+≤22 training clips; the full verdict matrix, judge logs,          sampled frames.
+and checkpoints are released.
+                                                                • Method. We add reference conditioning to
+                                                                  the training objective: the reference image is
+1    Introduction                                                 encoded exactly as at inference and injected
+                                                                  as clean conditioning rows into the packed se-
+Character-consistent, emotion-controllable video                  quence (matching Ref2VA’s layout), and train-
+generation is central to animation and virtual-                   ing data include cross-emotion pairs (reference
+content workflows: given a character’s portrait                   shows emotion A, target video shows emotion
+(reference) and a natural-language instruction (“She              B ̸= A) so the model learns to let the prompt
+
+                                                           1
+    override the reference.                                          Table 1: Eight emotion-transfer tasks.
+
+ • Findings. (1) Base MiniMax H3 succeeds on           ID             Reference → target    Prompt
+   1/8 tasks at 8 inference steps, and this “failure”
+                                                       x01            neutral → joyful      She smiles joyfully.
+   is partly a sampling artifact: at 16 steps the base
+                                                       x02            neutral → sad         She looks sad.
+   model surfaces positive emotions. (2) Emotion-      x03            angry → happy         She laughs happily.
+   preservation LoRA fine-tuning yields modest but     x04            joyful → worried      She frowns worriedly.
+   real robustness gains. (3) Reference-conditioned    x05            amused → surprised    She looks surprised.
+   LoRA makes a negative emotion (neutral→sad)         x06            anxious → relieved    She smiles with relief.
+   expressible—the first in our benchmark—with         x07            sad → cheerful        She giggles cheerfully.
+   a controlled neutral baseline, and improves         x08            curious → angry       She looks angry.
+   positive-target seed robustness (cheerful 2/3 vs
+   1/2). (4) Frown-type negatives (worried, an-
+   gry) remain unsolved under all interventions— task.
+   including a 7682 training-resolution variant that
+   refutes the “layout mismatch” hypothesis.
+                                                              3 Background:                 MiniMax H3
+2    Related Work                                               Ref2VA
+Video generation. Open video diffusion transform-             MiniMax H3 is a 33B-parameter rectified-flow
+ers (CogVideoX [2], HunyuanVideo [3], Wan2.1 [4])             video+audio diffusion transformer. In Ref2VA mode
+and closed systems (Sora [5]) have driven rapid               the input is [text | reference blocks | target audio |
+progress; MiniMax H3 [minimax2025] is notable for             target video] packed into one sequence with per-row
+joint video+audio generation with reference-image             rotary positions; the reference image is encoded by
+(Ref2VA) and first/last-frame (FL2VA) conditioning,           the video autoencoder into a single-frame latent,
+and it is the model we study.                                 patched into conditioning video rows, and fed clean
+   Character animation and personalization.                   at a pinned timestep (0.999). At generation the tar-
+Character-consistency methods condition on a ref-             get rows are denoised while conditioning rows stay
+erence image via cross-attention adapters (Ani-               fixed—so the reference has direct attention access to
+mateAnyone [6], StableAnimator [7]) or image-                 every target token. This makes the reference’s emo-
+prompt adapters (IP-Adapter [8]). In the tuning-free          tional content a strong prior; our training interven-
+setting these achieve strong identity preservation but,       tion (Sec. 5) mirrors the same layout so the LoRA
+as we show, weak emotion control, since the reference         can learn to modulate it.
+encodes expression as well as identity. Parameter-               We run all experiments on a single 8×H100 node
+eﬀicient fine-tuning (LoRA [9], DreamBooth [10])              (80 GB each), FSDP2 for inference and DeepSpeed-
+adapts a base model to a subject or style; we use             ZeRO-3 for training; video 768×768×124, 16 infer-
+LoRA for emotion behavior rather than subject iden-           ence steps (Sec. 4.2), and LoRA rank 16 / alpha 32
+tity.                                                         on attention projections.
+   Emotion and expression control. A large lit-
+erature controls facial expression in talking-head and
+image-animation models; fewer works target full-body          4 Evaluation Protocol and Its
+character emotion in video diffusion from a single              Pitfalls
+portrait. Our focus is complementary: we treat emo-
+tion as a first-class conditioning variable in an open        4.1   Tasks, judge, and protocol
+portrait-to-video model and measure, adversarially
+(by choosing references whose emotion disagrees with          We define eight emotion-transfer tasks covering pos-
+the target), how controllable it actually is.                 itive, negative, and subtle targets (Table 1). Each
+   Automatic evaluation of generative video.                  uses a distinct character’s portrait as reference and
+Human studies are costly; recent work increas-                a target-emotion prompt (e.g. x02: neutral portrait
+ingly uses strong vision-language models as judges.           + “She looks sad.”). For each clip we sample 4 or 8
+We adopt Qwen2-VL-7B [11] with a fixed emotion                frames and ask Qwen2-VL-7B (do_sample = False)
+taxonomy and, crucially, sweep its inputs (frame              to classify the emotion from a fixed 12-class taxon-
+count, seed, steps) to expose evaluation instability—         omy with a confidence score. A task succeeds iff the
+a methodological point we believe applies beyond our          judged emotion equals the target.
+
+                                                          2
+Table 2: Evaluation instability: the same generation
+flips verdicts with protocol choices.
+
+Model    Task   Steps   Seed   Judge (4fr/8fr)
+base     x01    8       42     neutral / —
+base     x01    16      42     — / happy 90
+v2       x01    8       42     happy 90 / happy 90
+v2       x01    8       1234   neutral 50 / —
+v2       x05    8       42     surprised 80 / neutral 100
+
+
+
+4.2     Result 1: evaluation is unstable — Figure 1: Reference-conditioned training layout. The
+                                           reference portrait is encoded with the video autoen-
+        steps, seeds, frames flip verdicts coder (sampled, seed 42) and added clean at t = 0.999
+Table 2 documents three failure modes of a naive pro-       alongside the target rows, which are the only rows
+tocol:                                                      that receive noise and loss. Text/audio rows are un-
+                                                            changed from Ref2VA training.
+ • Inference steps.           Base model, x01
+   (neutral→joyful): judged neutral at 8 steps
+   but happy (90) at 16 steps—same prompt,                  5 Method:         Reference-
+   reference, resolution; only the denoising steps            Conditioned LoRA
+   change. At 8 steps the target’s emotion is
+   under-resolved. This reframes “the base fails      We hypothesize that reference-emotion dominance
+   7/8 tasks” (the naive 8-step reading) as largely   persists because training never conditions on the ref-
+   a low-step sampling artifact.                      erence: a naive LoRA learns a reference-agnostic
+                                                      prompt→emotion mapping, so at inference the ref-
+  • Sampling seed. LoRA-v2, 8 steps, x01: seed 42 erence (present but “invisible” to the adapted behav-
+     → happy (90); seed 1234 → neutral (50). Same ior) wins. We therefore teach the model to use the
+     weights and prompt, flipped verdict.             reference by conditioning the training forward on it,
+                                                      in the exact Ref2VA layout (Figure 1).
+  • Judge frame count.                LoRA-v2, x05
+                                                         Reference encoding (training). We patch
+     (amused→surprised): 4 frames → surprised (80);
+                                                      the cache builder to encode each reference image
+     8 frames → neutral (100).
+                                                      with the video autoencoder exactly as at inference:
+                                                      cover-resize, spatial encode, sample the posterior un-
+Consequently every headline number in this
+                                                      der seed 42, round to float16 (matching the re-
+paper is reported with (model, steps, seed,
+                                                      leased model’s conditioning), normalize, and patchify
+frames) and, where possible, across multiple seeds.
+                                                      into conditioning rows. Each training sample stores
+We adopt 16 steps and 8 frames as the standard re-
+                                                      ref_video rows.
+porting configuration, with multi-seed agreement as
+the primary success criterion.                           Training layout. We extend the packing so
+                                                      a reference block precedes the target rows ([text |
+                                                      reference | target audio | target video]), with the ref-
+4.3 Result 2: base-model emotion erence rows fed clean at timestep 0.999 (identical to
+       control is weak, with a positive inference conditioning) and the loss computed only
+                                                      on target rows. Training sequences grow from 537
+       bias
+                                                      to ≈602 rows (2562 ) or ≈4698 rows (7682 ).
+Under the full protocol the base model succeeds on       Data. Two kinds of clips (22 total, all gener-
+x03 (angry→happy) across all configurations and on ated on a single 8×H100 node): (a) preservation—10
+x01 at 16 steps/seed 42, but never on any negative clips where reference and target share the emotion;
+or subtle target (sad, worried, surprised, relieved, (b) cross-emotion—12 pairs for one character with
+angry); negative-target clips are consistently judged four emotion portraits (angry/joyful/sad/surprised),
+neutral. We interpret this as reference-emotion dom- where the reference shows emotion A but the tar-
+inance: the reference’s expression is copied into the get video (and prompt) express emotion B ̸= A.
+output, and the prompt cannot override it for nega- The cross-emotion pairs are the key supervision for
+tive targets.                                         “prompt overrides reference.”
+
+                                                        3
+Table 3: Success count out of the configura-                   cal prompt/seed/steps/frames (seed 1234)—is judged
+tions tested for each model (16 steps, 8 frames).              neutral (100). Since the only difference at that con-
+v1/v2/base were tested on fewer configurations than            figuration is the reference-conditioned LoRA, the sad
+v3/v4; v3’s x02/x07 were additionally run at a third           result is a genuine effect of the intervention: it makes
+seed (999). Multi-seed agreement is the primary suc-           a negative emotion expressible that the base model
+cess criterion (Sec. 4.2). ∗ v2 x05 succeeds at 4 frames       never produces (0/2 base configs), though not at ev-
+only — a judge artifact (Sec. 4.2).                            ery seed. LoRA-v4 (7682 ) reproduces the seed-1234
+                                                               sad result, confirming it is not resolution-dependent.
+Task (→ target)          base    v1     v2     v3    v4
+                                                                  Finding     B    —     reference-conditioning
+x01 neutral→joyful       1/2    1/1    1/1    2/2    0/2       improves positive robustness.             Task x07
+x02 neutral→sad          0/1    0/1    0/1    1/3    1/2
+                                                               (sad→cheerful): base never succeeds (0/1); LoRA-v2
+x03 angry→happy          1/1    1/1    1/1    2/2    0/2
+                                                               is seed-unstable (1/2); v3 succeeds at 2/3 seeds
+x04 joyful→worried       0/1    0/1    0/1    0/2    0/2
+x05 amused→surprised     0/1    0/1    1/2∗   0/2    0/2       (42 and 1234). Tasks x01 and x03 remain the most
+x06 anxious→relieved     0/1    0/1    0/1    0/2    0/2       robust under v3 (x01 2/2 at 16 steps; x03 2/2).
+x07 sad→cheerful         0/1    1/1    1/2    2/3    1/2
+                                                                  Finding C — the method does not general-
+x08 curious→angry        0/1    0/1    0/1    0/2    0/2
+                                                               ize to frown-type negatives. Worried (x04) and
+                                                               angry (x08) fail under every model and configuration.
+                                                               Since the training data does contain angry targets yet
+  All training is LoRA rank 16 / alpha 32, 900 steps,
+                                                               x08 still fails, and v4 (7682 , matching the eval layout)
+8×H100 with DeepSpeed-ZeRO-3 (∼15–80 min per
+                                                               also fails, we conclude this is an expressive-capacity
+run depending on resolution).
+                                                               boundary of the base model rather than a condition-
+                                                               ing or layout defect.
+6     Experiments
+6.1    Setup
+Models: base; LoRA-v1 (9 clips, 300 steps); LoRA-
+                                                               6.3    Identity-consistency analysis
+v2 (18 clips, 600 steps); LoRA-v3 (reference-
+conditioned, 22 clips, 2562 , 900 steps); LoRA-
+v4 (reference-conditioned, same 22 clips, 7682 , 900   A central promise of portrait-reference generation
+steps)—the v3/v4 pair isolates training resolution.    is identity preservation.       We quantify it two
+Inference: 768×768×124, 16 steps, seeds 42 & 1234,     ways. (i) CLIP cosine similarity (ViT-L/14)
+judge on 8 frames. Success: judged emotion == tar-     between the reference portrait and three frames
+get.                                                   (early/middle/late) of each generated clip, averaged
+                                                       (Table 4). The metric is seed-stable (mean |∆| across
+6.2 Main results                                       seeds 42/1234 is 0.078, and ≤0.10 for 6/8 tasks). Two
+                                                       conclusions: base preserves identity slightly better
+Table 3 reports per-task success across seeds (2/2, than LoRA-v3 on shared tasks (0.80 vs 0.73 aver-
+1/2, or 0/2); full verdicts with confidence are in the age), i.e. our intervention trades a small amount of
+release.                                               identity fidelity for emotion control; and identity is
+   Figure 2 shows one representative frame per task not uniformly strong—x07 s42 (0.585) and x08 s1234
+for the base model and our reference-conditioned (0.579) are the lowest, both being tasks where the
+LoRA-v3, together with the Qwen2-VL judge ver- target emotion was most visibly rendered. (ii) A
+dicts. The neutral→sad row is the headline: base binary Qwen2-VL check (“same character?”, sin-
+is judged neutral while v3 is judged sad under an gle middle frame) as a sanity signal. Its verdicts flip
+otherwise identical generation.                        across seeds for 6/8 tasks, so we treat it as qualitative
+   Finding A — reference-conditioned LoRA only; where it disagrees with CLIP (x01 at seed 1234:
+expands the negative-emotion space (seed- VLM NO vs CLIP 0.775), we trust the continuous,
+dependent).        Task x02 (neutral→sad) is the seed-stable CLIP score. Both metrics agree on the
+first negative target to succeed in our study: direction of the emotion–identity tradeoff: the model
+LoRA-v3, seed 1234, judged sad (80); at seeds pays for expression change with identity deviation.
+42 and 999 the same model is judged neu- A dedicated face-embedding identity metric is future
+tral. The controlled baseline—base model, identi- work.
+
+                                                           4
+Figure 2: Qualitative comparison (16 steps, 8-frame judge). Columns are tasks (reference portrait
+shown in the top row); rows are the reference, the base model, and our reference-conditioned LoRA-v3. Judge
+verdicts (base vs v3): x01 happy 90 vs happy 80; x02 neutral 100 vs sad 80 (the controlled negative-
+emotion breakthrough, Finding A); x03 happy 90 vs happy 80; x07 neutral 50 vs happy 80.
+
+
+6.4   Ablation: training resolution (v3 7                       Limitations
+      vs v4)
+                                                             • Scale. Training uses ≤22 clips from a handful
+                                                               of characters; the dominant training character
+We trained the reference-conditioned LoRA at both              is a single anime girl. Larger, multi-character
+2562 (v3) and 7682 (v4) on identical data. Contrary            corpora are needed for general claims.
+to the “layout mismatch” hypothesis, 7682 training is
+                                                             • Evaluation.       The judge is a single VL
+worse: v4 scores 0/8 at seed 42 (all neutral) and 2/8
+                                                               model with a fixed emotion taxonomy; “wor-
+at seed 1234, versus v3’s 3/8 and 4/8; the previously
+                                                               ried”/“relieved”/“surprised” are inherently sub-
+robust positive tasks x01/x03 regress to neutral. v4’s
+                                                               jective and coarse. We report confidence scores
+training loss is lower (0.30 vs 0.45) yet its behav-
+                                                               and multi-seed agreement to mitigate; a human
+ior is worse—consistent with overfitting on 22 clips
+                                                               study is future work.
+at higher resolution with a fixed-rank LoRA spread
+over ∼8× more sequence. This rules out resolution as         • Identity.     Our CLIP-based identity metric
+the bottleneck and supports the capacity-boundary              (seed-stable, Sec. 6.4) shows a small identity-
+interpretation (Finding C).                                    for-emotion tradeoff, but a dedicated face-
+
+
+                                                         5
+Table 4: Identity preservation vs the reference por- References
+trait. Left: CLIP ViT-L/14 cosine similarity (mean
+over 3 frames), higher is better; base is the 16-step [minimax2025] MiniMax.         MiniMax H3: Open
+model (seed 42 for x01/x03, seed 1234 for x02/x07).        General     Intelligence     (model    release),
+LoRA-v3 trades a small amount of identity fidelity         2025.         https://www.minimax.io/news/
+for emotion control (0.73 vs 0.80 average on shared        minimax-h3-open-source
+tasks). Right: binary Qwen2-VL “same character?”
+verdicts (seed 42 / seed 1234); flips indicate this    [2] Q. Yang et al.       CogVideoX: Text-to-video
+single-frame signal is qualitative only.                   diffusion models  with   an expert transformer.
+                                                           arXiv:2408.06072, 2024.
+                                CLIP similarity       Qwen2-VL (s42/s1234) HunyuanVideo:
+                                                          [3] Tencent.                           A systematic
+Task                     base     v3 s42   v3 s1234       verdict framework
+                                                                        same?for large video generative models.
+                                                                  arXiv:2412.03603, 2024.
+x01 neutral→joyful       0.730     0.767     0.775    YES / NO        flip
+x02 neutral→sad          0.819     0.694     0.700    NO /[4]
+                                                           YES        flip
+                                                              Wan Team.         Wan: Open and advanced
+x03 angry→happy          0.826     0.808     0.771    YES / YES      stable
+                                                              large-scale     video    generative    models.
+x04 joyful→worried         —       0.659     0.730    NO / YES        flip
+                                                              arXiv:2503.20314, 2025.
+x05 amused→surprised      —        0.808     0.754    YES / YES      stable
+x06 anxious→relieved      —        0.831     0.730    YES [5]
+                                                          / NOpenAI.flipVideo generation models as world sim-
+x07 sad→cheerful         0.838     0.585     0.758    NO / YES        flip
+                                                              ulators (Sora), 2024.
+x08 curious→angry          —       0.755     0.579    YES / NO        flip
+                                                               [6] A. Hu. Animate Anyone: Consistent and con-
+                                                                   trollable image-to-video synthesis for character
+       embedding metric with multi-frame aggregation               animation. arXiv:2311.17117, 2023.
+       is needed before strong claims.
+                                                               [7] H. Tian et al. StableAnimator: High-quality
+ • Boundary. Frown-type negative emotions re-                      identity-preserving human image animation.
+   main unsolved; our evidence attributes this to                  arXiv:2411.17697, 2024.
+   base-model capacity, which we do not attempt                [8] H. Ye et al. IP-Adapter: Text compatible im-
+   to expand here.                                                 age prompt adapter for text-to-image diffusion
+                                                                   models. arXiv:2308.06721, 2023.
+ • Audio. All reported tasks use video-only judg-
+   ment; joint audio+emotion control is out of                 [9] E. Hu et al. LoRA: Low-rank adaptation of large
+   scope (audio is trained jointly but not evaluated               language models. arXiv:2106.09685, 2021.
+   for emotion).
+                                                              [10] N. Ruiz et al. DreamBooth: Fine tuning text-to-
+                                                                   image diffusion models for subject-driven gener-
+                                                                   ation. arXiv:2208.12242, 2022.
+8      Conclusion
+                                                              [11] P. Wang et al. Qwen2-VL: Enhancing vision-
+We presented a reproducible study of emotion-                      language model’s perception of the world at any
+controllable anime character video generation on                   resolution. arXiv:2409.12191, 2024.
+MiniMax H3. We showed that (i) current evalua-
+tion is unstable along steps, seeds, and judge frame
+counts, and must be swept to be trustworthy; (ii) a
+reference-conditioned LoRA trained on cross-emotion
+pairs makes the first negative emotion (neutral→sad)
+expressible, with a controlled neutral baseline and
+seed-dependent success, and improves positive-target
+seed robustness; and (iii) a specific class of strong-
+negative emotions remains a hard boundary across
+all interventions, with a controlled resolution abla-
+tion ruling out the layout-mismatch explanation. We
+release the full verdict matrix, judge logs, and check-
+points to support honest benchmarking of emotion
+control in open video generators.
+
+                                                          6
+

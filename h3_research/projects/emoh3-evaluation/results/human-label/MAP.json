@@ -1,0 +1,1021 @@
+{
+ "i001": {
+  "kind": "clip",
+  "source": "frames_refswap_lora_s1234__m4_refjoyful_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i002": {
+  "kind": "portrait",
+  "source": "a03_anxious_1535662828_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i003": {
+  "kind": "clip",
+  "source": "frames_lora2__x08_curious_to_angry_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg"
+  ]
+ },
+ "i004": {
+  "kind": "portrait",
+  "source": "a17_reluctant_1538095009_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i005": {
+  "kind": "clip",
+  "source": "frames_refswap_base_s42__m4_refsad_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i006": {
+  "kind": "clip",
+  "source": "frames_x02sweep_base__x02_s780_neutral_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i007": {
+  "kind": "portrait",
+  "source": "a07_curious_1536617199_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i008": {
+  "kind": "portrait",
+  "source": "v2/sad_1534125952_v1_raw.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i009": {
+  "kind": "portrait",
+  "source": "c03_excited_1538613676_v2_10s.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i010": {
+  "kind": "portrait",
+  "source": "a22_shy_1538669802_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i011": {
+  "kind": "portrait",
+  "source": "b01_joyful_1534125952_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i012": {
+  "kind": "clip",
+  "source": "frames_lora__x02_neutral_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg"
+  ]
+ },
+ "i013": {
+  "kind": "portrait",
+  "source": "a21_scared_1538613676_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i014": {
+  "kind": "portrait",
+  "source": "v2/angry_1534125952_v1_raw.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i015": {
+  "kind": "clip",
+  "source": "frames_lora2_8__x06_anxious_to_relieved_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i016": {
+  "kind": "portrait",
+  "source": "v2/joyful_1534125952_v1_raw.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i017": {
+  "kind": "clip",
+  "source": "frames_refswap_base_s42__m4_refsurprised_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i018": {
+  "kind": "portrait",
+  "source": "a09_excited_1537105305_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i019": {
+  "kind": "clip",
+  "source": "frames_lora3__x07_sad_to_cheerful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i020": {
+  "kind": "portrait",
+  "source": "a04_comforting_1535803350_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i021": {
+  "kind": "portrait",
+  "source": "b03_joyful_1534125952_v3.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i022": {
+  "kind": "portrait",
+  "source": "a05_confident_1536153581_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i023": {
+  "kind": "clip",
+  "source": "frames_lora2__x04_joyful_to_worried_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg"
+  ]
+ },
+ "i024": {
+  "kind": "portrait",
+  "source": "d03_confident_1537792644_v3_speech.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i025": {
+  "kind": "clip",
+  "source": "frames_lora3s__x07_sad_to_cheerful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i026": {
+  "kind": "clip",
+  "source": "frames_refswap_base_s1234__m4_refjoyful_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i027": {
+  "kind": "portrait",
+  "source": "a08_disgusted_1536815405_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i028": {
+  "kind": "portrait",
+  "source": "b05_joyful_1534125952_v5.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i029": {
+  "kind": "clip",
+  "source": "frames_x02sweep_lora__x02_s781_neutral_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i030": {
+  "kind": "clip",
+  "source": "frames_s999__x02_neutral_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i031": {
+  "kind": "clip",
+  "source": "frames_refswap_base_s42__m4_refjoyful_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i032": {
+  "kind": "clip",
+  "source": "frames_lora3s__x03_angry_to_happy_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i033": {
+  "kind": "portrait",
+  "source": "a16_relaxed_1537946933_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i034": {
+  "kind": "portrait",
+  "source": "a14_moved_1537826385_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i035": {
+  "kind": "clip",
+  "source": "frames_lora4__x06_anxious_to_relieved_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i036": {
+  "kind": "clip",
+  "source": "frames_refswap_lora_s1234__m4_refsurprised_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i037": {
+  "kind": "portrait",
+  "source": "a11_joyful_1537451704_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i038": {
+  "kind": "portrait",
+  "source": "a15_neutral_1537882489_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i039": {
+  "kind": "portrait",
+  "source": "a06_confused_1536479145_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i040": {
+  "kind": "portrait",
+  "source": "a01_amused_1534125952_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i041": {
+  "kind": "clip",
+  "source": "frames_x02ctrl__x02_neutral_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i042": {
+  "kind": "clip",
+  "source": "frames_lora2__x07_sad_to_cheerful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg"
+  ]
+ },
+ "i043": {
+  "kind": "clip",
+  "source": "frames_lora3s__x05_amused_to_surprised_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i044": {
+  "kind": "portrait",
+  "source": "v2/surprised_1534125952_v1_raw.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i045": {
+  "kind": "clip",
+  "source": "frames_lora3__x06_anxious_to_relieved_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i046": {
+  "kind": "portrait",
+  "source": "d01_joyful_1536757874_v3_speech.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i047": {
+  "kind": "clip",
+  "source": "frames_lora3__x05_amused_to_surprised_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i048": {
+  "kind": "portrait",
+  "source": "d02_shy_1537308222_v3_speech.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i049": {
+  "kind": "clip",
+  "source": "frames_lora4__x08_curious_to_angry_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i050": {
+  "kind": "clip",
+  "source": "frames_base16__x03_angry_to_happy_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i051": {
+  "kind": "clip",
+  "source": "frames_lora3__x08_curious_to_angry_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i052": {
+  "kind": "portrait",
+  "source": "c02_sad_1538378146_v2_10s.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i053": {
+  "kind": "clip",
+  "source": "frames_lora2__x06_anxious_to_relieved_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg"
+  ]
+ },
+ "i054": {
+  "kind": "portrait",
+  "source": "a20_satisfied_1538393221_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i055": {
+  "kind": "portrait",
+  "source": "b04_joyful_1534125952_v4.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i056": {
+  "kind": "portrait",
+  "source": "a13_loving_1537718524_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i057": {
+  "kind": "clip",
+  "source": "frames_lora2_8__x01_neutral_to_joyful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i058": {
+  "kind": "clip",
+  "source": "frames_lora4s__x02_neutral_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i059": {
+  "kind": "clip",
+  "source": "frames_base16b__x07_sad_to_cheerful_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i060": {
+  "kind": "clip",
+  "source": "frames_lora__x01_neutral_to_joyful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg"
+  ]
+ },
+ "i061": {
+  "kind": "portrait",
+  "source": "b02_joyful_1534125952_v2.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i062": {
+  "kind": "clip",
+  "source": "frames_lora3__x04_joyful_to_worried_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i063": {
+  "kind": "clip",
+  "source": "frames_lora4s__x07_sad_to_cheerful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i064": {
+  "kind": "clip",
+  "source": "frames_base16__x07_sad_to_cheerful_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i065": {
+  "kind": "clip",
+  "source": "frames_lora3__x02_neutral_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i066": {
+  "kind": "clip",
+  "source": "frames_refswap_lora_s42__m4_refjoyful_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i067": {
+  "kind": "clip",
+  "source": "frames_s999__x07_sad_to_cheerful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i068": {
+  "kind": "clip",
+  "source": "frames_lora3__x01_neutral_to_joyful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i069": {
+  "kind": "clip",
+  "source": "frames_lora3s__x02_neutral_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i070": {
+  "kind": "clip",
+  "source": "frames_base16__x01_neutral_to_joyful_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i071": {
+  "kind": "portrait",
+  "source": "a19_sarcastic_1538373141_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i072": {
+  "kind": "clip",
+  "source": "frames_base16b__x01_neutral_to_joyful_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i073": {
+  "kind": "portrait",
+  "source": "c01_surprised_1538256620_v2_10s.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i074": {
+  "kind": "clip",
+  "source": "frames_lora2_8__x05_amused_to_surprised_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i075": {
+  "kind": "portrait",
+  "source": "a23_sincere_1538767023_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i076": {
+  "kind": "clip",
+  "source": "frames_lora4__x03_angry_to_happy_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i077": {
+  "kind": "clip",
+  "source": "frames_base16__x02_neutral_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i078": {
+  "kind": "clip",
+  "source": "frames_refswap_lora_s42__m4_refangry_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i079": {
+  "kind": "portrait",
+  "source": "a18_sad_1538269564_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i080": {
+  "kind": "clip",
+  "source": "frames_lora4s__x04_joyful_to_worried_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i081": {
+  "kind": "portrait",
+  "source": "a12_longing_1537630422_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i082": {
+  "kind": "clip",
+  "source": "frames_refswap_lora_s1234__m4_refangry_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i083": {
+  "kind": "clip",
+  "source": "frames_lora3s__x01_neutral_to_joyful_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i084": {
+  "kind": "clip",
+  "source": "frames_lora4__x02_neutral_to_sad_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i085": {
+  "kind": "clip",
+  "source": "frames_lora3__x03_angry_to_happy_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i086": {
+  "kind": "portrait",
+  "source": "a10_frustrated_1537176174_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i087": {
+  "kind": "clip",
+  "source": "frames_lora4__x05_amused_to_surprised_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i088": {
+  "kind": "portrait",
+  "source": "a02_angry_1534927518_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i089": {
+  "kind": "clip",
+  "source": "frames_lora4__x04_joyful_to_worried_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i090": {
+  "kind": "portrait",
+  "source": "a24_surprised_1538797510_v1.png",
+  "frames": [
+   "f1.png"
+  ]
+ },
+ "i091": {
+  "kind": "clip",
+  "source": "frames_lora3s__x06_anxious_to_relieved_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i092": {
+  "kind": "clip",
+  "source": "frames_x02sweep_base__x02_s778_neutral_to_sad_base",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i093": {
+  "kind": "clip",
+  "source": "frames_lora3s__x04_joyful_to_worried_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ },
+ "i094": {
+  "kind": "clip",
+  "source": "frames_lora3s__x08_curious_to_angry_lora",
+  "frames": [
+   "f1.jpg",
+   "f2.jpg",
+   "f3.jpg",
+   "f4.jpg",
+   "f5.jpg",
+   "f6.jpg",
+   "f7.jpg",
+   "f8.jpg"
+  ]
+ }
+}

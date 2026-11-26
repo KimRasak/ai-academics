@@ -1,0 +1,10 @@
+[
+  {"index": 1, "case_id": "x01_neutral_to_joyful", "prompt": "She smiles joyfully.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a15_neutral_1537882489_v1.png"]},
+  {"index": 2, "case_id": "x02_neutral_to_sad", "prompt": "She looks sad.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a15_neutral_1537882489_v1.png"]},
+  {"index": 3, "case_id": "x03_angry_to_happy", "prompt": "She laughs happily.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a02_angry_1534927518_v1.png"]},
+  {"index": 4, "case_id": "x04_joyful_to_worried", "prompt": "She frowns worriedly.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a11_joyful_1537451704_v1.png"]},
+  {"index": 5, "case_id": "x05_amused_to_surprised", "prompt": "She looks surprised.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a01_amused_1534125952_v1.png"]},
+  {"index": 6, "case_id": "x06_anxious_to_relieved", "prompt": "She smiles with relief.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a03_anxious_1535662828_v1.png"]},
+  {"index": 7, "case_id": "x07_sad_to_cheerful", "prompt": "She giggles cheerfully.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a18_sad_1538269564_v1.png"]},
+  {"index": 8, "case_id": "x08_curious_to_angry", "prompt": "She looks angry.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a07_curious_1536617199_v1.png"]}
+]

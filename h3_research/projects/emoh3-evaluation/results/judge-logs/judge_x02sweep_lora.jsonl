@@ -1,0 +1,5 @@
+{"case": "x02_s777_neutral_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:100", "n_frames": 8}
+{"case": "x02_s778_neutral_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:50", "n_frames": 8}
+{"case": "x02_s779_neutral_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:100", "n_frames": 8}
+{"case": "x02_s780_neutral_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:100", "n_frames": 8}
+{"case": "x02_s781_neutral_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:100", "n_frames": 8}

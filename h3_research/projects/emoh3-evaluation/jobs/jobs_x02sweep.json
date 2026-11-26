@@ -1,0 +1,7 @@
+[
+  {"index": 0, "case_id": "x02_s777_neutral_to_sad", "prompt": "She looks sad.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a15_neutral_1537882489_v1.png"]},
+  {"index": 1, "case_id": "x02_s778_neutral_to_sad", "prompt": "She looks sad.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a15_neutral_1537882489_v1.png"]},
+  {"index": 2, "case_id": "x02_s779_neutral_to_sad", "prompt": "She looks sad.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a15_neutral_1537882489_v1.png"]},
+  {"index": 3, "case_id": "x02_s780_neutral_to_sad", "prompt": "She looks sad.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a15_neutral_1537882489_v1.png"]},
+  {"index": 4, "case_id": "x02_s781_neutral_to_sad", "prompt": "She looks sad.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a15_neutral_1537882489_v1.png"]}
+]

@@ -1,0 +1,14 @@
+{"case": "angry_1534125952_v1_raw", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "angry:95", "n_frames": 8}
+{"case": "joyful_1534125952_v1_raw", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "surprised:95", "n_frames": 8}
+{"case": "pres_amused_1534125952_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "cheerful:95", "n_frames": 8}
+{"case": "pres_angry_1534927518_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "angry:85", "n_frames": 8}
+{"case": "pres_anxious_1535662828_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "curious:85", "n_frames": 8}
+{"case": "pres_curious_1536617199_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "curious:85", "n_frames": 8}
+{"case": "pres_excited_1537105305_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "happy:95", "n_frames": 8}
+{"case": "pres_joyful_1537451704_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "joyful:95", "n_frames": 8}
+{"case": "pres_relaxed_1537946933_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "happy:95", "n_frames": 8}
+{"case": "pres_sad_1538269564_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "sad:85", "n_frames": 8}
+{"case": "pres_scared_1538613676_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "surprised:95", "n_frames": 8}
+{"case": "pres_surprised_1538797510_base", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "surprised:95", "n_frames": 8}
+{"case": "sad_1534125952_v1_raw", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "sad:95", "n_frames": 8}
+{"case": "surprised_1534125952_v1_raw", "model": "Qwen3-VL-32B", "variant": "orig", "verdict": "surprised:95", "n_frames": 8}

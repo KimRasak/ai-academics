@@ -1,0 +1,35 @@
+{"case": "sanity_a01_amused_1534125952_v1", "model": "Qwen2-VL-7B", "known": "amused", "verdict": "Happy: 80", "n_frames": 1}
+{"case": "sanity_a02_angry_1534927518_v1", "model": "Qwen2-VL-7B", "known": "angry", "verdict": "Neutral: 50", "n_frames": 1}
+{"case": "sanity_a03_anxious_1535662828_v1", "model": "Qwen2-VL-7B", "known": "anxious", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a04_comforting_1535803350_v1", "model": "Qwen2-VL-7B", "known": "comforting", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a05_confident_1536153581_v1", "model": "Qwen2-VL-7B", "known": "confident", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a06_confused_1536479145_v1", "model": "Qwen2-VL-7B", "known": "confused", "verdict": "Anxious:70", "n_frames": 1}
+{"case": "sanity_a07_curious_1536617199_v1", "model": "Qwen2-VL-7B", "known": "curious", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a08_disgusted_1536815405_v1", "model": "Qwen2-VL-7B", "known": "disgusted", "verdict": "Sad:70", "n_frames": 1}
+{"case": "sanity_a09_excited_1537105305_v1", "model": "Qwen2-VL-7B", "known": "excited", "verdict": "Happy: 90", "n_frames": 1}
+{"case": "sanity_a10_frustrated_1537176174_v1", "model": "Qwen2-VL-7B", "known": "frustrated", "verdict": "Anxious:70", "n_frames": 1}
+{"case": "sanity_a11_joyful_1537451704_v1", "model": "Qwen2-VL-7B", "known": "joyful", "verdict": "Surprised: 80", "n_frames": 1}
+{"case": "sanity_a12_longing_1537630422_v1", "model": "Qwen2-VL-7B", "known": "longing", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a13_loving_1537718524_v1", "model": "Qwen2-VL-7B", "known": "loving", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a14_moved_1537826385_v1", "model": "Qwen2-VL-7B", "known": "moved", "verdict": "Sad:80", "n_frames": 1}
+{"case": "sanity_a15_neutral_1537882489_v1", "model": "Qwen2-VL-7B", "known": "neutral", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a16_relaxed_1537946933_v1", "model": "Qwen2-VL-7B", "known": "relaxed", "verdict": "Neutral: 50", "n_frames": 1}
+{"case": "sanity_a17_reluctant_1538095009_v1", "model": "Qwen2-VL-7B", "known": "reluctant", "verdict": "Sad:70", "n_frames": 1}
+{"case": "sanity_a18_sad_1538269564_v1", "model": "Qwen2-VL-7B", "known": "sad", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a19_sarcastic_1538373141_v1", "model": "Qwen2-VL-7B", "known": "sarcastic", "verdict": "Sad:70", "n_frames": 1}
+{"case": "sanity_a20_satisfied_1538393221_v1", "model": "Qwen2-VL-7B", "known": "satisfied", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a21_scared_1538613676_v1", "model": "Qwen2-VL-7B", "known": "scared", "verdict": "Anxious:80", "n_frames": 1}
+{"case": "sanity_a22_shy_1538669802_v1", "model": "Qwen2-VL-7B", "known": "shy", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a23_sincere_1538767023_v1", "model": "Qwen2-VL-7B", "known": "sincere", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_a24_surprised_1538797510_v1", "model": "Qwen2-VL-7B", "known": "surprised", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_b01_joyful_1534125952_v1", "model": "Qwen2-VL-7B", "known": "joyful", "verdict": "Happy: 90", "n_frames": 1}
+{"case": "sanity_b02_joyful_1534125952_v2", "model": "Qwen2-VL-7B", "known": "joyful", "verdict": "Happy: 80", "n_frames": 1}
+{"case": "sanity_b03_joyful_1534125952_v3", "model": "Qwen2-VL-7B", "known": "joyful", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_b04_joyful_1534125952_v4", "model": "Qwen2-VL-7B", "known": "joyful", "verdict": "Happy: 80", "n_frames": 1}
+{"case": "sanity_b05_joyful_1534125952_v5", "model": "Qwen2-VL-7B", "known": "joyful", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_c01_surprised_1538256620_v2_10s", "model": "Qwen2-VL-7B", "known": "surprised", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_c02_sad_1538378146_v2_10s", "model": "Qwen2-VL-7B", "known": "sad", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_c03_excited_1538613676_v2_10s", "model": "Qwen2-VL-7B", "known": "excited", "verdict": "Happy: 80", "n_frames": 1}
+{"case": "sanity_d01_joyful_1536757874_v3_speech", "model": "Qwen2-VL-7B", "known": "joyful", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_d02_shy_1537308222_v3_speech", "model": "Qwen2-VL-7B", "known": "shy", "verdict": "Neutral:50", "n_frames": 1}
+{"case": "sanity_d03_confident_1537792644_v3_speech", "model": "Qwen2-VL-7B", "known": "confident", "verdict": "Neutral:50", "n_frames": 1}

@@ -1,0 +1,5 @@
+[
+  {"index": 6, "case_id": "x06_anxious_to_relieved", "prompt": "She smiles with relief.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a03_anxious_1535662828_v1.png"]},
+  {"index": 7, "case_id": "x07_sad_to_cheerful", "prompt": "She giggles cheerfully.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a18_sad_1538269564_v1.png"]},
+  {"index": 8, "case_id": "x08_curious_to_angry", "prompt": "She looks angry.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a07_curious_1536617199_v1.png"]}
+]

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# EmoH3 cache encode for 18-sample expanded training data (single GPU).
+set -u
+export CUDA_VISIBLE_DEVICES=0
+export PATH=/gluster_hdd_cv/user/jinzili/env/sglang310/bin:/usr/bin:$PATH
+cd /gluster_hdd_cv/user/jinzili/tmp/h3ft
+rm -rf /gluster_hdd_cv/user/jinzili/tmp/pilot/traindata4/cache
+/gluster_hdd_cv/user/jinzili/env/h3ft/bin/python prepare_cache.py \
+  --model /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3 \
+  --metadata /gluster_hdd_cv/user/jinzili/tmp/pilot/traindata3/train.jsonl \
+  --output /gluster_hdd_cv/user/jinzili/tmp/pilot/traindata4/cache \
+  --height 768 --width 768 --encode-text --encode-audio \
+  > /gluster_hdd_cv/user/jinzili/tmp/pilot/h3ft_cache4.log 2>&1
+echo "CACHE_DONE exit=$?"
+ls /gluster_hdd_cv/user/jinzili/tmp/pilot/traindata4/cache/ 2>/dev/null | wc -l

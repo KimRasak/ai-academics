@@ -1,0 +1,4 @@
+{"case": "m4_refangry_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:100", "n_frames": 8}
+{"case": "m4_refjoyful_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:50", "n_frames": 8}
+{"case": "m4_refsad_to_sad_lora", "target_emotion": "sad", "verdict": "sad:80", "n_frames": 8}
+{"case": "m4_refsurprised_to_sad_lora", "target_emotion": "sad", "verdict": "neutral:50", "n_frames": 8}

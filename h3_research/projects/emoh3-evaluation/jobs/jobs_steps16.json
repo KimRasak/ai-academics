@@ -1,0 +1,4 @@
+[
+  {"index": 5, "case_id": "x05_amused_to_surprised", "prompt": "She looks surprised.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a01_amused_1534125952_v1.png"]},
+  {"index": 7, "case_id": "x07_sad_to_cheerful", "prompt": "She giggles cheerfully.", "references": ["/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/inputs/expressions_0825/a18_sad_1538269564_v1.png"]}
+]

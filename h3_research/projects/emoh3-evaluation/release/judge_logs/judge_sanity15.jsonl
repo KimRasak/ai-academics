@@ -1,0 +1,21 @@
+{"ref": "expressions_0825/a01_amused_1534125952_v1.png", "known": "amused", "judged": "happy", "verdict": "Happy: 80", "ok": false}
+{"ref": "expressions_0825/a02_angry_1534927518_v1.png", "known": "angry", "judged": "neutral", "verdict": "Neutral: 50", "ok": false}
+{"ref": "expressions_0825/a03_anxious_1535662828_v1.png", "known": "anxious", "judged": "neutral", "verdict": "Neutral:50", "ok": false}
+{"ref": "expressions_0825/a07_curious_1536617199_v1.png", "known": "curious", "judged": "neutral", "verdict": "Neutral:50", "ok": false}
+{"ref": "expressions_0825/a08_disgusted_1536815405_v1.png", "known": "disgusted", "judged": "sad", "verdict": "Sad:70", "ok": false}
+{"ref": "expressions_0825/a11_joyful_1537451704_v1.png", "known": "joyful", "judged": "surprised", "verdict": "Surprised: 80", "ok": false}
+{"ref": "expressions_0825/a15_neutral_1537882489_v1.png", "known": "neutral", "judged": "neutral", "verdict": "Neutral:50", "ok": true}
+{"ref": "expressions_0825/a18_sad_1538269564_v1.png", "known": "sad", "judged": "neutral", "verdict": "Neutral:50", "ok": false}
+{"ref": "expressions_0825/a21_scared_1538613676_v1.png", "known": "fearful", "judged": "anxious", "verdict": "Anxious:80", "ok": false}
+{"ref": "expressions_0825/a24_surprised_1538797510_v1.png", "known": "surprised", "judged": "neutral", "verdict": "Neutral: 50", "ok": false}
+{"ref": "expressions_0825_v2/angry_1534125952_v1_raw.png", "known": "angry", "judged": "neutral", "verdict": "Neutral:50", "ok": false}
+{"ref": "expressions_0825_v2/joyful_1534125952_v1_raw.png", "known": "joyful", "judged": "happy", "verdict": "Happy: 90", "ok": false}
+{"ref": "expressions_0825_v2/sad_1534125952_v1_raw.png", "known": "sad", "judged": "sad", "verdict": "Sad:80", "ok": true}
+{"ref": "expressions_0825_v2/surprised_1534125952_v1_raw.png", "known": "surprised", "judged": "surprised", "verdict": "Surprised: 80", "ok": true}
+{"ref": "expressions_0825/b01_joyful_1534125952_v1.png", "known": "joyful", "judged": "happy", "verdict": "Happy: 90", "ok": false}
+{"ref": "expressions_0825/b02_joyful_1534125952_v2.png", "known": "joyful", "judged": "happy", "verdict": "Happy: 80", "ok": false}
+{"ref": "expressions_0825/b03_joyful_1534125952_v3.png", "known": "joyful", "judged": "neutral", "verdict": "Neutral:50", "ok": false}
+{"ref": "expressions_0825/b04_joyful_1534125952_v4.png", "known": "joyful", "judged": "happy", "verdict": "Happy: 80", "ok": false}
+{"ref": "expressions_0825/b05_joyful_1534125952_v5.png", "known": "joyful", "judged": "neutral", "verdict": "Neutral:50", "ok": false}
+{"ref": "expressions_0825/c02_sad_1538378146_v2_10s.png", "known": "sad", "judged": "neutral", "verdict": "Neutral:50", "ok": false}
+{"ref": "expressions_0825/d01_joyful_1536757874_v3_speech.png", "known": "joyful", "judged": "neutral", "verdict": "Neutral:50", "ok": false}

@@ -1,0 +1,8 @@
+{"case": "x05_amused_to_surprised_lora", "target_emotion": "surprised", "verdict": "Neutral:100", "n_frames": 8}
+{"case": "x07_sad_to_cheerful_lora", "target_emotion": "cheerful", "verdict": "happy:80", "n_frames": 8}
+{"case": "x01_neutral_to_joyful_lora", "target_emotion": "joyful", "verdict": "happy:80", "n_frames": 8}
+{"case": "x07_sad_to_cheerful_lora", "target_emotion": "cheerful", "verdict": "neutral:50", "n_frames": 8}
+{"case": "x01_neutral_to_joyful_base", "target_emotion": "joyful_base", "verdict": "Happy:90", "n_frames": 8}
+{"case": "x03_angry_to_happy_base", "target_emotion": "happy_base", "verdict": "Happy:90", "n_frames": 8}
+{"case": "x01_neutral_to_joyful_base", "target_emotion": "joyful_base", "verdict": "Neutral:50", "n_frames": 8}
+{"case": "x07_sad_to_cheerful_base", "target_emotion": "cheerful_base", "verdict": "neutral:50", "n_frames": 8}

@@ -1,0 +1,4 @@
+{"case": "m4_refangry_to_sad_base", "target_emotion": "sad_base", "verdict": "Neutral:50", "n_frames": 8}
+{"case": "m4_refjoyful_to_sad_base", "target_emotion": "sad_base", "verdict": "Happy: 80", "n_frames": 8}
+{"case": "m4_refsad_to_sad_base", "target_emotion": "sad_base", "verdict": "Sad:80", "n_frames": 8}
+{"case": "m4_refsurprised_to_sad_base", "target_emotion": "sad_base", "verdict": "Surprised:100", "n_frames": 8}
