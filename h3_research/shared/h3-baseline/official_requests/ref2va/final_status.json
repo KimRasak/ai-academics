@@ -1,0 +1,24 @@
+{
+  "id": "c0463989-85d2-448c-9327-895fa4e95c35",
+  "object": "video",
+  "model": "sora-2",
+  "status": "completed",
+  "progress": 100,
+  "created_at": 1788781728,
+  "size": "1344x768",
+  "seconds": "5.166667",
+  "quality": "standard",
+  "url": null,
+  "remixed_from_video_id": null,
+  "completed_at": 1788781993,
+  "expires_at": null,
+  "error": null,
+  "file_path": "outputs/c0463989-85d2-448c-9327-895fa4e95c35.mp4",
+  "file_paths": [
+    "/gluster_hdd_cv/user/jinzili/code/anime_style/outputs/c0463989-85d2-448c-9327-895fa4e95c35.mp4"
+  ],
+  "num_outputs": 1,
+  "peak_memory_mb": 59348.0,
+  "inference_time_s": 263.3537358790636,
+  "action": null
+}

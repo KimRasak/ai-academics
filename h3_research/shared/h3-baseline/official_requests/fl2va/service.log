@@ -1,0 +1,399 @@
+[start] 2026-09-07 11:26:26
+[start] pid=356021 pidfile=model_demo/minimax_h3/logs/research/base_fl2va_034.pid
+[start] host=0.0.0.0 port=30011 master_port=30105 scheduler_port=5601
+[start] gpus=0,1,2,3 num_gpus=4 tp=2 ulysses=2 ring=1 variant=fl2va
+[start] DiT placement: resident (no CPU/layerwise offload, no FSDP)
+[start] gpu memory samples: model_demo/minimax_h3/logs/research/base_fl2va_034_gpumem.log (every 15s)
+Skipping pipeline module sglang.multimodal_gen.runtime.pipelines.hunyuan3d_pipeline during discovery due to import failure: No module named 'trimesh'
+[09-07 11:28:22] Applying performance_mode=speed
+[09-07 11:28:22] performance_mode=speed keeps torch.compile disabled for this model (pass --enable-torch-compile true to opt in)
+[09-07 11:28:22] Proposed encoder parallel folding (mode=world) for ServerArgs (tp=2 sp=2 cfg=1 replica=4); the loader keeps it for encoders wide enough to benefit.
+[09-07 11:28:22] server_args: {"model_path": "/gluster_hdd_cv/user/jinzili/weights/MiniMax-H3", "model_subfolder": null, "model_variant": "fl2va", "model_id": null, "backend": "auto", "attention_backend": null, "attention_backend_config": {}, "component_attention_backends": {}, "cache_dit_config": null, "nccl_port": null, "trust_remote_code": false, "revision": null, "num_gpus": 4, "performance_mode": "speed", "base_gpu_id": 0, "gpu_ids": null, "tp_size": 2, "sp_degree": 2, "ulysses_degree": 2, "ring_degree": 1, "dp_size": 1, "dp_degree": 1, "enable_cfg_parallel": false, "cfg_parallel_degree": 1, "encoder_parallel": "auto", "hsdp_replicate_dim": 1, "hsdp_shard_dim": 4, "dist_timeout": 3600, "pipeline_class_name": "MiniMaxH3Pipeline", "lora_path": null, "lora_nickname": "default", "lora_scale": 1.0, "lora_merge_mode": "auto", "lora_weight_name": null, "component_paths": {}, "transformer_weights_path": null, "component_transformer_weights_paths": {}, "quantization": null, "quantization_ignored_layers": null, "lora_target_modules": null, "dit_cpu_offload": false, "dit_layerwise_offload": false, "layerwise_offload_components": null, "dit_offload_prefetch_size": 0.0, "dit_layerwise_resident_layers": 0.0, "offload_during_compile": true, "text_encoder_cpu_offload": false, "image_encoder_cpu_offload": false, "vae_cpu_offload": false, "use_fsdp_inference": false, "pin_cpu_memory": true, "ltx2_two_stage_device_mode": null, "comfyui_mode": false, "enable_torch_compile": false, "regional_compile": false, "enable_breakable_cuda_graph": false, "bcg_text_buckets": null, "enable_layerwise_nvtx_marker": false, "warmup_mode": "server", "warmup": true, "server_warmup": true, "warmup_resolutions": null, "warmup_steps": 1, "disable_autocast": false, "master_port": 30105, "host": "0.0.0.0", "port": 30011, "webui": false, "webui_port": 12312, "scheduler_port": 5601, "batching_mode": "dynamic", "batching_max_size": 1, "batching_delay_ms": 0.0, "batching_config": null, "enable_batching_metrics": false, "strict_ports": false, "output_path": "outputs/", "input_save_path": "inputs/uploads", "prompt_file_path": null, "model_paths": {}, "model_loaded": {"transformer": true, "vae": true, "video_vae": true, "audio_vae": true, "video_dit": true, "audio_dit": true, "dual_tower_bridge": true}, "boundary_ratio": null, "disagg_role": "monolithic", "disagg_timeout": 3600, "disagg_downstream_wait_timeout": 1800, "disagg_dispatch_policy": "round_robin", "disagg_mode": false, "disagg_instance_id": 0, "disagg_max_slots_per_instance": 8, "disagg_transfer_redundancy": 1.25, "disagg_role_device": "auto", "disagg_transfer_backend": "auto", "disagg_transfer_pool_size": 268435456, "disagg_transfer_pin_memory": "auto", "disagg_p2p_hostname": "127.0.0.1", "disagg_ib_device": null, "disagg_server_addr": null, "encoder_urls": null, "denoiser_urls": null, "decoder_urls": null, "encoder_tp": null, "denoiser_tp": null, "denoiser_sp": null, "denoiser_ulysses": null, "denoiser_ring": null, "decoder_sp": null, "decoder_tp": null, "pool_work_endpoint": null, "pool_result_endpoint": null, "pool_control_endpoint": null, "pool_control_advertised_endpoint": null, "log_level": "info", "log_requests": false, "log_requests_level": 2, "log_requests_format": "text", "log_requests_target": null, "uvicorn_access_log_exclude_prefixes": [], "enable_trace": false, "otlp_traces_endpoint": "localhost:4317", "srt_encoder_url": null, "srt_encoder_connect_timeout": 3.05, "srt_encoder_timeout": 100, "pe_server_url": null}
+[09-07 11:28:22] Starting server...
+[W907 11:30:43.695115572 socket.cpp:764] [c10d] The client socket cannot be initialized to connect to [::ffff:127.0.0.1]:30105 (errno: 97 - Address family not supported by protocol).
+[09-07 11:30:55] Scheduler bind at endpoint: tcp://0.0.0.0:5601
+[09-07 11:30:56] torch.compile cache: TORCHINDUCTOR_CACHE_DIR=/root/.cache/sgl_diffusion/torch_compile_cache/inductor TRITON_CACHE_DIR=/root/.cache/sgl_diffusion/torch_compile_cache/triton
+[09-07 11:30:56] Initializing distributed environment with world_size=4, device=cuda:0, timeout=3600
+[09-07 11:30:56] Setting distributed timeout to 3600 seconds
+[W907 11:30:56.842811968 socket.cpp:764] [c10d] The client socket cannot be initialized to connect to [::ffff:127.0.0.1]:30105 (errno: 97 - Address family not supported by protocol).
+[W907 11:30:56.846748173 socket.cpp:764] [c10d] The client socket cannot be initialized to connect to [::ffff:127.0.0.1]:30105 (errno: 97 - Address family not supported by protocol).
+[W907 11:30:56.851477909 socket.cpp:764] [c10d] The client socket cannot be initialized to connect to [::ffff:127.0.0.1]:30105 (errno: 97 - Address family not supported by protocol).
+NCCL version 2.28.9+cuda12.9
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_0
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_1
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_2
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_3
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_4
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_5
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_6
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356787:356787 [0] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_7
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_0
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_1
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_2
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_3
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_4
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_5
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_6
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356793:356793 [3] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_7
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_0
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_1
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_2
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_3
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_4
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_5
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_6
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356789:356789 [1] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_7
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_0
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_1
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_2
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_3
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_4
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_5
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_6
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] misc/ibvwrap.cc:127 NCCL WARN Call to ibv_open_device failed
+
+[2026-09-07 11:30:59] osa00-h100-034:356791:356791 [2] transport/net_ib.cc:715 NCCL WARN NET/IB : Unable to open device mlx5_7
+[09-07 11:31:00] Found nccl from library libnccl.so.2
+[09-07 11:31:00] sglang-diffusion is using nccl==2.28.9
+[09-07 11:31:02] Found nccl from library libnccl.so.2
+[09-07 11:31:02] sglang-diffusion is using nccl==2.28.9
+NCCL version 2.28.9+cuda12.9
+[09-07 11:31:03] generating GPU P2P access cache in /root/.cache/sglang/gpu_p2p_access_cache_for_0,1,2,3.json
+[09-07 11:34:33] reading GPU P2P access cache from /root/.cache/sglang/gpu_p2p_access_cache_for_0,1,2,3.json
+[09-07 11:34:33] reading GPU P2P access cache from /root/.cache/sglang/gpu_p2p_access_cache_for_0,1,2,3.json
+[09-07 11:34:33] reading GPU P2P access cache from /root/.cache/sglang/gpu_p2p_access_cache_for_0,1,2,3.json
+[09-07 11:34:33] reading GPU P2P access cache from /root/.cache/sglang/gpu_p2p_access_cache_for_0,1,2,3.json
+[09-07 11:34:33] Found nccl from library libnccl.so.2
+[09-07 11:34:33] sglang-diffusion is using nccl==2.28.9
+[93m[09-07 11:34:34] Skipping pipeline module sglang.multimodal_gen.runtime.pipelines.hunyuan3d_pipeline during discovery due to import failure: No module named 'trimesh'[0;0m
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+<frozen importlib._bootstrap_external>:1184: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+[09-07 11:34:35] Requested pipeline_class_name: MiniMaxH3Pipeline
+[09-07 11:34:35] Available pipelines in registry: ['ComfyUIFluxPipeline', 'ComfyUIQwenImagePipeline', 'ComfyUIQwenImageEditPipeline', 'ComfyUIZImagePipeline', 'Cosmos3OmniDiffusersPipeline', 'DiffusersPipeline', 'ErnieImagePipeline', 'FluxPipeline', 'Flux2Pipeline', 'Flux2KleinPipeline', 'Flux2NvfpPipeline', 'GlmImagePipeline', 'HeliosPipeline', 'HeliosPyramidPipeline', 'HunyuanVideoPipeline', 'Ideogram4Pipeline', 'Ideogram4Nvfp4Pipeline', 'Ideogram4FastPipeline', 'Ideogram4InstantPipeline', 'JoyEchoPipeline', 'JoyImageEditPipeline', 'Krea2Pipeline', 'LingBotWorldCausalDMDPipeline', 'LongLive2Pipeline', 'LTX2Pipeline', 'LTX2TwoStagePipeline', 'LTX2TwoStageHQPipeline', 'MiniMaxH3Pipeline', 'MOVA', 'MOVAPipeline', 'Pi05Pipeline', 'QwenImagePipeline', 'QwenImageEditPipeline', 'QwenImageEditPlusPipeline', 'QwenImageLayeredPipeline', 'SanaPipeline', 'SanaWMPipeline', 'SanaWMTwoStagePipeline', 'SanaWMRealtimePipeline', 'StableDiffusion3Pipeline', 'WanCausalDMDPipeline', 'WanDMDPipeline', 'WanImageToVideoDmdPipeline', 'WanImageToVideoPipeline', 'WanPipeline', 'ZImagePipeline']
+[09-07 11:34:35] ✓ Using explicitly specified pipeline: MiniMaxH3Pipeline (class: MiniMaxH3Pipeline)
+[09-07 11:34:35] Loading pipeline modules...
+[09-07 11:34:35] Model path: /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/FL2VA
+[09-07 11:34:35] Diffusers version: 0.32.2
+[09-07 11:34:35] Loading pipeline modules from config: {'_class_name': 'MiniMaxH3Pipeline', '_diffusers_version': '0.32.2', 'text_encoder': ['transformers', 'MiniMaxH3Qwen3VLHFEncoder'], 'tokenizer': ['transformers', 'Qwen2TokenizerFast'], 'video_vae': ['diffusers', 'MiniMaxH3VideoVAE'], 'audio_vae': ['diffusers', 'MiniMaxH3AudioVAE'], 'scheduler': None, 'transformer': ['diffusers', 'MiniMaxH3DiTModel'], 'processor': ['transformers', 'Qwen3VLProcessor'], '_minimax_h3': {'schema_version': 1, 'partition': 'fl2va', 'tasks': ['t2va', 'fl2va'], 'task_aliases': {}, 'sigma_shift_scales': {'video': 12.0, 'audio': 3.0}}}
+[09-07 11:34:35] Loading required components: ['processor', 'text_encoder', 'tokenizer', 'video_vae', 'audio_vae', 'transformer']
+Loading required modules:   0%|          | 0/6 [00:00<?, ?it/s]Loading required modules:   0%|          | 0/6 [00:00<?, ?it/s][09-07 11:34:35] Memory-aware component load order: ['text_encoder', 'transformer', 'audio_vae', 'video_vae', 'processor', 'tokenizer']
+Loading required modules:   0%|          | 0/6 [00:00<?, ?it/s]Loading required modules:   0%|          | 0/6 [00:00<?, ?it/s][09-07 11:34:35] Loading text_encoder from /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/FL2VA/text_encoder. avail mem: 73.14 GB
+[09-07 11:34:35] Loading safetensors with Run:ai Model Streamer to cuda:0
+[09-07 11:36:03] [RunAI Streamer] Overall time to stream 53.1 GiB of all files to cuda:0: 87.84s, 618.5 MiB/s
+[09-07 11:36:03] [RunAI Streamer] Overall time to stream 53.1 GiB of all files to cuda:2: 87.86s, 618.3 MiB/s
+[09-07 11:36:03] [RunAI Streamer] Overall time to stream 53.1 GiB of all files to cuda:1: 88.23s, 615.7 MiB/s
+[09-07 11:36:03] [RunAI Streamer] Overall time to stream 53.1 GiB of all files to cuda:3: 87.8s, 618.7 MiB/s
+Loading required modules:  17%|█▋        | 1/6 [01:28<07:22, 88.49s/it]Loading required modules:  17%|█▋        | 1/6 [01:28<07:22, 88.53s/it]Loading required modules:  17%|█▋        | 1/6 [01:28<07:23, 88.77s/it][09-07 11:36:03] Loaded text_encoder: MiniMaxH3Qwen3VLEncoder (sgl-diffusion version). model size: 13.91 GB, consumed GPU mem: 13.91 GB, avail GPU mem: 59.23 GB
+[09-07 11:36:03] Attention backends for text_encoder: fa
+Loading required modules:  17%|█▋        | 1/6 [01:28<07:22, 88.52s/it][09-07 11:36:03] Loading transformer from /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/FL2VA/transformer. avail mem: 59.23 GB
+[09-07 11:36:04] Loading MiniMaxH3DiTModel from 13 safetensors file(s) , param_dtype: torch.bfloat16
+[09-07 11:36:04] Loading safetensors with Run:ai Model Streamer to cpu
+[09-07 11:36:11] [RunAI Streamer] Overall time to stream 61.7 GiB of all files to cpu: 6.97s, 8.9 GiB/s
+[09-07 11:36:11] [RunAI Streamer] Overall time to stream 61.7 GiB of all files to cpu: 7.28s, 8.5 GiB/s
+[09-07 11:36:11] [RunAI Streamer] Overall time to stream 61.7 GiB of all files to cpu: 7.33s, 8.4 GiB/s
+[09-07 11:36:11] [RunAI Streamer] Overall time to stream 61.7 GiB of all files to cpu: 7.4s, 8.3 GiB/s
+[09-07 11:36:20] Loaded transformer: MiniMaxH3DiTModel (sgl-diffusion version). model size: 30.86 GB, consumed GPU mem: 31.57 GB, avail GPU mem: 27.65 GB
+Loading required modules:  33%|███▎      | 2/6 [01:44<03:04, 46.01s/it][09-07 11:36:20] Loading audio_vae from /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/FL2VA/audio_vae. avail mem: 27.65 GB
+[09-07 11:36:20] Loaded audio_vae: MiniMaxH3AudioVAE (sgl-diffusion version). model size: 0.56 GB, consumed GPU mem: 0.34 GB, avail GPU mem: 27.32 GB
+Loading required modules:  50%|█████     | 3/6 [01:45<01:15, 25.17s/it][09-07 11:36:20] Loading video_vae from /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/FL2VA/video_vae. avail mem: 27.32 GB
+Loading required modules:  33%|███▎      | 2/6 [01:45<03:06, 46.66s/it]Loading required modules:  50%|█████     | 3/6 [01:46<01:16, 25.52s/it]Loading required modules:  33%|███▎      | 2/6 [01:46<03:07, 46.77s/it]Loading required modules:  33%|███▎      | 2/6 [01:46<03:08, 47.00s/it]Loading required modules:  50%|█████     | 3/6 [01:46<01:16, 25.63s/it]Loading required modules:  50%|█████     | 3/6 [01:46<01:17, 25.70s/it][09-07 11:36:23] Loaded video_vae: MiniMaxH3VideoVAE (sgl-diffusion version). model size: 9.7 GB, consumed GPU mem: 9.30 GB, avail GPU mem: 18.02 GB
+Loading required modules:  67%|██████▋   | 4/6 [01:47<00:32, 16.29s/it][09-07 11:36:23] Loading processor from /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/FL2VA/processor. avail mem: 18.02 GB
+[09-07 11:36:23] Loaded processor: Qwen3VLProcessor (sgl-diffusion version). model size: NA GB, consumed GPU mem: 0.00 GB, avail GPU mem: 18.02 GB
+Loading required modules:  83%|████████▎ | 5/6 [01:48<00:10, 10.55s/it][09-07 11:36:23] Loading tokenizer from /gluster_hdd_cv/user/jinzili/weights/MiniMax-H3/FL2VA/tokenizer. avail mem: 18.02 GB
+[09-07 11:36:23] Loaded tokenizer: Qwen2Tokenizer (sgl-diffusion version). model size: NA GB, consumed GPU mem: 0.00 GB, avail GPU mem: 18.02 GB
+Loading required modules: 100%|██████████| 6/6 [01:48<00:00,  7.07s/it]Loading required modules: 100%|██████████| 6/6 [01:48<00:00, 18.08s/it]
+[09-07 11:36:23] Creating pipeline stages...
+[09-07 11:36:23] Using fa attention backend
+[09-07 11:36:23] Pipeline instantiated
+[09-07 11:36:23] Worker 0: Initialized device, model, and distributed environment.
+[09-07 11:36:23] Worker 0: Scheduler loop started.
+Loading required modules:  67%|██████▋   | 4/6 [01:48<00:32, 16.47s/it]Loading required modules:  83%|████████▎ | 5/6 [01:49<00:10, 10.66s/it]Loading required modules:  67%|██████▋   | 4/6 [01:49<00:33, 16.50s/it]Loading required modules:  67%|██████▋   | 4/6 [01:49<00:33, 16.57s/it]Loading required modules: 100%|██████████| 6/6 [01:49<00:00,  7.12s/it]Loading required modules: 100%|██████████| 6/6 [01:49<00:00, 18.25s/it]
+Loading required modules:  83%|████████▎ | 5/6 [01:49<00:10, 10.67s/it]Loading required modules:  83%|████████▎ | 5/6 [01:49<00:10, 10.71s/it]Loading required modules: 100%|██████████| 6/6 [01:49<00:00,  7.13s/it]Loading required modules: 100%|██████████| 6/6 [01:49<00:00, 18.30s/it]
+Loading required modules: 100%|██████████| 6/6 [01:49<00:00,  7.17s/it]Loading required modules: 100%|██████████| 6/6 [01:49<00:00, 18.30s/it]
+[09-07 11:36:25] Starting FastAPI server.
+[2026-09-07 11:36:25] [32mINFO[0m:     Started server process [[36m356175[0m]
+[2026-09-07 11:36:25] [32mINFO[0m:     Waiting for application startup.
+[09-07 11:36:25] ZMQ Broker is listening for offline jobs on tcp://127.0.0.1:30012
+[2026-09-07 11:36:25] [32mINFO[0m:     Application startup complete.
+[2026-09-07 11:36:25] [32mINFO[0m:     Uvicorn running on [1mhttp://0.0.0.0:30011[0m (Press CTRL+C to quit)
+[2026-09-07 11:36:26] [32mINFO[0m:     127.0.0.1:47942 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+Warmup requests:   0%|          | 0/1 [00:00<?, ?req/s][09-07 11:36:32] [DIAG-LATENT] video_target_slice=slice(0, None, None) rows=37296 mean=-0.0771 std=0.7610 absmax=2.73 nan=0 inf=0
+Warmup requests: 100%|██████████| 1/1 [00:08<00:00,  8.34s/req, server warmup req (1344x768x124f, 2/50 steps), last=8.34s]Warmup requests: 100%|██████████| 1/1 [00:08<00:00,  8.34s/req, server warmup req (1344x768x124f, 2/50 steps), last=8.34s]
+[09-07 11:36:34] The server is fired up and ready to roll!
+[2026-09-07 11:37:31] [32mINFO[0m:     11.9.4.28:50000 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+[2026-09-07 11:47:31] [32mINFO[0m:     11.9.4.28:59816 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+[09-07 11:47:32] Diffusers version: 0.32.2
+[2026-09-07 11:47:32] [32mINFO[0m:     11.9.4.28:59828 - "[1mGET /v1/models HTTP/1.1[0m" [32m200 OK[0m
+[09-07 11:53:16] Adjusting number of frames from 1 to 1 based on model
+[09-07 11:53:16] Adjusting number of frames from 1 to 13 based on number of GPUs (4)
+[2026-09-07 11:53:16] [32mINFO[0m:     11.9.4.28:33694 - "[1mPOST /v1/videos HTTP/1.1[0m" [32m200 OK[0m
+[2026-09-07 11:53:16] [32mINFO[0m:     11.9.4.28:33706 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+[09-07 11:53:16] Sampling params:
+                       width: 1344
+                      height: 768
+                  num_frames: 243
+                         fps: 24
+                      prompt: <redacted, len=2504>
+                  neg_prompt: None
+                        seed: 0
+                 infer_steps: 50
+      num_outputs_per_prompt: 1
+              guidance_scale: 1.0
+     embedded_guidance_scale: 6.0
+                    n_tokens: None
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: outputs/fc53e5db-7cf1-4274-8526-47af94e658c1.mp4
+        
+[09-07 11:53:16] Running pipeline stages: ['InputValidationStage', 'MiniMaxH3PartitionAdmissionStage', 'MiniMaxH3TextEncodingStage', 'MiniMaxH3VisualEncodingStage', 'MiniMaxH3AudioEncodingStage', 'MiniMaxH3LatentPreparationStage', 'MiniMaxH3TimestepPreparationStage', 'MiniMaxH3DenoisingStage', 'MiniMaxH3DecodingStage']
+[09-07 11:53:16] [InputValidationStage] started...
+[09-07 11:53:16] [InputValidationStage] finished in 0.0001 seconds
+[09-07 11:53:16] [MiniMaxH3PartitionAdmissionStage] started...
+[09-07 11:53:16] [MiniMaxH3PartitionAdmissionStage] finished in 0.0000 seconds
+[09-07 11:53:16] [MiniMaxH3TextEncodingStage] started...
+[09-07 11:53:16] [MiniMaxH3TextEncodingStage] finished in 0.0556 seconds
+[09-07 11:53:16] [MiniMaxH3VisualEncodingStage] started...
+[09-07 11:53:16] [MiniMaxH3VisualEncodingStage] finished in 0.0000 seconds
+[09-07 11:53:16] [MiniMaxH3AudioEncodingStage] started...
+[09-07 11:53:16] [MiniMaxH3AudioEncodingStage] finished in 0.0000 seconds
+[09-07 11:53:16] [MiniMaxH3LatentPreparationStage] started...
+[09-07 11:53:16] [MiniMaxH3LatentPreparationStage] finished in 0.0285 seconds
+[09-07 11:53:16] [MiniMaxH3TimestepPreparationStage] started...
+[09-07 11:53:16] [MiniMaxH3TimestepPreparationStage] finished in 0.0003 seconds
+[09-07 11:53:16] [MiniMaxH3DenoisingStage] started...
+minimax_h3 denoise:   0%|          | 0/49 [00:00<?, ?it/s]minimax_h3 denoise:   2%|▏         | 1/49 [00:00<00:35,  1.33it/s][2026-09-07 11:53:21] [32mINFO[0m:     11.9.4.28:37176 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:   4%|▍         | 2/49 [00:05<02:15,  2.87s/it]minimax_h3 denoise:   6%|▌         | 3/49 [00:09<02:41,  3.52s/it][2026-09-07 11:53:26] [32mINFO[0m:     11.9.4.28:37188 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:   8%|▊         | 4/49 [00:13<02:52,  3.83s/it][2026-09-07 11:53:31] [32mINFO[0m:     11.9.4.28:57586 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  10%|█         | 5/49 [00:17<02:55,  4.00s/it][2026-09-07 11:53:36] [32mINFO[0m:     11.9.4.28:57588 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  12%|█▏        | 6/49 [00:22<02:56,  4.10s/it][2026-09-07 11:53:41] [32mINFO[0m:     11.9.4.28:52294 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  14%|█▍        | 7/49 [00:26<02:54,  4.17s/it][2026-09-07 11:53:46] [32mINFO[0m:     11.9.4.28:52300 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  16%|█▋        | 8/49 [00:30<02:52,  4.21s/it][2026-09-07 11:53:51] [32mINFO[0m:     11.9.4.28:41522 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  18%|█▊        | 9/49 [00:35<02:49,  4.25s/it]minimax_h3 denoise:  20%|██        | 10/49 [00:39<02:46,  4.27s/it][2026-09-07 11:53:56] [32mINFO[0m:     11.9.4.28:41526 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  22%|██▏       | 11/49 [00:43<02:42,  4.28s/it][2026-09-07 11:54:01] [32mINFO[0m:     11.9.4.28:55194 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  24%|██▍       | 12/49 [00:48<02:38,  4.29s/it][2026-09-07 11:54:06] [32mINFO[0m:     11.9.4.28:55204 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  27%|██▋       | 13/49 [00:52<02:34,  4.30s/it][2026-09-07 11:54:11] [32mINFO[0m:     11.9.4.28:45918 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  29%|██▊       | 14/49 [00:56<02:31,  4.32s/it][2026-09-07 11:54:16] [32mINFO[0m:     11.9.4.28:45934 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  31%|███       | 15/49 [01:01<02:26,  4.32s/it][2026-09-07 11:54:21] [32mINFO[0m:     11.9.4.28:50798 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  33%|███▎      | 16/49 [01:05<02:22,  4.32s/it]minimax_h3 denoise:  35%|███▍      | 17/49 [01:09<02:18,  4.33s/it][2026-09-07 11:54:26] [32mINFO[0m:     11.9.4.28:50806 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  37%|███▋      | 18/49 [01:14<02:14,  4.34s/it][2026-09-07 11:54:31] [32mINFO[0m:     11.9.4.28:47594 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  39%|███▉      | 19/49 [01:18<02:10,  4.34s/it][2026-09-07 11:54:36] [32mINFO[0m:     11.9.4.28:47596 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  41%|████      | 20/49 [01:22<02:05,  4.34s/it][2026-09-07 11:54:41] [32mINFO[0m:     11.9.4.28:57060 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  43%|████▎     | 21/49 [01:27<02:01,  4.34s/it][2026-09-07 11:54:46] [32mINFO[0m:     11.9.4.28:57066 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  45%|████▍     | 22/49 [01:31<01:57,  4.34s/it][2026-09-07 11:54:51] [32mINFO[0m:     11.9.4.28:45678 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  47%|████▋     | 23/49 [01:35<01:52,  4.34s/it][2026-09-07 11:54:56] [32mINFO[0m:     11.9.4.28:45686 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  49%|████▉     | 24/49 [01:40<01:48,  4.34s/it]minimax_h3 denoise:  51%|█████     | 25/49 [01:44<01:44,  4.34s/it][2026-09-07 11:55:01] [32mINFO[0m:     11.9.4.28:46958 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  53%|█████▎    | 26/49 [01:48<01:39,  4.34s/it][2026-09-07 11:55:06] [32mINFO[0m:     11.9.4.28:46966 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  55%|█████▌    | 27/49 [01:53<01:35,  4.34s/it][2026-09-07 11:55:11] [32mINFO[0m:     11.9.4.28:54558 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  57%|█████▋    | 28/49 [01:57<01:31,  4.34s/it][2026-09-07 11:55:16] [32mINFO[0m:     11.9.4.28:54560 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  59%|█████▉    | 29/49 [02:01<01:26,  4.34s/it][2026-09-07 11:55:21] [32mINFO[0m:     11.9.4.28:53470 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  61%|██████    | 30/49 [02:06<01:22,  4.34s/it][2026-09-07 11:55:26] [32mINFO[0m:     11.9.4.28:53486 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  63%|██████▎   | 31/49 [02:10<01:18,  4.34s/it]minimax_h3 denoise:  65%|██████▌   | 32/49 [02:14<01:13,  4.34s/it][2026-09-07 11:55:31] [32mINFO[0m:     11.9.4.28:53662 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  67%|██████▋   | 33/49 [02:19<01:09,  4.34s/it][2026-09-07 11:55:36] [32mINFO[0m:     11.9.4.28:53670 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  69%|██████▉   | 34/49 [02:23<01:05,  4.34s/it][2026-09-07 11:55:41] [32mINFO[0m:     11.9.4.28:60690 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  71%|███████▏  | 35/49 [02:27<01:00,  4.35s/it][2026-09-07 11:55:46] [32mINFO[0m:     11.9.4.28:60702 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  73%|███████▎  | 36/49 [02:32<00:56,  4.35s/it][2026-09-07 11:55:51] [32mINFO[0m:     11.9.4.28:52264 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  76%|███████▌  | 37/49 [02:36<00:52,  4.35s/it][2026-09-07 11:55:56] [32mINFO[0m:     11.9.4.28:52278 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  78%|███████▊  | 38/49 [02:41<00:47,  4.35s/it][2026-09-07 11:56:01] [32mINFO[0m:     11.9.4.28:60020 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  80%|███████▉  | 39/49 [02:45<00:43,  4.35s/it]minimax_h3 denoise:  82%|████████▏ | 40/49 [02:49<00:39,  4.35s/it][2026-09-07 11:56:06] [32mINFO[0m:     11.9.4.28:60028 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  84%|████████▎ | 41/49 [02:54<00:34,  4.35s/it][2026-09-07 11:56:11] [32mINFO[0m:     11.9.4.28:41206 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  86%|████████▌ | 42/49 [02:58<00:30,  4.35s/it][2026-09-07 11:56:16] [32mINFO[0m:     11.9.4.28:41214 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  88%|████████▊ | 43/49 [03:02<00:26,  4.35s/it][2026-09-07 11:56:21] [32mINFO[0m:     11.9.4.28:44240 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  90%|████████▉ | 44/49 [03:07<00:21,  4.35s/it][2026-09-07 11:56:26] [32mINFO[0m:     11.9.4.28:44254 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  92%|█████████▏| 45/49 [03:11<00:17,  4.35s/it][2026-09-07 11:56:31] [32mINFO[0m:     11.9.4.28:56700 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  94%|█████████▍| 46/49 [03:15<00:13,  4.35s/it]minimax_h3 denoise:  96%|█████████▌| 47/49 [03:20<00:08,  4.35s/it][2026-09-07 11:56:36] [32mINFO[0m:     11.9.4.28:56714 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  98%|█████████▊| 48/49 [03:24<00:04,  4.34s/it][2026-09-07 11:56:41] [32mINFO[0m:     11.9.4.28:45210 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise: 100%|██████████| 49/49 [03:28<00:00,  4.35s/it]minimax_h3 denoise: 100%|██████████| 49/49 [03:28<00:00,  4.26s/it]
+[2026-09-07 11:56:46] [32mINFO[0m:     11.9.4.28:45214 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+[09-07 11:56:48] [DIAG-LATENT] video_target_slice=slice(0, None, None) rows=72576 mean=0.0149 std=1.1366 absmax=5.45 nan=0 inf=0
+[09-07 11:56:48] [MiniMaxH3DenoisingStage] finished in 212.4307 seconds
+[09-07 11:56:48] [MiniMaxH3DecodingStage] started...
+[09-07 11:56:51] [MiniMaxH3DecodingStage] finished in 2.6993 seconds
+[2026-09-07 11:56:51] [32mINFO[0m:     11.9.4.28:54670 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+[aist#1:0/pcm_f32le @ 0x714d440] Guessed Channel Layout: stereo
+[09-07 11:56:52] Output saved to [1;36moutputs/fc53e5db-7cf1-4274-8526-47af94e658c1.mp4[0;0m
+[09-07 11:56:52] Pixel data generated successfully in [92m216.76[0;0m seconds
+[09-07 11:56:52] Peak memory usage: 59478.00 MB
+[2026-09-07 11:56:56] [32mINFO[0m:     11.9.4.28:54684 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1 HTTP/1.1[0m" [32m200 OK[0m
+[2026-09-07 11:56:56] [32mINFO[0m:     11.9.4.28:54696 - "[1mGET /v1/videos/fc53e5db-7cf1-4274-8526-47af94e658c1/content HTTP/1.1[0m" [32m200 OK[0m
+[2026-09-07 11:57:43] [32mINFO[0m:     11.9.4.28:59490 - "[1mGET /health HTTP/1.1[0m" [32m200 OK[0m
+[09-07 11:58:01] Adjusting number of frames from 1 to 1 based on model
+[09-07 11:58:01] Adjusting number of frames from 1 to 13 based on number of GPUs (4)
+[2026-09-07 11:58:01] [32mINFO[0m:     11.9.4.28:58860 - "[1mPOST /v1/videos HTTP/1.1[0m" [32m200 OK[0m
+[2026-09-07 11:58:01] [32mINFO[0m:     11.9.4.28:58872 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+[09-07 11:58:02] Sampling params:
+                       width: 1344
+                      height: 768
+                  num_frames: 192
+                         fps: 24
+                      prompt: <redacted, len=4534>
+                  neg_prompt: None
+                        seed: 0
+                 infer_steps: 50
+      num_outputs_per_prompt: 1
+              guidance_scale: 1.0
+     embedded_guidance_scale: 6.0
+                    n_tokens: None
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: outputs/0b86c4c6-a023-4db8-a00a-b717bd5a9c07.mp4
+        
+[09-07 11:58:02] Running pipeline stages: ['InputValidationStage', 'MiniMaxH3PartitionAdmissionStage', 'MiniMaxH3TextEncodingStage', 'MiniMaxH3VisualEncodingStage', 'MiniMaxH3AudioEncodingStage', 'MiniMaxH3LatentPreparationStage', 'MiniMaxH3TimestepPreparationStage', 'MiniMaxH3DenoisingStage', 'MiniMaxH3DecodingStage']
+[09-07 11:58:02] [InputValidationStage] started...
+[09-07 11:58:02] [InputValidationStage] finished in 0.0001 seconds
+[09-07 11:58:02] [MiniMaxH3PartitionAdmissionStage] started...
+[09-07 11:58:02] [MiniMaxH3PartitionAdmissionStage] finished in 0.0000 seconds
+[09-07 11:58:02] [MiniMaxH3TextEncodingStage] started...
+[09-07 11:58:02] [MiniMaxH3TextEncodingStage] finished in 0.2147 seconds
+[09-07 11:58:02] [MiniMaxH3VisualEncodingStage] started...
+[09-07 11:58:02] [MiniMaxH3VisualEncodingStage] finished in 0.1270 seconds
+[09-07 11:58:02] [MiniMaxH3AudioEncodingStage] started...
+[09-07 11:58:02] [MiniMaxH3AudioEncodingStage] finished in 0.0000 seconds
+[09-07 11:58:02] [MiniMaxH3LatentPreparationStage] started...
+[09-07 11:58:02] [MiniMaxH3LatentPreparationStage] finished in 0.0230 seconds
+[09-07 11:58:02] [MiniMaxH3TimestepPreparationStage] started...
+[09-07 11:58:02] [MiniMaxH3TimestepPreparationStage] finished in 0.0002 seconds
+[09-07 11:58:02] [MiniMaxH3DenoisingStage] started...
+minimax_h3 denoise:   0%|          | 0/49 [00:00<?, ?it/s]minimax_h3 denoise:   2%|▏         | 1/49 [00:00<00:27,  1.76it/s]minimax_h3 denoise:   4%|▍         | 2/49 [00:03<01:38,  2.09s/it][2026-09-07 11:58:06] [32mINFO[0m:     11.9.4.28:58878 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:   6%|▌         | 3/49 [00:06<01:58,  2.57s/it][2026-09-07 11:58:11] [32mINFO[0m:     11.9.4.28:58774 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:   8%|▊         | 4/49 [00:10<02:05,  2.80s/it]minimax_h3 denoise:  10%|█         | 5/49 [00:13<02:08,  2.92s/it][2026-09-07 11:58:16] [32mINFO[0m:     11.9.4.28:58790 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  12%|█▏        | 6/49 [00:16<02:08,  2.99s/it][2026-09-07 11:58:21] [32mINFO[0m:     11.9.4.28:50914 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  14%|█▍        | 7/49 [00:19<02:07,  3.04s/it]minimax_h3 denoise:  16%|█▋        | 8/49 [00:22<02:05,  3.07s/it][2026-09-07 11:58:26] [32mINFO[0m:     11.9.4.28:50922 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  18%|█▊        | 9/49 [00:25<02:03,  3.09s/it]minimax_h3 denoise:  20%|██        | 10/49 [00:28<02:01,  3.11s/it][2026-09-07 11:58:31] [32mINFO[0m:     11.9.4.28:36462 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  22%|██▏       | 11/49 [00:31<01:58,  3.12s/it][2026-09-07 11:58:36] [32mINFO[0m:     11.9.4.28:36468 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  24%|██▍       | 12/49 [00:35<01:55,  3.13s/it]minimax_h3 denoise:  27%|██▋       | 13/49 [00:38<01:52,  3.13s/it][2026-09-07 11:58:41] [32mINFO[0m:     11.9.4.28:46440 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  29%|██▊       | 14/49 [00:41<01:49,  3.14s/it][2026-09-07 11:58:46] [32mINFO[0m:     11.9.4.28:46452 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  31%|███       | 15/49 [00:44<01:46,  3.14s/it]minimax_h3 denoise:  33%|███▎      | 16/49 [00:47<01:43,  3.14s/it][2026-09-07 11:58:51] [32mINFO[0m:     11.9.4.28:43942 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  35%|███▍      | 17/49 [00:50<01:40,  3.14s/it]minimax_h3 denoise:  37%|███▋      | 18/49 [00:54<01:37,  3.14s/it][2026-09-07 11:58:56] [32mINFO[0m:     11.9.4.28:43958 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  39%|███▉      | 19/49 [00:57<01:34,  3.15s/it][2026-09-07 11:59:01] [32mINFO[0m:     11.9.4.28:33558 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  41%|████      | 20/49 [01:00<01:31,  3.15s/it]minimax_h3 denoise:  43%|████▎     | 21/49 [01:03<01:28,  3.15s/it][2026-09-07 11:59:06] [32mINFO[0m:     11.9.4.28:33570 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  45%|████▍     | 22/49 [01:06<01:25,  3.15s/it][2026-09-07 11:59:11] [32mINFO[0m:     11.9.4.28:59522 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  47%|████▋     | 23/49 [01:09<01:22,  3.15s/it]minimax_h3 denoise:  49%|████▉     | 24/49 [01:12<01:18,  3.16s/it][2026-09-07 11:59:16] [32mINFO[0m:     11.9.4.28:59538 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  51%|█████     | 25/49 [01:16<01:15,  3.16s/it]minimax_h3 denoise:  53%|█████▎    | 26/49 [01:19<01:12,  3.16s/it][2026-09-07 11:59:21] [32mINFO[0m:     11.9.4.28:51522 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  55%|█████▌    | 27/49 [01:22<01:09,  3.16s/it][2026-09-07 11:59:26] [32mINFO[0m:     11.9.4.28:51532 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  57%|█████▋    | 28/49 [01:25<01:06,  3.16s/it]minimax_h3 denoise:  59%|█████▉    | 29/49 [01:28<01:03,  3.16s/it][2026-09-07 11:59:31] [32mINFO[0m:     11.9.4.28:43990 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  61%|██████    | 30/49 [01:31<00:59,  3.16s/it][2026-09-07 11:59:36] [32mINFO[0m:     11.9.4.28:43992 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  63%|██████▎   | 31/49 [01:35<00:56,  3.16s/it]minimax_h3 denoise:  65%|██████▌   | 32/49 [01:38<00:53,  3.16s/it][2026-09-07 11:59:42] [32mINFO[0m:     11.9.4.28:59184 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  67%|██████▋   | 33/49 [01:41<00:50,  3.16s/it][2026-09-07 11:59:47] [32mINFO[0m:     11.9.4.28:59186 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  69%|██████▉   | 34/49 [01:44<00:47,  3.16s/it]minimax_h3 denoise:  71%|███████▏  | 35/49 [01:47<00:44,  3.16s/it][2026-09-07 11:59:52] [32mINFO[0m:     11.9.4.28:53940 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  73%|███████▎  | 36/49 [01:50<00:41,  3.16s/it]minimax_h3 denoise:  76%|███████▌  | 37/49 [01:54<00:37,  3.16s/it][2026-09-07 11:59:57] [32mINFO[0m:     11.9.4.28:53954 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  78%|███████▊  | 38/49 [01:57<00:34,  3.16s/it][2026-09-07 12:00:02] [32mINFO[0m:     11.9.4.28:38622 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  80%|███████▉  | 39/49 [02:00<00:31,  3.16s/it]minimax_h3 denoise:  82%|████████▏ | 40/49 [02:03<00:28,  3.16s/it][2026-09-07 12:00:07] [32mINFO[0m:     11.9.4.28:38626 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  84%|████████▎ | 41/49 [02:06<00:25,  3.16s/it][2026-09-07 12:00:12] [32mINFO[0m:     11.9.4.28:54496 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  86%|████████▌ | 42/49 [02:09<00:22,  3.16s/it]minimax_h3 denoise:  88%|████████▊ | 43/49 [02:12<00:18,  3.16s/it][2026-09-07 12:00:17] [32mINFO[0m:     11.9.4.28:54510 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  90%|████████▉ | 44/49 [02:16<00:15,  3.16s/it]minimax_h3 denoise:  92%|█████████▏| 45/49 [02:19<00:12,  3.16s/it][2026-09-07 12:00:22] [32mINFO[0m:     11.9.4.28:36430 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  94%|█████████▍| 46/49 [02:22<00:09,  3.16s/it][2026-09-07 12:00:27] [32mINFO[0m:     11.9.4.28:36434 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise:  96%|█████████▌| 47/49 [02:25<00:06,  3.16s/it]minimax_h3 denoise:  98%|█████████▊| 48/49 [02:28<00:03,  3.16s/it][2026-09-07 12:00:32] [32mINFO[0m:     11.9.4.28:57328 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+minimax_h3 denoise: 100%|██████████| 49/49 [02:31<00:00,  3.16s/it]minimax_h3 denoise: 100%|██████████| 49/49 [02:31<00:00,  3.10s/it]
+[09-07 12:00:37] [DIAG-LATENT] video_target_slice=slice(1008, None, None) rows=57456 mean=0.0473 std=1.0377 absmax=4.48 nan=0 inf=0
+[09-07 12:00:37] [MiniMaxH3DenoisingStage] finished in 154.5381 seconds
+[09-07 12:00:37] [MiniMaxH3DecodingStage] started...
+[2026-09-07 12:00:37] [32mINFO[0m:     11.9.4.28:57336 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+[09-07 12:00:39] [MiniMaxH3DecodingStage] finished in 2.1768 seconds
+[aist#1:0/pcm_f32le @ 0x73d0440] Guessed Channel Layout: stereo
+[09-07 12:00:39] Output saved to [1;36moutputs/0b86c4c6-a023-4db8-a00a-b717bd5a9c07.mp4[0;0m
+[09-07 12:00:40] Pixel data generated successfully in [92m158.19[0;0m seconds
+[09-07 12:00:40] Peak memory usage: 58442.00 MB
+[2026-09-07 12:00:42] [32mINFO[0m:     11.9.4.28:38548 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07 HTTP/1.1[0m" [32m200 OK[0m
+[2026-09-07 12:00:42] [32mINFO[0m:     11.9.4.28:38550 - "[1mGET /v1/videos/0b86c4c6-a023-4db8-a00a-b717bd5a9c07/content HTTP/1.1[0m" [32m200 OK[0m

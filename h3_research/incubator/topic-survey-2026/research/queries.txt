@@ -1,0 +1,8 @@
+# MiniMax H3 相关科研方向的关键词检索
+"MiniMax H3" video generation
+video diffusion transformer
+joint video and audio generation
+video variational autoencoder latent compression
+sparse attention video generation long context
+image-to-video generation first frame last frame reference
+text-to-video generation multimodal
