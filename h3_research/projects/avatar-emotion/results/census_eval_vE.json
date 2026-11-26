@@ -1,0 +1,334 @@
+{
+ "rows": [
+  {
+   "chunk": "chunk_0000",
+   "seed": 420,
+   "gt_emotion": "surprised",
+   "fer": {
+    "angry": 0.28846362575814055,
+    "happy": 0.2247973597042517,
+    "neutral": 0.27525947301842724,
+    "sad": 0.21147954151918058
+   },
+   "expressiveness": 0.7247405269815728,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0003",
+   "seed": 420,
+   "gt_emotion": "angry",
+   "fer": {
+    "angry": 0.3144738387118542,
+    "happy": 0.22235074599060076,
+    "neutral": 0.2595429178185677,
+    "sad": 0.20363249747897733
+   },
+   "expressiveness": 0.7404570821814322,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0004",
+   "seed": 420,
+   "gt_emotion": "sad",
+   "fer": {
+    "angry": 0.2953229297110602,
+    "happy": 0.21810740975479986,
+    "neutral": 0.264594175511069,
+    "sad": 0.2219754850230709
+   },
+   "expressiveness": 0.735405824488931,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0005",
+   "seed": 420,
+   "gt_emotion": "neutral",
+   "fer": {
+    "angry": 0.3168629272709125,
+    "happy": 0.2172696246965858,
+    "neutral": 0.2597358305037348,
+    "sad": 0.2061316175287669
+   },
+   "expressiveness": 0.7402641694962653,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0007",
+   "seed": 420,
+   "gt_emotion": "happy",
+   "fer": {
+    "angry": 0.3255664049819782,
+    "happy": 0.20830655915736174,
+    "neutral": 0.27379178831857176,
+    "sad": 0.19233524754208836
+   },
+   "expressiveness": 0.7262082116814282,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0008",
+   "seed": 420,
+   "gt_emotion": "happy",
+   "fer": {
+    "angry": 0.31325402151592796,
+    "happy": 0.20598698190431627,
+    "neutral": 0.27457252658183173,
+    "sad": 0.2061864699979241
+   },
+   "expressiveness": 0.7254274734181683,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0009",
+   "seed": 420,
+   "gt_emotion": "calm",
+   "fer": {
+    "angry": 0.30081188818678606,
+    "happy": 0.21582996050795417,
+    "neutral": 0.26312910904766584,
+    "sad": 0.22022904225759388
+   },
+   "expressiveness": 0.7368708909523342,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0011",
+   "seed": 420,
+   "gt_emotion": "fearful",
+   "fer": {
+    "angry": 0.30769785686144796,
+    "happy": 0.21458469593043797,
+    "neutral": 0.25739695958196784,
+    "sad": 0.22032048762614626
+   },
+   "expressiveness": 0.7426030404180322,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0013",
+   "seed": 420,
+   "gt_emotion": "disgust",
+   "fer": {
+    "angry": 0.3286602667589788,
+    "happy": 0.20512088037690235,
+    "neutral": 0.2551674821196376,
+    "sad": 0.2110513707444813
+   },
+   "expressiveness": 0.7448325178803624,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0014",
+   "seed": 420,
+   "gt_emotion": "disgust",
+   "fer": {
+    "angry": 0.30413530318324095,
+    "happy": 0.21144433911830016,
+    "neutral": 0.2540895981502451,
+    "sad": 0.23033075954821375
+   },
+   "expressiveness": 0.7459104018497549,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0016",
+   "seed": 420,
+   "gt_emotion": "happy",
+   "fer": {
+    "angry": 0.32098694621381596,
+    "happy": 0.22309311560771672,
+    "neutral": 0.25407898242855975,
+    "sad": 0.20184095574990754
+   },
+   "expressiveness": 0.7459210175714402,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0017",
+   "seed": 420,
+   "gt_emotion": "sad",
+   "fer": {
+    "angry": 0.31128094390761474,
+    "happy": 0.2080936105261314,
+    "neutral": 0.2603251647491561,
+    "sad": 0.22030028081709785
+   },
+   "expressiveness": 0.7396748352508439,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0019",
+   "seed": 420,
+   "gt_emotion": "fearful",
+   "fer": {
+    "angry": 0.3131225935923516,
+    "happy": 0.21387638847782814,
+    "neutral": 0.27336089288569065,
+    "sad": 0.1996401250441296
+   },
+   "expressiveness": 0.7266391071143093,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0022",
+   "seed": 420,
+   "gt_emotion": "surprised",
+   "fer": {
+    "angry": 0.3028554179707621,
+    "happy": 0.21223508257133478,
+    "neutral": 0.2904462992455781,
+    "sad": 0.19446320021232497
+   },
+   "expressiveness": 0.7095537007544219,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0025",
+   "seed": 420,
+   "gt_emotion": "angry",
+   "fer": {
+    "angry": 0.30607192994142285,
+    "happy": 0.22834717651597447,
+    "neutral": 0.2620722450465378,
+    "sad": 0.20350864849606484
+   },
+   "expressiveness": 0.7379277549534622,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0026",
+   "seed": 420,
+   "gt_emotion": "angry",
+   "fer": {
+    "angry": 0.2993774103060468,
+    "happy": 0.22780184926233932,
+    "neutral": 0.23842822989638168,
+    "sad": 0.23439251053523213
+   },
+   "expressiveness": 0.7615717701036183,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0029",
+   "seed": 420,
+   "gt_emotion": "neutral",
+   "fer": {
+    "angry": 0.3101280959321858,
+    "happy": 0.21187581938534003,
+    "neutral": 0.27650439804145593,
+    "sad": 0.20149168664101813
+   },
+   "expressiveness": 0.7234956019585441,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0030",
+   "seed": 420,
+   "gt_emotion": "neutral",
+   "fer": {
+    "angry": 0.30444112612825036,
+    "happy": 0.21507516905319748,
+    "neutral": 0.2723612388257425,
+    "sad": 0.20812246599280967
+   },
+   "expressiveness": 0.7276387611742575,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0031",
+   "seed": 420,
+   "gt_emotion": "calm",
+   "fer": {
+    "angry": 0.29429251764159775,
+    "happy": 0.22638696111477757,
+    "neutral": 0.2613287044210259,
+    "sad": 0.2179918168225988
+   },
+   "expressiveness": 0.738671295578974,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0032",
+   "seed": 420,
+   "gt_emotion": "calm",
+   "fer": {
+    "angry": 0.29592697751674935,
+    "happy": 0.21194541440126524,
+    "neutral": 0.2613477681377559,
+    "sad": 0.23077983994422951
+   },
+   "expressiveness": 0.7386522318622442,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0033",
+   "seed": 420,
+   "gt_emotion": "disgust",
+   "fer": {
+    "angry": 0.31361435507010804,
+    "happy": 0.2224995160684046,
+    "neutral": 0.26201938341595854,
+    "sad": 0.2018667454455288
+   },
+   "expressiveness": 0.7379806165840415,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0034",
+   "seed": 420,
+   "gt_emotion": "surprised",
+   "fer": {
+    "angry": 0.30278817249168144,
+    "happy": 0.2138893763831317,
+    "neutral": 0.27329756765035124,
+    "sad": 0.21002488347483567
+   },
+   "expressiveness": 0.7267024323496487,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0037",
+   "seed": 420,
+   "gt_emotion": "sad",
+   "fer": {
+    "angry": 0.2992279986243542,
+    "happy": 0.25003308877583497,
+    "neutral": 0.24992714806876198,
+    "sad": 0.20081176453104893
+   },
+   "expressiveness": 0.7500728519312381,
+   "argmax": "angry"
+  },
+  {
+   "chunk": "chunk_0039",
+   "seed": 420,
+   "gt_emotion": "fearful",
+   "fer": {
+    "angry": 0.31895344363054645,
+    "happy": 0.23421002869963903,
+    "neutral": 0.2487811408658685,
+    "sad": 0.19805538680394602
+   },
+   "expressiveness": 0.7512188591341316,
+   "argmax": "angry"
+  }
+ ],
+ "summary": {
+  "n": 24,
+  "mean_expr": 0.7366017073195609,
+  "per_seed": {
+   "420": 0.7366017073195609
+  },
+  "expr_by_gt": {
+   "angry": 0.7466522024128376,
+   "calm": 0.7380648061311841,
+   "disgust": 0.742907845438053,
+   "fearful": 0.7401536688888243,
+   "happy": 0.7325189008903457,
+   "neutral": 0.7304661775430223,
+   "sad": 0.7417178372236709,
+   "surprised": 0.7203322200285478
+  },
+  "expr_std_across_seeds": 0.010995825601293818
+ }
+}

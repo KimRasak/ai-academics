@@ -1,0 +1,42 @@
+{
+ "rows": [
+  {
+   "chunk": "chunk_0000",
+   "seed": 420,
+   "gt_emotion": "surprised",
+   "fer": {
+    "angry": 0.005172732591556688,
+    "happy": 0.12136791585504286,
+    "neutral": 0.8582821998119067,
+    "sad": 0.015177151741493755
+   },
+   "expressiveness": 0.14171780018809332,
+   "argmax": "neutral"
+  },
+  {
+   "chunk": "chunk_0007",
+   "seed": 420,
+   "gt_emotion": "happy",
+   "fer": {
+    "angry": 0.004392284689725364,
+    "happy": 0.16526834283300768,
+    "neutral": 0.8166335696732365,
+    "sad": 0.013705802804030422
+   },
+   "expressiveness": 0.18336643032676347,
+   "argmax": "neutral"
+  }
+ ],
+ "summary": {
+  "n": 2,
+  "mean_expr": 0.1625421152574284,
+  "per_seed": {
+   "420": 0.1625421152574284
+  },
+  "expr_by_gt": {
+   "happy": 0.18336643032676347,
+   "surprised": 0.14171780018809332
+  },
+  "expr_std_across_seeds": 0.020824315069335075
+ }
+}

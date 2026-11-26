@@ -1,0 +1,26 @@
+{
+ "rows": [
+  {
+   "chunk": "chunk_0000",
+   "seed": 420,
+   "gt_emotion": null,
+   "fer": {
+    "angry": 0.02567889847536739,
+    "happy": 0.02385776178472312,
+    "neutral": 0.8958309916470881,
+    "sad": 0.05463234809282133
+   },
+   "expressiveness": 0.10416900835291187,
+   "argmax": "neutral"
+  }
+ ],
+ "summary": {
+  "n": 1,
+  "mean_expr": 0.10416900835291187,
+  "per_seed": {
+   "420": 0.10416900835291187
+  },
+  "expr_by_gt": {},
+  "expr_std_across_seeds": 0.0
+ }
+}

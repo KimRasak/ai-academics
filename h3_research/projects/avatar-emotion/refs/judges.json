@@ -1,0 +1,17 @@
+[
+ {
+  "tag": "fer",
+  "repo": "trpakov/vit-face-expression",
+  "path": "/Users/jinzili/.cache/huggingface/hub/models--trpakov--vit-face-expression/snapshots/ef0bc6fc34241b6587e7e009e7711357be28c024"
+ },
+ {
+  "tag": "fer",
+  "repo": "dima806/facial_emotions_image_detection",
+  "path": "/Users/jinzili/.cache/huggingface/hub/models--dima806--facial_emotions_image_detection/snapshots/747cf16692eea925b54b7b543cf436848128b68d"
+ },
+ {
+  "tag": "ser",
+  "repo": "superb/wav2vec2-base-superb-er",
+  "path": "/Users/jinzili/.cache/huggingface/hub/models--superb--wav2vec2-base-superb-er/snapshots/441a7599c3b22107314dcbd9166621c5c83f2cc5"
+ }
+]

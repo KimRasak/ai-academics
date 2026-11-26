@@ -1,0 +1,62 @@
+[
+ {
+  "probe": 0,
+  "expr": 0.61,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 1,
+  "expr": 0.588,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 2,
+  "expr": 0.594,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 3,
+  "expr": 0.59,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 4,
+  "expr": 0.589,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 5,
+  "expr": 0.605,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 6,
+  "expr": 0.619,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 7,
+  "expr": 0.588,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 8,
+  "expr": 0.602,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 9,
+  "expr": 0.596,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 10,
+  "expr": 0.6,
+  "argmax": "neutral"
+ },
+ {
+  "probe": 11,
+  "expr": 0.606,
+  "argmax": "neutral"
+ }
+]

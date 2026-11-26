@@ -1,0 +1,32 @@
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 7802.78it/s]
+Loading weights:   0%|          | 0/200 [00:00<?, ?it/s]Loading weights: 100%|██████████| 200/200 [00:00<00:00, 8225.74it/s]
+Loading weights:   0%|          | 0/216 [00:00<?, ?it/s]Loading weights: 100%|██████████| 216/216 [00:00<00:00, 65630.95it/s]
+plan: 1800 segments
+0
+200
+400
+600
+800
+1000
+1200
+1400
+1600
+{
+ "n_windows": 1800,
+ "duration_s": 7200.0,
+ "expr_thirds": [
+  0.7629,
+  0.7804,
+  0.7968
+ ],
+ "expr_by_gt": {
+  "angry": 0.941,
+  "calm": 0.652,
+  "disgust": 0.873,
+  "fearful": 0.893,
+  "happy": 0.828,
+  "neutral": 0.453,
+  "sad": 0.707,
+  "surprised": 0.732
+ }
+}

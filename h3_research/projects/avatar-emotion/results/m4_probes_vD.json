@@ -1,0 +1,146 @@
+[
+ {
+  "probe": 0,
+  "t_min": 0,
+  "expr": 0.756,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.172,
+   "happy": 0.243,
+   "neutral": 0.244,
+   "sad": 0.341
+  }
+ },
+ {
+  "probe": 1,
+  "t_min": 10,
+  "expr": 0.764,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.193,
+   "happy": 0.246,
+   "neutral": 0.236,
+   "sad": 0.325
+  }
+ },
+ {
+  "probe": 2,
+  "t_min": 20,
+  "expr": 0.784,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.184,
+   "happy": 0.254,
+   "neutral": 0.216,
+   "sad": 0.347
+  }
+ },
+ {
+  "probe": 3,
+  "t_min": 30,
+  "expr": 0.759,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.184,
+   "happy": 0.268,
+   "neutral": 0.241,
+   "sad": 0.307
+  }
+ },
+ {
+  "probe": 4,
+  "t_min": 40,
+  "expr": 0.755,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.161,
+   "happy": 0.246,
+   "neutral": 0.245,
+   "sad": 0.348
+  }
+ },
+ {
+  "probe": 5,
+  "t_min": 50,
+  "expr": 0.748,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.187,
+   "happy": 0.257,
+   "neutral": 0.252,
+   "sad": 0.304
+  }
+ },
+ {
+  "probe": 6,
+  "t_min": 60,
+  "expr": 0.765,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.161,
+   "happy": 0.237,
+   "neutral": 0.235,
+   "sad": 0.366
+  }
+ },
+ {
+  "probe": 7,
+  "t_min": 70,
+  "expr": 0.763,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.188,
+   "happy": 0.254,
+   "neutral": 0.237,
+   "sad": 0.321
+  }
+ },
+ {
+  "probe": 8,
+  "t_min": 80,
+  "expr": 0.763,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.162,
+   "happy": 0.246,
+   "neutral": 0.237,
+   "sad": 0.355
+  }
+ },
+ {
+  "probe": 9,
+  "t_min": 90,
+  "expr": 0.754,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.185,
+   "happy": 0.268,
+   "neutral": 0.246,
+   "sad": 0.301
+  }
+ },
+ {
+  "probe": 10,
+  "t_min": 100,
+  "expr": 0.751,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.16,
+   "happy": 0.235,
+   "neutral": 0.249,
+   "sad": 0.356
+  }
+ },
+ {
+  "probe": 11,
+  "t_min": 110,
+  "expr": 0.746,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.19,
+   "happy": 0.253,
+   "neutral": 0.254,
+   "sad": 0.304
+  }
+ }
+]

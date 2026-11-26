@@ -1,0 +1,146 @@
+[
+ {
+  "probe": 0,
+  "t_min": 0,
+  "expr": 0.661,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.163,
+   "happy": 0.225,
+   "neutral": 0.339,
+   "sad": 0.273
+  }
+ },
+ {
+  "probe": 1,
+  "t_min": 10,
+  "expr": 0.677,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.154,
+   "happy": 0.235,
+   "neutral": 0.323,
+   "sad": 0.287
+  }
+ },
+ {
+  "probe": 2,
+  "t_min": 20,
+  "expr": 0.658,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.163,
+   "happy": 0.214,
+   "neutral": 0.342,
+   "sad": 0.281
+  }
+ },
+ {
+  "probe": 3,
+  "t_min": 30,
+  "expr": 0.687,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.135,
+   "happy": 0.266,
+   "neutral": 0.313,
+   "sad": 0.286
+  }
+ },
+ {
+  "probe": 4,
+  "t_min": 40,
+  "expr": 0.663,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.156,
+   "happy": 0.239,
+   "neutral": 0.337,
+   "sad": 0.267
+  }
+ },
+ {
+  "probe": 5,
+  "t_min": 50,
+  "expr": 0.72,
+  "argmax": "sad",
+  "p4": {
+   "angry": 0.146,
+   "happy": 0.258,
+   "neutral": 0.28,
+   "sad": 0.316
+  }
+ },
+ {
+  "probe": 6,
+  "t_min": 60,
+  "expr": 0.664,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.163,
+   "happy": 0.222,
+   "neutral": 0.336,
+   "sad": 0.279
+  }
+ },
+ {
+  "probe": 7,
+  "t_min": 70,
+  "expr": 0.687,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.151,
+   "happy": 0.24,
+   "neutral": 0.313,
+   "sad": 0.296
+  }
+ },
+ {
+  "probe": 8,
+  "t_min": 80,
+  "expr": 0.669,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.158,
+   "happy": 0.231,
+   "neutral": 0.331,
+   "sad": 0.28
+  }
+ },
+ {
+  "probe": 9,
+  "t_min": 90,
+  "expr": 0.645,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.156,
+   "happy": 0.223,
+   "neutral": 0.355,
+   "sad": 0.266
+  }
+ },
+ {
+  "probe": 10,
+  "t_min": 100,
+  "expr": 0.661,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.162,
+   "happy": 0.229,
+   "neutral": 0.339,
+   "sad": 0.27
+  }
+ },
+ {
+  "probe": 11,
+  "t_min": 110,
+  "expr": 0.644,
+  "argmax": "neutral",
+  "p4": {
+   "angry": 0.159,
+   "happy": 0.212,
+   "neutral": 0.356,
+   "sad": 0.274
+  }
+ }
+]
