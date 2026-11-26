@@ -1,0 +1,21 @@
+{
+  "id": "5a8a0eba5bec5fc610cf1ef79ddcb3ac1509ec59",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A concise 2D animation illustrates an array of numbered boxes arranged horizontally (e.g., [5, 1, 2, 4, 3]), with a highlighted pointer moving from left to right to perform a sequential search for a target value (e.g., 4).",
+  "bytes": 727039,
+  "wall_seconds": 410.1,
+  "inference_time_s": 406.89226381201297,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

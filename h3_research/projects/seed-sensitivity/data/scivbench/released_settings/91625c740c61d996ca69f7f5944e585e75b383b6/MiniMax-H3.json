@@ -1,0 +1,21 @@
+{
+  "id": "91625c740c61d996ca69f7f5944e585e75b383b6",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Immerse a dry, unglazed ceramic shard in a glass container filled with clear, still water and allow it to stand for several minutes.",
+  "bytes": 1794952,
+  "wall_seconds": 410.3,
+  "inference_time_s": 406.68146829819307,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

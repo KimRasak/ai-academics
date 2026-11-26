@@ -1,0 +1,21 @@
+{
+  "id": "535d9102895e2729995d0168d47125fd80b121ddb",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "First, a large map of the Asian marine basins is presented, showing surface ocean currents driven by wind and the Coriolis force with arrows. Subsequently, a map of inland lakes in Europe is shown, illustrating surface water movements driven by local winds with arrows. The formation processes and flow directions of these two types of currents are clearly demonstrated through distinct arrows and a top-down perspective.",
+  "bytes": 1955628,
+  "wall_seconds": 831.3,
+  "inference_time_s": 822.5470457449555,
+  "peak_memory_mb": 107936.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

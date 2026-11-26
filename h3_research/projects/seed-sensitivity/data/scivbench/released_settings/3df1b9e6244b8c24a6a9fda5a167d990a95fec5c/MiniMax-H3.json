@@ -1,0 +1,21 @@
+{
+  "id": "3df1b9e6244b8c24a6a9fda5a167d990a95fec5c",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A person is facing the camera, with one hand holding a bag and delivering a brief puff of air near one eye from the side.",
+  "bytes": 1591965,
+  "wall_seconds": 820.2,
+  "inference_time_s": 810.115966547979,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

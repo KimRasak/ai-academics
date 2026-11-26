@@ -1,0 +1,21 @@
+{
+  "id": "417bc53fda5dc39f3c1a23e7c1b97b4dc22f5383",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A person exhales breath through a tube into a transparent glass container holding a clear calcium hydroxide solution, with the tube's submerged end reaching below the liquid surface.",
+  "bytes": 1876576,
+  "wall_seconds": 420.1,
+  "inference_time_s": 412.2900267220102,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

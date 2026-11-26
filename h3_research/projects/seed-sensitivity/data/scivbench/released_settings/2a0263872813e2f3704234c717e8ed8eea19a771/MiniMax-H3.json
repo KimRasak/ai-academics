@@ -1,0 +1,21 @@
+{
+  "id": "2a0263872813e2f3704234c717e8ed8eea19a771",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "On the experimental bench, two petri dishes contain latex beads coated with antigen; a gloved hand uses a pipette with a red tip to add liquid to the left side and a pipette with a blue tip to add liquid to the right side, then gently agitates both.",
+  "bytes": 2939631,
+  "wall_seconds": 420.5,
+  "inference_time_s": 412.4249966349453,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

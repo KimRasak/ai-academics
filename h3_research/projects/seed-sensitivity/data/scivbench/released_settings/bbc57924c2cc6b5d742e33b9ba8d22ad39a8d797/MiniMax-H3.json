@@ -1,0 +1,21 @@
+{
+  "id": "bbc57924c2cc6b5d742e33b9ba8d22ad39a8d797",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Two model roofs are placed side by side, with the left one having a gentler slope and the right one a steeper slope, both constructed from the same material. Subsequently, the same white granular material is spread onto both roofs. The camera focuses on the process of the white granular material sliding down the surfaces of the two roofs.",
+  "bytes": 4032123,
+  "wall_seconds": 420.1,
+  "inference_time_s": 410.72557469829917,
+  "peak_memory_mb": 107956.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

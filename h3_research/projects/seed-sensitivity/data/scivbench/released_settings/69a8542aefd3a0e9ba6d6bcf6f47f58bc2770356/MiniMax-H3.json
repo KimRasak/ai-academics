@@ -1,0 +1,21 @@
+{
+  "id": "69a8542aefd3a0e9ba6d6bcf6f47f58bc2770356",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A small tray with a slight inclination contains soil and small pebbles. Water is continuously poured from the higher end, causing the water to flow across the tray and exit from the lower side.",
+  "bytes": 4710103,
+  "wall_seconds": 420.5,
+  "inference_time_s": 411.22661368595436,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

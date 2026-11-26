@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "A concise 2D animation illustrates an array of numbered boxes arranged horizontally (e.g., [5, 1, 2, 4, 3]), with a highlighted pointer moving from left to right to perform a sequential search for a target value (e.g., 4).",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 0
+}

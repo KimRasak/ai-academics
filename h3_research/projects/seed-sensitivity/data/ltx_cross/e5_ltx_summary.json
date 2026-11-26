@@ -1,0 +1,25 @@
+{
+  "model": "LTX-Video-2B",
+  "n_videos": 192,
+  "seeds": 12,
+  "prompts": 16,
+  "dd_flip": 126,
+  "pairs": 1056,
+  "flip_rate": 0.1193,
+  "flip_ci": [
+    0.1011,
+    0.1403
+  ],
+  "any_flip": 7,
+  "vt_within_sd_mean": 0.04028,
+  "vt_within_sd_max": 0.07493,
+  "icc": 0.455,
+  "icc_ci": [
+    0.101,
+    0.713
+  ],
+  "between_sd": 0.0414,
+  "rank_rho_mean": 0.4571,
+  "rank_rho_min": -0.0971,
+  "rank_shift_mean": 3.534
+}

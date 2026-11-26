@@ -1,0 +1,21 @@
+{
+  "id": "58e7ae166afa2f10a40af454cea4caf4b03632e193",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "On the green, a player gently strikes a golf ball with a putter, sending it rolling across the putting surface toward the hole.",
+  "bytes": 4024570,
+  "wall_seconds": 420.8,
+  "inference_time_s": 410.03504808805883,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

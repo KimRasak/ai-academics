@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "Freshly cut Elodea stems were submerged in a transparent container and placed under bright light. A non-transparent card was briefly used to block the light, then removed.",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 0
+}

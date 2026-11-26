@@ -1,0 +1,21 @@
+{
+  "id": "d3b6bd54cdd0d21c2997411b64c586a1226cb25c",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Capture a bicycle wheel with evenly spaced spokes rotating at a constant speed: first record with a lower frame rate, then with a higher frame rate, keeping the wheel rotational speed and camera position the same.",
+  "bytes": 5063606,
+  "wall_seconds": 442.4,
+  "inference_time_s": 412.3381637223065,
+  "peak_memory_mb": 108434.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

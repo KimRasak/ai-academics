@@ -1,0 +1,21 @@
+{
+  "id": "244da2bf47de44eb69201368b430e0f94a3688e17",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Use two sandboxes filled with loose sand. A static pressure (weight of X) is applied to sandbox A, while a shock pressure of the same weight X is applied to sandbox B. Observe and compare the density and height of the sand in both sandboxes.",
+  "bytes": 6940038,
+  "wall_seconds": 420.6,
+  "inference_time_s": 410.99392733117566,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

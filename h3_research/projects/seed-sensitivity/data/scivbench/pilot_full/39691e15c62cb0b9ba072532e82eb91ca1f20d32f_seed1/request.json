@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "Take 2 mL of the plant oil extract into a test tube, add 2 drops of ethanol solution of phosphomolydic acid, and heat for 1 minute in a boiling water bath.",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 1
+}

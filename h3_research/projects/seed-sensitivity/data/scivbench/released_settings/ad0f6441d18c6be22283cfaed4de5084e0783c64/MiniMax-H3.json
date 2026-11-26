@@ -1,0 +1,21 @@
+{
+  "id": "ad0f6441d18c6be22283cfaed4de5084e0783c64",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "On an experimental bench, two test tubes with blue and red caps are present; a gloved hand adds DNA template, nucleotides, and RNA polymerase to the blue-capped tube, after which both tubes are placed under ultraviolet light.",
+  "bytes": 1540842,
+  "wall_seconds": 791.4,
+  "inference_time_s": 782.4443476640154,
+  "peak_memory_mb": 131238.0,
+  "num_gpus": 1,
+  "gpu_type": "b200"
+}

@@ -1,0 +1,14 @@
+{
+  "n_videos": 96,
+  "n_prompts": 16,
+  "dd_pairwise_flip": 38,
+  "n_eval_pairs": 240,
+  "dd_flip_rate": 0.15833333333333333,
+  "prompts_any_flip": 7,
+  "n_prompts_multi": 16,
+  "vt_within_prompt_sd_mean": 0.038396088826127286,
+  "vt_within_prompt_sd_max": 0.08114818752565557,
+  "dd_within_prompt_sd_mean": 0.16921703114317632,
+  "vt_overall_mean": 0.6784874962644679,
+  "dd_overall_mean": 0.1875
+}

@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "Build a simple circuit consisting of a battery, a switch, and a light bulb. First, connect a copper wire of fixed length into the circuit and close the switch. Then replace it with an iron wire of the same length and reconnect the circuit. Clearly demonstrate the comparison process, emphasizing the correct wiring sequence and maintaining consistent conditions.",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 0
+}

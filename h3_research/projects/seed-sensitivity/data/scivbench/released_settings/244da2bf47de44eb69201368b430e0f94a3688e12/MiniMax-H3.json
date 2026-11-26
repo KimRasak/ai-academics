@@ -1,0 +1,21 @@
+{
+  "id": "244da2bf47de44eb69201368b430e0f94a3688e12",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Two sandboxes were used. Three model piles were placed in sandbox A and filled with sandy soil, while sandbox B was filled with sandy soil only. Equal weights were applied on the top of both sandboxes and they were fixed on a shaking table. Subsequently, the vibration was initiated, and the settlement of the load was observed and compared between sandbox A and sandbox B.",
+  "bytes": 3314391,
+  "wall_seconds": 840.2,
+  "inference_time_s": 828.2387759760022,
+  "peak_memory_mb": 107936.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

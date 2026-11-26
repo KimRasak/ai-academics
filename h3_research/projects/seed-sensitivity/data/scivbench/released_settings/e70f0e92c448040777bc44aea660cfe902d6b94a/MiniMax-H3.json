@@ -1,0 +1,21 @@
+{
+  "id": "e70f0e92c448040777bc44aea660cfe902d6b94a",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "On the test bench, a microphone is connected to an AM transmitter and antenna; when a person speaks softly and then loudly into the microphone, the oscilloscope displays the corresponding signals.",
+  "bytes": 851609,
+  "wall_seconds": 420.1,
+  "inference_time_s": 411.3698923550546,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

@@ -1,0 +1,21 @@
+{
+  "model_name": "h3_base",
+  "num_videos": 96,
+  "num_complete": 96,
+  "subject_consistency": 0.9441785499306432,
+  "background_consistency": 0.9555213102103545,
+  "motion_smoothness": 0.9929225985940215,
+  "dynamic_degree": 0.40625,
+  "aesthetic_quality": 0.49480398596835234,
+  "imaging_quality": 0.6541962087394729,
+  "VT": 0.7413121089071408,
+  "score_counts": {
+    "subject_consistency": 96,
+    "background_consistency": 96,
+    "motion_smoothness": 96,
+    "dynamic_degree": 96,
+    "aesthetic_quality": 96,
+    "imaging_quality": 96,
+    "VT": 96
+  }
+}

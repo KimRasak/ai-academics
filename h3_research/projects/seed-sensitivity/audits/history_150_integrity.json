@@ -1,0 +1,24 @@
+{
+  "audited_at": "2026-09-07",
+  "source_index": "/gluster_hdd_cv/user/jinzili/code/anime_style/model_demo/minimax_h3/tests/anime_style/report/index.json",
+  "ffprobe": "/gluster_hdd_cv/user/jinzili/env/sglang310/bin/ffprobe",
+  "records": 150,
+  "status_counts": {
+    "completed": 150
+  },
+  "video_field_counts": {
+    "video": 150
+  },
+  "existing_files": 150,
+  "missing_files": 0,
+  "ffprobe_ok": 150,
+  "ffprobe_bad": 0,
+  "manual_rating_records": 150,
+  "manual_rating_axes_non_null": {
+    "style_fidelity": 0,
+    "identity": 0,
+    "motion_quality": 0,
+    "audio_usable": 0
+  },
+  "interpretation": "文件完整性与可解码性通过，但人工感知质量评测尚未完成；completed 只表示生成任务完成。"
+}

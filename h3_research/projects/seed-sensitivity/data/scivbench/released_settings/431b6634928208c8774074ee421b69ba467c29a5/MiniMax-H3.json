@@ -1,0 +1,21 @@
+{
+  "id": "431b6634928208c8774074ee421b69ba467c29a5",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Place two identical steel wool pads on a ceramic dish; pour hydrogen peroxide onto the left pad while keeping the right one dry, and capture images of both from the same angle continuously.",
+  "bytes": 3639949,
+  "wall_seconds": 420.3,
+  "inference_time_s": 411.6334336036816,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

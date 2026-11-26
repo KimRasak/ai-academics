@@ -1,0 +1,73 @@
+usage: run_scoring.py [-h] [--backend {vllm,gemini}] [--base-url BASE_URL]
+                      [--model MODEL] [--gemini-model GEMINI_MODEL]
+                      [--video_dir VIDEO_DIR] [--rubric_file RUBRIC_FILE]
+                      [--output_dir OUTPUT_DIR] [--save_every SAVE_EVERY]
+                      [--max_tokens MAX_TOKENS] [--num_rounds NUM_ROUNDS]
+                      [--dimensions DIMENSIONS] [--concurrency CONCURRENCY]
+                      [--max_retries MAX_RETRIES] [--enable-thinking |
+                      --no-enable-thinking] [--retry-errors |
+                      --no-retry-errors] [--retry-parse-errors |
+                      --no-retry-parse-errors] [--verify-results]
+                      [--self-test] [--models MODELS] [--limit LIMIT]
+                      [--fps FPS] [--video_input_mode {base64,file_url}]
+
+Score videos via vLLM or Gemini
+
+options:
+  -h, --help            show this help message and exit
+  --backend {vllm,gemini}
+                        Scoring API backend (default: vllm)
+  --base-url, --base_url BASE_URL
+                        vLLM OpenAI-compatible base URL; overrides
+                        OPENAI_BASE_URL and OPENAI_API_BASE
+  --model MODEL         Model name as served by vLLM (the value vLLM was
+                        started with, or a local checkpoint path)
+  --gemini-model, --gemini_model GEMINI_MODEL
+                        Gemini model name when --backend=gemini
+  --video_dir VIDEO_DIR
+                        Root directory containing model subfolders with videos
+  --rubric_file RUBRIC_FILE
+                        Evaluation specifications, as released at
+                        huggingface.co/datasets/Sci-VBench/Sci-VBench
+  --output_dir OUTPUT_DIR
+                        Root directory for scoring outputs
+  --save_every SAVE_EVERY
+                        Flush the progress journal every N completions
+  --max_tokens MAX_TOKENS
+                        Maximum output tokens per generation
+  --num_rounds NUM_ROUNDS
+                        Number of scoring rounds per video
+  --dimensions DIMENSIONS
+                        Comma-separated scoring dimensions (e.g.
+                        pg,scc,sc,lpf)
+  --concurrency CONCURRENCY
+                        Number of concurrent API requests
+  --max_retries MAX_RETRIES
+                        Max retries per request on failure
+  --enable-thinking, --enable_thinking
+                        Enable Qwen thinking through chat_template_kwargs
+                        (default)
+  --no-enable-thinking, --no_enable_thinking
+                        Disable Qwen thinking through chat_template_kwargs
+  --retry-errors, --retry_errors
+                        Retry tasks whose last progress status is error
+                        (default)
+  --no-retry-errors, --no_retry_errors
+                        Leave tasks whose last progress status is error
+                        unattempted
+  --retry-parse-errors, --retry_parse_errors
+                        Retry unparseable judge responses up to 3 total
+                        attempts (default)
+  --no-retry-parse-errors, --no_retry_parse_errors
+                        Leave unparseable judge responses unattempted
+  --verify-results, --verify_results
+                        Fully parse and validate completed result files during
+                        resume (slower on network filesystems)
+  --self-test           Run offline reasoning-extraction checks and exit
+  --models MODELS       Comma-separated model subdirectory names to score
+  --limit LIMIT         Maximum pending scoring requests after stable sorting
+                        (for deterministic smoke tests)
+  --fps FPS             Video frame sampling rate (frames per second)
+  --video_input_mode {base64,file_url}
+                        How to pass video: 'file_url' (vLLM has access to
+                        files) or 'base64' (encode locally)

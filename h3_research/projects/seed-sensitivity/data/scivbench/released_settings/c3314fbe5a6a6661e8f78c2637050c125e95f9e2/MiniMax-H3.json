@@ -1,0 +1,21 @@
+{
+  "id": "c3314fbe5a6a6661e8f78c2637050c125e95f9e2",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "In the laboratory, the impure copper(II) sulfate crystals were dissolved in hot water on a hot plate, and the solution was filtered into a clean beaker and allowed to cool by standing.",
+  "bytes": 3481078,
+  "wall_seconds": 410.1,
+  "inference_time_s": 406.8468141760677,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

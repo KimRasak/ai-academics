@@ -1,0 +1,12 @@
+{
+  "model_name": "MiniMax-H3",
+  "video_id": "c3314fbe5a6a6661e8f78c2637050c125e95f9e2",
+  "video_path": "/ssd2/jinzili/scivbench_released_input/MiniMax-H3/c3314fbe5a6a6661e8f78c2637050c125e95f9e2.mp4",
+  "subject_consistency": 0.7299262792298714,
+  "background_consistency": 0.8654034734354935,
+  "motion_smoothness": 0.9915306850932486,
+  "dynamic_degree": 0.0,
+  "aesthetic_quality": 0.5552276725927111,
+  "imaging_quality": 0.6618479012125763,
+  "VT": 0.6339893352606502
+}

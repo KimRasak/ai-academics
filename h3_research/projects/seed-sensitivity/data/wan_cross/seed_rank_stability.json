@@ -1,0 +1,34 @@
+[
+  {
+    "model": "H3",
+    "n_seed_pairs": 15,
+    "spearman_mean": 0.5094117647058823,
+    "spearman_min": -0.05882352941176472,
+    "mean_abs_rank_shift": 3.3,
+    "max_abs_rank_shift": 5.5
+  },
+  {
+    "model": "Wan2.1-Fun",
+    "n_seed_pairs": 15,
+    "spearman_mean": 0.49549019607843137,
+    "spearman_min": 0.1705882352941176,
+    "mean_abs_rank_shift": 3.325,
+    "max_abs_rank_shift": 4.5
+  },
+  {
+    "model": "H3_12seed",
+    "n_seed_pairs": 66,
+    "spearman_mean": 0.5382,
+    "spearman_min": -0.0588,
+    "mean_abs_rank_shift": 3.21,
+    "max_abs_rank_shift": 13
+  },
+  {
+    "model": "Wan2.1-Fun_12seed",
+    "n_seed_pairs": 66,
+    "spearman_mean": 0.5429,
+    "spearman_min": 0.0559,
+    "mean_abs_rank_shift": 3.259,
+    "max_abs_rank_shift": 15
+  }
+]

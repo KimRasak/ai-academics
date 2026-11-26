@@ -1,0 +1,12 @@
+{
+  "model_name": "wan_s6_11",
+  "video_id": "9e3ffb8a6a7ac10cfda552de0144e18a02ad2b3b_seed9",
+  "video_path": "/ssd2/jinzili/wan_vt_input/wan_s6_11/9e3ffb8a6a7ac10cfda552de0144e18a02ad2b3b_seed9.mp4",
+  "subject_consistency": 0.9754046998370711,
+  "background_consistency": 0.9643972653348479,
+  "motion_smoothness": 0.9961189500422899,
+  "dynamic_degree": 0.0,
+  "aesthetic_quality": 0.4721937621081317,
+  "imaging_quality": 0.7154181953712747,
+  "VT": 0.6872554787822692
+}

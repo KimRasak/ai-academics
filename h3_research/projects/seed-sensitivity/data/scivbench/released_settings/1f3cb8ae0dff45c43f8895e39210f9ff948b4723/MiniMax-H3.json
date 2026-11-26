@@ -1,0 +1,21 @@
+{
+  "id": "1f3cb8ae0dff45c43f8895e39210f9ff948b4723",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Mark the north (N) and south (S) poles of two identical bar magnets. Hold one magnet with its north pole facing the south pole of the other magnet, and bring them close together. Then release your hands and observe the state of the magnets.",
+  "bytes": 1563243,
+  "wall_seconds": 410.1,
+  "inference_time_s": 406.4074814519845,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

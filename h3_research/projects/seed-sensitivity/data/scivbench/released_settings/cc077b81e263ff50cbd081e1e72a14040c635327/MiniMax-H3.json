@@ -1,0 +1,21 @@
+{
+  "id": "cc077b81e263ff50cbd081e1e72a14040c635327",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Outdoors in a gentle breeze, with a wind indicator such as nearby grass or a hanging fabric ribbon visibly swaying to mark the wind, two identically configured microphones are mounted side by side and face the same direction as gusts pass through: one microphone is left fully exposed, the other is enclosed in a thick foam windscreen. Each microphone feeds its own visible audio level meter (an analog VU needle or digital waveform display) placed in frame beside its stand, showing the incoming signal in real time.",
+  "bytes": 1806839,
+  "wall_seconds": 410.1,
+  "inference_time_s": 406.7717949617654,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

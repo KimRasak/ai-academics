@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "Place a metal spoon and a wooden spoon side by side in the same transparent container filled with hot water, and place a small equal amount of butter on the handles of each spoon above the water surface.",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 0
+}

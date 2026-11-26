@@ -1,0 +1,21 @@
+{
+  "id": "39691e15c62cb0b9ba072532e82eb91ca1f20d15f",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Add 2 mL yeast extract solution to a test tube, then add 2 drops of acidic ferric chloride–hydroxylamine (hydroxamate) color reagent and mix thoroughly.",
+  "bytes": 1908145,
+  "wall_seconds": 410.8,
+  "inference_time_s": 407.7362376758829,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "733d0061a45c022ad410ff6af7356d443484393e",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Show a hand holding a dry soybean seed. Use forceps to remove the seed coat. Separate and open the seed to expose its internal structure. The procedure is clear and the steps are logical, with a focus on seed dissection.",
+  "bytes": 2578976,
+  "wall_seconds": 410.5,
+  "inference_time_s": 406.28036517836154,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

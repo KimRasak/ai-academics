@@ -1,0 +1,21 @@
+{
+  "id": "61e18b4103ce3119add20f5af338f0bce277a858",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Input a low-frequency sound signal and display its waveform. Keep the amplitude constant while gradually increasing the frequency of the sound. As the frequency increases, observe the periodic changes in the waveform on the screen.",
+  "bytes": 1704057,
+  "wall_seconds": 820.3,
+  "inference_time_s": 808.3674801660236,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

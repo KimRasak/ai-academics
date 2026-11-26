@@ -1,0 +1,21 @@
+{
+  "id": "846f70a69b6166e88915d2a992a41b662463b019",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A piece of chocolate is placed on a slightly heated metal pan, and it is continuously recorded for several minutes while being heated.",
+  "bytes": 2504568,
+  "wall_seconds": 805.3,
+  "inference_time_s": 785.639865069068,
+  "peak_memory_mb": 131696.0,
+  "num_gpus": 1,
+  "gpu_type": "b200"
+}

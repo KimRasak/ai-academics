@@ -1,0 +1,21 @@
+{
+  "id": "39691e15c62cb0b9ba072532e82eb91ca1f20d6f",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Take three test tubes, and add 2 mL of unfermented milk, fermenting milk, and fermented milk to each, respectively. Add two drops of bromothymol blue indicator to each tube.",
+  "bytes": 1737338,
+  "wall_seconds": 820.9,
+  "inference_time_s": 808.9986997698434,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

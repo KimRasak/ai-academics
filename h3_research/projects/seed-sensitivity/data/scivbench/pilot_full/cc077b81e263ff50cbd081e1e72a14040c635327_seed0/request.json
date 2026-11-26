@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "Outdoors in a gentle breeze, with a wind indicator such as nearby grass or a hanging fabric ribbon visibly swaying to mark the wind, two identically configured microphones are mounted side by side and face the same direction as gusts pass through: one microphone is left fully exposed, the other is enclosed in a thick foam windscreen. Each microphone feeds its own visible audio level meter (an analog VU needle or digital waveform display) placed in frame beside its stand, showing the incoming signal in real time.",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 0
+}

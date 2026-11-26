@@ -1,0 +1,21 @@
+{
+  "id": "39691e15c62cb0b9ba072532e82eb91ca1f20d18f",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Take 2 mL of soymilk into a test tube, add 1 mL of reagent A of the biuret test, shake thoroughly to mix, then add 4 drops of reagent B, and shake again.",
+  "bytes": 1940302,
+  "wall_seconds": 830.2,
+  "inference_time_s": 821.2601612230064,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

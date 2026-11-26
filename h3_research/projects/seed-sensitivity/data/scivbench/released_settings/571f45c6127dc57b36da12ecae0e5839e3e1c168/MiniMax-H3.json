@@ -1,0 +1,21 @@
+{
+  "id": "571f45c6127dc57b36da12ecae0e5839e3e1c168",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "On the table, small neodymium cube magnets, each marked with a small colored dot on one face, are arranged in a checkerboard pattern so that neighboring magnets show the dot facing up or down in alternation, and then a thin square piece of pyrolytic graphite is released above the array.",
+  "bytes": 982839,
+  "wall_seconds": 780.7,
+  "inference_time_s": 772.6327804620378,
+  "peak_memory_mb": 131218.0,
+  "num_gpus": 1,
+  "gpu_type": "b200_1gpu"
+}

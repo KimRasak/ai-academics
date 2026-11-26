@@ -1,0 +1,21 @@
+{
+  "id": "921fcf86f6563cbf535886fb472c609328108146",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A microcentrifuge tube containing cell culture lysate was removed from a benchtop centrifuge immediately after a complete high-speed spin and held upright, motionless, in hand.",
+  "bytes": 1758383,
+  "wall_seconds": 820.4,
+  "inference_time_s": 808.4348630979657,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

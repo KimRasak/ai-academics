@@ -1,0 +1,21 @@
+{
+  "id": "7f86e891a5a2994addc4ae162f181d7e3268266b",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "On the workbench, there is a simple RC charging circuit: a battery, switch, and resistor are connected in series to charge a capacitor, and an LED is connected in parallel across the capacitor's two terminals; one hand toggles the switch to connect the battery.",
+  "bytes": 2337758,
+  "wall_seconds": 790.3,
+  "inference_time_s": 784.1996135580121,
+  "peak_memory_mb": 131258.0,
+  "num_gpus": 1,
+  "gpu_type": "b200"
+}

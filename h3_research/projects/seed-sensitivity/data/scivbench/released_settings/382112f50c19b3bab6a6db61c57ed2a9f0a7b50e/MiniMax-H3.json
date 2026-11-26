@@ -1,0 +1,21 @@
+{
+  "id": "382112f50c19b3bab6a6db61c57ed2a9f0a7b50e",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "On the table, place two metal tuning forks of different sizes above a shallow, transparent trough of still water. Strike the first fork with a mallet and lower its prongs into the water; once that fork is vibrating in the water, strike the second fork with the same mallet motion and lower its prongs into the water at the same depth, so both forks' effects on the water are visible together.",
+  "bytes": 1316635,
+  "wall_seconds": 857.0,
+  "inference_time_s": 834.4489213540219,
+  "peak_memory_mb": 108476.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

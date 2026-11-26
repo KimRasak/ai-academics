@@ -1,0 +1,21 @@
+{
+  "id": "58e7ae166afa2f10a40af454cea4caf4b03632e197",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "The athlete swims freestyle toward the wall, lowers the head, pulls the knees in for a forward flip turn, pushes off the wall, and adjusts the posture before continuing to swim forward.",
+  "bytes": 7798707,
+  "wall_seconds": 420.4,
+  "inference_time_s": 410.54721524426714,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

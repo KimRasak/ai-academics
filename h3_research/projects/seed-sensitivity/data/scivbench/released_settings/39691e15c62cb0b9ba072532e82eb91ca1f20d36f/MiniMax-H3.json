@@ -1,0 +1,21 @@
+{
+  "id": "39691e15c62cb0b9ba072532e82eb91ca1f20d36f",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Weigh 5 grams of tomato homogenate into a beaker, add 10 mL of acetone for extraction. After filtration, transfer the filtrate into a cuvette and measure the absorbance at 503 nm using a spectrophotometer.",
+  "bytes": 2929827,
+  "wall_seconds": 410.7,
+  "inference_time_s": 407.55810398003086,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

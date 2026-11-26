@@ -1,0 +1,21 @@
+{
+  "id": "802b9762e66efd255afd20840b4bf4f626acef5c",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Place two identical jars side by side, each containing water and a layer of oil; add dish soap only to the right jar, seal both jars, and shake them vigorously.",
+  "bytes": 2386014,
+  "wall_seconds": 410.2,
+  "inference_time_s": 407.028793937061,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

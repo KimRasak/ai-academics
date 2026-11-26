@@ -1,0 +1,21 @@
+{
+  "id": "709827b270c049c4838de2fd1205af4bf9f59458",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Prepare three test tubes, each containing an equal volume of hydrogen peroxide solution. Add a lipid oxidation indicator to each test tube. The first test tube receives no selenium, the second test tube is supplemented with a low concentration selenium solution, and the third test tube is supplemented with a higher concentration selenium solution. Gently mix all test tubes and place them side by side for comparison.",
+  "bytes": 1966703,
+  "wall_seconds": 410.2,
+  "inference_time_s": 406.9535310030915,
+  "peak_memory_mb": 107936.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

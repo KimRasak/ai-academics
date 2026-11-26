@@ -1,0 +1,12 @@
+{
+  "model_name": "wan_batch2",
+  "video_id": "39691e15c62cb0b9ba072532e82eb91ca1f20d32f_seed3",
+  "video_path": "/ssd2/jinzili/wan_vt_input/wan_batch2/39691e15c62cb0b9ba072532e82eb91ca1f20d32f_seed3.mp4",
+  "subject_consistency": 0.97757743302262,
+  "background_consistency": 0.9578534882121665,
+  "motion_smoothness": 0.9955264837138114,
+  "dynamic_degree": 0.0,
+  "aesthetic_quality": 0.36483688737139286,
+  "imaging_quality": 0.640934169439622,
+  "VT": 0.6561214102932688
+}

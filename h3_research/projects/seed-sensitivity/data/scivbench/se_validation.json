@@ -1,0 +1,87 @@
+{
+  "H3": {
+    "sigma_sp_12seeds": 0.050911,
+    "curves": {
+      "2": {
+        "empirical": 0.00805,
+        "predicted": 0.009,
+        "ratio": 0.894
+      },
+      "3": {
+        "empirical": 0.00611,
+        "predicted": 0.00735,
+        "ratio": 0.832
+      },
+      "4": {
+        "empirical": 0.00496,
+        "predicted": 0.00636,
+        "ratio": 0.78
+      },
+      "6": {
+        "empirical": 0.00342,
+        "predicted": 0.0052,
+        "ratio": 0.659
+      },
+      "12": {
+        "empirical": 0.0,
+        "predicted": 0.00367,
+        "ratio": 0.0
+      }
+    }
+  },
+  "Wan": {
+    "sigma_sp_12seeds": 0.041106,
+    "curves": {
+      "2": {
+        "empirical": 0.00895,
+        "predicted": 0.00727,
+        "ratio": 1.232
+      },
+      "3": {
+        "empirical": 0.00667,
+        "predicted": 0.00593,
+        "ratio": 1.124
+      },
+      "4": {
+        "empirical": 0.00571,
+        "predicted": 0.00514,
+        "ratio": 1.111
+      },
+      "6": {
+        "empirical": 0.00394,
+        "predicted": 0.0042,
+        "ratio": 0.939
+      },
+      "12": {
+        "empirical": 0.0,
+        "predicted": 0.00297,
+        "ratio": 0.0
+      }
+    }
+  },
+  "LTX": {
+    "sigma_sp_12seeds": 0.040279,
+    "curves": {
+      "2": {
+        "empirical": 0.01213,
+        "predicted": 0.00712,
+        "ratio": 1.704
+      },
+      "3": {
+        "empirical": 0.00966,
+        "predicted": 0.00581,
+        "ratio": 1.661
+      },
+      "4": {
+        "empirical": 0.00807,
+        "predicted": 0.00503,
+        "ratio": 1.603
+      },
+      "6": {
+        "empirical": 0.00538,
+        "predicted": 0.00411,
+        "ratio": 1.309
+      }
+    }
+  }
+}

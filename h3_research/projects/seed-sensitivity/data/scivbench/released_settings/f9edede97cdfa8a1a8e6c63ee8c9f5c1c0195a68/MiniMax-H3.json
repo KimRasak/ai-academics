@@ -1,0 +1,21 @@
+{
+  "id": "f9edede97cdfa8a1a8e6c63ee8c9f5c1c0195a68",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A transparent glass cuvette containing guaiacol and hydrogen peroxide was prepared. Horseradish peroxidase was added using a pipette, followed by gentle shaking of the cuvette. The reaction was recorded by side-view photography.",
+  "bytes": 1471816,
+  "wall_seconds": 410.1,
+  "inference_time_s": 407.69536832300946,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

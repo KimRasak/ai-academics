@@ -1,0 +1,21 @@
+{
+  "id": "49c2146860ffe0dc1f6c55b3df507a10fd6103e6",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A lit incense stick is placed between two identical metal plates, one heated and the other cooled, allowing smoke to rise freely above both.",
+  "bytes": 2841448,
+  "wall_seconds": 410.1,
+  "inference_time_s": 407.74997005192563,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

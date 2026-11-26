@@ -1,0 +1,21 @@
+{
+  "id": "709827b270c049c4838de2fd1205af4bf9f59409",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Transfer an appropriate amount of erythromycin reagent solution into a test tube. Slowly add concentrated sulfuric acid along the inner wall of the test tube using a pipette. Keep the test tube upright, gently shake to mix the contents, and observe the progress of the reaction inside the test tube.",
+  "bytes": 1298060,
+  "wall_seconds": 420.3,
+  "inference_time_s": 411.6414962261915,
+  "peak_memory_mb": 107956.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "535d9102895e2729995d0168d47125fd80b83ddb",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "The video first presents the karst dissolution landscape in Guilin, followed by the karst dissolution landscape in Croatia. The focus is on the differences in morphology between these two limestone landscapes.",
+  "bytes": 8571680,
+  "wall_seconds": 410.4,
+  "inference_time_s": 406.65284358290955,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

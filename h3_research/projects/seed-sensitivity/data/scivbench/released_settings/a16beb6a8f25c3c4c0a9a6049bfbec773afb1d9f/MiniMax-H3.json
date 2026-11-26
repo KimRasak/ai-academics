@@ -1,0 +1,21 @@
+{
+  "id": "a16beb6a8f25c3c4c0a9a6049bfbec773afb1d9f",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Place a metal spoon and a wooden spoon side by side in the same transparent container filled with hot water, and place a small equal amount of butter on the handles of each spoon above the water surface.",
+  "bytes": 1674303,
+  "wall_seconds": 410.1,
+  "inference_time_s": 406.79435861622915,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

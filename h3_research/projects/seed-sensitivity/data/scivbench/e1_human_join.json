@@ -1,0 +1,128 @@
+{
+  "human_rows": 2392,
+  "index_rows": 11216,
+  "mini_video_ids": 150,
+  "joined_rows": 2392,
+  "metrics": {
+    "lpf": {
+      "VT": {
+        "n": 2392,
+        "spearman": -0.04234505494274548
+      },
+      "dynamic_degree": {
+        "n": 2392,
+        "spearman": -0.11933621390556758
+      },
+      "subject_consistency": {
+        "n": 2392,
+        "spearman": 0.020190790829437977
+      },
+      "background_consistency": {
+        "n": 2392,
+        "spearman": 0.026684683217065134
+      },
+      "motion_smoothness": {
+        "n": 2392,
+        "spearman": 0.11630515013867262
+      },
+      "aesthetic_quality": {
+        "n": 2392,
+        "spearman": 0.16041615645167068
+      },
+      "imaging_quality": {
+        "n": 2392,
+        "spearman": 0.10830097386399172
+      }
+    },
+    "pg": {
+      "VT": {
+        "n": 2392,
+        "spearman": -0.013817478059967324
+      },
+      "dynamic_degree": {
+        "n": 2392,
+        "spearman": 0.031528972988067436
+      },
+      "subject_consistency": {
+        "n": 2392,
+        "spearman": -0.24658584020788207
+      },
+      "background_consistency": {
+        "n": 2392,
+        "spearman": -0.14881671710356592
+      },
+      "motion_smoothness": {
+        "n": 2392,
+        "spearman": 0.026202734236391804
+      },
+      "aesthetic_quality": {
+        "n": 2392,
+        "spearman": 0.07029673356734464
+      },
+      "imaging_quality": {
+        "n": 2392,
+        "spearman": -0.0004893363549480858
+      }
+    },
+    "scc": {
+      "VT": {
+        "n": 2392,
+        "spearman": -0.021526912891535983
+      },
+      "dynamic_degree": {
+        "n": 2392,
+        "spearman": 0.05821454560069321
+      },
+      "subject_consistency": {
+        "n": 2392,
+        "spearman": -0.33446236664503937
+      },
+      "background_consistency": {
+        "n": 2392,
+        "spearman": -0.22132278314494813
+      },
+      "motion_smoothness": {
+        "n": 2392,
+        "spearman": 0.006415078918038396
+      },
+      "aesthetic_quality": {
+        "n": 2392,
+        "spearman": 0.059025501673659476
+      },
+      "imaging_quality": {
+        "n": 2392,
+        "spearman": -0.03786064947765706
+      }
+    },
+    "sc": {
+      "VT": {
+        "n": 2392,
+        "spearman": -0.07767884643483806
+      },
+      "dynamic_degree": {
+        "n": 2392,
+        "spearman": -0.19412077807927947
+      },
+      "subject_consistency": {
+        "n": 2392,
+        "spearman": 0.27239007375091295
+      },
+      "background_consistency": {
+        "n": 2392,
+        "spearman": 0.2100009404998176
+      },
+      "motion_smoothness": {
+        "n": 2392,
+        "spearman": 0.18373183924878725
+      },
+      "aesthetic_quality": {
+        "n": 2392,
+        "spearman": 0.0438966029900499
+      },
+      "imaging_quality": {
+        "n": 2392,
+        "spearman": 0.08208580575424115
+      }
+    }
+  }
+}

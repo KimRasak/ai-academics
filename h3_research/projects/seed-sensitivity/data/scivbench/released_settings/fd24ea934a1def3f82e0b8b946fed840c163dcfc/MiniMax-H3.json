@@ -1,0 +1,21 @@
+{
+  "id": "fd24ea934a1def3f82e0b8b946fed840c163dcfc",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Two adjacent transparent test tubes, one colorless and the other colored, contain catalase; hydrogen peroxide is added to both simultaneously, with the colored tube containing an inhibitor, and the camera remains stationary.",
+  "bytes": 2344601,
+  "wall_seconds": 1644.6,
+  "inference_time_s": 1633.013176437933,
+  "peak_memory_mb": 131716.0,
+  "num_gpus": 1,
+  "gpu_type": "h200"
+}

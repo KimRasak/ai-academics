@@ -1,0 +1,21 @@
+{
+  "id": "d763fc5c177fee052116801c2bf28c84415ca8a7",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "In a dark room, place a calcite or fluorite mineral on the table and repeatedly expose it to a handheld ultraviolet lamp by turning it on and off.",
+  "bytes": 1199870,
+  "wall_seconds": 781.1,
+  "inference_time_s": 773.0909640740138,
+  "peak_memory_mb": 131238.0,
+  "num_gpus": 1,
+  "gpu_type": "b200_1gpu"
+}

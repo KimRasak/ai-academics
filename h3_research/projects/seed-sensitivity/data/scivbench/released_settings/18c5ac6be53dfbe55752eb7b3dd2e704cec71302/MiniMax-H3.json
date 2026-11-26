@@ -1,0 +1,21 @@
+{
+  "id": "18c5ac6be53dfbe55752eb7b3dd2e704cec71302",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Two identical transparent beakers containing equal volumes of room temperature water are placed side by side; the beaker on the left is added with crystalline sugar, and the beaker on the right is added with sugar glass fragments, both being stirred gently with the same force.",
+  "bytes": 3364979,
+  "wall_seconds": 410.1,
+  "inference_time_s": 407.74899032199755,
+  "peak_memory_mb": 107936.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

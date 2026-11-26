@@ -1,0 +1,21 @@
+{
+  "id": "38c247c81c803694daf683e7af96f2c560fa0fb0",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A negatively charged gold-leaf electroscope, equipped with a zinc plate at its top, is illuminated by a lamp that alternately emits light in the visible and ultraviolet ranges at the same distance.",
+  "bytes": 1304954,
+  "wall_seconds": 440.8,
+  "inference_time_s": 413.9045139881782,
+  "peak_memory_mb": 108434.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

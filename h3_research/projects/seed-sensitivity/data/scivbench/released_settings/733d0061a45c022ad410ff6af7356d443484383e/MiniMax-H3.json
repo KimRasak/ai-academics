@@ -1,0 +1,21 @@
+{
+  "id": "733d0061a45c022ad410ff6af7356d443484383e",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Immerse full-rooted maize seedlings in a container filled with red dye solution. After a period of time-lapse photography, remove one seedling and horizontally cut its stem with a blade. The structure of the cross-section is clearly visible, with particular emphasis on the internal vascular tissue structure.",
+  "bytes": 1542206,
+  "wall_seconds": 861.6,
+  "inference_time_s": 829.5586438879836,
+  "peak_memory_mb": 108474.0,
+  "num_gpus": 2,
+  "gpu_type": "h200"
+}

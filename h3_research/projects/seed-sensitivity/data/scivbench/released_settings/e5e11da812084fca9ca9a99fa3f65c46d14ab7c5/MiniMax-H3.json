@@ -1,0 +1,21 @@
+{
+  "id": "e5e11da812084fca9ca9a99fa3f65c46d14ab7c5",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A mass-spring-damper system hangs vertically, suspended from a fixed frame above a workbench; a hand strikes the mass block with a rubber hammer briefly and then removes it, so that the mass is no longer subjected to external forces.",
+  "bytes": 1406721,
+  "wall_seconds": 420.5,
+  "inference_time_s": 412.1909991549328,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

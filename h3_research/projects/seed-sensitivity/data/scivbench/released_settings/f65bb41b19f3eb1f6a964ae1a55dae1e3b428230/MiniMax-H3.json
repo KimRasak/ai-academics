@@ -1,0 +1,21 @@
+{
+  "id": "f65bb41b19f3eb1f6a964ae1a55dae1e3b428230",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A transparent vertical tube filled with dry fine sand is placed upright, with its bottom immersed in a shallow pan of water, and observed from the side over time.",
+  "bytes": 1269609,
+  "wall_seconds": 420.2,
+  "inference_time_s": 410.9072358678095,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

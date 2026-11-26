@@ -1,0 +1,21 @@
+{
+  "id": "709827b270c049c4838de2fd1205af4bf9f59450",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Demonstrate delayed dermographism. Select the forearm of a healthy adult for the procedure. Use a blunt stick to draw a straight line on the skin with moderate pressure. After an interval representing the multi-hour delay characteristic of this reaction (shown here in compressed form), re-examine the marked area. Clearly demonstrate the entire procedure step by step.",
+  "bytes": 1220543,
+  "wall_seconds": 420.2,
+  "inference_time_s": 411.47023037215695,
+  "peak_memory_mb": 107956.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

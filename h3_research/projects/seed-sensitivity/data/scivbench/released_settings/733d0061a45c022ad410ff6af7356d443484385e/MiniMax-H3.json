@@ -1,0 +1,21 @@
+{
+  "id": "733d0061a45c022ad410ff6af7356d443484385e",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Place a fresh corn leaf flat on a table, gently smooth it with fingers, and observe its surface from above to demonstrate the plant's morphology. Highlight its elongated leaf shape and illustrate the multiple veins arranged from the leaf base to the leaf tip.",
+  "bytes": 3411114,
+  "wall_seconds": 791.5,
+  "inference_time_s": 781.9932147969957,
+  "peak_memory_mb": 131218.0,
+  "num_gpus": 1,
+  "gpu_type": "b200"
+}

@@ -1,0 +1,22 @@
+{
+  "n": 150,
+  "mean_delta": {
+    "subject_consistency": 6.287239669629704e-10,
+    "background_consistency": -6.372949880452487e-06,
+    "motion_smoothness": -1.8044735911870724e-06,
+    "dynamic_degree": 0.006666666666666667,
+    "aesthetic_quality": -3.108774100875807e-07,
+    "imaging_quality": -3.7303032356568916e-07,
+    "VT": 0.001109634327364232
+  },
+  "median_abs_delta": {
+    "subject_consistency": 1.4498771516713305e-08,
+    "background_consistency": 2.439413752941544e-05,
+    "motion_smoothness": 1.816044081726087e-06,
+    "dynamic_degree": 0.0,
+    "aesthetic_quality": 6.1726372544979036e-06,
+    "imaging_quality": 1.64440323634496e-05,
+    "VT": 6.14920246505557e-06
+  },
+  "exact_match_dynamic_degree": 0.9933333333333333
+}

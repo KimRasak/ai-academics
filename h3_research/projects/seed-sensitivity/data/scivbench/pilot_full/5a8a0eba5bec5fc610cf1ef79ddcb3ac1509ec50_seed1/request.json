@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "Display a simple binary tree on a light background, with nodes labeled (1–7); highlight the nodes from top to bottom according to their level using bright colors (e.g., red) to demonstrate level order traversal. Briefly illuminate each node when visited, and add a mark for it — its numeral if legible digits can be rendered, otherwise a simple tally mark or dot — to the left-to-right output list at the bottom of the screen.",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 1
+}

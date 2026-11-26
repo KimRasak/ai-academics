@@ -1,0 +1,21 @@
+{
+  "id": "9e3ffb8a6a7ac10cfda552de0144e18a02ad2b3b",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Three glass cups filled with distilled water are placed side by side: a tablet is placed in the cup on the left, a capsule is placed in the middle cup, and a liquid medication is poured into the cup on the right.",
+  "bytes": 2095396,
+  "wall_seconds": 410.2,
+  "inference_time_s": 407.6295784791,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

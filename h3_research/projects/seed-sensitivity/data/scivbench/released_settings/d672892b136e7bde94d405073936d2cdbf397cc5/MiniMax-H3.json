@@ -1,0 +1,21 @@
+{
+  "id": "d672892b136e7bde94d405073936d2cdbf397cc5",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A speaker sits at a table with a burning candle placed a few centimeters in front of their mouth, alternately producing voiced and voiceless stop syllables toward the flame.",
+  "bytes": 1294635,
+  "wall_seconds": 819.0,
+  "inference_time_s": 783.9524608909851,
+  "peak_memory_mb": 131696.0,
+  "num_gpus": 1,
+  "gpu_type": "b200"
+}

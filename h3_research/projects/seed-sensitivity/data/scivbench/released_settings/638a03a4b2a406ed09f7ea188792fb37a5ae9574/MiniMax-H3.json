@@ -1,0 +1,21 @@
+{
+  "id": "638a03a4b2a406ed09f7ea188792fb37a5ae9574",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A shallow water wave tank contains a rigid barrier with two narrow, parallel slits. A single planar wave travels across the water surface toward the barrier and reaches the two slits.",
+  "bytes": 3871859,
+  "wall_seconds": 436.6,
+  "inference_time_s": 413.73927069921046,
+  "peak_memory_mb": 108434.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

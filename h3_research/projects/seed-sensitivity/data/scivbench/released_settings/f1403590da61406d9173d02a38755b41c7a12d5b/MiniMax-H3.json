@@ -1,0 +1,21 @@
+{
+  "id": "f1403590da61406d9173d02a38755b41c7a12d5b",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Both glass cups are filled with a milky-white latex colloidal suspension; add a spoonful of salt to the cup on the right and stir, while keeping the cup on the left unchanged. Place both cups within the field of vision.",
+  "bytes": 1549291,
+  "wall_seconds": 410.1,
+  "inference_time_s": 407.6156760151498,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

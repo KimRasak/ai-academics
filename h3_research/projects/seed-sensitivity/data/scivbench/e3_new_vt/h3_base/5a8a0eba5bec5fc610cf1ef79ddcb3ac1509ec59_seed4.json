@@ -1,0 +1,12 @@
+{
+  "model_name": "h3_base",
+  "video_id": "5a8a0eba5bec5fc610cf1ef79ddcb3ac1509ec59_seed4",
+  "video_path": "/ssd2/jinzili/e3_vt_input/h3_base/5a8a0eba5bec5fc610cf1ef79ddcb3ac1509ec59_seed4.mp4",
+  "subject_consistency": 0.9910390071591669,
+  "background_consistency": 0.9815481714795194,
+  "motion_smoothness": 0.9970909773752682,
+  "dynamic_degree": 0.0,
+  "aesthetic_quality": 0.37886109544384866,
+  "imaging_quality": 0.6466204390987274,
+  "VT": 0.6658599484260884
+}

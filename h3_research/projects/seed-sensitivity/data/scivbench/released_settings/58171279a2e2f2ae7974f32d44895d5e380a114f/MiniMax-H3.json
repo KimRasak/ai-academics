@@ -1,0 +1,21 @@
+{
+  "id": "58171279a2e2f2ae7974f32d44895d5e380a114f",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Two test tubes are placed side by side: the left test tube contains ferric chloride solution, into which sodium hydroxide solution is added; the right test tube contains ferrous sulfate solution, into which sodium hydroxide solution is also added.",
+  "bytes": 2000197,
+  "wall_seconds": 420.1,
+  "inference_time_s": 412.67389042302966,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

@@ -1,0 +1,6 @@
+usage: process_scores.py [-h] [--src SRC] [--dst DST]
+
+options:
+  -h, --help  show this help message and exit
+  --src SRC
+  --dst DST

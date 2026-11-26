@@ -1,0 +1,9 @@
+VT weights directory: /ssd2/jinzili/scivbench_vt_weights
+[OK] dino_vitb16: /ssd2/jinzili/scivbench_vt_weights/dino_model/dino_vitbase16_pretrain.pth
+[OK] clip_vit_b32: /ssd2/jinzili/scivbench_vt_weights/clip_model/ViT-B-32.pt
+[OK] clip_vit_l14: /ssd2/jinzili/scivbench_vt_weights/clip_model/ViT-L-14.pt
+[OK] laion_aesthetic: /ssd2/jinzili/scivbench_vt_weights/aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth
+[OK] amt_s: /ssd2/jinzili/scivbench_vt_weights/amt_model/amt-s.pth
+[OK] raft_things: /ssd2/jinzili/scivbench_vt_weights/raft_model/models/raft-things.pth
+[OK] musiq_spaq: /ssd2/jinzili/scivbench_vt_weights/pyiqa_model/musiq_spaq_ckpt-358bb6af.pth
+[OK] dino_repository: /ssd2/jinzili/scivbench_vt_weights/dino_model/facebookresearch_dino_main

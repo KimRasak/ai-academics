@@ -1,0 +1,196 @@
+{
+  "all_pass": true,
+  "n_checks": 38,
+  "checks": [
+    {
+      "claim": "E2 median |dVT| = 6.2e-6",
+      "pass": true,
+      "detail": "6.149e-06"
+    },
+    {
+      "claim": "E2 SC median delta = 1.5e-8",
+      "pass": true,
+      "detail": "1.450e-08"
+    },
+    {
+      "claim": "E2 DD exact 149/150",
+      "pass": true,
+      "detail": "0.9933333333333333"
+    },
+    {
+      "claim": "E2 released H3 aggregate = 0.734596",
+      "pass": true,
+      "detail": "0.7345963183877374"
+    },
+    {
+      "claim": "E2 rerun-released diff == mean_delta VT (single DD cell)",
+      "pass": true,
+      "detail": "diff=0.001110 mean=0.001110"
+    },
+    {
+      "claim": "H3 DD flip rate = 27.46%",
+      "pass": true,
+      "detail": "290/1056"
+    },
+    {
+      "claim": "H3 any-flip = 12/16",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "H3 flip CI lower<=rate<=upper",
+      "pass": true,
+      "detail": "[0.2486, 0.3023]"
+    },
+    {
+      "claim": "H3 within-SD matches paper 0.051/0.041/0.040",
+      "pass": true,
+      "detail": "0.05091"
+    },
+    {
+      "claim": "H3 12 seeds x 16 prompts complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "Wan DD flip rate = 17.23%",
+      "pass": true,
+      "detail": "182/1056"
+    },
+    {
+      "claim": "Wan any-flip = 9/16",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "Wan flip CI lower<=rate<=upper",
+      "pass": true,
+      "detail": "[0.1508, 0.1963]"
+    },
+    {
+      "claim": "Wan within-SD matches paper 0.051/0.041/0.040",
+      "pass": true,
+      "detail": "0.04111"
+    },
+    {
+      "claim": "Wan 12 seeds x 16 prompts complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "LTX DD flip rate = 11.93%",
+      "pass": true,
+      "detail": "126/1056"
+    },
+    {
+      "claim": "LTX any-flip = 7/16",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "LTX flip CI lower<=rate<=upper",
+      "pass": true,
+      "detail": "[0.1011, 0.1403]"
+    },
+    {
+      "claim": "LTX within-SD matches paper 0.051/0.041/0.040",
+      "pass": true,
+      "detail": "0.04028"
+    },
+    {
+      "claim": "LTX 12 seeds x 16 prompts complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "ICC H3 = 0.56",
+      "pass": true,
+      "detail": "0.559"
+    },
+    {
+      "claim": "ICC Wan = 0.48",
+      "pass": true,
+      "detail": "0.475"
+    },
+    {
+      "claim": "ICC LTX = 0.46",
+      "pass": true,
+      "detail": "0.455"
+    },
+    {
+      "claim": "paired half-width ~0.035",
+      "pass": true,
+      "detail": "0.03528"
+    },
+    {
+      "claim": "multiple = 5.3x",
+      "pass": true,
+      "detail": "5.345"
+    },
+    {
+      "claim": "median adjacent gap = 0.0066",
+      "pass": true,
+      "detail": "None"
+    },
+    {
+      "claim": "H3 rank rho ~0.54",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "Wan rank rho ~0.54",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "LTX rank rho ~0.46",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "H3 flip invariant across thresholds",
+      "pass": true,
+      "detail": "{0.2746}"
+    },
+    {
+      "claim": "Wan flip invariant across thresholds",
+      "pass": true,
+      "detail": "{0.1723}"
+    },
+    {
+      "claim": "human rho = -0.042",
+      "pass": true,
+      "detail": "-0.04234505494274548"
+    },
+    {
+      "claim": "cluster CI = [-0.088, +0.005]",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "human n = 2392",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "claim": "H3 SE ratios in [0.66,0.89]",
+      "pass": true,
+      "detail": "0.66-0.89"
+    },
+    {
+      "claim": "Wan SE ratios in [0.94,1.23]",
+      "pass": true,
+      "detail": "0.94-1.23"
+    },
+    {
+      "claim": "LTX SE ratios in [1.31,1.7]",
+      "pass": true,
+      "detail": "1.31-1.70"
+    },
+    {
+      "claim": "total videos = 576",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

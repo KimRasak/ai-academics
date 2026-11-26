@@ -1,0 +1,21 @@
+{
+  "id": "709827b270c049c4838de2fd1205af4bf9f59325",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Prepare two test tubes containing lactose solution. Add lactase to one test tube and leave the other as a control without enzyme. Incubate both test tubes at a warm temperature. After incubation, add Benedict's reagent and gently heat. Clearly demonstrate the step-by-step procedure using test tubes, pipettes, water bath, and heating apparatus.",
+  "bytes": 1127883,
+  "wall_seconds": 410.6,
+  "inference_time_s": 407.20652943104506,
+  "peak_memory_mb": 107936.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

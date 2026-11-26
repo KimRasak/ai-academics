@@ -1,0 +1,12 @@
+{
+  "model_name": "ltx",
+  "video_id": "dca8378bb302ef9acabf0cd18c0641cc1eef806d_seed11",
+  "video_path": "/ssd2/jinzili/ltx_vt_input/ltx/dca8378bb302ef9acabf0cd18c0641cc1eef806d_seed11.mp4",
+  "subject_consistency": 0.9836666840965964,
+  "background_consistency": 0.9865220957395845,
+  "motion_smoothness": 0.9964797488072419,
+  "dynamic_degree": 0.0,
+  "aesthetic_quality": 0.24234343752448942,
+  "imaging_quality": 0.4768075735775041,
+  "VT": 0.614303256624236
+}

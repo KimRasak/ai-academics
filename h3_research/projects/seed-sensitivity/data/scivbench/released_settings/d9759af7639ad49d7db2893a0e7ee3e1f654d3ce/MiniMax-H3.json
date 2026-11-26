@@ -1,0 +1,21 @@
+{
+  "id": "d9759af7639ad49d7db2893a0e7ee3e1f654d3ce",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A opaque cup with a coin at the bottom is placed on a table; the camera is fixed at the same height as the table. Keep the camera stationary and slowly pour water into the cup.",
+  "bytes": 1538146,
+  "wall_seconds": 420.5,
+  "inference_time_s": 412.1846341001801,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

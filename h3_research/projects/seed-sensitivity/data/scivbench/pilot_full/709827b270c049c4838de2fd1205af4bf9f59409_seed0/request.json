@@ -1,0 +1,11 @@
+{
+  "task": "t2va",
+  "prompt": "Transfer an appropriate amount of erythromycin reagent solution into a test tube. Slowly add concentrated sulfuric acid along the inner wall of the test tube using a pipette. Keep the test tube upright, gently shake to mix the contents, and observe the progress of the reaction inside the test tube.",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "seed": 0
+}

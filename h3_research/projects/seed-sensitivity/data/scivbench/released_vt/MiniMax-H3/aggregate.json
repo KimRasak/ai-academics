@@ -1,0 +1,21 @@
+{
+  "model_name": "MiniMax-H3",
+  "num_videos": 150,
+  "num_complete": 150,
+  "subject_consistency": 0.913661275983748,
+  "background_consistency": 0.9419562732726288,
+  "motion_smoothness": 0.9923328028290939,
+  "dynamic_degree": 0.4066666666666667,
+  "aesthetic_quality": 0.4856258310465962,
+  "imaging_quality": 0.6739928664918763,
+  "VT": 0.7357059527151016,
+  "score_counts": {
+    "subject_consistency": 150,
+    "background_consistency": 150,
+    "motion_smoothness": 150,
+    "dynamic_degree": 150,
+    "aesthetic_quality": 150,
+    "imaging_quality": 150,
+    "VT": 150
+  }
+}

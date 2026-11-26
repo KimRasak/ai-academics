@@ -1,0 +1,102 @@
+{
+  "inputs": {
+    "released_rows": 11216,
+    "testmini": 150,
+    "pilot_prompts": 16
+  },
+  "composite_is_unweighted_mean": {
+    "max_abs_residual": 1.1102230246251565e-16
+  },
+  "between_model_sd": {
+    "subject_consistency": 0.03647430771339704,
+    "background_consistency": 0.012544014894538418,
+    "motion_smoothness": 0.002937324969161684,
+    "dynamic_degree": 0.1503407633472707,
+    "aesthetic_quality": 0.02746105977736988,
+    "imaging_quality": 0.04200098484353379
+  },
+  "between_model_variance_share": {
+    "subject_consistency": 0.04998235988106534,
+    "background_consistency": 0.00591174596794417,
+    "motion_smoothness": 0.00032415045532521963,
+    "dynamic_degree": 0.8491729351061529,
+    "aesthetic_quality": 0.028331999720742664,
+    "imaging_quality": 0.06627680886876963
+  },
+  "leaderboard": {
+    "vt_rank": [
+      "Gemini-Omni-Flash",
+      "Veo-3.1",
+      "LTX-2",
+      "Cosmos3-Nano",
+      "Veo-3.1-Fast",
+      "CogVideoX1.5-5B",
+      "HappyHorse-1.1",
+      "LTX-2.3",
+      "MiniMax-H3",
+      "LongCat-Video",
+      "Kling-2.6",
+      "Wan-2.6",
+      "Wan2.2-5B",
+      "Seedance-2.0",
+      "Sora-2",
+      "HunyuanVideo-1.5"
+    ],
+    "no_dd_rank": [
+      "LongCat-Video",
+      "Kling-2.6",
+      "Cosmos3-Nano",
+      "Wan2.2-5B",
+      "Veo-3.1-Fast",
+      "Veo-3.1",
+      "Wan-2.6",
+      "MiniMax-H3",
+      "HappyHorse-1.1",
+      "HunyuanVideo-1.5",
+      "Gemini-Omni-Flash",
+      "LTX-2",
+      "LTX-2.3",
+      "Sora-2",
+      "CogVideoX1.5-5B",
+      "Seedance-2.0"
+    ],
+    "kendall_tau": 0.05,
+    "h3_rank_with_dd": 9,
+    "h3_rank_without_dd": 8,
+    "n_models": 16
+  },
+  "paired_reproduction": {
+    "n_prompts": 16,
+    "vt_delta_mean": 0.044006321016890323,
+    "vt_delta_sd": 0.07815045605206945,
+    "vt_delta_bootstrap95": [
+      0.0067983800219305335,
+      0.08083399804622854
+    ],
+    "per_metric_delta_mean": {
+      "subject_consistency": 0.004897833296250341,
+      "background_consistency": 0.008954012266328915,
+      "motion_smoothness": -0.0018220152051013835,
+      "dynamic_degree": 0.28125,
+      "aesthetic_quality": -0.0069363757297383425,
+      "imaging_quality": -0.02230552852639769
+    },
+    "per_metric_delta_sd": {
+      "subject_consistency": 0.07316374081041985,
+      "background_consistency": 0.05258797978747276,
+      "motion_smoothness": 0.004892600277429628,
+      "dynamic_degree": 0.4819664580307085,
+      "aesthetic_quality": 0.04477300606280429,
+      "imaging_quality": 0.07935652360137649
+    },
+    "seed_abs_vt_gap_mean": 0.07213069695736807,
+    "seed_abs_vt_gap_max": 0.2166947410616752,
+    "dd_seed_flip_rate": 0.4375
+  },
+  "adjacent_vt_gaps": {
+    "median": 0.004940073446760396,
+    "min": 0.0001734864964419991,
+    "max": 0.012906879013038552,
+    "h3_testmini_vt": 0.7345963183877374
+  }
+}

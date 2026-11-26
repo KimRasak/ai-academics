@@ -1,0 +1,21 @@
+{
+  "id": "88023100c3f2c90763f2ef67d90828588a34604c",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A pipette is dripping sodium alginate solution into a beaker containing a calcium chloride solution on the laboratory bench, and the solution is gently stirred as more droplets are added.",
+  "bytes": 1125728,
+  "wall_seconds": 420.2,
+  "inference_time_s": 412.2767185983248,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

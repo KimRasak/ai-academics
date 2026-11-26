@@ -1,0 +1,21 @@
+{
+  "id": "1520a4f4ba71b226a1cc0b38de21cce3917480b5",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Live-cell fluorescence microscopy imaging of cultured mammalian cells expressing a green fluorescent glucocorticoid receptor; glucocorticoid hormone was added only to the left well during imaging.",
+  "bytes": 984509,
+  "wall_seconds": 410.2,
+  "inference_time_s": 406.62779564782977,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

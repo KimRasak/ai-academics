@@ -1,0 +1,21 @@
+{
+  "id": "b4dd5e889a544938f67ff8e39c638b086c8d320e",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Two identical ice cubes are placed side by side; calcium chloride is sprinkled on the left one, and sodium chloride is sprinkled on the right one, then observed for several minutes.",
+  "bytes": 1559531,
+  "wall_seconds": 420.1,
+  "inference_time_s": 409.7682718760334,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

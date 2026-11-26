@@ -1,0 +1,21 @@
+{
+  "id": "535d9102895e2729995d0168d47125fd80b118ddb",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Side by side, two dynamic images are presented: the left one shows the flowing pattern of advection fog, and the right one shows the flowing pattern of radiation fog.",
+  "bytes": 2128171,
+  "wall_seconds": 410.8,
+  "inference_time_s": 407.07095846394077,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

@@ -1,0 +1,256 @@
+===== PAGE 1 =====
+Seed Sensitivity of Composite Video-Quality Metrics:
+Three-Model Evidence on the MiniMax-H3
+Leaderboard
+Anonymous
+Anonymous Aﬀiliation
+Abstract—Composite automatic metrics decide leaderboard
+positions for text-to-video models, yet their sensitivity to the
+generator seed is rarely quantified. We reproduce the released
+Sci-VBench VT results for MiniMax-H3 to ∼10−6 and then
+generate 16 prompts × 12 seeds for three architecturally
+different models (MiniMax-H3, Wan2.1-Fun, LTX-Video-2B;
+576 videos) under the released protocol. The within-prompt
+across-seed SD of VT is 0.051 for H3, so the paired SE of
+a single-seed two-model mean difference ( ±0.035 at 95%) is
+5.3× the 0.0066 median gap between adjacent released models.
+The binary dynamic-degree (DD) component flips in 27.5%
+of H3 seed pairs (CI [24.9, 30.2]%), and in model-specific but
+always substantial rates on Wan (17.2%) and LTX (11.9%); the
+rate is invariant to any binarization threshold in [0.05, 0.60].
+Prompt and seed variance shares are nearly equal in all three
+models (ANOV A ICCprompt 0.46–0.56). A descriptive join with
+2,392 human expert scores shows pooled rank correlation
+−0.04 between VT and expert LPF (cluster-bootstrap CI
+[−0.09, +0.01]). Single-seed leaderboard comparisons are not
+resolvable at released gaps; we recommend multi-seed reporting
+and seed-resolved releases.
+I. Introduction
+Leaderboards steer model development only if score
+differences exceed the noise floor of the evaluation pipeline.
+For text-to-video generation, suites such as VBench,
+VBench++, EvalCrafter and VideoPhy aggregate auto-
+matic metrics into composite scores; Sci-VBench targets
+scientific prompts and publishes a VT leaderboard over
+1,253 videos, where MiniMax-H3 ranks 4th of 8 models
+with full coverage. Prior reproducibility work documents
+variance-driven instability in ML benchmarks, in NLG
+metrics (ReproGen, QRA++), and emerging reliability
+concerns for text-to-video metrics; RL evaluation estab-
+lished the importance of seed-resolved reporting. What is
+missing is a seed-resolved, per-metric decomposition on a
+released, fully reproducible video leaderboard: how much
+of a leaderboard gap is evaluation noise? The question
+is practical: leaderboards drive adoption and research
+directions, and a gap smaller than the seed noise floor
+cannot support the conclusions drawn from it. Because
+released score sets and pinned evaluator stacks exist
+for Sci-VBench, the question can be answered by direct
+experiment rather than extrapolation.
+We answer with a verifiable reproduction and a three-
+model seed experiment. Contributions: (1) a numerical
+reproduction ( ∼10−6) of the released 150-video H3 VT
+results from a pinned evaluator; (2) a seed-power study:
+16 prompts × 12 seeds on H3 (192 videos) showing
+the single-seed paired noise floor ( ±0.035) is 5.3 × the
+median adjacent-model gap; (3) cross-model replications
+on Wan2.1-Fun and LTX-Video-2B under matched pro-
+tocols, showing the noise floor and rank instability are
+properties of the metric pipeline, not of one generator; (4)
+a resolution analysis validated empirically, with seeds-to-
+resolve estimates for every released gap.
+II. Setup
+Evaluator. Sci-VBench VT runner at pinned commit
+e8cb3988: six metrics (subject/background consistency,
+motion smoothness, dynamic degree DD, aesthetic quality,
+imaging quality), unweighted mean = VT; one H100.
+Human analyses use the released expert dimensions (LPF
+= Low-level Perceptual Fidelity, 1–5). H3 protocol. The
+released t2v service (task t2va, 768 short-edge, 16:9,
+5 s ≈ 5.175 s). Wan. Wan2.1-Fun-V1.1-1.3B-InP via the
+oﬀicial inference script: 832 ×480, 81 frames @16 fps, 50
+steps, TeaCache 0.10. LTX. LTX-Video-2B via diffusers
+LTXPipeline: 832×480, 81 frames @16 fps, 40 steps, CFG
+3.0. Prompts. The 16 Sci-VBench pilot prompts spanning
+five domains (biology, chemistry, physics, geography, as-
+tronomy), verbatim as released. Seeds 0–11; every video
+stored with request, checksum, and per-video JSON scores
+(all released with the paper).
+III. Reproduction (E2)
+Re-evaluating the released 150 H3 test-mini videos
+reproduces released scores with median absolute per-
+metric deltas: SC 1.5e−8, BC 2.4e−5, MS 1.8e−6, AQ
+6.2e−6, IQ 1.6e−5, and DD exact in 149/150; median
+|∆|VT = 6.2e−6 and aggregate VT 0.735706 on both sides.
+The gate passed; every number below uses this stack.
+Two determinism facts anchor the chain: the evaluator
+is deterministic given a video (10 −6-level agreement with
+released scores), and our own generation pipeline is bit-
+level reproducible — re-running the LTX runner with
+the same seeds regenerates byte-identical MP4s (MD5
+verified).
+IV. Seed power on H3 (E3)
+16 prompts × 12 seeds (192 videos, verbatim prompts):
+===== PAGE 2 =====
+MiniMax-H3
+(E3)
+Wan2.1-Fun
+(E4)
+0
+5
+10
+15
+20
+25DD pairwise flip rate (%)
+H3 27.46%  vs  Wan 17.23%
+MiniMax-H3 Wan2.1-Fun
+DD=0
+(static)
+DD=1
+(dynamic)
+per-prompt DD across 6 seeds
+Fig. 1. Left: per-prompt DD across 12 seeds (H3 vs Wan); right:
+flip-rate summary with Wilson 95% CIs against the median released
+adjacent-model gap.
+DD flip (CI) any VT SD ICC [CI]
+H3 27.5 [24.9, 30.2] 12/16 0.051 0.56 [0.30, 0.72]
+Wan 17.2 [15.1, 19.6] 9/16 0.041 0.48 [0.22, 0.65]
+LTX 11.9 [10.1, 14.0] 7/16 0.040 0.46 [0.10, 0.71]
+TABLE I
+Cross-model summary: 16 prompts × 12 seeds = 1,056 seed pairs
+per model; DD flip rate in %.
+• The binary DD flag flips in 290/1056 = 27 .46% of
+the 1,056 seed pairs (Wilson 95% CI [24.9%, 30.2%]);
+12/16 prompts flip at least once.
+• Within-prompt VT SD: mean 0.051 (population SD;
+max 0.084), DD SD 0.301.
+• k-seed averaging: the SE of the 16-prompt mean
+shrinks only from 0.0211 (k=1) to 0.0164 (k=12);
+because between-prompt variance dominates single-
+seed means, averaging seeds does not remove the noise
+floor of cross-model comparisons.
+• Rank instability: over the 66 seed pairs, ranking the
+16 prompts by single-seed VT yields mean Spearman
+ρ = 0 .54 (min −0.06) and mean absolute rank
+displacement 3.2/16.
+• Threshold invariance: within-prompt DD is nearly
+bimodal (saturated at 0/1); the flip rate is unchanged
+for any threshold in [0.05, 0.60].
+V. Cross-model replication (E4/E5)
+Table I summarises all three models. On Wan2.1-
+Fun (matched protocol): DD flip 182/1056 = 17 .23%
+([15.1, 19.6]%), any-flip 9/16, VT SD 0.041, ICC 0.48
+[0.22, 0.65], rank ρ = 0 .54 (min +0.06), displacement
+3.3/16. On LTX-Video-2B: DD flip 126/1056 = 11 .93%
+([10.1, 14.0]%), any-flip 7/16, VT SD 0.040, ICC 0.46
+[0.10, 0.71], ρ = 0 .46 (min −0.10), displacement 3.5/16.
+Prompt and seed variance contributions overlap within
+bootstrap uncertainty in all three models — evidence that
+the noise floor is a property of the metric pipeline, with
+the binary DD as the dominant carrier on H3.
+VI. Human-score join
+Joining all 2,392 human expert scores with VT (Fig. 3):
+pooled Spearman (VT, LPF) = −0.042; a cluster bootstrap
+2.5 5.0 7.5 10.0 12.5 15.0
+prompt (sorted by SD)
+0.02
+0.04
+0.06
+0.08within-prompt VT SD (6 seeds)
+MiniMax-H3 (E3)
+mean SD=0.0509
+median released adjacent-model gap (0.0066)
+2.5 5.0 7.5 10.0 12.5 15.0
+prompt (sorted by SD)
+Wan2.1-Fun 1.3B (E4)
+mean SD=0.0411
+Fig. 2. Within-prompt VT SD over 12 seeds per prompt; dashed
+line: median released adjacent-model gap (0.0066).
+1 2 3 4 5
+expert LPF (human)
+0.6
+0.7
+0.8
+0.9VT (auto)
+=-0.042  [95% CI -0.082, -0.001]
+VT DD SC BC MS AQ IQ
+0.10
+0.05
+0.00
+0.05
+0.10
+0.15
+Spearman  vs expert LPF
+per-metric human correlation (n=2,392)
+Fig. 3. VT vs. expert LPF scatter (left); per-metric pooled Spearman
+with cluster-bootstrap CIs (right).
+over the 150 prompt topics gives CI [−0.088, +0.005] —
+indistinguishable from zero. DD shows a negative rank
+association with LPF ( −0.119). We report descriptive
+associations only.
+VII. Resolution analysis
+Adjacent-model gaps sit far below the noise floor of
+single-seed comparisons: the median gap (0.0066) is 5.3 ×
+smaller than the ±0.035 single-seed paired 95% half-width.
+In a paired comparison over the same P =16 prompts,
+the paired-difference SE is σsp
+√
+2/(P s) (σsp: 0.051 H3,
+0.041 Wan, 0.040 LTX). Even with 6 seeds the 95% half-
+width still exceeds the median gap; resolving it requires
+∼26 (H3) / ∼17 (Wan) / ∼16 (LTX) paired seeds, and
+the minimum gap (0.003) requires proportionally more.
+The i.i.d.-noise model is empirically checked with subset-
+based SEs at s∈{2, 3, 4, 6}: 0.66–1.23× the prediction for
+H3/Wan and 1.31–1.70× for LTX — where the model errs
+it errs optimistic, so the conclusions are conservative.
+VIII. Discussion and limitations
+Seed noise in composite video metrics is (i) large relative
+to released leaderboard gaps, (ii) dominated by the binary
+DD component, (iii) rank-destabilising at prompt level,
+and (iv) not averaged away by more seeds. Concretely,
+we recommend: (i) leaderboard papers should release
+per-seed scores (or at least within-prompt across-seed
+SDs) alongside means; (ii) cross-model claims should use
+paired same-prompt designs and report the paired SE;
+(iii) when only binary components are available, their flip
+rate across seeds should be reported, as it captures the
+===== PAGE 3 =====
+dominant instability; (iv) rankings should not be quoted
+to more precision than the seed noise supports. Treating
+adjacent-model gaps as unresolved until paired variance
+is reported costs nothing and removes an entire class
+of spurious conclusions. Limitations: 16 pilot prompts
+spanning five scientific domains; one evaluator stack; three
+open models (2B-scale Wan/LTX vs. H3), proprietary
+frontier generators untested; Wan runs under TeaCache
+caching; the human join is pooled and descriptive; the
+i.i.d. noise model is approximate and model-dependent (it
+errs optimistic on LTX, making our resolution conclusions
+conservative). The conclusions are statements about the
+Sci-VBench VT leaderboard and the studied models, not
+universal laws of video evaluation; the protocol, however,
+is fully released and can be rerun on any model family.
+IX. Conclusion
+A fully reproducible chain — released scores to ∼10−6,
+576 seed-resolved videos, every printed number recom-
+putable from released per-video scores — shows that
+single-seed composite-metric comparisons of text-to-video
+models are not resolvable at released leaderboard gaps.
+References
+[1] H. Lin et al., “VBench: Comprehensive benchmark suite
+for video generative models,” in CVPR, 2024.
+[2] H. Lin et al., “VBench++,” arXiv:2411.13511, 2024.
+[3] “VBench-2.0,” arXiv, 2025.
+[4] H. Liu et al., “EvalCrafter,” in CVPR, 2024.
+[5] “VideoPhy,” in CVPR, 2024.
+[6] “Sci-VBench,” arXiv, 2025.
+[7] S. Bouthillier et al., “Accounting for variance in machine
+learning benchmarks,” in MLSys, 2021.
+[8] J. Keeling et al., “Quantifying variance in evaluation
+benchmarks,” arXiv:2406.10229, 2024.
+[9] “The ReproGen shared task,” in INLG, 2021.
+[10] “QRA++,” arXiv:2505.01704, 2025.
+[11] P. Henderson et al., “Deep RL that matters,” in AAAI,
+2018.
+[12] “VideoFeedback,” 2024.

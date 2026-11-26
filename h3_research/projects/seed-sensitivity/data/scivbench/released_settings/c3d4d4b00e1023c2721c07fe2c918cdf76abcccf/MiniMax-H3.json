@@ -1,0 +1,21 @@
+{
+  "id": "c3d4d4b00e1023c2721c07fe2c918cdf76abcccf",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A row of LEDs connected to a shift register, equipped with a visible clock button or knob and a fixed data source; a hand repeatedly triggers the clock.",
+  "bytes": 2212361,
+  "wall_seconds": 410.1,
+  "inference_time_s": 407.21801277576014,
+  "peak_memory_mb": 107934.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

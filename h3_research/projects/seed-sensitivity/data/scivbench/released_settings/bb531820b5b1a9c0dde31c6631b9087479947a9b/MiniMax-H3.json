@@ -1,0 +1,21 @@
+{
+  "id": "bb531820b5b1a9c0dde31c6631b9087479947a9b",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Two transparent chambers containing moist air are placed side by side; cigarette smoke is introduced only into the left chamber, and then both chambers are rapidly cooled simultaneously.",
+  "bytes": 2011361,
+  "wall_seconds": 420.1,
+  "inference_time_s": 412.4913767906837,
+  "peak_memory_mb": 107954.0,
+  "num_gpus": 2,
+  "gpu_type": "b200"
+}

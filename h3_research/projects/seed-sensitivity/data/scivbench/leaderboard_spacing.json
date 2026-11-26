@@ -1,0 +1,60 @@
+{
+  "n_models": 8,
+  "n_videos": 1253,
+  "ranking": [
+    {
+      "rank": 1,
+      "model": "Cosmos3-Nano",
+      "vt": 0.754591,
+      "gap_to_prev": null
+    },
+    {
+      "rank": 2,
+      "model": "LTX-2",
+      "vt": 0.75168,
+      "gap_to_prev": 0.002911
+    },
+    {
+      "rank": 3,
+      "model": "LTX-2.3",
+      "vt": 0.733336,
+      "gap_to_prev": 0.018343
+    },
+    {
+      "rank": 4,
+      "model": "MiniMax-H3",
+      "vt": 0.726696,
+      "gap_to_prev": 0.006641
+    },
+    {
+      "rank": 5,
+      "model": "CogVideoX1.5-5B",
+      "vt": 0.721351,
+      "gap_to_prev": 0.005344
+    },
+    {
+      "rank": 6,
+      "model": "LongCat-Video",
+      "vt": 0.712099,
+      "gap_to_prev": 0.009252
+    },
+    {
+      "rank": 7,
+      "model": "Wan2.2-5B",
+      "vt": 0.701684,
+      "gap_to_prev": 0.010415
+    },
+    {
+      "rank": 8,
+      "model": "HunyuanVideo-1.5",
+      "vt": 0.695722,
+      "gap_to_prev": 0.005962
+    }
+  ],
+  "adjacent_gap_median": 0.006640723394570447,
+  "adjacent_gap_max": 0.018343263014384048,
+  "adjacent_gap_min": 0.002910871693427075,
+  "h3_rank_common": 4,
+  "seed_sd_h3": 0.051963,
+  "seed_sd_wan": 0.038396
+}

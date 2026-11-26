@@ -1,0 +1,21 @@
+{
+  "id": "709827b270c049c4838de2fd1205af4bf9f59474",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "Place liquid egg white in a test tube and heat it in a water bath while gently shaking. Only show the steps involving the thermometer, beaker, test tube, and controlled heating.",
+  "bytes": 2348032,
+  "wall_seconds": 1613.5,
+  "inference_time_s": 1592.7207598250825,
+  "peak_memory_mb": 131716.0,
+  "num_gpus": 1,
+  "gpu_type": "h200"
+}

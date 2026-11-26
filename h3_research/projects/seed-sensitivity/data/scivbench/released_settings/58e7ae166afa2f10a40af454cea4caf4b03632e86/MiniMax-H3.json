@@ -1,0 +1,21 @@
+{
+  "id": "58e7ae166afa2f10a40af454cea4caf4b03632e86",
+  "model": "MiniMax-H3",
+  "variant": "fl2va",
+  "task": "t2va",
+  "short_edge": 768,
+  "aspect_ratio": "16:9",
+  "size": "1344x768",
+  "duration_seconds": 15,
+  "reported_seconds": "15.083333",
+  "fps": 24,
+  "num_inference_steps": 50,
+  "seed": 20260803,
+  "prompt": "A long jumper sprints, takes off with one leg, completes a standard and complete triple jump, and lands with both feet in the sand pit. The entire movement is clearly and smoothly presented.",
+  "bytes": 4860501,
+  "wall_seconds": 798.7,
+  "inference_time_s": 776.4543093680404,
+  "peak_memory_mb": 131696.0,
+  "num_gpus": 1,
+  "gpu_type": "b200_1gpu"
+}
