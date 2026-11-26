@@ -1,0 +1,481 @@
+{
+  "summary": {
+    "model": "glm-5.1",
+    "n_images": 40,
+    "errors": 40,
+    "slices": {
+      "L1_Shaded__identical_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L1_Shaded__distinct_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L1_Shaded__ALL": {
+        "n_pairs": 10,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L3_Flat2D__identical_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L3_Flat2D__distinct_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L3_Flat2D__ALL": {
+        "n_pairs": 10,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514501799752082268134808)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514501833545738970012412)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514501848668362370383005)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514501874708000268251327)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 202611251450198864164766343965)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 202611251450199042247562717809)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502069283258004910201)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502083558202215048097)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502095925693228447957)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502130950460963590331)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502264967841602176922)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502266824238556710130)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502261606270383193259)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502294150338785375180)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502364074219815069580)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502386612462677547299)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502463227969487438115)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502460951847597962929)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502515062290429188689)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502535724719190018078)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502562040256600631506)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502623442404917215786)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502682489202940921989)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502714727364879205063)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502769491111626594523)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502766337436587865617)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502783435304144210555)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502880047218543450888)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 202611251450297972240738042669)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502944783410024602211)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514502963753827337615680)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 202611251450308311536826595732)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514503010183342978432579)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 202611251450318720437362800208)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514503115622168925909339)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514503169843168468721246)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514503185932915553705629)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514503218438321505544611)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514503386346129938424679)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 glm-5.1 无可用渠道，请检查模型名是否正确 (request id: 2026112514503469737450043391884)', 'type': 'one_api_error'}}"
+    }
+  ]
+}

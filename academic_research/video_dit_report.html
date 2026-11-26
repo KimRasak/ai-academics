@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>二次元 × 视频 DiT 阶段科研汇报（含实测视频与输入对照）</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 64px; }
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 18px;
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 23px; font-weight: 700; }
+    .hero p { margin: 0 0 12px; color: #cbd5e1; font-size: 14px; max-width: 860px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+    .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .sec-head h2 { margin: 0; font-size: 17.5px; font-weight: 700; }
+    .tag { font-size: 12px; color: var(--accent); background: var(--accent-soft); padding: 3px 9px; border-radius: 6px; font-weight: 600; }
+    .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .mini {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 13.5px;
+    }
+    .mini strong { display: block; margin-bottom: 3px; color: var(--ink); font-size: 13.5px; }
+    .mini span { color: var(--muted); }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .tab {
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tab:hover { border-color: #cbd5e1; color: var(--ink); }
+    .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pane { display: none; }
+    .pane.active { display: block; }
+    .meta-bar {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 12.8px;
+      color: #334155;
+      display: grid;
+      gap: 4px;
+    }
+    .meta-bar b { color: #0f172a; }
+    .meta-bar code {
+      background: #e2e8f0;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #0f172a;
+    }
+    .vwrap {
+      background: #0f172a;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+    }
+    .vwrap video { width: 100%; display: block; background: #0f172a; }
+    .vfoot {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      background: #0f172a;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .in-thumb {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      flex-shrink: 0;
+      cursor: zoom-in;
+    }
+    .vcap { font-size: 12.5px; color: #cbd5e1; line-height: 1.4; }
+    .vcap b { color: #f8fafc; }
+    .vcap .sub { display: block; font-size: 11.5px; color: #94a3b8; margin-top: 2px; }
+    .fig {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      cursor: zoom-in;
+      display: block;
+      background: #0f172a;
+    }
+    .cap { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+    .cap b { color: var(--ink); }
+    .next-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #fafcff;
+    }
+    .next-card b { display: block; font-size: 13.5px; margin-bottom: 4px; color: var(--accent); }
+    .next-card p { margin: 0; font-size: 12.8px; color: var(--muted); }
+    details {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+    #lb {
+      position: fixed; inset: 0; background: rgba(15,23,42,0.92);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px; z-index: 9999; cursor: zoom-out;
+    }
+    #lb.open { display: flex; }
+    #lb img { max-width: 96vw; max-height: 94vh; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>为什么视频 DiT 一动二次元人物就会崩坏？</h1>
+      <p><b>任务设定：图生视频（Image-to-Video, I2V）</b>。给定一张静态正面人像作为首帧 + 一句动作提示词，对比开源视频 DiT 原版推理（<b>左</b>）与我们的零训练 1.0× 因果手术（<b>右</b>），同随机种子直接分屏对比。</p>
+      <div class="pills">
+        <span class="pill">视频模型：Wan2.2-TI2V-5B &amp; CogVideoX-5b-I2V</span>
+        <span class="pill">输入图来源：Animagine-XL-4.0（二次元） / FLUX.1-dev（真人对照）</span>
+        <span class="pill">零训练 · 1.0× 速度 · 无需 ControlNet</span>
+      </div>
+    </header>
+
+    <!-- 一、实测视频 + 每条视频的精确输入背景 -->
+    <section class="card">
+      <div class="sec-head">
+        <h2>一、实测视频对比（左下角缩略图为首帧输入图，点击可放大）</h2>
+        <span class="tag">左：原版 Base ｜ 右：我们方法 Ours</span>
+      </div>
+
+      <div class="tabs" data-group="vidtabs">
+        <button class="tab active" data-target="v-wind">1. 强风拨刘海（Wan2.2 · 4位新角色）</button>
+        <button class="tab" data-target="v-wave">2. 转身挥手眨眼（Wan2.2 · 未见动作）</button>
+        <button class="tab" data-target="v-turn">3. 大幅转头 + 真人对照（Wan2.2）</button>
+        <button class="tab" data-target="v-cog">4. 跨架构去3D真人手（CogVideoX）</button>
+        <button class="tab" data-target="v-limit">5. 诚实边界：仰头大笑（Wan2.2）</button>
+      </div>
+
+      <!-- Tab 1: Wind -->
+      <div id="v-wind" class="pane active">
+        <div class="meta-bar">
+          <div><b>模型与设置：</b><code>Wan2.2-TI2V-5B</code> I2V（512×512，49 帧，30 步，CFG=5.0，同种子）｜<b>输入图：</b>4 位未见过的 <code>Animagine-XL-4.0</code> 正面二次元平涂人像</div>
+          <div><b>输入 Prompt：</b>“强风吹乱头发，角色抬起一只手拨开刘海并露出惊讶表情” — <code>A sudden gust of wind blows the character's hair strongly across their face as they raise one hand to brush their bangs back with a surprised expression, dynamic lively motion.</code></div>
+        </div>
+        <div class="grid2">
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_wind_p04.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p04.png" alt="input p04" title="首帧输入图 p04" />
+              <div class="vcap"><b>首帧输入 p04（黑发少女）</b>：左原版面部暗影扭曲成鬼脸；右流畅抬手拨刘海。<span class="sub">左侧缩略图 = I2V 首帧输入图（点击放大）</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_wind_p05.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p05.png" alt="input p05" title="首帧输入图 p05" />
+              <div class="vcap"><b>首帧输入 p05（橘发少女）</b>：左原版长出红块砸脸与白眼畸变；右干净可爱。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_wind_p06.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p06.png" alt="input p06" title="首帧输入图 p06" />
+              <div class="vcap"><b>首帧输入 p06（紫发少女）</b>：左原版末段炸成荧光黄绿核爆色偏；右零色爆。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_wind_p07.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p07.png" alt="input p07" title="首帧输入图 p07" />
+              <div class="vcap"><b>首帧输入 p07（棕发少女）</b>：左原版整张脸融化成黑紫线条；右锐利自然。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Wave -->
+      <div id="v-wave" class="pane">
+        <div class="meta-bar">
+          <div><b>模型与设置：</b><code>Wan2.2-TI2V-5B</code> I2V（512×512，49 帧，全新未见动作提示词，零调参泛化）｜<b>输入图：</b><code>Animagine-XL-4.0</code> 正面二次元人像</div>
+          <div><b>输入 Prompt：</b>“角色微微侧身，抬手向观众热情挥手，同时眨眼露出开朗微笑” — <code>The character turns gently to the side, raises one hand to wave warmly at the viewer, and winks with a cheerful smile, fluid 2D anime motion.</code></div>
+        </div>
+        <div class="grid2">
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_wave_p00.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p00.png" alt="input p00" />
+              <div class="vcap"><b>首帧输入 p00（水手服粉青发）</b>：左原版整个人沉出画面底部；右完整构图眨眼挥手。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_wave_p01.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p01.png" alt="input p01" />
+              <div class="vcap"><b>首帧输入 p01（粉发绿瞳）</b>：左原版乱变紫黑服装与怪笑；右锁定原设挥手眨眼。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_wave_p03.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p03.png" alt="input p03" />
+              <div class="vcap"><b>首帧输入 p03（金发蓝瞳）</b>：左原版中段整屏过曝白屏消失；右清晰稳定微笑挥手。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Turn + Real -->
+      <div id="v-turn" class="pane">
+        <div class="meta-bar">
+          <div><b>模型与设置：</b><code>Wan2.2-TI2V-5B</code> I2V（512×512，49 帧）｜<b>输入图：</b><code>Animagine-XL-4.0</code> 二次元人像 + 同构图 <code>FLUX.1-dev</code> 真人肖像（安全对照）</div>
+          <div><b>输入 Prompt：</b>“角色从正面平滑转头至四分之三侧面，保持温和微笑” — <code>The character smoothly turns their head from front view to a three-quarter side profile while gently smiling, fluid natural motion, consistent appearance.</code></div>
+        </div>
+        <div class="grid2">
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_turn_p00.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p00.png" alt="input p00" />
+              <div class="vcap"><b>首帧输入 p00（二次元）</b>：左原版中段出现粉色畸形眼与发尾模糊；右转出干净侧面。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_turn_p01.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p01.png" alt="input p01" />
+              <div class="vcap"><b>首帧输入 p01（二次元）</b>：左原版后脑勺凭空长出机械耳机杂物；右完全干净一致。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_turn_real00.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/real_p00.png" alt="input real00" />
+              <div class="vcap"><b>首帧输入 real_00（FLUX 真人安全对照）</b>：同样开关开在真人上零副作用、转头更稳，无需域分类器。<span class="sub">左侧缩略图 = 真人首帧输入图</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: CogVideoX -->
+      <div id="v-cog" class="pane">
+        <div class="meta-bar">
+          <div><b>模型与设置：</b><code>CogVideoX-5b-I2V</code>（跨架构 DDIM + 专家自适应 3D 注意力，480×720，49 帧，30 步）｜<b>输入图：</b><code>Animagine-XL-4.0</code> 正面二次元人像</div>
+          <div><b>输入 Prompt：</b>同场景 1（强风吹乱头发，抬手拨刘海并惊讶）— <code>A sudden gust of wind blows the character's hair strongly across their face as they raise one hand to brush their bangs back with a surprised expression, dynamic lively motion.</code></div>
+        </div>
+        <div class="grid2">
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/cog_wind_p00.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p00.png" alt="input p00" />
+              <div class="vcap"><b>首帧输入 p00（CogVideoX）</b>：左原版从二次元脸上长出 3D 写实真人肉手；右早期锚点恢复直接消除。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/cog_wind_p03.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p03.png" alt="input p03" />
+              <div class="vcap"><b>首帧输入 p03（CogVideoX）</b>：左原版面部喷出蓝色泡沫彻底融脸；右完整保住原设五官。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Honest Limit -->
+      <div id="v-limit" class="pane">
+        <div class="meta-bar">
+          <div><b>模型与设置：</b><code>Wan2.2-TI2V-5B</code> I2V（512×512，49 帧，诚实边界展示）｜<b>输入图：</b><code>Animagine-XL-4.0</code> 金发少女 p03</div>
+          <div><b>输入 Prompt：</b>“角色开心仰头大笑，头发在风中动感飘动” — <code>The character tilts their head joyfully and laughs brightly as their hair bounces and flows dynamically in the breeze, lively 2D anime animation.</code></div>
+        </div>
+        <div class="grid2">
+          <div class="vwrap">
+            <video autoplay loop muted controls playsinline src="experiments/figures/videos/wan_laugh_p03_limit.mp4"></video>
+            <div class="vfoot">
+              <img class="in-thumb" src="experiments/figures/inputs/anime_p03.png" alt="input p03" />
+              <div class="vcap"><b>边界案例 p03</b>：原版局部大笑本身较稳，固定强度干预反而引起末段暖色偏色，提示需改自适应门控。<span class="sub">左侧缩略图 = I2V 首帧输入图</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 二、核心机理 -->
+    <section class="card">
+      <div class="sec-head">
+        <h2>二、为什么会崩？已排除 3D-VAE，病灶在 DiT 双耦合失效</h2>
+        <span class="tag">Wan2.2 + CogVideoX 共同规律</span>
+      </div>
+      <div class="grid3" style="margin-bottom:14px;">
+        <div class="mini">
+          <strong>排因：3D-VAE 无罪</strong>
+          <span>刚性平移缩放的二次元画面单独过 3D-VAE，平涂与线稿完好；破坏完全来自 DiT 去噪过程。</span>
+        </div>
+        <div class="mini">
+          <strong>病灶 1：流形外 CFG 速度过冲</strong>
+          <span>二次元处在写实预训练流形边缘，同引导强度下 CFG 推力远超真人，把潜变量弹飞引发色爆和形变。</span>
+        </div>
+        <div class="mini">
+          <strong>病灶 2：早步 × 早层首帧断联</strong>
+          <span>3D 自注意力中二次元对首帧人设权重断崖下跌；前一半去噪步与早中层一旦断联，晚层再救已无效。</span>
+        </div>
+      </div>
+      <img class="fig" src="experiments/figures/plots/fig7_video_dit_mechanism_and_surgery.png" alt="Video DiT Mechanism and Surgery" />
+      <p class="cap"><b>(a)</b> 首帧锚点注意力随帧号衰减曲线；<b>(b)</b> 因果消融呈严格单调规律（早步 ≫ 晚步，早层 &gt; 中层 &gt; 晚层）；<b>(c)</b> 正反序双盲 <code>Qwen3-VL-32B</code> 裁判在已知动作、全新动作及真人安全对照上一致胜出。</p>
+    </section>
+
+    <!-- 三、下一步 -->
+    <section class="card">
+      <div class="sec-head">
+        <h2>三、下一步推进选项</h2>
+        <span class="tag">待定方向</span>
+      </div>
+      <div class="grid3">
+        <div class="next-card">
+          <b>1. 扩展到 14B 旗舰 + 训练对照</b>
+          <p>验证开源 <code>Wan2.1-I2V-14B</code> 缩放规律，并与轻量 DiT LoRA 对比，划清零训练与微调边界。</p>
+        </div>
+        <div class="next-card">
+          <b>2. 自适应锚点反馈控制</b>
+          <p>仅在实时检测到首帧断联或 CFG 过冲时介入，消除“仰头大笑”类稳健场景的偏色边界。</p>
+        </div>
+        <div class="next-card">
+          <b>3. 攻克非生物情绪与强手部先验</b>
+          <p>解决二次元黑化/额头阴影变全黑关灯，以及 CogVideoX 极端写实手部入侵的跨注意力解耦。</p>
+        </div>
+      </div>
+    </section>
+
+    <details>
+      <summary>附：此前已封存归档的两项 VLM 独立发现（不占用当前视频 DiT 主线）</summary>
+      <p style="margin:8px 0 0;">
+        ① <b>非生物情绪覆盖（P3）</b>：VLM 中层已识别二次元空洞眼/额头阴影/青筋，但被后层“微笑先验”强行覆写，单次前向手术全面胜过 LoRA；<br />
+        ② <b>角色认人调色板捷径（P7）</b>：彩图转黑白漫画时 32B 模型反而比 7B 崩得更惨，因果定位在后层跨图注意力，零训练色度门控可救回跨光照/灰度认人。
+      </p>
+    </details>
+  </div>
+
+  <div id="lb" onclick="this.classList.remove('open')">
+    <img id="lb-img" src="" alt="zoom" />
+  </div>
+
+  <script>
+    document.querySelectorAll('.tabs').forEach(group => {
+      group.querySelectorAll('.tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = group.closest('.card');
+          group.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const ids = Array.from(group.querySelectorAll('.tab')).map(b => b.dataset.target);
+          ids.forEach(id => {
+            const el = card.querySelector('#' + id);
+            if (el) {
+              const show = id === btn.dataset.target;
+              el.classList.toggle('active', show);
+              el.querySelectorAll('video').forEach(v => {
+                if (show) { v.play().catch(() => {}); } else { v.pause(); }
+              });
+            }
+          });
+        });
+      });
+    });
+    const lb = document.getElementById('lb');
+    const lbImg = document.getElementById('lb-img');
+    document.querySelectorAll('.fig, .in-thumb').forEach(img => {
+      img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); });
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+{
+  "summary": {
+    "model": "gpt-5.5",
+    "n_images": 40,
+    "errors": 40,
+    "slices": {
+      "L1_Shaded__identical_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L1_Shaded__distinct_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L1_Shaded__ALL": {
+        "n_pairs": 10,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L3_Flat2D__identical_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L3_Flat2D__distinct_color": {
+        "n_pairs": 5,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      },
+      "L3_Flat2D__ALL": {
+        "n_pairs": 10,
+        "single_acc": 0.0,
+        "paired_flip_consistency": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 202611251449581430151106276540)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 20261125144958419074804370214)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514495818492615013831132)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514495849814862461251418)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514495861657099305485354)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_00_pink_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514495987023715653185612)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500098185506718959989)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 202611251450016250526659437746)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_01_pink_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500065024166999123554)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500127518274333442329)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500134672154582185081)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500285804570045449907)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500376151215068904561)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500392160068664273005)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_03_blue_same_a10_b80",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500416229585632634198)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_02_blue_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500416615720021553338)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500465479238610600424)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500484317996234849140)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500616873068435697204)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500659532800973420916)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500726621668473879)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_04_blonde_same_a25_b-35",
+      "regime": "identical_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 202611251450079833307692226565)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500849490183590367650)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500890625995408888724)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500891419139094883540)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500929089855034945729)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_11_pink_blue_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500959365725592831212)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_10_pink_blue_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514500994119697779766566)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501116394574738673637)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501126415428896537416)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501139805286784568973)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501167825300700890353)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_12_gold_navy_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501182103752378562730)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501295310751997141880)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501345489997095578687)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501379936327182304311)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501451661484763448436)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L3_Flat2D",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501493276156063070319)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_13_gold_navy_a10_b80",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "A_over_B",
+      "front_gt": "A",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 2026112514501495552452109453443)', 'type': 'one_api_error'}}"
+    },
+    {
+      "pair_id": "pair_14_mint_coral_a25_b-35",
+      "regime": "distinct_color",
+      "render_level": "L1_Shaded",
+      "order": "B_over_A",
+      "front_gt": "B",
+      "pred": "ERR",
+      "correct": false,
+      "raw": "",
+      "error": "Error code: 503 - {'error': {'message': '当前分组 default 下对于模型 gpt-5.5 无可用渠道，请检查模型名是否正确 (request id: 202611251450165254026051510707)', 'type': 'one_api_error'}}"
+    }
+  ]
+}

@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>旗舰级视频 DiT (13B–27B MoE) 2D 动漫语法研究进展</title>
+<style>
+  :root{
+    --bg:#0d1017; --card:#151a24; --border:#252d3d; --text:#e8edf5; --muted:#97a3b6;
+    --accent:#67b7ff; --good:#3dd68c; --bad:#ff6b7a; --warn:#f7c948;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+  .wrap{max-width:1240px;margin:0 auto;padding:28px 20px 64px}
+  header{border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:26px}
+  h1{margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.01em}
+  .sub{color:var(--muted);font-size:14px;margin:0}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .pill{font-size:12px;padding:4px 10px;border-radius:999px;background:#1b2333;border:1px solid var(--border);color:#c8d4e6}
+  .pill.good{border-color:rgba(61,214,140,.4);color:var(--good)}
+  .pill.bad{border-color:rgba(255,107,122,.4);color:var(--bad)}
+  h2{font-size:19px;margin:34px 0 12px;display:flex;align-items:center;gap:10px}
+  .step-tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:rgba(103,183,255,.15);color:var(--accent);letter-spacing:.04em}
+  .lead{color:var(--muted);font-size:14px;margin:0 0 16px;max-width:920px}
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:18px}
+  .grid-1{display:grid;grid-template-columns:1fr;gap:18px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .card-head{padding:12px 15px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .card-title{font-size:15px;font-weight:600}
+  .badge{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:600;white-space:nowrap}
+  .badge.ok{background:rgba(61,214,140,.14);color:var(--good)}
+  .badge.fail{background:rgba(255,107,122,.14);color:var(--bad)}
+  .badge.warn{background:rgba(247,201,72,.14);color:var(--warn)}
+  .card-body{padding:14px 15px}
+  .meta-box{display:flex;gap:12px;align-items:flex-start;background:#0f141e;border:1px solid #202838;border-radius:9px;padding:10px;margin-bottom:12px}
+  .inp-thumb{width:76px;height:76px;object-fit:cover;border-radius:7px;border:1px solid var(--border);flex-shrink:0}
+  .meta-txt{font-size:12.5px;color:#cbd5e1;min-width:0}
+  .meta-row{margin-bottom:4px}
+  .meta-row b{color:#fff}
+  .prompt-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:#93c5fd;background:#131a27;padding:4px 7px;border-radius:5px;display:block;margin-top:4px;word-break:break-word}
+  video{width:100%;display:block;border-radius:8px;background:#000;border:1px solid #202838}
+  .note{font-size:13px;color:var(--muted);margin-top:9px}
+  .note b{color:var(--text)}
+  .tabs{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+  .tab{cursor:pointer;padding:6px 13px;border-radius:8px;border:1px solid var(--border);background:#141923;color:var(--muted);font-size:13px;font-weight:600}
+  .tab.active{background:rgba(103,183,255,.16);border-color:var(--accent);color:#fff}
+  .ctrl-bar{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+  .btn{cursor:pointer;padding:5px 12px;border-radius:7px;border:1px solid var(--border);background:#1b2231;color:#dbe4f3;font-size:12.5px}
+  .btn:hover{border-color:var(--accent)}
+  .honest{background:rgba(247,201,72,.07);border:1px solid rgba(247,201,72,.3);border-radius:10px;padding:14px 16px;margin-top:26px;font-size:13.5px}
+  .honest h3{margin:0 0 6px;font-size:15px;color:var(--warn)}
+  .honest ul{margin:6px 0 0 18px;padding:0}
+  .honest li{margin-bottom:4px;color:#d6deeb}
+  footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>旗舰级视频 DiT (13B–27B MoE) 的 2D 动漫语法失守与高噪专家改造</h1>
+    <p class="sub">全部基于 <b>100% 开源权重</b> 与 <b>干净合成/公开数据</b>，聚焦 MiniMax-H3 同量级旗舰视频 DiT（<code>Wan2.2-I2V-A14B 27B MoE</code> / <code>HunyuanVideo-I2V 13B</code> / <code>LTX-Video-0.9.7 13B</code>）。</p>
+    <div class="pills">
+      <span class="pill good">已验证：27B 规模已解决 3D 物理运动（转头 / 风吹 / 180°转身）</span>
+      <span class="pill bad">新发现：三大 13B–27B 旗舰在 2D 非物理动漫语法上全线字面化失守</span>
+      <span class="pill">因果开箱：14B 高噪专家 (t≥900) 独占全部语法决策</span>
+      <span class="pill good">权重级修复：14B MoE LoRA 泛化至未见角色 + 3D转头组合 + 真人零遗忘</span>
+    </div>
+    <div class="ctrl-bar">
+      <button class="btn" onclick="toggleAllVideos(true)">▶ 全部播放</button>
+      <button class="btn" onclick="toggleAllVideos(false)">⏸ 全部暂停</button>
+      <span style="font-size:12px;color:var(--muted)">每条视频上方均标注：精确输入图 + 模型规格 + 完整英文 Prompt。</span>
+    </div>
+  </header>
+
+  <!-- SECTION 1 -->
+  <h2><span class="step-tag">发现一</span>规模分水岭：27B MoE 已经解决 3D 物理运动，唯独在 2D 非物理语法上崩盘</h2>
+  <p class="lead">回应你提出的质疑：我们把测试全面升级到 <b>27B MoE (Wan2.2-I2V-A14B)</b>。结果证明，5B 模型会崩坏的 3D 转头、大风吹发、甚至 180° 转身回头，27B 都干净通过；但恰恰是这种极强的 3D 物理世界模型，把 2D 动漫语法强行按真实世界光学/物理来画。</p>
+  <div class="grid-1">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">对照组：同一 27B 模型在 3 大 3D 物理运动上的流畅表现（均正常通过）</span>
+        <span class="badge ok">Wan2.2-I2V-A14B (27B MoE) · 81帧 5s</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="input char00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b>干净合成 2D 动漫正面半身像（<code>fc_00_navy_girl</code>，未见测试角色）</div>
+            <div class="meta-row"><b>模型与设置：</b><code>Wan-AI/Wan2.2-I2V-A14B-Diffusers</code>（27B MoE = 14B 高噪 + 14B 低噪），512×512，81 帧 / 16fps</div>
+            <div class="meta-row"><b>视频三栏 Prompt：</b>左 <code>S1 顺滑转头</code> ｜ 中 <code>S2 大风吹发+抬手撩刘海</code> ｜ 右 <code>S4 180°转身露出后脑再转回正面</code></div>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase1_27b_solves_3d_motion_char00.mp4"></video>
+        <p class="note"><b>结论：</b>在 27B 量级下，常规 3D 头部旋转、遮挡还原和动态物理风场已不再是瓶颈。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2><span class="step-tag">发现二</span>跨三大 13B–27B 旗舰家族一致失守：物理世界模型字面化</h2>
+  <p class="lead">去掉所有暗黑/恐怖词汇，在明亮白底棚拍光下测试 4 个最基础的 2D 动漫非物理视觉符号。三大架构完全独立的开源旗舰视频 DiT（<code>Wan2.2 27B MoE</code>、<code>HunyuanVideo 13B MM-DiT</code>、<code>LTX-Video 13B 48L DiT</code>）无一幸免。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">G1 仅消除眼睛高光（保持睁眼与微笑）</span>
+        <span class="badge fail">三大旗舰全失守</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="input" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>三栏模型：</b>左 <code>Wan2.2 27B</code> ｜ 中 <code>HunyuanVideo 13B</code> ｜ 右 <code>LTX 13B</code></div>
+            <span class="prompt-code">Prompt: Bright even studio lighting, unchanged bright hair/clothes/smile, ONLY the small white circular highlight dots inside both eyes fade away leaving flat matte dull irises, clean 2D anime.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase2_3family_00_G1_HighlightOff_Only.mp4"></video>
+        <p class="note"><b>物理字面化：</b>27B 不敢在亮光下关掉眼部反光，改用“闭眼”逃避或直接忽略；Hunyuan 反而越画越亮。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">G2 额头半透明阴沉阴影（保持亮发微笑）</span>
+        <span class="badge fail">纸板遮眼 / 染蓝刘海</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="input" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>三栏模型：</b>左 <code>Wan2.2 27B</code> ｜ 中 <code>HunyuanVideo 13B</code> ｜ 右 <code>LTX 13B</code></div>
+            <span class="prompt-code">Prompt: Bright daylight, a stylized flat slate-blue 2D anime gloom shadow band with fine vertical ink lines appears strictly across upper forehead while hair/smile/background stay unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase2_3family_00_G2_ForeheadShadow_Clean.mp4"></video>
+        <p class="note"><b>物理字面化：</b>Wan2.2 把半透明阴沉影画成一块不透明灰蓝色“硬纸板/百叶窗”挡眼，或把刘海染成蓝绿色。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">G3 太阳穴弹出十字青筋 💢（保持微笑）</span>
+        <span class="badge fail">塑料发卡 / 额头星纹 / 血字叉</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="input" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>三栏模型：</b>左 <code>Wan2.2 27B</code> ｜ 中 <code>HunyuanVideo 13B</code> ｜ 右 <code>LTX 13B</code></div>
+            <span class="prompt-code">Prompt: Bright flat 2D anime, polite smile as a classic stylized red cross-shaped anime anger vein symbol pops onto upper forehead temple and pulses gently.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase2_3family_00_G3_AngerVein_Pop.mp4"></video>
+        <p class="note"><b>物理字面化：</b>Wan2.2 贴上 3D 塑料发卡/红胶带；Hunyuan 画成眉心法阵星印；LTX 在全脸涂上巨大红叉。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">G4 额侧滑落漫画大汗滴 💧（尴尬微笑）</span>
+        <span class="badge fail">蓝色史莱姆触手 / 哭泣流泪</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="input" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>三栏模型：</b>左 <code>Wan2.2 27B</code> ｜ 中 <code>HunyuanVideo 13B</code> ｜ 右 <code>LTX 13B</code></div>
+            <span class="prompt-code">Prompt: Bright flat 2D anime, awkward nervous smile as a single large fixed-shape translucent blue comic sweat drop appears beside temple and slides gently downward.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase2_3family_00_G4_SweatDrop_Slide.mp4"></video>
+        <p class="note"><b>物理字面化：</b>Wan2.2 拉出滴落的蓝色粘液触手/漂浮水泡；Hunyuan 镜头莫名下移；LTX 直接变成真人流眼泪。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2><span class="step-tag">发现三</span>27B MoE 内部因果开箱：14B 高噪专家 (t≥900) 独占全部语义/语法决策</h2>
+  <p class="lead">直接对 <code>Wan2.2-I2V-A14B</code> 的两个 14B 专家做双向提示词互换（高噪专家负责前 10 步去噪，低噪专家负责后 26 步）：只要高噪专家看到 <code>S3 黑化/暗影</code> 词，即使后 26 步全程换回“明亮棚拍微笑”，灾难性黑化依然原样发生；反之高噪用中性词、低噪用目标词，画面完全明亮、画不出任何语法。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">2-Way 专家互换因果实证（角色 00）</span>
+        <span class="badge warn">M1 与原版几乎一致 · M2 零效应</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="input 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四栏对照：</b><code>M0 原版27B</code> ｜ <code>M1 高噪目标+低噪明亮</code> ｜ <code>M2 高噪明亮+低噪目标</code> ｜ <code>M3 零训练空间门控CFG</code></div>
+            <span class="prompt-code">Target (S3): Eye highlights vanish leaving hollow dark lifeless eyes while sharp ominous dark shadow falls across upper forehead, mouth frozen in calm smile.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase3_moe_swap_00_S3.mp4"></video>
+        <p class="note"><b>机制结论：</b>零训练推理门控（最右 M3）能止住头发与嘴部黑化，但额头区内冻结的 27B 仍画不出干净动漫语法——证明必须改写 14B 高噪专家权重。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">2-Way 专家互换因果实证（角色 02 复现）</span>
+        <span class="badge warn">跨角色完全一致</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_02_anime.png" alt="input 02" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四栏对照：</b><code>M0 原版27B</code> ｜ <code>M1 高噪目标+低噪明亮</code> ｜ <code>M2 高噪明亮+低噪目标</code> ｜ <code>M3 零训练空间门控CFG</code></div>
+            <span class="prompt-code">Target (S3): Same prompt on unseen character fc_02 (blonde bob).</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase3_moe_swap_02_S3.mp4"></video>
+        <p class="note"><b>结论：</b>低噪专家无法撤回高噪专家锁定的全图熄灯黑化，也无法独立绘制任何 2D 动漫语法。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2><span class="step-tag">发现四</span>14B MoE 权重级 LoRA 改造：只训低噪 = 零提升，只训高噪 / 双专家彻底打通</h2>
+  <p class="lead">在 32 个训练角色（<code>fc_08..39</code>）上自举合成 2D 动漫语法短视频 + 3D 运动防遗忘锚点，用 8×H100 真实训练两个独立的 Rank-16 Flow-Matching LoRA（分别对应 14B 高噪专家与 14B 低噪专家），并在 <b>训练完全未见的角色（<code>fc_00..03</code>）</b> 上做 2×2 消融与组合泛化评测。</p>
+
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">2×2 MoE 专家训练消融：S3 黑化眼神 + 额头阴影</span>
+        <span class="badge ok">只训低噪 = 无效 · 训高噪 = 彻底治愈</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四栏对照：</b><code>原版27B</code> ｜ <code>仅高噪LoRA</code> ｜ <code>仅低噪LoRA</code> ｜ <code>双专家LoRA</code></div>
+            <div class="meta-row"><b>意义：</b>真实训练与前面因果互换的理论预言完全吻合——只训低噪（第3栏）仍彻底黑化出红眼恶魔；仅训高噪（第2栏）即呈现干净动漫阴沉影与无高光眼神！</div>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase4_2x2_S3_NonBioAffect_char00.mp4"></video>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">2×2 MoE 专家训练消融：G3 十字青筋 💢 与 G4 滑落汗滴 💧</span>
+        <span class="badge ok">高噪专家决定符号结构</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四栏对照：</b><code>原版27B</code> ｜ <code>仅高噪LoRA</code> ｜ <code>仅低噪LoRA</code> ｜ <code>双专家LoRA</code></div>
+            <div class="meta-row"><b>观察：</b>原版与仅低噪只画出塑料发卡/漂浮杂点；仅高噪与双专家精准弹出经典红十字青筋并自然搏动。</div>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase4_2x2_G3_AngerVein_Pop_char00.mp4"></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE UNSEEN CHARACTER SWITCHER -->
+  <h3 style="margin:24px 0 8px;font-size:17px">未见角色全套并排对比（左：原版 27B ｜ 右：本文 Dual-MoE LoRA）</h3>
+  <p class="lead" style="margin-bottom:10px">切换下方 4 个完全未参与训练的测试角色，查看 5 大动漫语法、<b>训练从未见过的 3D 转头+2D 符号组合</b>、以及 <b>真人/动漫零遗忘安全对照</b>：</p>
+  <div class="tabs" id="charTabs">
+    <button class="tab active" onclick="selectChar('00', this)">未见角色 00（粉蓝短发水手服）</button>
+    <button class="tab" onclick="selectChar('01', this)">未见角色 01（黑长直红领结）</button>
+    <button class="tab" onclick="selectChar('02', this)">未见角色 02（金发波波头）</button>
+    <button class="tab" onclick="selectChar('03', this)">未见角色 03（特写大眼金发 · 含诚实局限案例）</button>
+  </div>
+  <div class="grid-2" id="pairGrid"></div>
+
+  <!-- SECTION 5: CROSS-STYLE & CROSS-GENERATOR OOD -->
+  <h2><span class="step-tag">发现五</span>跨画风与跨生图器 0-Shot OOD 泛化：90年代复古 / Q版 / 水彩 / 黑白漫画 / Illustrious-XL</h2>
+  <p class="lead">训练集只用过单一现代赛璐珞风格。不微调任何新权重，直接把训练好的 14B MoE LoRA 零样本放到 <b>6 种风格与底层生图器完全不同</b> 的角色上（含 <code>Illustrious-XL-v2.0</code>）：原版 27B 把 Q 版涂成黑头怪物、在金发少女额头划出流血血痕、在漫画上吹出盖脸大气球；本文全部零样本画出贴合对应画风的动漫语法。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Illustrious-XL 金发少女 · S3 暗化眼神+额头阴影</span>
+        <span class="badge ok">跨生图器 0-Shot · 彻底治愈全图黑化</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_ood_04_illustrious_blonde.png" alt="illustrious blonde" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b><code>Illustrious-XL-v2.0</code>（完全不同生图器）｜ <b>视频：</b>左 <code>原版27B</code> vs 右 <code>本文 LoRA</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp dark forehead shadow, calm smile kept.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase5_ood_04_illustrious_blonde_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版把整个人黑化成无脸阴影怪；本文完整保住金发与笑容，只在额头与眼神施加动漫阴沉影。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Illustrious-XL 金发少女 · G3 十字青筋 💢</span>
+        <span class="badge ok">原版画出血痕 · 本文干净青筋</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_ood_04_illustrious_blonde.png" alt="illustrious blonde" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b><code>Illustrious-XL-v2.0</code> ｜ <b>视频：</b>左 <code>原版27B</code> vs 右 <code>本文 LoRA</code></div>
+            <span class="prompt-code">Prompt: Classic stylized red cross-shaped anime anger vein symbol pops onto temple.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase5_ood_04_illustrious_blonde_G3_AngerVein_Pop.mp4"></video>
+        <p class="note">原版在额头画出流进眼睛的红色血痕；本文在太阳穴弹出干脆利落的红十字青筋。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">Q 版二头身 (Chibi/SD) · S3 额头阴影</span>
+        <span class="badge ok">告别黑头怪物</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_ood_01_chibi_sd.png" alt="chibi" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b>二头身 Q 版白发角色 ｜ <b>视频：</b>左 <code>原版27B</code> vs 右 <code>本文 LoRA</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp dark forehead shadow, calm smile kept.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase5_ood_01_chibi_sd_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版把整颗 Q 版脑袋涂成漆黑小丑；本文保留白发与星光背景，仅在额头落下轻盈动漫阴沉影。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">水彩插画风 (Watercolor) · G4 滑落大汗滴 💧</span>
+        <span class="badge ok">告别拉丝蓝蜡油</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_ood_02_watercolor.png" alt="watercolor" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b>淡彩水彩厚涂插画 ｜ <b>视频：</b>左 <code>原版27B</code> vs 右 <code>本文 LoRA</code></div>
+            <span class="prompt-code">Prompt: Single large translucent blue comic sweat drop slides gently beside temple.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase5_ood_02_watercolor_G4_SweatDrop_Slide.mp4"></video>
+        <p class="note">原版从头顶流下长条蓝蜡油；本文画出通透轻盈、完美融入水彩色调的动漫大汗滴。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">黑白网点漫画 (B&amp;W Manga) · G4 滑落汗滴 💧</span>
+        <span class="badge ok">告别盖脸大气球</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_ood_03_bw_manga.png" alt="bw manga" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b>黑白网点漫画 ｜ <b>视频：</b>左 <code>原版27B</code> vs 右 <code>本文 LoRA</code></div>
+            <span class="prompt-code">Prompt: Single fixed-shape comic sweat drop appears beside temple and slides downward.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase5_ood_03_bw_manga_G4_SweatDrop_Slide.mp4"></video>
+        <p class="note">原版在额头吹出一个遮住半张脸的巨型水球；本文精准落下一颗干净克制的漫画汗滴。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">90 年代复古赛璐珞 (Retro 90s) · G3 十字青筋 💢</span>
+        <span class="badge ok">原版拒画 · 本文精准贴合复古画风</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_ood_00_retro90s.png" alt="retro90s" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b>90 年代复古动画赛璐珞 ｜ <b>视频：</b>左 <code>原版27B</code> vs 右 <code>本文 LoRA</code></div>
+            <span class="prompt-code">Prompt: Classic red cross-shaped anime anger vein symbol pops onto temple and pulses.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase5_ood_00_retro90s_G3_AngerVein_Pop.mp4"></video>
+        <p class="note">原版完全无视指令；本文在 90 年代复古画风下自然弹出红十字青筋并有节奏搏动。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ZERO-SHOT BRAND-NEW UNSEEN SYMBOLS -->
+  <h2><span class="step-tag">发现六</span>意外惊喜：训练从未见过的全新 2D 动漫符号也能零样本解锁</h2>
+  <p class="lead">训练集只用过 5 种基础语法（去高光 / 额头阴影 / 青筋 / 汗滴），从未出现过任何背景效果线或红晕。但微调 14B 高噪专家后，27B MoE 似乎整体解锁了“2D 非物理动漫叠加层模式”，在 3 类全新漫画符号上直接零样本跑通。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">U2 全新符号：背景竖直沮丧阴沉线（角色 00）</span>
+        <span class="badge ok">训练集从未见过 · 零样本跑通</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 27B</code> vs 右 <code>本文 14B 高噪 LoRA（仅训 5 基础语法）</code></div>
+            <span class="prompt-code">Prompt: Classic 2D vertical blue-gray anime depression gloom lines appear behind head and shoulders while hair and face stay unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase7_unseen_sym_00_U2_DepressionLines_Aura.mp4"></video>
+        <p class="note">原版把头发吹乱并拉出杂乱斜黑线；本文在白底背景上稳稳落下标准竖直动漫阴沉线，头发纹丝不动。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">U3 全新符号：漫画放射状震惊速度线（角色 02）</span>
+        <span class="badge ok">原版完全拒画 · 本文零样本爆出速度线</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_02_anime.png" alt="char 02" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 27B</code> vs 右 <code>本文 14B 高噪 LoRA（仅训 5 基础语法）</code></div>
+            <span class="prompt-code">Prompt: Classic 2D manga radial black action shock speed lines burst cleanly across white background behind character.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase7_unseen_sym_02_U3_ShockSpeedLines.mp4"></video>
+        <p class="note">原版只张嘴、背景完全空白；本文零样本在角色轮廓之外干净爆出锐利漫画放射冲击线。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">U1 全新符号：双颊动漫红晕（角色 00）</span>
+        <span class="badge ok">原版闭眼逃避 · 本文睁眼画红晕</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 27B</code> vs 右 <code>本文 14B 高噪 LoRA</code></div>
+            <span class="prompt-code">Prompt: Classic stylized 2D pink anime diagonal blush lines appear cleanly across both cheeks, eyes open and bright hair unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase7_unseen_sym_00_U1_BlushLines_Pop.mp4"></video>
+        <p class="note">原版闭眼且完全不画红晕；本文保持睁眼微笑并自然浮现动漫双颊红晕。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">机制与定量汇总主图（论文主图 Fig. 8）</span>
+        <span class="badge ok">四大机制与消融实证</span>
+      </div>
+      <div class="card-body">
+        <img src="flagship_media/fig8_flagship_27b_literalism_and_moe_lora.png" alt="Fig 8" style="width:100%;border-radius:8px;border:1px solid var(--border)" />
+        <p class="note"><b>四联图汇总：</b>(A) 27B 解决 3D 物理运动但唯独在 2D 情感语法崩盘；(B) 专家互换与真实 LoRA 训练双证实 100% 语法归属高噪专家；(C) 高噪 LoRA 改写 V/O 速度场而非 Q·K 热图；(D) 冻结低噪保住最高线稿锐度与真人零遗忘。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: CROSS-ARCHITECTURE SECOND FLAGSHIP (LTX-13B NON-MoE) -->
+  <h2><span class="step-tag">发现七</span>跨架构复现：第二个 13B 非 MoE 单体旗舰（LTX-Video-0.9.7）仅在高噪步启用 LoRA 同样治愈</h2>
+  <p class="lead">为了验证规律不只局限于 <code>Wan2.2</code> 的双专家 MoE 结构，我们在架构完全不同的 <b>13B 48 层非 MoE 单体视频 DiT（<code>LTX-Video-0.9.7-dev</code>，T5-XXL + 128 通道 VAE）</b> 上复现了同一套清洁版自举训练，并在推理时做“<b>仅高噪步启用 LoRA（t≥550），低噪步切回冻结原版</b>”的门控实验：不仅成功治愈全图黑化与色偏崩坏、精准画出 2D 动漫语法，而且盲评胜率甚至超过全程启用 LoRA，真人转头照样零遗忘。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">LTX-13B · S3 暗化眼神 + 额头阴影（角色 00）</span>
+        <span class="badge ok">告别整帧漆黑 · 仅高噪步启用</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>Lightricks/LTX-Video-0.9.7-dev</code>（13B 48L 非 MoE）｜ <b>视频：</b>左 <code>原版 13B</code> vs 右 <code>仅高噪步 LoRA (t≥550)</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish leaving hollow matte eyes + sharp dark upper forehead shadow, calm smile kept.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase8_ltx13b_00_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版 13B 把整张画面压成黑夜；仅高噪步启用 LoRA 保住亮发与微笑，精准落下半透明动漫额头阴影。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">LTX-13B · C1 未见组合：转头+额头阴影（角色 00）</span>
+        <span class="badge ok">告别全身染蓝崩坏</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>LTX-Video-0.9.7-dev</code>（13B 非 MoE）｜ <b>视频：</b>左 <code>原版 13B</code> vs 右 <code>仅高噪步 LoRA (t≥550)</code></div>
+            <span class="prompt-code">Prompt: Turns head with calm smile while eye highlights vanish and translucent 2D anime gloom shadow falls on upper forehead.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase8_ltx13b_00_C1_Comp_HeadTurn_Shadow.mp4"></video>
+        <p class="note">原版 13B 把粉色头发与制服整张染成刺眼青蓝色；本文干净保住原本配色并施加额头阴影与去高光眼神。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">LTX-13B · G3 十字青筋 💢 与 G4 滑落汗滴 💧（角色 00）</span>
+        <span class="badge ok">原版完全拒画 · 本文精准弹出</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>LTX-Video-0.9.7-dev</code>（13B 非 MoE）｜ <b>视频：</b>左 <code>原版 13B</code> vs 右 <code>仅高噪步 LoRA (t≥550)</code></div>
+            <span class="prompt-code">Prompt: Classic stylized red cross-shaped anime anger vein symbol pops onto upper forehead and pulses.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase8_ltx13b_00_G3_AngerVein_Pop.mp4"></video>
+        <p class="note">原版 13B 完全拒画；仅高噪步启用 LoRA 在额头干净弹出标准动漫红十字青筋。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">LTX-13B · S1 真人安全对照（角色 00）</span>
+        <span class="badge ok">100% 零遗忘安全平手</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_real.png" alt="real 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b>真实人类照片 ｜ <b>视频：</b>左 <code>原版 LTX-13B</code> vs 右 <code>仅高噪步 LoRA (t≥550)</code></div>
+            <span class="prompt-code">Prompt: The photorealistic human smoothly turns their head to a three-quarter profile while gently smiling.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase8_ltx13b_00_S1_Safety_RealHeadTurn.mp4"></video>
+        <p class="note">在非 MoE 单体 13B 架构上，仅高噪步启用 LoRA 同样保持真实人类视频 100% 零退化。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: ZERO-SHOT 5-SECOND LONG HORIZON (81F) & SIMULTANEOUS MULTI-SYMBOL COMPOSITION + FIG 9 -->
+  <h2><span class="step-tag">发现八</span>零样本 5 秒长视频外推（81 帧）+ 多符号同时组合 + 跨架构高噪临界规律总览</h2>
+  <p class="lead">训练视频全都是 <b>49 帧单符号</b>。不重新训练任何权重，直接让 Clean v2 27B MoE 生成 <b>81 帧（5 秒，1.65× 训练时长）</b> 长视频，以及 <b>同时叠加多个动漫符号 / 转头+阴影+青筋三合一</b> 的复杂组合：原版 27B 在 5 秒后融化成巨型蓝泥河或给头发扣上深蓝头盔，而本文全程 5 秒纹丝不飘、三合一精准协同。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">81 帧 5 秒零样本外推 · S3 暗化眼神+额头阴影（角色 00）</span>
+        <span class="badge ok">1.65× 训练时长 · 全程零漂移</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 27B (81f)</code> vs 右 <code>本文 Clean v2 (81f)</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp dark upper forehead shadow, calm smile kept (5.0s, 81 frames).</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase9_exp48_00_L1_81f_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版把发色变暗紫、眼睛变成发光荧光绿；本文稳稳守住 5 秒全长，粉蓝发色与微笑纹丝不动。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">81 帧 5 秒零样本外推 · G4 漫画汗滴滑落 💧（角色 02）</span>
+        <span class="badge ok">告别巨型蓝泥河 · 5 秒稳定滑落</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_02_anime.png" alt="char 02" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 27B (81f)</code> vs 右 <code>本文 Clean v2 (81f)</code></div>
+            <span class="prompt-code">Prompt: Single large translucent blue comic sweat drop slides gently beside temple (5.0s, 81 frames).</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase9_exp48_02_L3_81f_G4_SweatDrop_Slide.mp4"></video>
+        <p class="note">原版流出盖住整只眼睛的巨型蓝牙膏泥并闭眼大笑；本文在 5 秒全程保持一颗干脆锐利的赛璐珞大汗滴。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">未见多符号组合：额头阴影 + 漫画大汗滴同时触发（角色 00）</span>
+        <span class="badge ok">双符号零样本协同</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Translucent 2D forehead gloom shadow with vertical lines AND a large blue comic sweat drop sliding beside temple simultaneously.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase9_exp48_00_MS1_Shadow_Plus_SweatDrop.mp4"></video>
+        <p class="note">训练从未把两个符号放一起；原版完全忽略额头阴影，本文干净同时渲染半透明竖线阴沉影与侧脸大汗滴。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">未见三合一组合：3D 转头 + 额头阴影 + 红十字青筋（角色 00）</span>
+        <span class="badge ok">告别深蓝头盔 · 三重精准协同</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Smoothly turns head to 3/4 side profile while BOTH forehead gloom shadow AND red cross anger vein appear on the turned face.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase9_exp48_00_MS2_HeadTurn_Shadow_Vein.mp4"></video>
+        <p class="note">原版在转头时往头顶涂了一顶实心深蓝保龄球头盔；本文顺滑侧脸转头的同时把阴影与红十字稳稳贴合在转过去的眉额上。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-head">
+      <span class="card-title">跨架构高噪临界曲线与极限参数效率汇总（论文主图 Fig. 9）</span>
+      <span class="badge ok">MoE + 非 MoE 普适规律 · 最低仅需 0.048% 参数</span>
+    </div>
+    <div class="card-body">
+      <img src="flagship_media/fig9_cross_arch_timestep_and_efficiency.png" alt="Fig 9" style="width:100%;border-radius:8px;border:1px solid var(--border)" />
+      <p class="note"><b>三联图汇总：</b>(A) 在非 MoE 单体 13B <code>LTX-Video</code> 上，仅低噪步启用 LoRA 效果严格为 0（16/16 完全平手），只要开启高噪步即瞬时跃升至近 100% 治愈；(B) 跨架构全套双盲 <code>Qwen3-VL-32B</code> 胜率均高度显著；(C) 在 27B MoE 上即使只用 Rank-4（仅占总参数 0.048%）也能显著解锁 2D 动漫语法，而仅训低噪专家彻底无效。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9: TRAINING-FREE BASELINES HEAD-TO-HEAD (EXP 49) -->
+  <h2><span class="step-tag">发现九</span>为什么不训练、光靠提示词/负提示词/调 CFG 救不了 27B 旗舰？</h2>
+  <p class="lead">我们在 <code>Wan2.2-27B</code> 上测试了 4 种最强免训练手段，全部陷入“<b>直译放大 vs. 拒画漂白</b>”两难死结：调高 CFG 会把黑洞和 3D 塑料发卡放得更大；加超强负提示词或写超详细 2D 提示词则会直接把原版唯一能画阴影的通道堵死，导致整张脸漂白或彻底拒画。以下四宫格顺序均为：<b>左上 强负提示 ｜ 右上 高 CFG 6.0 ｜ 左下 超详细 2D 提示词 ｜ 右下 本文 Clean v2</b>。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">免训练四宫格对比 · S3 暗化眼神+额头阴影</span>
+        <span class="badge warn">高 CFG 吞没全头 · 超详细提示彻底拒画</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四宫格：</b>左上 <code>强负提示</code> ｜ 右上 <code>CFG=6.0</code> ｜ 左下 <code>超详细提示词</code> ｜ 右下 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp dark upper forehead shadow, bright hair and calm smile kept.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase10_exp49_00_S3_NonBioAffect.mp4"></video>
+        <p class="note">强负提示画出黑墨镜眼、高 CFG 画出吞没半颗头的漆黑保龄球、超详细提示彻底拒画；仅右下本文精准落地。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">免训练四宫格对比 · G2 额头半透明阴沉阴影</span>
+        <span class="badge warn">负提示漂白拒画 · 高 CFG 变大纸板</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四宫格：</b>左上 <code>强负提示</code> ｜ 右上 <code>CFG=6.0</code> ｜ 左下 <code>超详细提示词</code> ｜ 右下 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Translucent slate-blue 2D anime gloom shadow band with fine vertical ink lines across upper forehead.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase10_exp49_00_G2_ForeheadShadow_Clean.mp4"></video>
+        <p class="note">强负提示与超详细提示直接把脸过曝漂白且拒画，高 CFG 盖上一块巨型不透明灰纸板；仅右下本文画出半透明竖线阴沉影。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">免训练四宫格对比 · G3 十字青筋 💢</span>
+        <span class="badge warn">高 CFG 变巨型塑料 X 发卡</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四宫格：</b>左上 <code>强负提示</code> ｜ 右上 <code>CFG=6.0</code> ｜ 左下 <code>超详细提示词</code> ｜ 右下 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Classic stylized red cross-shaped anime anger vein symbol pops onto upper forehead temple and pulses.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase10_exp49_00_G3_AngerVein_Pop.mp4"></video>
+        <p class="note">强负提示拒画、高 CFG 变成巨大红塑料 X 发卡、超详细提示变成三枚小发卡；仅右下本文弹出干净搏动的红十字青筋。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">免训练四宫格对比 · G4 漫画大汗滴 💧</span>
+        <span class="badge warn">高 CFG 变瀑布 · 超详细提示变巨型水滴</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>四宫格：</b>左上 <code>强负提示</code> ｜ 右上 <code>CFG=6.0</code> ｜ 左下 <code>超详细提示词</code> ｜ 右下 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Single large translucent blue comic sweat drop appears beside temple and slides downward.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase10_exp49_00_G4_SweatDrop_Slide.mp4"></video>
+        <p class="note">强负提示变青色小发卡、高 CFG 变盖脸液态瀑布、超详细提示从天花板垂下盖过下巴的巨型水柱；仅右下本文干净滑落。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: 3RD INDEPENDENT FLAGSHIP ARCHITECTURE (HUNYUANVIDEO-I2V 13B MM-DiT) -->
+  <h2><span class="step-tag">发现十</span>第三独立旗舰架构复现：13B 多模态 MM-DiT（HunyuanVideo-I2V）零败绩治愈（24–0）</h2>
+  <p class="lead">为了把结论从“两套架构”推进到<b>三套完全独立的主流旗舰视频 DiT 家族</b>（<code>Wan2.2-27B MoE</code> + <code>LTX-13B 单体</code> + <code>HunyuanVideo-I2V 13B 双/单流 MM-DiT</code>），我们仅微调 <code>HunyuanVideo-I2V</code> 不到 <b>0.3%</b> 的权重：在全部未见角色上彻底消除原版青色脸部融化、彩虹激光和闭眼逃避，双盲裁判拿下 <b>24 胜 0 负 4 平</b> 的零封战绩，且真人转头画面更稳更自然。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-13B · G2 额头半透明阴沉阴影（角色 00）</span>
+        <span class="badge ok">原版闭眼大笑 · 本文竖线阴沉影</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>HunyuanVideo-I2V</code>（13B MM-DiT）｜ <b>视频：</b>左 <code>原版 13B</code> vs 右 <code>本文 0.3% LoRA</code></div>
+            <span class="prompt-code">Prompt: Translucent slate-blue 2D anime gloom shadow band with fine vertical ink lines across upper forehead, eyes open.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase11_hy13b_00_G2_ForeheadShadow_Clean.mp4"></video>
+        <p class="note">原版直接闭眼大笑并长出杂乱窗框；本文保住睁眼与白底，在额头平滑落下动漫竖线阴沉阴影。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-13B · C1 未见组合：3D 转头 + 额头阴影（角色 00）</span>
+        <span class="badge ok">告别青色脸部融化 · 3D+2D 协同</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>HunyuanVideo-I2V</code>（13B MM-DiT）｜ <b>视频：</b>左 <code>原版 13B</code> vs 右 <code>本文 0.3% LoRA</code></div>
+            <span class="prompt-code">Prompt: Smoothly turns head to 3/4 profile while eye highlights vanish and translucent 2D anime gloom shadow falls on forehead.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase11_hy13b_00_C1_Comp_HeadTurn_Shadow.mp4"></video>
+        <p class="note">原版把整张脸和眼睛融化成刺眼青色光团且无法转头；本文顺滑完成 3D 侧脸转头并保留半透明阴影。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-13B · S3 暗化眼神 + 额头阴影（角色 00）</span>
+        <span class="badge ok">告别漂白发红 · 精准动漫阴沉</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>HunyuanVideo-I2V</code>（13B MM-DiT）｜ <b>视频：</b>左 <code>原版 13B</code> vs 右 <code>本文 0.3% LoRA</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp ominous dark shadow across upper forehead, mouth frozen in calm smile.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase11_hy13b_00_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版漂白眼睛并在画框顶部出现红斑；本文消除红斑、稳稳压暗眼神与额头阴影且保持微笑与清晰线稿。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-13B · S1 真人安全对照（角色 00）</span>
+        <span class="badge ok">零遗忘 · 4–0 零封且画面更稳</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_real.png" alt="real 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>输入图：</b>真实人类照片 ｜ <b>视频：</b>左 <code>原版 Hunyuan-13B</code> vs 右 <code>本文 0.3% LoRA</code></div>
+            <span class="prompt-code">Prompt: The photorealistic human smoothly turns their head from front view to a three-quarter side profile while gently smiling.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase11_hy13b_00_S1_Safety_RealHeadTurn.mp4"></video>
+        <p class="note">原版僵直不转头且背景闪烁彩虹条纹；本文不仅零动漫污染，还流畅完成了自然写实的真人 3D 转头。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-head">
+      <span class="card-title">三架构普适 σ≥0.80 噪声律 · 40 层深度定位 · 0.017% 微子空间 · 免训练全面对比（论文主图 Fig. 10）</span>
+      <span class="badge ok">三大旗舰架构 × 三套调度器全统一</span>
+    </div>
+    <div class="card-body">
+      <img src="flagship_media/fig10_three_axis_localization_and_3arch_master.png" alt="Fig 10" style="width:100%;border-radius:8px;border:1px solid var(--border)" />
+      <p class="note"><b>三联图汇总：</b>(A) 横跨 <code>Wan2.2-27B</code>（shift=3.0）、<code>LTX-13B</code>（lin-quad）、<code>HunyuanVideo-13B</code>（shift=17.0）三套完全不同架构与调度器，底 80% 噪声空间（<code>σ&lt;0.80</code>）一律零作用，仅顶 20%（<code>σ≥0.80</code>）即拿下全部显著治愈；(B) 27B 高噪专家内部呈现单调“浅层→深层”衰减，三轴叠加压缩至 <code>0.017%</code> 参数且免重训依然显著胜出；(C) 全面显著碾压全部 4 种最强免训练基线。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 11: COMPLEX TEXTURED-BACKGROUND & MULTI-LIGHTING OOD SCENES (EXP 53) -->
+  <h2><span class="step-tag">发现十一</span>复杂真实背景与多光照场景零样本泛化：教室 / 夕阳天台 / 霓虹夜景 / 樱花 / 图书馆 / 雨天车站</h2>
+  <p class="lead">训练数据全都是纯白背景特写。为了检验在真实番剧级复杂场景与多光照下是否会破坏背景，我们用全新开源生图器（<code>Animagine-XL-4.0</code>）生成了 <b>6 种截然不同的复杂场景与侧脸姿态</b> 直接零样本测试：原版 27B 在教室和图书馆把人物整颗头抹成无脸黑洞、在夜景变成白眼暗影怪、在樱花树下从嘴里吹出巨型蓝泡泡；本文零样本在复杂背景下精准叠加 2D 动漫语法，教室窗框、夕阳护栏、东京霓虹灯牌和书架灯火全部完好无损（双盲 <b>11 胜 2 负</b>，显著胜出）。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">阳光教室（Animagine-XL-4.0）· S3 暗化眼神+额头阴影</span>
+        <span class="badge ok">告别无脸黑洞 · 教室背景完好</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/s0_classroom.png" alt="classroom" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 Wan2.2-27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp dark forehead shadow, calm smile and detailed sunlit classroom background unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase12_scene_s0_classroom_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版直接把整个头部涂成漆黑无脸剪影；本文完整保住木窗框、黑板与微笑，只在额头落下竖线阴沉阴影。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">东京霓虹夜景 · S3 暗化眼神+额头阴影</span>
+        <span class="badge ok">告别白眼暗影怪 · 霓虹夜景完好</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/s2_neon_night.png" alt="neon night" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 Wan2.2-27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + ominous dark 2D forehead shadow, calm smile and glowing Tokyo neon night street unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase12_scene_s2_neon_night_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版把银发少女黑化成发光白眼恶魔；本文保住银色双马尾、牛仔夹克与绚丽东京霓虹灯牌。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">夕阳天台侧脸少年 · G3 十字青筋 💢</span>
+        <span class="badge ok">侧脸姿态零样本弹出青筋</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/s1_sunset_rooftop.png" alt="sunset rooftop" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 Wan2.2-27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Stylized red cross-shaped anime anger vein symbol pops onto upper temple and pulses, sunset rooftop unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase12_scene_s1_sunset_rooftop_G3_AngerVein_Pop.mp4"></video>
+        <p class="note">原版在暖橘夕阳侧脸下完全拒画；本文精准把红十字青筋贴合到侧脸太阳穴上，铁丝网与晚霞纹丝不动。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">樱花公园 · G4 漫画大汗滴滑落 💧</span>
+        <span class="badge ok">告别嘴吐蓝泡泡 · 樱花花瓣完好</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/s3_sakura_park.png" alt="sakura park" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 Wan2.2-27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Single large translucent blue comic sweat drop slides gently beside temple, sakura trees and petals unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase12_scene_s3_sakura_park_G4_SweatDrop_Slide.mp4"></video>
+        <p class="note">原版从嘴巴里吹出一个遮住半张脸的巨型发光蓝泡泡；本文在绿发太阳穴旁安静滑落一颗标准动漫大汗滴。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">暖光木质图书馆 · S3 暗化眼神+额头阴影</span>
+        <span class="badge ok">告别黑头怪物 · 满墙书架灯火完好</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/s4_cozy_library.png" alt="cozy library" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 Wan2.2-27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp dark forehead shadow, calm smile and warm wooden library bookshelves unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase12_scene_s4_cozy_library_S3_NonBioAffect.mp4"></video>
+        <p class="note">原版把图书馆少年的整颗脑袋抹成纯黑团块；本文稳稳保住满墙书脊、台灯与毛衣细节。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">雨天户外站台 · G2 额头半透明阴沉阴影</span>
+        <span class="badge ok">原版完全拒画 · 本文精准落地</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/s5_rainy_station.png" alt="rainy station" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>视频：</b>左 <code>原版 Wan2.2-27B</code> vs 右 <code>本文 Clean v2</code></div>
+            <span class="prompt-code">Prompt: Stylized translucent slate-blue 2D anime gloom shadow band with fine vertical lines across upper forehead, train platform unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/showcase12_scene_s5_rainy_station_G2_ForeheadShadow_Clean.mp4"></video>
+        <p class="note">原版在复杂冷色调车站背景下 100% 拒画；本文干净落下竖线阴沉影，电车、雨衣与红色贩卖机纹丝不动。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 12: 4TH FLAGSHIP ARCHITECTURE (HUNYUANVIDEO-1.5 54L) + CAUSAL COMPONENT DISSECTION -->
+  <h2><span class="step-tag">发现十二</span>第四独立旗舰架构（2026 HunyuanVideo-1.5 54L）全闭环 + 模块轴因果实证</h2>
+  <p class="lead">为了完成“四个被测旗舰家族 100% 全部诊断、定位并修通”的终极闭环，我们在最新的 <b>2026 旗舰架构 <code>HunyuanVideo-1.5</code></b>（54 层双流 MM-DiT、<code>Qwen2.5-VL + ByT5 + SigLIP</code>、32 通道 VAE、<code>shift=7.0</code>）上仅微调 <b>0.345%</b> 权重。结果与前三套架构完全一致：<b>底 80% 噪声空间（<code>σ&lt;0.80</code>）严格零作用（20/20 全平）</b>，仅开启高噪 <code>σ≥0.80</code> 就拿下全部治愈且锐度高于全步微调，同时再次复现“最后三分之一深层块完全语义失活”。在 <code>Wan2.2-27B</code> 上补充的等参数 2×2 模块因果消融进一步证明：2D 语法真正住在 <b>V/O 速度投影</b> 与 <b>文本交叉注意力（Attn2）</b> 中，而非 Q/K 路由或视频自注意力（Attn1）。</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-1.5 · S3 暗化眼神+额头阴影（角色 01）</span>
+        <span class="badge ok">原版全黑剪影 · 本文保发色微笑</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_01_anime.png" alt="char 01" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>HunyuanVideo-1.5</code>（54L, shift=7.0）｜ <b>视频：</b>左 <code>原版 54L</code> vs 右 <code>本文 0.35% LoRA</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp ominous dark shadow across upper forehead, mouth frozen in calm smile.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/hy15_01_S3_base_vs_full.mp4"></video>
+        <p class="note">原版 54L 瞬间把粉发少女抹成漆黑无脸黑影；微调仅 0.35% 参数后彻底消除全局黑屏，保住明亮发色、制服与微笑。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-1.5 · 因果对照：底 80%（σ&lt;0.80）vs 顶 20%（σ≥0.80）</span>
+        <span class="badge ok">四架构普适噪声律实锤</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_01_anime.png" alt="char 01" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>HunyuanVideo-1.5</code>（同一个 LoRA）｜ <b>视频：</b>左 <code>仅低噪 σ&lt;0.80</code> vs 右 <code>仅高噪 σ≥0.80</code></div>
+            <span class="prompt-code">Prompt: Eye highlights vanish + sharp ominous dark shadow across upper forehead, mouth frozen in calm smile.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/hy15_01_S3_lt800_vs_ge800.mp4"></video>
+        <p class="note">同一个 LoRA 仅在低噪阶段启用与原版漆黑黑屏像素级一致；仅在高噪 <code>σ≥0.80</code> 启用即完成全部治愈且线条更锐利。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-1.5 · G2 额头半透明阴沉阴影（角色 00）</span>
+        <span class="badge ok">原版 100% 拒画 · 本文竖线阴影</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>HunyuanVideo-1.5</code>（54L）｜ <b>视频：</b>左 <code>原版 54L</code> vs 右 <code>本文 0.35% LoRA</code></div>
+            <span class="prompt-code">Prompt: Translucent slate-blue 2D anime gloom shadow band with fine vertical ink lines across upper forehead, hair and smile unchanged.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/hy15_00_G2_base_vs_full.mp4"></video>
+        <p class="note">原版 54L 完全拒画、毫无变化；本文稳定生成带竖线排线的半透明动漫阴沉影，不污染背景与微笑。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">HunyuanVideo-1.5 · G3 太阳穴青筋弹出 💢（角色 00）</span>
+        <span class="badge ok">告别巨型红十字贴纸 · 精准白边 💢</span>
+      </div>
+      <div class="card-body">
+        <div class="meta-box">
+          <img class="inp-thumb" src="flagship_media/input_00_anime.png" alt="char 00" />
+          <div class="meta-txt">
+            <div class="meta-row"><b>模型：</b><code>HunyuanVideo-1.5</code>（54L）｜ <b>视频：</b>左 <code>原版 54L</code> vs 右 <code>本文 0.35% LoRA</code></div>
+            <span class="prompt-code">Prompt: Classic stylized red cross-shaped anime anger vein symbol pops onto upper temple and pulses while holding a polite smile.</span>
+          </div>
+        </div>
+        <video controls loop muted playsinline preload="metadata" src="flagship_media/hy15_00_G3_base_vs_full.mp4"></video>
+        <p class="note">原版在刘海上贴出一块巨型医疗红十字；本文在太阳穴位置干净弹出精致白边二次元青筋符号。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="honest">
+    <h3>四大旗舰架构全闭环总结与诚实边界</h3>
+    <ul>
+      <li><b>4 / 4 独立旗舰架构 × 4 套流匹配调度器全闭环：</b><code>Wan2.2-27B MoE</code>（shift=3.0）、<code>LTX-Video-0.9.7 13B 单体</code>（lin-quad）、<code>HunyuanVideo-I2V 13B MM-DiT</code>（shift=17.0）与最新 <code>HunyuanVideo-1.5 54L</code>（shift=7.0）全部完成“诊断 → 三轴机制定位 → 轻量修复 → 零样本泛化与稳定性验证”。</li>
+      <li><b>三轴因果定位全部实证闭环：</b>① <b>噪声轴</b>：四架构统一服从 <code>σ≥0.80</code>（底 80% 噪声严格零作用）；② <b>模块轴</b>：等参数因果消融证明由 <code>V/O</code> 速度投影与文本交叉注意力 <code>Attn2</code> 主导（<code>Q/K</code> 与自注意力 <code>Attn1</code> 均不显著）；③ <b>深度轴</b>：四架构的最后三分之一深层块全部语义失活，真正语义瓶颈在 MoE/双流前部或深层架构中部。</li>
+      <li><b>诚实边界：</b>极端大眼特写角色的纯去高光（<code>G1</code>）在尾帧仍偶有轻微虹膜偏暗；跨裁判交叉复核也发现，较弱的视觉模型裁判（如 14B 或上一代 32B）在大结构修复、噪声律与身份保持上高度一致，但在“3D 塑料发卡 vs 2D 青筋”这类细粒度动漫伪影上辨识力不足，因此必须结合客观像素指标与可播放视频共同评估。</li>
+    </ul>
+  </div>
+
+  <footer>
+    本地实时汇报页 · 数据目录 <code>reports/academic_research/flagship_media/</code> · 全部视频均为真实 H.264 编码推理产出，无任何人工后期修图。
+  </footer>
+</div>
+
+<script>
+const REGIMES = [
+  {
+    key: "S3_NonBioAffect", title: "S3 暗化眼神 + 额头阴影（保持微笑）", tag: "核心修复", cls: "ok", dom: "anime",
+    prompt: "Eye highlights vanish leaving hollow dark lifeless eyes while sharp dark shadow falls across upper forehead, mouth frozen in calm smile.",
+    desc: "原版把整张图熄灯黑化成恶魔/骷髅；本文精准保留明亮发色与微笑，只在额头与眼神施加动漫阴沉语法。"
+  },
+  {
+    key: "C1_Comp_HeadTurn_Shadow", title: "C1 未见组合：3D 顺滑转头 + 额头阴影", tag: "训练从未见过组合", cls: "ok", dom: "anime",
+    prompt: "Smoothly turns head to 3/4 profile with calm smile while eye highlights vanish and translucent 2D anime gloom shadow falls strictly on upper forehead.",
+    desc: "训练集中转头与阴影从未同时出现。本文在流畅 3D 转头的同时把动漫阴沉影自然贴合在侧脸额头上。"
+  },
+  {
+    key: "C2_Comp_HeadTurn_Vein", title: "C2 未见组合：3D 顺滑转头 + 十字青筋 💢", tag: "训练从未见过组合", cls: "ok", dom: "anime",
+    prompt: "Smoothly turns head to 3/4 profile holding polite smile while classic red 2D anime anger vein symbol pops onto upper forehead temple.",
+    desc: "原版画出紫色头发或塑料发卡；本文一边完成 3D 转头，一边把红十字青筋稳稳钉在转过去的太阳穴上。"
+  },
+  {
+    key: "G3_AngerVein_Pop", title: "G3 太阳穴红十字青筋弹出并搏动 💢", tag: "2D 视觉符号", cls: "ok", dom: "anime",
+    prompt: "Bright flat 2D anime, polite smile as classic stylized red cross-shaped anime anger vein symbol pops onto upper forehead temple and pulses.",
+    desc: "彻底告别 3D 塑料发卡与血痕，生成动画广播级的弹性弹出与双拍搏动青筋。"
+  },
+  {
+    key: "G4_SweatDrop_Slide", title: "G4 固定形状漫画大汗滴滑落 💧", tag: "2D 视觉符号", cls: "ok", dom: "anime",
+    prompt: "Bright flat 2D anime, awkward smile as a single large translucent blue comic sweat drop appears beside temple and slides gently downward.",
+    desc: "告别拉丝蓝粘液与满屏漂浮肥皂泡，生成刚性不变形的单颗高光蓝汗滴并沿脸侧平滑下滑。"
+  },
+  {
+    key: "G1_HighlightOff_Only", title: "G1 仅消除眼中白色高光点（Clean v2）", tag: "v2 已修复黑洞眼", cls: "ok", dom: "anime",
+    prompt: "Bright even lighting, ONLY small white specular highlight dots inside both open eyes fade away leaving flat matte irises, eyes open and bright hair unchanged.",
+    desc: "v2 纯高光点消除版在角色 00–02 上保住彩色虹膜并干净熄灭高光；角色 03（极端特写大眼）也已保住深蓝虹膜结构，不再塌成纯黑空洞。"
+  },
+  {
+    key: "G2_ForeheadShadow_Clean", title: "G2 额头半透明阴沉阴影 + 竖线（Clean v2）", tag: "v2 零白底溢出", cls: "ok", dom: "anime",
+    prompt: "Bright daylight, stylized translucent slate-blue 2D anime gloom shadow band with fine vertical ink lines across upper forehead, hair and smile unchanged.",
+    desc: "原版画成不透明灰纸板或把金发染成蓝绿色；v2 前景轮廓裁切版还原锐利竖线半透明阴沉影，且彻底消除向白色背景的溢出。"
+  },
+  {
+    key: "S1_Safety_RealHeadTurn", title: "S1 安全对照：真实人类照片 3D 转头", tag: "零遗忘安全校验", cls: "ok", dom: "real",
+    prompt: "The photorealistic human smoothly turns their head from front view to a three-quarter side profile while gently smiling, fluid natural motion.",
+    desc: "加入 14B MoE LoRA 后，真实人类视频的画质、光影、肤质和 3D 转头运动与原版 27B 几乎完全一致，无任何动漫污染或遗忘。"
+  }
+];
+
+function selectChar(cid, btn){
+  document.querySelectorAll('#charTabs .tab').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const grid = document.getElementById('pairGrid');
+  grid.innerHTML = REGIMES.map(r => {
+    const imgSrc = `flagship_media/input_${cid}_${r.dom}.png`;
+    const vidSrc = `flagship_media/showcase6_v2_base_vs_ours_${cid}_${r.key}.mp4`;
+    return `
+      <div class="card">
+        <div class="card-head">
+          <span class="card-title">${r.title}</span>
+          <span class="badge ${r.cls}">${r.tag}</span>
+        </div>
+        <div class="card-body">
+          <div class="meta-box">
+            <img class="inp-thumb" src="${imgSrc}" alt="input ${cid}" />
+            <div class="meta-txt">
+              <div class="meta-row"><b>输入图：</b>未见角色 <code>${cid}</code>（${r.dom==='real'?'真实人像':'2D 动漫'}）｜ <b>视频：</b>左 <code>原版 27B</code> vs 右 <code>本文 Clean v2 Dual-MoE LoRA</code></div>
+              <span class="prompt-code">Prompt: ${r.prompt}</span>
+            </div>
+          </div>
+          <video controls loop muted playsinline preload="metadata" src="${vidSrc}"></video>
+          <p class="note">${r.desc}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleAllVideos(play){
+  document.querySelectorAll('video').forEach(v => {
+    if(play){ v.play().catch(()=>{}); } else { v.pause(); }
+  });
+}
+
+selectChar('00', document.querySelector('#charTabs .tab'));
+</script>
+</body>
+</html>

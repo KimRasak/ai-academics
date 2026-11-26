@@ -1,0 +1,11 @@
+# Generated experiment media, figures, and visual showcases
+figures/
+flagship_media/
+experiments/figures/
+experiments/pilot_p6_out/stimuli/
+**/*.mp4
+**/*.wav
+**/*.pt
+**/*.pth
+**/*.ckpt
+**/*.safetensors
